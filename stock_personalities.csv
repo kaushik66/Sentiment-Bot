@@ -1,0 +1,11 @@
+Ticker,NSR,News_Days_Count,Type
+AMZN,4.28,9,Calculated
+GLD,3.74,7,Calculated
+IOVA,4.32,27,Calculated
+META,5.0,11,Calculated
+MSTR,3.17,12,Calculated
+NVDA,1.5,2,Default (Quiet)
+PATH,3.71,29,Calculated
+SLV,2.63,10,Calculated
+SPY,5.0,5,Calculated
+T,4.14,11,Calculated
