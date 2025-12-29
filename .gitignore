@@ -1,0 +1,38 @@
+# Python virtual environment
+venv/
+env/
+ENV/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Data files
+*.csv
+*.json
+reddit_samples.json
+sentiment_results.csv
+news_signals.csv
+stooq_history.csv
+stock_personalities.csv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Model cache (HuggingFace)
+.cache/
+*.bin
+*.safetensors
+
+# Logs
+*.log
