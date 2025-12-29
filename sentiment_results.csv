@@ -1,11 +1,10 @@
 Date,Ticker,Title,Sentiment_Score,Impact_Score_x,Category_x,News_Score,Weighted_Score,NSR,Volatility,Impact_Score_y,Category_y,Trend_Price,Predicted_Price,Risk_Level,Note
-2025-12-27,T,11k to 86k YoY thanks to Silver and Gold...,0.5862,0.0,,0.0,0.5862,4.14,0.0122,0.0,None,25.64,25.83,Normal,Reddit Only
-2025-12-27,NVDA,NVDA 12/26 $190 Calls – Expiration Lottos Saved by...,0.5162,0.0,,0.8171,0.7268,1.5,0.0222,1.0,Extreme Sentiment (Override),186.47,190.98,Normal,News: Extreme Sentiment (Override) (Imp 1.0)
-2025-12-27,GLD,"Hit my first five figure day gain right now, thank...",0.5022,0.0,,0.0,0.5022,3.74,0.013,0.0,None,394.71,397.29,Normal,Reddit Only
-2025-12-27,T,I think I’ve hit the final straw. Don’t know how m...,-0.3582,0.0,,0.0,-0.3582,4.14,0.0122,0.0,None,25.64,25.53,Normal,Reddit Only
-2025-12-26,SLV,SLV gang where are you at?...,-0.0789,0.0,,0.0,-0.0789,2.63,0.0236,0.0,None,51.04,50.94,Normal,Reddit Only
-2025-12-26,T,How many of you regards are straight up leaving tr...,-0.0822,0.0,,0.0,-0.0822,4.14,0.0122,0.0,None,25.67,25.64,Normal,Reddit Only
-2025-12-27,SPY,Hit 10K YTD profit...,0.4421,0.0,,0.0,0.4421,5.0,0.0072,0.0,None,676.78,678.93,Normal,Reddit Only
-2025-12-26,SLV,"""Ur so fkn regarded it hurts"" regards stack bread...",0.0547,0.0,,0.0,0.0547,2.63,0.0236,0.0,None,51.04,51.1,Normal,Reddit Only
-2025-12-27,PATH,$65K YOLO on PATH...,0.186,0.0,,0.0,0.186,3.71,0.0492,0.0,None,16.77,16.92,Normal,Reddit Only
-2025-12-26,IOVA,IOVA gains 🚀🚀🚀...,0.084,0.0,,0.0,0.084,4.32,0.0544,0.0,None,-0.45,-0.45,Normal,Reddit Only
+2025-12-29,T,I don’t recommend 0dte gambles...,0.0178,0.0,,0,0.0178,4.14,0.0122,0.0,None,25.59,25.6,Normal,Reddit Only
+2025-12-28,SLV,$SLV 92%...,0.2424,0.0,,0,0.2424,2.63,0.0236,0.0,None,51.26,51.55,Normal,Reddit Only
+2025-12-28,T,100% Gain YTD - What’s your 2026 pick?...,0.064,0.0,,0,0.064,4.14,0.0122,0.0,None,25.62,25.64,Normal,Reddit Only
+2025-12-27,T,11k to 86k YoY thanks to Silver and Gold...,0.5169,0.0,,0,0.5169,4.14,0.0122,0.0,None,25.64,25.81,Normal,Reddit Only
+2025-12-28,T,The SLV and WBD gains crowd should really be thank...,0.1303,0.0,,0,0.1303,4.14,0.0122,0.0,None,25.62,25.66,Normal,Reddit Only
+2025-12-27,NVDA,NVDA 12/26 $190 Calls – Expiration Lottos Saved by...,0.5173,0.0,,0,0.5173,1.5,0.0222,0.0,None,186.47,188.61,Normal,Reddit Only
+2025-12-27,GLD,"Hit my first five figure day gain right now, thank...",0.5022,0.0,,0,0.5022,3.74,0.013,0.0,None,394.71,397.29,Normal,Reddit Only
+2025-12-27,T,I think I’ve hit the final straw. Don’t know how m...,-0.3582,0.0,,0,-0.3582,4.14,0.0122,0.0,None,25.64,25.53,Normal,Reddit Only
+2025-12-26,SLV,SLV gang where are you at?...,-0.0789,0.0,,0,-0.0789,2.63,0.0236,0.0,None,51.04,50.94,Normal,Reddit Only

@@ -3,34 +3,19 @@ import pandas as pd
 import datetime
 import os
 import json
-from transformers import pipeline
 import argparse
 import re
+import google.generativeai as genai
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
 
 # RSS Feeds
 FEEDS = [
     "https://finance.yahoo.com/news/rssindex",
     "https://www.cnbc.com/id/10000664/device/rss/rss.html",
     "http://feeds.marketwatch.com/marketwatch/topstories/",
-]
-
-# Zero-Shot Labels
-CRITICAL_LABELS = [
-    "New Product or Technology",
-    "Financial Earnings or Guidance",
-    "Merger, Acquisition, or Partnership",
-    "Executive Management Change",
-    "Legal or Regulatory Action",
-    "Scandal, Fraud, or Controversy",
-    "Operational or Security Incident",
-    "Bankruptcy or Restructuring"
-]
-
-NOISE_LABELS = [
-    "Stock Price Prediction",
-    "Analyst Opinion or Upgrade/Downgrade",
-    "Technical Analysis",
-    "General Market News"
 ]
 
 def load_target_tickers(path="stock_personalities.csv"):
@@ -70,40 +55,55 @@ def load_aliases(path="sp500.json"):
             aliases[ticker].append(simple_name)
     return aliases
 
-def get_impact_score(headline, finbert_score, z_classifier):
+def analyze_impact_with_gemini(headline, ticker, model):
     """
-    Determines if news is Critical (1.0) or Noise (0.2).
+    Uses Gemini to analyze headline sentiment and impact.
+    Returns: (sentiment_score, impact_score, category)
     """
-    # 1. Safety Net
-    if abs(finbert_score) > 0.85:
-        return 1.0, "Extreme Sentiment (Override)"
-        
-    # 2. Zero-Shot Classification
-    all_labels = CRITICAL_LABELS + NOISE_LABELS
-    try:
-        result = z_classifier(headline, candidate_labels=all_labels)
-        top_label = result['labels'][0]
-        
-        if top_label in CRITICAL_LABELS:
-            return 1.0, top_label
-        else:
-            return 0.2, top_label
-    except Exception as e:
-        print(f"Zero-shot error: {e}")
-        return 0.2, "Error (Default Noise)"
+    prompt = f"""Analyze this financial news headline for {ticker}:
+"{headline}"
 
-def analyze_news(tickers, output_file, alias_path="sp500.json"):
-    print("--- Mission 2: News Radar (Enhanced + Impact) ---")
+Return JSON with:
+- "sentiment_score": float from -1.0 (very negative) to +1.0 (very positive)
+- "impact_score": Gove increased wightage for actual events and minimum weightage for analyst opinions.
+- "category": brief description of event type
+
+Examples:
+- "Company announces record earnings" -> {{"sentiment_score": 0.9, "impact_score": 1.0, "category": "Financial Earnings"}}
+- "Analyst upgrades stock to buy" -> {{"sentiment_score": 0.7, "impact_score": 0.2, "category": "Analyst Opinion"}}
+"""
+    
+    try:
+        response = model.generate_content(
+            prompt,
+            generation_config={"response_mime_type": "application/json"}
+        )
+        result = json.loads(response.text)
+        return (
+            result.get('sentiment_score', 0.0),
+            result.get('impact_score', 0.5),
+            result.get('category', 'Unknown')
+        )
+    except Exception as e:
+        print(f"Gemini API error: {e}")
+        # Fallback to neutral values
+        return (0.0, 0.5, "API Error")
+
+def analyze_news(tickers, output_file, alias_path="sp500.json", api_key=None):
+    print("--- Mission 2: News Radar (Gemini-Powered) ---")
     print(f"Monitoring feeds for {len(tickers)} tickers: {tickers}")
     
     alias_map = load_aliases(alias_path)
     
-    # Load Models
-    print("Loading FinBERT...")
-    sent_classifier = pipeline("text-classification", model="ProsusAI/finbert", device=-1)
+    # Configure Gemini
+    if api_key:
+        genai.configure(api_key=api_key)
+    else:
+        print("Warning: No API key provided. Set GEMINI_API_KEY environment variable.")
+        genai.configure(api_key=os.environ.get('GEMINI_API_KEY', ''))
     
-    print("Loading Zero-Shot Classifier (BART)...")
-    z_classifier = pipeline("zero-shot-classification", model="facebook/bart-large-mnli", device=-1)
+    model = genai.GenerativeModel('models/gemini-2.5-flash')
+    print("Gemini configured.")
     
     news_signals = []
     
@@ -113,14 +113,14 @@ def analyze_news(tickers, output_file, alias_path="sp500.json"):
             feed = feedparser.parse(url)
             for entry in feed.entries:
                 title = entry.title
-                matched_ticker = None
+                matched_tickers = []
                 
-                # Check tickers
+                # Check all tickers in the headline
                 for t in tickers:
                     is_match = False
                     match_source = ""
                     
-                    pattern_ticker = r"(?<!['’])\b" + re.escape(t) + r"\b(?!['’])"
+                    pattern_ticker = r"(?<![''])\b" + re.escape(t) + r"\b(?![''])"
                     if len(t) == 1:
                         if re.search(pattern_ticker, title):
                             is_match = True; match_source = "Symbol"
@@ -136,26 +136,21 @@ def analyze_news(tickers, output_file, alias_path="sp500.json"):
                                 break
                     
                     if is_match:
-                        matched_ticker = t
-                        print(f"MATCH: {matched_ticker} [{match_source}] in '{title}'")
-                        break
+                        matched_tickers.append((t, match_source))
                 
-                if matched_ticker:
-                    # Sentiment
-                    res = sent_classifier(title)
-                    label = res[0]['label']
-                    score = res[0]['score']
-                    final_score = score if label == 'positive' else -score if label == 'negative' else 0.0
+                # Process each matched ticker
+                for ticker, match_source in matched_tickers:
+                    print(f"MATCH: {ticker} [{match_source}] in '{title}'")
                     
-                    # Impact
-                    impact, category = get_impact_score(title, final_score, z_classifier)
-                    print(f" -> Category: {category} | Impact: {impact}")
+                    # Analyze with Gemini
+                    sentiment, impact, category = analyze_impact_with_gemini(title, ticker, model)
+                    print(f" -> Sentiment: {sentiment:.2f} | Impact: {impact} | Category: {category}")
                     
                     news_signals.append({
                         "Date": datetime.datetime.now().strftime('%Y-%m-%d'),
-                        "Ticker": matched_ticker,
+                        "Ticker": ticker,
                         "Headline": title,
-                        "News_Score": round(final_score, 4),
+                        "News_Score": round(sentiment, 4),
                         "Impact_Score": impact,
                         "Category": category,
                         "Source": url
@@ -167,11 +162,10 @@ def analyze_news(tickers, output_file, alias_path="sp500.json"):
     results_df = pd.DataFrame(news_signals)
     if results_df.empty:
         print("No matches finding in current news cycle for watched tickers.")
-        # Ensure correct columns exist even if empty
         results_df = pd.DataFrame(columns=["Date", "Ticker", "Headline", "News_Score", "Impact_Score", "Category", "Source"])
     else:
         print(f"Found {len(results_df)} news signals.")
-        print(results_df.head())
+        print(results_df[['Ticker', 'News_Score', 'Impact_Score', 'Category']].head())
         
     results_df.to_csv(output_file, index=False)
     print(f"Saved to {output_file}")
@@ -181,10 +175,11 @@ if __name__ == "__main__":
     parser.add_argument("--tickers", default="stock_personalities.csv", help="Source of tickers to watch")
     parser.add_argument("--output", default="news_signals.csv", help="Output file")
     parser.add_argument("--aliases", default="sp500.json", help="Alias mapping file")
+    parser.add_argument("--api-key", help="Gemini API key (or set GEMINI_API_KEY env var)")
     args = parser.parse_args()
     
     targets = load_target_tickers(args.tickers)
     if not targets:
         targets = ["AAPL", "AMZN", "TSLA", "NVDA", "MSFT"]
         
-    analyze_news(targets, args.output, args.aliases)
+    analyze_news(targets, args.output, args.aliases, args.api_key)

@@ -1,6 +1,5 @@
 Date,Ticker,Headline,News_Score,Impact_Score,Category,Source
-2025-12-27,NVDA,"Nvidia Stock Is ‘Ripe’ for Gains in 2026, According to This Top Analyst",0.7191,0.2,Stock Price Prediction,https://finance.yahoo.com/news/rssindex
-2025-12-27,NVDA,"Dow Jones Futures: Tesla, Nvidia Lead 5 Giants In Buy Areas; Market Strong As 2025 Wanes",0.9365,1.0,Extreme Sentiment (Override),https://finance.yahoo.com/news/rssindex
-2025-12-27,NVDA,"Palantir, Nvidia Lead 5 Stocks Near Buy Points Heading Into Final Days Of 2025",0.8204,0.2,Stock Price Prediction,https://finance.yahoo.com/news/rssindex
-2025-12-27,NVDA,Nvidia's Groq deal underscores how the AI chip giant uses its massive balance sheet to 'maintain dominance',0.7923,1.0,"Merger, Acquisition, or Partnership",https://finance.yahoo.com/news/rssindex
-2025-12-27,AMZN,"Startup backed by Altman, JPMorgan announces capital lending partnership with Amazon",0.7121,0.2,Analyst Opinion or Upgrade/Downgrade,https://www.cnbc.com/id/10000664/device/rss/rss.html
+2025-12-29,NVDA,Nvidia takes $5 billion stake in Intel under September agreement,0.4,1.0,Strategic Investment,https://finance.yahoo.com/news/rssindex
+2025-12-29,META,"I Don’t Like to Bet Against Meta (META) CEO Mark Zuckerberg, Says Jim Cramer",0.85,0.2,Analyst Opinion,https://finance.yahoo.com/news/rssindex
+2025-12-29,NVDA,"CoreWeave (CRWV)’s Really Important to NVIDIA, Says Jim Cramer",0.7,0.2,Analyst Opinion,https://finance.yahoo.com/news/rssindex
+2025-12-29,AMZN,"Startup backed by Altman, JPMorgan announces capital lending partnership with Amazon",0.8,1.0,Strategic Partnership,https://www.cnbc.com/id/10000664/device/rss/rss.html
