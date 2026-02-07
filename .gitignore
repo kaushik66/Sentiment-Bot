@@ -44,5 +44,6 @@ __pycache__/
 .DS_Store
 venv/
 .env
+frontend-react/.env
 data/
 misc/
