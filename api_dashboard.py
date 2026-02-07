@@ -326,7 +326,11 @@ def generate_dashboard():
     with open(OUTPUT_FILE, 'w') as f:
         json.dump(payload, f, indent=2)
 
-    # Save JS for frontend (Bypasses CORS for local viewing)
+    # Save JS for frontend (Create dir if missing)
+    frontend_dir = os.path.dirname(FRONTEND_JS_FILE)
+    if not os.path.exists(frontend_dir):
+        os.makedirs(frontend_dir, exist_ok=True)
+
     with open(FRONTEND_JS_FILE, 'w') as f:
         json_str = json.dumps(payload, indent=2)
         f.write(f"const DASHBOARD_DATA = {json_str};")
@@ -335,4 +339,10 @@ def generate_dashboard():
     print(f"✅ Frontend Data updated at {FRONTEND_JS_FILE}")
     
 if __name__ == "__main__":
-    generate_dashboard()
+    try:
+        generate_dashboard()
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        print(f"❌ FATAL ERROR: {e}")
+        exit(1)
