@@ -89,7 +89,9 @@ def fetch_market_data(tickers):
     stock_map = {}
     print(f"   Fetching history for {len(tickers)} stocks...")
     
-    print(f"   Fetching history for {len(tickers)} stocks...")
+    # Ensure cache directory exists
+    if not os.path.exists(CACHE_DIR):
+        os.makedirs(CACHE_DIR)
     
     for ticker in tickers:
         try:
