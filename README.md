@@ -1,132 +1,159 @@
-# Sentiment Bot
+# Sentiment Bot 🤖📈
 
-A sophisticated sentiment analysis pipeline that processes Reddit posts, analyzes stock sentiment using FinBERT, correlates with price movements, and predicts potential breakouts using **Google Gemini AI** for news impact classification.
+A sophisticated AI-powered stock analysis platform that combines technical analysis with advanced sentiment analysis using **Google Gemini Pro** and **FinBERT**. The system features a real-time React dashboard, automated daily data refresh via GitHub Actions, and an integrated trading portfolio simulator.
 
-## Features
+![Dashboard Preview](frontend-react/public/vite.svg)
 
-- **Reddit Scraping**: Extracts stock mentions from r/wallstreetbets
-- **Sentiment Analysis**: Uses FinBERT to analyze sentiment scores
-- **News Radar**: Monitors RSS feeds (Yahoo Finance, CNBC, MarketWatch) with Gemini-powered impact classification
-- **Price Prediction**: Polynomial regression + volatility-adjusted sentiment model
-- **News Impact Classifier**: Distinguishes "hard news" (mergers, earnings) from "noise" (analyst chatter)
-- **Stock Personality Engine**: Calculates News Sensitivity Ratio (NSR) for each stock
+## 🚀 Key Features
 
-## Installation
+- **AI News Radar**: Monitors RSS feeds (Yahoo Finance, CNBC, etc.) and uses **Gemini 1.5 Flash** to classify news impact (Critical vs. Noise) and sentiment.
+- **Technical Analysis**: Automated pattern recognition, RSI divergence, and volatility analysis.
+- **Predictive Engine**: Integrates technicals and sentiment to flag "Bullish Breakout", "Bearish Dump", or "Divergence" opportunities.
+- **Interactive Dashboard**: Modern React-based UI with real-time price updates (via Tiingo IEX), interactive charts, and sector heatmaps.
+- **Portfolio Simulator**: Paper trading engine with portfolio tracking, unrealized P&L, and transaction history.
+- **Automated Cloud Operations**: GitHub Actions workflow refreshes analysis data daily at market open (09:00 UTC).
+
+## 🛠️ Architecture
+
+- **Backend**: Flask (Python)
+- **Frontend**: React + Vite + TailwindCSS
+- **Database**: Firebase Firestore (User Data), SQLite (News Cache)
+- **AI Models**: Google Gemini (News), TensorFlow/Keras (Price Prediction)
+- **Data Sources**: Tiingo (Market Data), RSS Feeds (News)
+
+## 📦 Installation & Setup
+
+### Prerequisites
+
+- Python 3.9+
+- Node.js & npm
+- Git
+
+### 1. Clone the Repository
 
 ```bash
-# Clone the repository
 git clone https://github.com/kaushik66/Sentiment-Bot.git
 cd Sentiment-Bot
+```
 
+### 2. Backend Setup
+
+```bash
 # Create virtual environment
 python3 -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+source venv/bin/activate  # Windows: venv\Scripts\activate
 
 # Install dependencies
 pip install -r requirements.txt
 ```
 
-## Configuration
-
-### Gemini API Key (Required for News Analysis)
-
-1. Go to [Google AI Studio](https://aistudio.google.com/app/apikey)
-2. Create a new API key
-3. Set it as an environment variable:
+### 3. Frontend Setup
 
 ```bash
-export GEMINI_API_KEY='your-api-key-here'
+cd frontend-react
+npm install
+npm install -g vite # Optional, if not installed
 ```
 
-Or pass it directly:
+---
+
+## 🔑 Configuration
+
+### Environment Variables
+
+You need to configure API keys for the system to work.
+
+**Backend (`.env` in root):**
+Create a `.env` file in the project root:
+
+```env
+TIINGO_API_KEY=your_tiingo_key
+GEMINI_API_KEY=your_gemini_key
+```
+
+**Frontend (`frontend-react/.env`):**
+Create a `.env` file in `frontend-react/`:
+
+```env
+VITE_FIREBASE_API_KEY=your_firebase_key
+VITE_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
+VITE_FIREBASE_PROJECT_ID=your_project_id
+VITE_FIREBASE_STORAGE_BUCKET=your_storage_bucket
+VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+VITE_FIREBASE_APP_ID=your_app_id
+VITE_FIREBASE_MEASUREMENT_ID=your_measurement_id
+```
+
+> **Note:** The `FIREBASE_API_KEY` is also needed environment variable for GitHub Actions if you fork this repo.
+
+---
+
+## 🏃‍♂️ Usage
+
+### Running Locally
+
+1.  **Start the Backend API:**
+
+    ```bash
+    # In project root
+    source venv/bin/activate
+    python backend_api.py
+    # Runs on http://localhost:5001
+    ```
+
+2.  **Start the Frontend:**
+
+    ```bash
+    # In frontend-react/
+    npm run dev
+    # Runs on http://localhost:5173
+    ```
+
+### Manual Data Refresh
+
+To update the dashboard data (prices, news, predictions) manually:
 
 ```bash
-python monitor_rss.py --api-key YOUR_KEY
+python api_dashboard.py
 ```
 
-## Usage
+This generates `dashboard_final.json` and updates `frontend-react/public/dashboard_data.js`.
 
-### Full Pipeline
+---
 
-```bash
-# 1. Scrape Reddit posts
-python scraper.py
+## ☁️ Cloud Deployment (GitHub Actions)
 
-# 2. Analyze sentiment
-python analyze_sentiment.py
+This project includes a **Zero-Config** GitHub Actions workflow (`.github/workflows/daily_refresh.yml`) that runs daily to refresh stock data.
 
-# 3. Fetch price data
-python get_stooq_data.py
+### Setup for Fork/Clone:
 
-# 4. Calculate stock personalities
-python calculate_sensitivity.py
+1.  **Enable Actions**: Go to Settings -> Actions -> General -> "Allow all actions and reusable workflows".
+2.  **Permissions**: Go to Settings -> Actions -> General -> Workflow permissions -> Select **"Read and write permissions"**.
+3.  **Secrets**: Add the following Repository Secrets:
+    - `TIINGO_API_KEY`
+    - `GEMINI_API_KEY`
+    - `FIREBASE_API_KEY`
 
-# 5. Monitor breaking news
-python monitor_rss.py
+The workflow runs automatically at **09:00 UTC**. You can also trigger it manually from the "Actions" tab.
 
-# 6. Generate predictions
-python predict_moves.py
-```
+---
 
-### Output
-
-The pipeline generates several CSV files:
-
-- `sentiment_results.csv`: Final predictions with price targets
-- `news_signals.csv`: Breaking news with impact scores
-- `stock_personalities.csv`: NSR values for each stock
-- `stooq_history.csv`: Historical price data
-
-## Project Structure
+## 📂 Project Structure
 
 ```
-Sentiment Bot/
-├── scraper.py              # Reddit data collection
-├── analyze_sentiment.py    # FinBERT sentiment analysis
-├── monitor_rss.py          # News radar (Gemini-powered)
-├── predict_moves.py        # Price prediction engine
-├── calculate_sensitivity.py # NSR calculation
-├── get_stooq_data.py       # Historical data fetcher
-├── utils.py                # Ticker extraction utilities
-└── context.md              # Phase documentation
+Sentiment-Bot/
+├── api_dashboard.py        # Main Data Refresh Script (Orchestrator)
+├── backend_api.py          # Flask API Server
+├── monitor_news_v2.py      # AI News Agent (Gemini)
+├── trade_engine.py         # Portfolio/Trading Logic
+├── download_sp500_direct.py # Stock Data Downloader
+├── frontend-react/         # React Application source
+├── .github/workflows/      # Cloud Automation
+├── market_cache/           # Cached CSV price data
+├── news_cache.db           # SQLite database for news deduplication
+└── requirements.txt        # Python dependencies
 ```
 
-## Key Concepts
+## 📄 License
 
-### News Sensitivity Ratio (NSR)
-
-Measures how much a stock price moves on news days vs normal days. High NSR stocks (like META: 5.0) react violently to news.
-
-### Impact Classification
-
-Gemini AI classifies news into:
-
-- **Critical (1.0)**: Earnings, mergers, product launches
-- **Noise (0.2)**: Analyst opinions, price predictions
-
-### Prediction Formula
-
-```
-Predicted Price = Trend Price × (1 + (Weighted Sentiment × Volatility × NSR × Impact))
-```
-
-Where:
-
-- **Trend Price**: 3rd-degree polynomial regression on 2-year history
-- **Weighted Sentiment**: 70% news + 30% Reddit (if news exists)
-- **Volatility**: 90-day standard deviation
-- **NSR**: Stock-specific news sensitivity
-- **Impact**: Gemini's classification (0.2 or 1.0)
-
-## License
-
-MIT
-
-## Credits
-
-Built with:
-
-- Google Gemini 1.5 Flash (news classification)
-- FinBERT (sentiment analysis)
-- Stooq (price data)
-- Reddit API (community sentiment)
+MIT License. See [LICENSE](LICENSE) for details.
