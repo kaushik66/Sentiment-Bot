@@ -42,6 +42,5 @@ __pycache__/
 venv/
 .env
 market_cache/
-news_cache.db
 data/
 misc/
