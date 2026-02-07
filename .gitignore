@@ -1,41 +1,47 @@
-# Environment variables
-.env
+# Ignore everything by default
+*
 
-# Python virtual environment
-venv/
-env/
-ENV/
+# Allow directories
+!*/
 
-# Python cache
+# Un-ignore specific essential files (including DB for persistence)
+!news_cache.db
+!backend_auth.py
+!trade_engine.py
+!monitor_news_v2.py
+!api_dashboard.py
+!download_sp500_direct.py
+!utils.py
+
+# Un-ignore essential data/config
+!requirements.txt
+!sp500.json
+!valid_signals.csv
+!README.md
+!.env.example
+!.gitignore
+
+# Un-ignore Models (Essential for inference)
+!models/
+!models/hype_predictor_v3.keras
+
+# Un-ignore Frontend
+!frontend-react/
+!frontend-react/**/*
+
+# Un-ignore Workflows
+!.github/
+!.github/**/*
+
+# Explicitly ignore common junk even if likely covered by *
 __pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-
-# Data files
-*.csv
-*.json
-reddit_samples.json
-sentiment_results.csv
-news_signals.csv
-stooq_history.csv
-stock_personalities.csv
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Model cache (HuggingFace)
-.cache/
-*.bin
-*.safetensors
-
-# Logs
+*.pyc
 *.log
+*.pid
+.DS_Store
+venv/
+.env
+market_cache/
+news_cache.db
+data/
+misc/

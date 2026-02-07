@@ -46,85 +46,18 @@ We need a new script (`get_market_data.py`) to fetch historical price data.
 - **Format:** Daily resolution ('1d'), auto-adjusted (`auto_adjust=True`), unstacked to "Long Format" (Date, Ticker, Close).
 - **Output:** Save to `sp500_history.csv`.
 
-### 2. Prediction Model (The "Slope" Logic)
+## Component: The Correlation Engine (Truth Detector)
 
-We need a new analysis script (`predict_moves.py`) that merges Sentiment Data with Market Data.
+### Objective
+Filter out "Noise Stocks" that do not react to Volume/Sentiment, ensuring the LSTM trades only predictable assets.
 
-- **Inputs:** `reddit_samples.json` (Sentiment) and `sp500_history.csv` (Price).
-- **The Core Feature:** Calculate "Slope Divergence" over a sliding window (e.g., 5 days).
-  - **Slope A (Sentiment):** Linear regression slope of the 'Final Sentiment' score.
-  - **Slope B (Price):** Linear regression slope of the 'Close' price.
-- **The Signal:**
-  - If Sentiment Slope is POSITIVE (> 0.1) ...
-  - AND Price Slope is FLAT/NEGATIVE (< 0.05) ...
-  - THEN Prediction = "Potential Breakout" (The crowd is hyping it, but price hasn't moved yet).
-
-## Phase 3 Specs: Black Swan & News Logic
-
-### 1. The "News Sensitivity" Ratio (NSR)
-
-We need to calculate a "Personality" for each stock based on historical volume.
-
-- **News Day Definition:** Volume > 2.5x the 30-day moving average.
-- **NSR Formula:** (Avg Absolute Return on News Days) / (Avg Absolute Return on Normal Days).
-- **Fallback:** If a stock has no "News Days" in history, default NSR = 1.5.
-
-### 2. The "News Radar" Strategy (Mission 2)
-
-We need a `monitor_rss.py` script to detect breaking news without API limits.
-
-- **Source:** Use `feedparser` library to poll open RSS feeds (Yahoo Finance, CNBC, MarketWatch).
-- **Matching Logic:** "Reverse Search" — scan headlines for Ticker Symbols (or company names) from our `sp500_history.csv`.
-- **Output:** A list of active "News Signals" `{Ticker, Headline, FinBERT_Score}` for the current hour.
-
-### 3. The Prediction Formula
-
-The final price prediction must use this weighted logic:
-$$P_{next} = P_{trend} \times (1 + J)$$
-Where **Shock Factor ($J$)** is:
-$$J = \text{WeightedSentiment} \times \sigma_{daily} \times \text{Multiplier}$$
-
-- **WeightedSentiment:** (0.7 _ NewsScore) + (0.3 _ RedditScore).
-- **Multiplier:** - If `has_breaking_news` is True: Use the stock's specific **NSR**.
-  - If False: Use **1.0**.
-
-## Phase 3.5 Update: News Impact Logic
-
-### 1. The Problem
-
-We need to distinguish between **"Hard Events"** (Signal) and **"Analyst Chatter"** (Noise).
-
-- "NVIDIA launches new GPU" -> High Impact (1.0)
-- "Analyst predicts NVIDIA rise" -> Low Impact (0.2)
-
-### 2. The Solution: Zero-Shot Classification
-
-We will use the `facebook/bart-large-mnli` model to categorize headlines into two buckets.
-
-**Bucket A: CRITICAL LABELS (Impact = 1.0)**
-
-- "New Product or Technology"
-- "Financial Earnings or Guidance"
-- "Merger, Acquisition, or Partnership"
-- "Executive Management Change"
-- "Legal or Regulatory Action"
-- "Scandal, Fraud, or Controversy"
-- "Operational or Security Incident"
-- "Bankruptcy or Restructuring"
-
-**Bucket B: NOISE LABELS (Impact = 0.2)**
-
-- "Stock Price Prediction"
-- "Analyst Opinion or Upgrade/Downgrade"
-- "Technical Analysis"
-- "General Market News"
-
-### 3. The "Safety Net" Rule
-
-If the FinBERT Sentiment Score is **Extreme** (greater than 0.85 or less than -0.85), we **ignore the category** and force **Impact = 1.0**.
-_Reasoning:_ Boring opinion pieces rarely have extreme emotional language. Extreme emotion usually implies a misclassified breaking event.
-
-### 4. The Formula Update
-
-Update the prediction formula in `predict_moves.py` to include this new variable:
-$$ShockFactor = \text{WeightedSentiment} \times \sigma_{daily} \times \text{Multiplier} \times \mathbf{ImpactScore}$$
+### Logic: The "Volume Proxy" Test
+Since historical sentiment text is unavailable, we use **Trading Volume** as a proxy for attention.
+1. **Input:** Historical OHLCV data.
+2. **Feature Engineering:**
+   - **Target (Y):** Future Price Volatility. `(High - Low) / Open`.
+   - **Signal (X):** Volume Z-Score. `(Vol - Mean_30) / Std_30`.
+3. **Statistical Test:** Granger Causality (`statsmodels`).
+   - Test if `Signal(t)` predicts `Target(t+k)` for lags $k \in [1, 2, 3, 4, 5]$.
+   - **Significance:** P-Value must be $< 0.05$.
+4. **Output:** A list of "Reactive" tickers.s
