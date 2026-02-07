@@ -41,7 +41,7 @@ jobs:
 
           # Add files that might have changed
           git add dashboard_final.json
-          git add frontend/dashboard_data.js
+          git add frontend-react/public/dashboard_data.js
           git add live_sentiment.csv
           git add market_cache/
           git add news_cache.db

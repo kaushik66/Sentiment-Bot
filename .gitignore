@@ -9,7 +9,6 @@
 !backend_auth.py
 !trade_engine.py
 !monitor_news_v2.py
-!api_dashboard.py
 !download_sp500_direct.py
 !utils.py
 
@@ -18,6 +17,8 @@
 !sp500.json
 !valid_signals.csv
 !README.md
+!dashboard_final.json
+!live_sentiment.csv
 !.env.example
 !.gitignore
 
@@ -41,6 +42,5 @@ __pycache__/
 .DS_Store
 venv/
 .env
-market_cache/
 data/
 misc/
