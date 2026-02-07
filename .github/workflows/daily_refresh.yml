@@ -39,10 +39,10 @@ jobs:
           git config --global user.name "GitHub Actions Bot"
           git config --global user.email "actions@github.com"
 
-          # Add files that might have changed
-          git add dashboard_final.json
-          git add frontend-react/public/dashboard_data.js
-          git add live_sentiment.csv
+          # Add files that might have changed (force add if ignored)
+          git add -f dashboard_final.json
+          git add -f frontend-react/public/dashboard_data.js
+          git add -f live_sentiment.csv
           git add market_cache/
           git add news_cache.db
 
