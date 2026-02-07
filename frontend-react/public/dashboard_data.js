@@ -1,4 +1,4 @@
-{
+const DASHBOARD_DATA = {
   "last_updated": "2026-02-07 22:50:04",
   "signals": [
     {
@@ -272,4 +272,4 @@
       "Signal": "WAIT"
     }
   ]
-}
+};
