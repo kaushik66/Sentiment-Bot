@@ -1,11 +1,17 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
 
+import json
+from dotenv import load_dotenv
+import os
+
 from functools import lru_cache
 import datetime
 import trade_engine
 import backend_auth
 from flask import request
+
+load_dotenv()
 
 app = Flask(__name__)
 # Enable CORS for all routes (since frontend is file-based or separate)
@@ -122,12 +128,9 @@ def get_dashboard():
 
 def get_live_price(ticker):
     """
-    Robust price fetcher.
-    1. Try using cached dashboard_final.json (Tiingo data)
-    2. Fallback to yfinance if not found or stale
+    Price fetcher:
+    1. Only uses cached dashboard_final.json (Tiingo data) for consistency and to save API calls.
     """
-    import requests
-    import os
     
     try:
         # Method 1: Check existing dashboard cache
@@ -135,37 +138,14 @@ def get_live_price(ticker):
             data = json.load(f)
             for signal in data.get('signals', []):
                 if signal.get('Ticker') == ticker:
-                    if 'Price' in signal and signal['Price']:
-                        return float(signal['Price'])
+                    if 'Price' in signal:
+                         # Handle 0.0 or None prices
+                         p = float(signal['Price'])
+                         if p > 0:
+                             return p
     except Exception as e:
         print(f"Cache miss or error for {ticker}: {e}")
 
-    # Method 2: Tiingo IEX (Real-time fallback)
-    try:
-        api_key = os.environ.get('TIINGO_API_KEY')
-        if not api_key:
-            print("TIINGO_API_KEY missing for live price fetch")
-            return None
-            
-        url = f"https://api.tiingo.com/iex/{ticker}"
-        headers = {'Content-Type': 'application/json'}
-        params = {'token': api_key}
-        
-        response = requests.get(url, params=params, headers=headers, timeout=5)
-        if response.status_code == 200:
-            data = response.json()
-            if data and isinstance(data, list):
-                # Tiingo IEX returns a list: [{"tngoLast": 123.45, ...}]
-                price = data[0].get('tngoLast') or data[0].get('last')
-                if price:
-                    return float(price)
-            elif data and isinstance(data, dict):
-                 # Handle potential error or diff format
-                 pass
-                 
-    except Exception as e:
-        print(f"Tiingo Price fetch error for {ticker}: {e}")
-        
     return None
 
 @app.route('/api/portfolio', methods=['GET'])

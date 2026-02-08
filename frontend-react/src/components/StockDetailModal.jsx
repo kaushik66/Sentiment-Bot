@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import { X, ExternalLink, TrendingUp, TrendingDown, Info } from 'lucide-react';
+import { X, ExternalLink, TrendingUp, TrendingDown, Info, Briefcase } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 
 const StockDetailModal = ({ isOpen, onClose, stock }) => {
@@ -274,14 +274,16 @@ const StockDetailModal = ({ isOpen, onClose, stock }) => {
             /* Trade Tab Content */
             <div className="flex flex-col gap-6 py-4">
               {/* Balance Info */}
+              {/* Balance Info -> Shares Owned */}
               <div className="bg-gray-800/50 p-6 rounded-xl border border-gray-700/50 flex justify-between items-center">
                 <div>
-                  <p className="text-gray-400 text-sm">Buying Power</p>
-                  <p className="text-2xl font-bold text-white">${portfolio?.cash?.toLocaleString('en-US', { minimumFractionDigits: 2 }) || '100,000.00'}</p>
+                  <p className="text-gray-400 text-sm">Shares Owned</p>
+                  <p className="text-3xl font-bold text-white">
+                    {portfolio?.holdings?.find(h => h.ticker === stock.Ticker)?.quantity || 0}
+                  </p>
                 </div>
                 <div className="text-right">
-                  <p className="text-gray-400 text-sm">Portfolio Value</p>
-                  <p className="text-xl font-bold text-blue-400">${portfolio?.total_portfolio_value?.toLocaleString('en-US', { minimumFractionDigits: 2 }) || '100,000.00'}</p>
+                  <Briefcase className="text-blue-500 opacity-20" size={48} />
                 </div>
               </div>
 
