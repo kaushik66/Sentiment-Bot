@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-02-08 08:43:10",
+  "last_updated": "2026-02-08 09:21:06",
   "signals": [
     {
       "Ticker": "A",
@@ -14,17 +14,17 @@
     {
       "Ticker": "AAPL",
       "Price": 278.12,
-      "LSTM_Confidence": 0.71,
+      "LSTM_Confidence": 0.7,
       "News_Sentiment": 0.0,
       "News_Impact": 0.0,
       "Headline": "No significant news",
       "URL": "#",
-      "Signal": "VOLATILITY_WATCH"
+      "Signal": "WAIT"
     },
     {
       "Ticker": "ABNB",
       "Price": 122.18,
-      "LSTM_Confidence": 0.78,
+      "LSTM_Confidence": 0.76,
       "News_Sentiment": 0.0,
       "News_Impact": 0.0,
       "Headline": "No significant news",
@@ -34,7 +34,7 @@
     {
       "Ticker": "ABT",
       "Price": 110.83,
-      "LSTM_Confidence": 0.85,
+      "LSTM_Confidence": 0.84,
       "News_Sentiment": 0.0,
       "News_Impact": 0.0,
       "Headline": "No significant news",
@@ -44,7 +44,7 @@
     {
       "Ticker": "ADBE",
       "Price": 268.38,
-      "LSTM_Confidence": 0.77,
+      "LSTM_Confidence": 0.75,
       "News_Sentiment": 0.0,
       "News_Impact": 0.0,
       "Headline": "No significant news",
@@ -64,17 +64,17 @@
     {
       "Ticker": "AFL",
       "Price": 117.15,
-      "LSTM_Confidence": 0.73,
-      "News_Sentiment": 0.0,
-      "News_Impact": 0.0,
-      "Headline": "No significant news",
-      "URL": "#",
-      "Signal": "VOLATILITY_WATCH"
+      "LSTM_Confidence": 0.72,
+      "News_Sentiment": -0.7,
+      "News_Impact": 0.5,
+      "Headline": "Scam Season Hits the AFL and NRL Finals - TrendMicro",
+      "URL": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNcnMtdklUOVZXMXFPdWFzM2FKbU9DZzVTT1BPUXpvZmxkd0FvdG9OMk9vMzUtRnhhd293M3k5NDJWRW1PVklzQUlKcERhTU5LZmowUHoxbVBZaGUxWUZBb09fb0hOakJBNjh3UjdCZXZ4VWl1Qi1RMG1UUThwdWU4X2ZDNXJoSUlVQzVSRHFR?oc=5",
+      "Signal": "BEARISH_DUMP"
     },
     {
       "Ticker": "AIG",
       "Price": 76.72,
-      "LSTM_Confidence": 0.74,
+      "LSTM_Confidence": 0.72,
       "News_Sentiment": 0.0,
       "News_Impact": 0.0,
       "Headline": "No significant news",
@@ -84,7 +84,7 @@
     {
       "Ticker": "AKAM",
       "Price": 95.08,
-      "LSTM_Confidence": 0.75,
+      "LSTM_Confidence": 0.74,
       "News_Sentiment": 0.0,
       "News_Impact": 0.0,
       "Headline": "No significant news",
@@ -94,7 +94,7 @@
     {
       "Ticker": "ALB",
       "Price": 163.37,
-      "LSTM_Confidence": 0.62,
+      "LSTM_Confidence": 0.57,
       "News_Sentiment": 0.0,
       "News_Impact": 0.0,
       "Headline": "No significant news",
@@ -104,7 +104,7 @@
     {
       "Ticker": "ALGN",
       "Price": 187.6,
-      "LSTM_Confidence": 0.76,
+      "LSTM_Confidence": 0.75,
       "News_Sentiment": 0.0,
       "News_Impact": 0.0,
       "Headline": "No significant news",
@@ -114,7 +114,7 @@
     {
       "Ticker": "AMAT",
       "Price": 322.51,
-      "LSTM_Confidence": 0.74,
+      "LSTM_Confidence": 0.73,
       "News_Sentiment": 0.0,
       "News_Impact": 0.0,
       "Headline": "No significant news",
@@ -124,7 +124,7 @@
     {
       "Ticker": "AMCR",
       "Price": 48.17,
-      "LSTM_Confidence": 0.59,
+      "LSTM_Confidence": 0.56,
       "News_Sentiment": 0.0,
       "News_Impact": 0.0,
       "Headline": "No significant news",
@@ -139,12 +139,12 @@
       "News_Impact": 0.0,
       "Headline": "No significant news",
       "URL": "#",
-      "Signal": "DIVERGENCE_WATCH"
+      "Signal": "VOLATILITY_WATCH"
     },
     {
       "Ticker": "AME",
       "Price": 231.91,
-      "LSTM_Confidence": 0.69,
+      "LSTM_Confidence": 0.67,
       "News_Sentiment": 0.0,
       "News_Impact": 0.0,
       "Headline": "No significant news",
@@ -164,7 +164,7 @@
     {
       "Ticker": "AOS",
       "Price": 78.98,
-      "LSTM_Confidence": 0.7,
+      "LSTM_Confidence": 0.69,
       "News_Sentiment": 0.0,
       "News_Impact": 0.0,
       "Headline": "No significant news",
@@ -184,7 +184,7 @@
     {
       "Ticker": "APD",
       "Price": 283.12,
-      "LSTM_Confidence": 0.65,
+      "LSTM_Confidence": 0.64,
       "News_Sentiment": 0.0,
       "News_Impact": 0.0,
       "Headline": "No significant news",
@@ -195,16 +195,16 @@
       "Ticker": "APO",
       "Price": 133.03,
       "LSTM_Confidence": 0.79,
-      "News_Sentiment": 0.0,
-      "News_Impact": 0.0,
-      "Headline": "No significant news",
-      "URL": "#",
-      "Signal": "VOLATILITY_WATCH"
+      "News_Sentiment": 0.8,
+      "News_Impact": 0.7,
+      "Headline": "Apo and A\u03b246-bound \u03b3-secretase structures provide insights into amyloid-\u03b2 processing by the APH-1B isoform - Nature",
+      "URL": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1VUjVXX0FBaFZ5UmZOa0RMNE9EU05KSk12WEg0aThaOVpQSC0xREU0UXd0QTFjVEhRQ1VHcFl2SFpVcGNWZHFCVjBQTWdycUxpYUZUcEQ2SWVKbGtTUU9z?oc=5",
+      "Signal": "BULLISH_BREAKOUT"
     },
     {
       "Ticker": "APP",
       "Price": 406.72,
-      "LSTM_Confidence": 0.76,
+      "LSTM_Confidence": 0.75,
       "News_Sentiment": 0.0,
       "News_Impact": 0.0,
       "Headline": "No significant news",
@@ -214,17 +214,17 @@
     {
       "Ticker": "APTV",
       "Price": 82.38,
-      "LSTM_Confidence": 0.69,
+      "LSTM_Confidence": 0.67,
       "News_Sentiment": 0.0,
-      "News_Impact": 0.0,
-      "Headline": "No significant news",
-      "URL": "#",
+      "News_Impact": 0.2,
+      "Headline": "APTV or ATMU: Which Is the Better Value Stock Right Now? - Yahoo Finance",
+      "URL": "https://news.google.com/rss/articles/CBMif0FVX3lxTE50c3lTd1pvdFZ3RzljUXBwUDNRNVljT1JVcjVfWnZwTTRqbnRyamdvNG1sYTJKTzBUOWVIVm4xZE43S041YlZUV2ZlM1dtMTA3azJSOUIzNnNnM1NabG0wc28zMDBtSGhBVUt0MUlLbS0tQ05rNUNHU01qRE1ielU?oc=5",
       "Signal": "WAIT"
     },
     {
       "Ticker": "AWK",
       "Price": 124.33,
-      "LSTM_Confidence": 0.8,
+      "LSTM_Confidence": 0.79,
       "News_Sentiment": 0.0,
       "News_Impact": 0.0,
       "Headline": "No significant news",
@@ -233,28 +233,28 @@
     },
     {
       "Ticker": "LNT",
-      "Price": 0.0,
-      "LSTM_Confidence": 0.0,
+      "Price": 66.69,
+      "LSTM_Confidence": 0.83,
       "News_Sentiment": 0.0,
       "News_Impact": 0.0,
       "Headline": "No significant news",
       "URL": "#",
-      "Signal": "WAIT"
+      "Signal": "DIVERGENCE_WATCH"
     },
     {
       "Ticker": "MMM",
-      "Price": 0.0,
-      "LSTM_Confidence": 0.0,
+      "Price": 172.65,
+      "LSTM_Confidence": 0.78,
       "News_Sentiment": 0.0,
       "News_Impact": 0.0,
       "Headline": "No significant news",
       "URL": "#",
-      "Signal": "WAIT"
+      "Signal": "VOLATILITY_WATCH"
     },
     {
       "Ticker": "MO",
-      "Price": 0.0,
-      "LSTM_Confidence": 0.0,
+      "Price": 65.4,
+      "LSTM_Confidence": 0.67,
       "News_Sentiment": 0.0,
       "News_Impact": 0.0,
       "Headline": "No significant news",
@@ -263,8 +263,8 @@
     },
     {
       "Ticker": "T",
-      "Price": 0.0,
-      "LSTM_Confidence": 0.0,
+      "Price": 27.13,
+      "LSTM_Confidence": 0.62,
       "News_Sentiment": 0.0,
       "News_Impact": 0.0,
       "Headline": "No significant news",
