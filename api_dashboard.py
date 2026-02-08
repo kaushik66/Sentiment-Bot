@@ -61,8 +61,10 @@ def run_news_agent(tickers):
                  # Sort by Date DESC (newest first)
                  df = df.sort_values('Date', ascending=False)
                  
-                 # Drop duplicates, keeping the FIRST (newest) for each ticker
-                 df = df.drop_duplicates(subset=['Ticker'], keep='first')
+                 # Drop duplicates? NO, we want All News now.
+                 # Only drop exact duplicates (same ticker same time same headline)
+                 # df = df.drop_duplicates(subset=['Ticker'], keep='first') 
+                 pass
                  
             print(f"✅ News Agent processed history. Using {len(df)} latest signals.")
             return df
@@ -274,6 +276,28 @@ def generate_dashboard():
                      final_url = str(source_url)
                      
                 url = final_url
+            
+            # --- NEW: Collect All News for Dropdown ---
+            all_news = []
+            for _, row in t_news.iterrows():
+                # Only include valid headlines
+                if pd.isna(row['Headline']): continue
+                
+                # Get URL
+                r_url = row.get('URL', '')
+                if pd.isna(r_url) or not str(r_url).startswith('http'):
+                    r_url = row.get('Source', '#')
+                    
+                all_news.append({
+                    "Headline": row['Headline'],
+                    "URL": r_url if str(r_url).startswith('http') else '#',
+                    "Category": row.get('Category', 'General'),
+                    "Sentiment": float(row['News_Score']),
+                    "Impact": float(row['Impact_Score']),
+                    "Date": str(row['Date'])
+                })
+        else:
+            all_news = []
                 
         # Effective Sentiment
         eff_sentiment = sentiment * impact
@@ -307,6 +331,7 @@ def generate_dashboard():
             "News_Impact": round(impact, 2),
             "Headline": headline,
             "URL": url, # Pass URL or empty
+            "All_News": all_news,
             "Signal": tag
         }
         

@@ -7,6 +7,7 @@ import sqlite3
 import re
 import time
 import google.generativeai as genai
+from ticker_validator import TickerValidator
 from dotenv import load_dotenv
 
 # Load environment logic
@@ -17,14 +18,15 @@ DB_PATH = 'news_cache.db'
 OUTPUT_FILE = 'live_sentiment.csv'
 ALIAS_PATH = 'sp500.json'
 # "Cluster" size for RSS feeds (how many tickers per Google News URL)
-RSS_CLUSTER_SIZE = 5 
+RSS_CLUSTER_SIZE = 1 
 # How many headlines to send to Gemini in one prompt
 GEMINI_BATCH_SIZE = 10
 
 # "Poison" tickers that return too much noise if searched alone.
 # We will FORCE these to use their company name in the search query.
 POISON_TICKERS = {
-    'A', 'T', 'V', 'K', 'F', 'C', 'M', 'SO', 'IS', 'ALL', 'IT', 'ON', 'GO', 'OR', 'AN', 'DO', 'BE'
+    'A', 'T', 'V', 'K', 'F', 'C', 'M', 'SO', 'IS', 'ALL', 'IT', 'ON', 'GO', 'OR', 'AN', 'DO', 'BE',
+    'AFL', 'AIG', 'AWK'
 }
 
 class NewsDatabase:
@@ -121,24 +123,77 @@ def generate_clustered_feeds(tickers, alias_map, batch_size=RSS_CLUSTER_SIZE):
         query = "+OR+".join(terms)
         
         # Build URL (when:1d for last 24h)
-        # quote_plus handles spaces in company names -> %20 or +
-        from urllib.parse import quote
-        # We manually construct to control the +OR+ structure
-        # Google News allows "foo+OR+bar"
-        # Spaces in names need to be URL encoded.
+        # quote_plus handles spaces -> + and special chars -> %XX
+        from urllib.parse import quote_plus
         
-        # Safer construction:
         safe_terms = []
         for term in terms:
-            # If it's a quoted name like "Agilent Technologies", we need appropriate encoding
-            # usually Google accepts + for space.
-            safe_terms.append(term.replace(" ", "+"))
+            # quote_plus handles "AT&T Inc." -> %22AT%26T+Inc.%22
+            safe_terms.append(quote_plus(term))
             
         full_query = "+OR+".join(safe_terms) + "+when:1d"
         url = f"https://news.google.com/rss/search?q={full_query}&hl=en-US&gl=US&ceid=US:en"
         urls.append(url)
         
     return urls
+
+def rank_articles(candidates):
+    """
+    Ranks articles based on headline keywords to prioritize high-value news.
+    Returns: Sorted list of candidates (highest score first).
+    """
+    if not candidates: return []
+    
+    # Priority Keywords
+    high_priority = {
+        'merger', 'acquisition', 'earnings', 'revenue', 'profit', 'sales', 
+        'guidance', 'forecast', 'fda', 'approval', 'lawsuit', 'settlement', 
+        'ceo', 'cfo', 'resigns', 'appoints', 'dividend', 'buyback', 'split', 
+        'agreement', 'contract', 'partner', 'launch', 'unveil', 'announce', 
+        'hiring', 'layoff', 'strike', 'union', 'investigation', 'regulatory', 
+        'fine', 'debt', 'offering', 'ipo', 'spin-off', 'join'
+    }
+    
+    medium_priority = {'report', 'update', 'event', 'conference', 'present', 'talks', 'exclusive'}
+    
+    low_priority = {
+        'analyst', 'opinion', 'why', 'outlook', 'prediction', 'soars', 
+        'plunges', 'stock', 'price', 'target', 'estimate', 'move', 
+        'action', 'alert', 'watch', 'pick'
+    }
+    
+    scored_candidates = []
+    
+    for cand in candidates:
+        headline = cand.get('title', '').lower()
+        score = 0
+        
+        # Check High Priority
+        for word in high_priority:
+            if word in headline:
+                score += 2
+        
+        # Check Medium Priority
+        for word in medium_priority:
+            if word in headline:
+                score += 1
+
+        # Check Low Priority
+        for word in low_priority:
+            if word in headline:
+                score -= 1
+                
+        # Bonus: Recency (Breaking News preference)
+        # Assuming candidates are reasonably ordered by time, but this is a rough proxy
+        # We can trust RSS sort for base relevance.
+        
+        scored_candidates.append((score, cand))
+        
+    # Sort: Descending by Score
+    scored_candidates.sort(key=lambda x: x[0], reverse=True)
+    
+    # Return just the candidates
+    return [item[1] for item in scored_candidates]
 
 def build_ticker_regex(tickers):
     """Compiles a single optimized regex for all tickers."""
@@ -152,9 +207,9 @@ def build_ticker_regex(tickers):
     pattern = r'(?<![\w])(' + '|'.join(map(re.escape, sorted_tickers)) + r')\b(?![\w])'
     return re.compile(pattern, re.IGNORECASE)
 
-def extract_tickers(text, regex, aliases):
+def extract_tickers(text, regex, aliases, validator):
     """
-    Finds tickers in text. Applies Strict Match logic for poison tickers.
+    Finds tickers in text using TickerValidator for context scoring.
     """
     found = set()
     matches = regex.findall(text)
@@ -162,27 +217,11 @@ def extract_tickers(text, regex, aliases):
     for m in matches:
         ticker = m.upper()
         
-        # Strict Match Logic
-        if ticker in POISON_TICKERS or len(ticker) < 3:
-            # Must find Company Name or strict keyword context
-            is_valid = False
-            
-            # 1. Check for Company Name
-            if ticker in aliases:
-                company_name = aliases[ticker]
-                if re.search(r'\b' + re.escape(company_name) + r'\b', text, re.IGNORECASE):
-                    is_valid = True
-            
-            # 2. Check for financial context keywords if name check fail (optional, but safer to rely on name)
-            # EXCEPTION: Ticker 'A' (Agilent) is too common. Require name ONLY.
-            if not is_valid and ticker != 'A':
-                 if re.search(r'\b(stock|shares|dividend|earnings|quarter|market)\b', text, re.IGNORECASE):
-                     is_valid = True
-            
-            if is_valid:
-                found.add(ticker)
-        else:
-            # Normal ticker (e.g. NVDA, MSFT) - accept it
+        # Get Company Name (or None)
+        company_name = aliases.get(ticker, '')
+        
+        # Use Validator
+        if validator.validate(ticker, company_name, text):
             found.add(ticker)
             
     return list(found)
@@ -194,11 +233,13 @@ def analyze_batch_gemini(items, model):
     """
     if not items: return []
     
-    prompt = "Analyze these financial headlines. Identify the Sentiment (-1.0 to 1.0) and Impact (0.0 to 1.0) for the specific ticker.\n"
-    prompt += "Return a JSON ARRAY of objects: [{'id': int, 'sentiment_score': float, 'impact_score': float, 'category': str}].\n\n"
+    prompt = "Analyze these financial headlines. For each, determine if the news is truly relevant to the specific ticker provided.\n"
+    prompt += "1. is_relevant: Set to true ONLY if the headline mentions the company/ticker or directly affects it. If it's a generic market report or about a different company, set false.\n"
+    prompt += "2. Determine Sentiment (-1.0 to 1.0) and Impact (0.0 to 1.0).\n"
+    prompt += "Return a JSON ARRAY of objects: [{'id': int, 'is_relevant': bool, 'sentiment_score': float, 'impact_score': float, 'category': str}].\n\n"
     
     for item in items:
-        prompt += f"ID {item['id']} ({item['ticker']}): \"{item['headline']}\"\n"
+        prompt += f"ID {item['id']} (Ticker: {item['ticker']}): \"{item['headline']}\"\n"
         
     prompt += "\nJSON ONLY. No markdown formatting."
     
@@ -223,6 +264,7 @@ def run_monitor(tickers_list, alias_file=ALIAS_PATH):
     db.prune_old_records(days=4) # Clean old DB entries on startup
     alias_map = load_aliases(alias_file)
     regex = build_ticker_regex(tickers_list)
+    validator = TickerValidator()
     
     api_key = os.environ.get('GEMINI_API_KEY')
     if not api_key:
@@ -244,22 +286,37 @@ def run_monitor(tickers_list, alias_file=ALIAS_PATH):
             feed = feedparser.parse(url)
             # print(f"   Scanning Feed {i+1}/{len(feed_urls)} ({len(feed.entries)} items)...")
             
+            # Temporary buffer for this feed's findings
+            feed_candidates = {} # {ticker: [cand1, cand2, ...]}
+            
             for entry in feed.entries:
                 if db.is_processed(entry.link):
                     continue
                 
                 # Extract relevant tickers
-                found_tickers = extract_tickers(entry.title, regex, alias_map)
+                found_tickers = extract_tickers(entry.title, regex, alias_map, validator)
                 
                 if found_tickers:
                     # Create a candidate for EACH found ticker
                     for t in found_tickers:
-                        candidates.append({
+                        cand = {
                             'title': entry.title,
                             'link': entry.link,
                             'ticker': t,
                             'published': datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-                        })
+                        }
+                        
+                        if t not in feed_candidates:
+                            feed_candidates[t] = []
+                        feed_candidates[t].append(cand)
+
+            # Smart Selection: Top 5 per ticker for this feed
+            for t, cands in feed_candidates.items():
+                # Rank them
+                ranked = rank_articles(cands)
+                # Take Top 5
+                top_5 = ranked[:5]
+                candidates.extend(top_5)
                         
             time.sleep(0.5) # Be polite to Google
             
@@ -301,6 +358,12 @@ def run_monitor(tickers_list, alias_file=ALIAS_PATH):
                     cand = metadata_map.get(res_id)
                     
                     if cand:
+                        # --- GEMINI VALIDATION CHECK ---
+                        # If Gemini says it's not relevant, discard it.
+                        if not item.get('is_relevant', True):
+                            print(f"      🗑️  Discarded Irrelevant: {cand['ticker']} - {cand['title'][:50]}...")
+                            continue
+
                         results_to_save.append({
                             'Date': cand['published'],
                             'Ticker': cand['ticker'],
@@ -316,6 +379,7 @@ def run_monitor(tickers_list, alias_file=ALIAS_PATH):
                         db.mark_processed(cand['link'])
                         
                 except Exception as e:
+                    print(f"   Analysis Error: {e}")
                     print(f"   Error parsing result item: {e}")
                     
         time.sleep(1) # Gemini rate limit safety
@@ -364,6 +428,20 @@ def run_monitor(tickers_list, alias_file=ALIAS_PATH):
         print("⚠️  No valid signals generated after analysis.")
 
 if __name__ == "__main__":
-    # Test Run
-    test_tickers = ['T', 'GE', 'NVDA'] # T (poison), GE (<3 chars), NVDA (normal)
-    run_monitor(test_tickers)
+    # Load tickers from valid_signals.csv
+    target_file = 'valid_signals.csv'
+    if os.path.exists(target_file):
+        try:
+            df = pd.read_csv(target_file)
+            if 'Ticker' in df.columns:
+                tickers = df['Ticker'].tolist()
+                print(f"📋 Loaded {len(tickers)} tickers from {target_file}")
+                run_monitor(tickers)
+            else:
+                print(f"⚠️ 'Ticker' column missing in {target_file}")
+        except Exception as e:
+            print(f"❌ Error reading {target_file}: {e}")
+    else:
+        print(f"⚠️ {target_file} not found. Running test list.")
+        test_tickers = ['T', 'GE', 'NVDA'] 
+        run_monitor(test_tickers)

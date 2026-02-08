@@ -268,6 +268,52 @@ const StockDetailModal = ({ isOpen, onClose, stock }) => {
                     </a>
                   </div>
                 )}
+
+                {/* --- News Dropdown --- */}
+                {stock.All_News && stock.All_News.length > 0 && (
+                  <details className="mt-6 bg-gray-900/50 rounded-lg overflow-hidden group">
+                    <summary className="cursor-pointer p-4 font-medium text-gray-300 hover:text-white hover:bg-gray-800 transition-colors list-none flex justify-between items-center select-none">
+                      <span>View All {stock.All_News.length} Analyzed Articles</span>
+                      <span className="text-gray-500 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <div className="p-4 border-t border-gray-800 overflow-x-auto">
+                      <table className="w-full text-left border-collapse">
+                        <thead>
+                          <tr className="text-xs text-gray-500 border-b border-gray-800">
+                            <th className="pb-2 font-medium">Source / Headline</th>
+                            <th className="pb-2 font-medium">Category</th>
+                            <th className="pb-2 font-medium text-right">Sentiment</th>
+                          </tr>
+                        </thead>
+                        <tbody className="text-sm">
+                          {stock.All_News.map((news, idx) => (
+                            <tr key={idx} className="border-b border-gray-800/50 last:border-0 hover:bg-gray-800/30 transition-colors">
+                              <td className="py-3 pr-4">
+                                <a
+                                  href={news.URL}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-blue-400 hover:text-blue-300 block truncate max-w-xs md:max-w-sm"
+                                  title={news.Headline}
+                                >
+                                  {news.Headline}
+                                </a>
+                              </td>
+                              <td className="py-3 pr-4 text-gray-400 whitespace-nowrap">
+                                <span className="bg-gray-800 px-2 py-1 rounded text-xs border border-gray-700">
+                                  {news.Category}
+                                </span>
+                              </td>
+                              <td className={`py-3 text-right font-medium ${news.Sentiment > 0 ? 'text-green-400' : news.Sentiment < 0 ? 'text-red-400' : 'text-gray-400'}`}>
+                                {news.Sentiment > 0 ? '+' : ''}{news.Sentiment}
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </details>
+                )}
               </div>
             </>
           ) : (
