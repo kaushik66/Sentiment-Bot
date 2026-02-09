@@ -11,6 +11,7 @@
 !monitor_news_v2.py
 !download_sp500_direct.py
 !utils.py
+!ticker_validator.py
 !backend_api.py
 
 # Un-ignore essential data/config
