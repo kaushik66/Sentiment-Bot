@@ -1,5 +1,5 @@
 const DASHBOARD_DATA = {
-  "last_updated": "2026-02-21 09:21:35",
+  "last_updated": "2026-02-22 09:21:13",
   "signals": [
     {
       "Ticker": "A",
@@ -22,28 +22,44 @@ const DASHBOARD_DATA = {
       "URL": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPajBJa190Nm5qUWRXVHNmQ3hBSnlkY0FFWkdPNkZtdGpLM0tpOGlQbUdMa0tOWmducG9zUGJHaTB1UG04VjdDRUwtWUJncnFRaC0xQmhJZmR2XzF2aV9CYmtHZE1XNDZlUlBLZEQ4dGJRcTdjaU55YTNpY2VKYVhIWXlMSURXT1dSZk00dEdvZUZlbkU?oc=5",
       "All_News": [
         {
-          "Headline": "Apple Inc. $AAPL is Delta Financial Advisors LLC\u2019s 2nd Largest Position - Defense World",
-          "URL": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQQUFEUHNvaFhncnh6aFpzYjFTc29qX3BFM2xWWlgxNUcyQXhmRllBLUdEZzRhRVZsT19SWEFtd1F6OGhISUt6ZXBRNk1hQzUyeWk1OExPc2JkdndrWTlUd3NxOFZKM0NkeEtSLVNJRS1TMFlIZmtuMXB0a25qVmVqMVJmMi1ST2p6VlVzeU8wUlJOOURWUmZ5cG5leDV1eWw4WXBMcVZ2NHZOcWVfM3IxbERyVQ?oc=5",
-          "Category": "Investment Firm Activity",
+          "Headline": "Apple: Why I'm Finally Turning Bullish (Rating Upgrade) (NASDAQ:AAPL) - Seeking Alpha",
+          "URL": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNMVlUSVNrdy02SnlsNnlMS21OYlRweVNCZDRnYUJ3bm1EZ0VaalJScFlSUm10anMweEZFRFlzRURUNXdMTDhWbGlJN2VsbFpOaHhuSVpYR08wQ3FJUUJWdUlOUVRCTnBrOHZqOVRKNGxZdmk4RzVXWVVPb0xkWk5GZkpWTzdnMVF0X3J6akhhdGxFVVBYeEtV?oc=5",
+          "Category": "Analyst Rating/Opinion",
+          "Sentiment": 0.8,
+          "Impact": 0.6,
+          "Date": "2026-02-22 09:18:58"
+        },
+        {
+          "Headline": "$AAPL stock rose 3% this week. Here's what we see in our data. - Quiver Quantitative",
+          "URL": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQZm1aVXNHTC01SFVubFQ1b2xlNGtWbVctak1ZOXlNUGVZNVctcThacHlpZm83V0FOQUlJcXFkd2RMU29qMmltSkloR21lX184V0pDWlFybWlQbVNsS3NnRTFaZHJNSXhld3Z0cXBwX1ZwVXl4Sm1lTzk2OTBmUUdrS1pqM1ppdmlBTTdlYWZPTHVLRWN6ZzJwbnZ5X0tsbzhPM1h3?oc=5",
+          "Category": "Stock Performance",
+          "Sentiment": 0.7,
+          "Impact": 0.7,
+          "Date": "2026-02-22 09:18:58"
+        },
+        {
+          "Headline": "Is Apple a potential Mag 7 haven if the AI capex boom becomes a bust? (AAPL:NASDAQ) - Seeking Alpha",
+          "URL": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQMEJPZXlzNWl1OXdiM0RIRjFMZzl4RDhFVnlhYm1jX1g4U3lkb3FSVnlVMy0xbG9OcXlyWWpfUGxCd1BHM1EwTm9wUmRpc1hFeVFIU2VEQUdXUkxfWEl2Z3RudlFaX1YzYkh0U3dvbFdFN3YwYzZKc3VVN25aSDlVRVVVUEtwMHlDNUx2ZzgzRTJuTFA4NHc4UE5CZWp5c3QteXBpU25lOGZ6QQ?oc=5",
+          "Category": "Market Analysis/Strategy",
+          "Sentiment": 0.2,
+          "Impact": 0.3,
+          "Date": "2026-02-22 09:18:58"
+        },
+        {
+          "Headline": "Apple (AAPL) Stock Rises: Tariffs & iCloud Lawsuit in Focus - TMAStreet.com",
+          "URL": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQRVVENjBsWWd0RXgyWjBlUks3YWNxWXluZnBPdWVBcl8teWVnREhEdHFFbWxodUcwLXdTdEliZjhHUlAweXJHXzJreGx0RkhVaGxjVDh4ZUV1UW5MTlZJcXpsVjI1cGxxSzg5cjhPNWpHSmJMWE53bjlEMHpMQjNqRnE2bw?oc=5",
+          "Category": "Stock Performance/Legal",
           "Sentiment": 0.5,
-          "Impact": 0.4,
-          "Date": "2026-02-21 09:19:22"
+          "Impact": 0.6,
+          "Date": "2026-02-22 09:18:58"
         },
         {
-          "Headline": "Apple stock price today: AAPL rises after tariff ruling as lawsuit, Apple TV sports deal come into focus - TechStock\u00b2",
-          "URL": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPSDd6U0N6am8xLVhrVmJPUHdFbjB4UnIxSzBqZERjdUJWaExmWWtES2l4eHhkTVVlTHVhdmNwUkdkVE9OeTNFMHBnQTJTYkx0TmVZVzRKNXlGS2o5d0hzMGd5ZFJnUjFaekJFOEpMd3NlblVlQnlRMEtXcENsUmlRdFZfQVZGYW5mZ1huUEpacHBkdkZ4WS1VQzAwOWJpVjJERlo0WXdxUnNiRFlfeGJJVU5aSzlfVFZXR1AtbVk3TlI?oc=5",
-          "Category": "Market Movement/Legal/Business Development",
+          "Headline": "Apple stock (AAPL) ends higher ahead of Monday as tariffs ruling lifts tech; iCloud lawsuit in focus - TechStock\u00b2",
+          "URL": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNWmZIck9NVkF6S2I0R0liOTUtaEhyY1E0NnJQYVlUcExHajBpOWE5cUVjWUdNTk00RFlabzVUTTN0cjl2VF9RengtZXEzaTJRRGk1bVZuRFdtZUxJZXhNSkpnYmg5Nk0taFo1cHkySVpXaFp6cWttRnJuT0JFSWJtM0pNcENTdTExeGtvdzVwMzkxWmJxQkRrY2tFV29WNkRpbGt3MlhnNEhlR09IYWVaeV8ybDVudkYxeEE?oc=5",
+          "Category": "Stock Performance/Legal",
           "Sentiment": 0.4,
-          "Impact": 0.8,
-          "Date": "2026-02-21 09:19:22"
-        },
-        {
-          "Headline": "Apple stock slips as iCloud lawsuit and hot inflation data jolt AAPL in early trade - Bez Kabli",
-          "URL": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOckVZSFkxOV9qSG1CbkRTZmdEcmFZQXk5LThNdFgwUW5CQ3BHR0NwTDlfcEQ0eE1PU2xlOU0xRllkS0FEYTl6eUh5SjVBcmE4Y1RxUVBGOXlzcUk3QWYxQ0ptWjVwLTVWcDJBSWlVNWFYcG1yMEZzdFRlNDJ6aUdCajhLZThPT3NpWXV0bmdVR3QzSGNKclRQU21hdTd2OXRTc1hhR0tQQ1JtQm5nOXc?oc=5",
-          "Category": "Market Movement/Legal/Macroeconomic",
-          "Sentiment": -0.7,
-          "Impact": 0.8,
-          "Date": "2026-02-21 09:19:22"
+          "Impact": 0.6,
+          "Date": "2026-02-22 09:18:58"
         },
         {
           "Headline": "Apple Stock (AAPL) Jumps 1.41% to $264 as 267 vs 1.47M Reporting Gap Sparks State Lawsuit - Swikblog",
@@ -62,6 +78,38 @@ const DASHBOARD_DATA = {
           "Date": "2026-02-21 09:19:22"
         },
         {
+          "Headline": "Apple Inc. $AAPL is Delta Financial Advisors LLC\u2019s 2nd Largest Position - Defense World",
+          "URL": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQQUFEUHNvaFhncnh6aFpzYjFTc29qX3BFM2xWWlgxNUcyQXhmRllBLUdEZzRhRVZsT19SWEFtd1F6OGhISUt6ZXBRNk1hQzUyeWk1OExPc2JkdndrWTlUd3NxOFZKM0NkeEtSLVNJRS1TMFlIZmtuMXB0a25qVmVqMVJmMi1ST2p6VlVzeU8wUlJOOURWUmZ5cG5leDV1eWw4WXBMcVZ2NHZOcWVfM3IxbERyVQ?oc=5",
+          "Category": "Investment Firm Activity",
+          "Sentiment": 0.5,
+          "Impact": 0.4,
+          "Date": "2026-02-21 09:19:22"
+        },
+        {
+          "Headline": "Apple stock slips as iCloud lawsuit and hot inflation data jolt AAPL in early trade - Bez Kabli",
+          "URL": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOckVZSFkxOV9qSG1CbkRTZmdEcmFZQXk5LThNdFgwUW5CQ3BHR0NwTDlfcEQ0eE1PU2xlOU0xRllkS0FEYTl6eUh5SjVBcmE4Y1RxUVBGOXlzcUk3QWYxQ0ptWjVwLTVWcDJBSWlVNWFYcG1yMEZzdFRlNDJ6aUdCajhLZThPT3NpWXV0bmdVR3QzSGNKclRQU21hdTd2OXRTc1hhR0tQQ1JtQm5nOXc?oc=5",
+          "Category": "Market Movement/Legal/Macroeconomic",
+          "Sentiment": -0.7,
+          "Impact": 0.8,
+          "Date": "2026-02-21 09:19:22"
+        },
+        {
+          "Headline": "Apple stock price today: AAPL rises after tariff ruling as lawsuit, Apple TV sports deal come into focus - TechStock\u00b2",
+          "URL": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPSDd6U0N6am8xLVhrVmJPUHdFbjB4UnIxSzBqZERjdUJWaExmWWtES2l4eHhkTVVlTHVhdmNwUkdkVE9OeTNFMHBnQTJTYkx0TmVZVzRKNXlGS2o5d0hzMGd5ZFJnUjFaekJFOEpMd3NlblVlQnlRMEtXcENsUmlRdFZfQVZGYW5mZ1huUEpacHBkdkZ4WS1VQzAwOWJpVjJERlo0WXdxUnNiRFlfeGJJVU5aSzlfVFZXR1AtbVk3TlI?oc=5",
+          "Category": "Market Movement/Legal/Business Development",
+          "Sentiment": 0.4,
+          "Impact": 0.8,
+          "Date": "2026-02-21 09:19:22"
+        },
+        {
+          "Headline": "Apple (AAPL) Faces Historic State Lawsuit Over Child Safety - thebull.com.au",
+          "URL": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPajBJa190Nm5qUWRXVHNmQ3hBSnlkY0FFWkdPNkZtdGpLM0tpOGlQbUdMa0tOWmducG9zUGJHaTB1UG04VjdDRUwtWUJncnFRaC0xQmhJZmR2XzF2aV9CYmtHZE1XNDZlUlBLZEQ4dGJRcTdjaU55YTNpY2VKYVhIWXlMSURXT1dSZk00dEdvZUZlbkU?oc=5",
+          "Category": "Legal/Regulatory",
+          "Sentiment": -0.9,
+          "Impact": 0.9,
+          "Date": "2026-02-20 09:30:07"
+        },
+        {
           "Headline": "Apple Stock AAPL Faces Bearish Turn Amid Tech Delays, Spending and Regulatory Noise - FXLeaders",
           "URL": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNMUx6eG9rZ1N4eFliSjl2UGxxNWY5RDl0amJKNUF1UVZualkzR2l1ak5qMXQwZXpxOUJyaWs4Ql8xeHNhOTNOTmVFamdsSHFoUExXZFhJbFJfbWpIUmY2WkwwbzRoUk1CYWh6SkdFSFJuWG9UTEpfUUpmczBtVjUxeEttX2w4XzRnd2EyYXEtaTdvNHJVMDhWandPM29UaTlGclFpMzNhcFVma0JkS0V4THFRUzY1ZFNLc2V1S3dTUER5cDQ?oc=5",
           "Category": "Analyst Report/Market Outlook",
@@ -70,8 +118,8 @@ const DASHBOARD_DATA = {
           "Date": "2026-02-20 09:30:07"
         },
         {
-          "Headline": "Apple (AAPL) Faces Historic State Lawsuit Over Child Safety - thebull.com.au",
-          "URL": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPajBJa190Nm5qUWRXVHNmQ3hBSnlkY0FFWkdPNkZtdGpLM0tpOGlQbUdMa0tOWmducG9zUGJHaTB1UG04VjdDRUwtWUJncnFRaC0xQmhJZmR2XzF2aV9CYmtHZE1XNDZlUlBLZEQ4dGJRcTdjaU55YTNpY2VKYVhIWXlMSURXT1dSZk00dEdvZUZlbkU?oc=5",
+          "Headline": "Apple Stock (AAPL) Sinks on Reports It\u2019s Being Sued Over Child Sexual Abuse Material - TipRanks",
+          "URL": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOcnVLWTEtc1Q5Q3NydUpQMFBPeUFldkZOMVU3NUJsNDdrNTNZUGZSWHR5RTJ4ZjlKMlkzUDhZa0RKT1pUZmNFcGtRRGo3aXdSWElzUGY0Q2pUSmhIVnE5amJZcmpSUlZDQXc4Q3ZTR2M5S09MdHRiblB1QTFzRXl3QTh5d291OWtVRzAtbC0yVmxhalZmOWlKM0RLZ0FCQ1ZHdUszSkZ3NC1aRkNCUFFUZQ?oc=5",
           "Category": "Legal/Regulatory",
           "Sentiment": -0.9,
           "Impact": 0.9,
@@ -91,14 +139,6 @@ const DASHBOARD_DATA = {
           "Category": "Market Commentary/Outlook",
           "Sentiment": 0.0,
           "Impact": 0.3,
-          "Date": "2026-02-20 09:30:07"
-        },
-        {
-          "Headline": "Apple Stock (AAPL) Sinks on Reports It\u2019s Being Sued Over Child Sexual Abuse Material - TipRanks",
-          "URL": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOcnVLWTEtc1Q5Q3NydUpQMFBPeUFldkZOMVU3NUJsNDdrNTNZUGZSWHR5RTJ4ZjlKMlkzUDhZa0RKT1pUZmNFcGtRRGo3aXdSWElzUGY0Q2pUSmhIVnE5amJZcmpSUlZDQXc4Q3ZTR2M5S09MdHRiblB1QTFzRXl3QTh5d291OWtVRzAtbC0yVmxhalZmOWlKM0RLZ0FCQ1ZHdUszSkZ3NC1aRkNCUFFUZQ?oc=5",
-          "Category": "Legal/Regulatory",
-          "Sentiment": -0.9,
-          "Impact": 0.9,
           "Date": "2026-02-20 09:30:07"
         },
         {
@@ -142,27 +182,11 @@ const DASHBOARD_DATA = {
           "Date": "2026-02-19 09:34:41"
         },
         {
-          "Headline": "Apple (AAPL) Underweight Position Weighs on Relative Performance of Sands Capital Technology Innovators Fund - Yahoo Finance",
-          "URL": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOamFRVlJ0aFQ4OTdWQnBPcXhzZUh4aGxvelM1cWtKMXp2cVE5V0k2b0tFM0NkcEF3TnczWU1xN2N6Z1ljT09GQWtDRjhwY25sT3BraWhGalZvRjFjXzNPZmJDZ1RSbGR1MXdMVkRyeTYtZ3pBTU4yck5NaDVkdGFPUXlicGNKN0pSYmEzeQ?oc=5",
-          "Category": "Fund News",
-          "Sentiment": 0.2,
-          "Impact": 0.3,
-          "Date": "2026-02-18 09:35:24"
-        },
-        {
           "Headline": "AAPL Stock Today: February 18 \u2013 Shares Pop on AI Wearables Report - Meyka",
           "URL": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQSFNXOTVaYk5DRnNLWFE4UGlSd2dWTXdEZE5LeEY5S2FfcUlVbmtoMnFYTjZvSDg3SkRQcHU1MGlhdVhMNlhKdzMwcjBzVDYyTF9CckYwUjJnd0xRZEV3TmNvOU1LSHh4NXJZSURkc2g2RjNkMWtzUzZVSVRQS3NVa2dRR1dBLVM4djlHOVV6SFVDQnZNZkE?oc=5",
           "Category": "Product Rumor",
           "Sentiment": 0.9,
           "Impact": 0.8,
-          "Date": "2026-02-18 09:35:24"
-        },
-        {
-          "Headline": "Apple Stock AAPL Jumps on Upgrade and Innovation Push, yet AI and Regulatory Risk Linger - FXLeaders",
-          "URL": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQeG5lY1RXQ2wwOUx6TUFOM1FVTzQwUVZxSjNlZHNZa0tqQ3NxMDRtRlJ2MXZlR1kwS0ZRRWVMMHdWMWdiZUJYaGM0aVU5dzhWdWJpeWtJaGtwNmpoQW96MkZjYmFNd2psaVNIbGh3b1FXemhmUUtMdnpHZXFVdTBmR0NuanJHVW5YdklHekJIWDVmcm12MEFNbDBBZ015WFh5bVg5cVg5VW9rTDYtU1VlclZ2X3BOUmF0R1k4WXVSSjg0Z3ZqVUVmY0FR?oc=5",
-          "Category": "Market Reaction",
-          "Sentiment": 0.2,
-          "Impact": 0.7,
           "Date": "2026-02-18 09:35:24"
         },
         {
@@ -174,6 +198,14 @@ const DASHBOARD_DATA = {
           "Date": "2026-02-18 09:35:24"
         },
         {
+          "Headline": "Apple (AAPL) Underweight Position Weighs on Relative Performance of Sands Capital Technology Innovators Fund - Yahoo Finance",
+          "URL": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOamFRVlJ0aFQ4OTdWQnBPcXhzZUh4aGxvelM1cWtKMXp2cVE5V0k2b0tFM0NkcEF3TnczWU1xN2N6Z1ljT09GQWtDRjhwY25sT3BraWhGalZvRjFjXzNPZmJDZ1RSbGR1MXdMVkRyeTYtZ3pBTU4yck5NaDVkdGFPUXlicGNKN0pSYmEzeQ?oc=5",
+          "Category": "Fund News",
+          "Sentiment": 0.2,
+          "Impact": 0.3,
+          "Date": "2026-02-18 09:35:24"
+        },
+        {
           "Headline": "Should Investors Buy Apple (AAPL) Stock After Latest Earnings Beat? - parameter.io",
           "URL": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQdkM4d19GMmRXOUJrb0FnVGdxUnlXNlZEUVFJTnl0a05hMWRkVElXakFNSTRDZ1FKU0hXUHFEdUV5TVZvZ0k5S1B3VktiTTRIQm83ektmU01reGZLUXNLUllZeFA1MklXQ0lrRHVfMFZnWmJxdnZabjNrUGp5Qm9kVUtlRVJ5U1hVY2U1d1p6RQ?oc=5",
           "Category": "Financial Performance",
@@ -182,44 +214,12 @@ const DASHBOARD_DATA = {
           "Date": "2026-02-18 09:35:24"
         },
         {
-          "Headline": "Apple\u2019s Siri shocker is flashing a warning AAPL bulls can\u2019t ignore - thestreet.com",
-          "URL": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNRDBtWkpadnhTcDJOTGY5aHNrNElpRG93aE1NYnZTTEllU3czYWNHdFFPWlpFaUVKMFkydnM1VDFuVldPYmNKNDBGdGJCYUlFeUVYQWlVbU5lWllDLUpzRldPZWRsZHhFNnJqRkg4YTRRS3VrQ2d5NEdzRWJJU252ZzhQODZnYThMMFp1Zk1OM3I0Z1RiYXB5RFU4eW8xdkdjX3c?oc=5",
-          "Category": "Product News",
-          "Sentiment": -0.7,
-          "Impact": 0.8,
-          "Date": "2026-02-17 09:36:49"
-        },
-        {
-          "Headline": "Apple (AAPL) Launches Video Podcasts - TipRanks",
-          "URL": "https://news.google.com/rss/articles/CBMickFVX3lxTE8zN08wREZUanRMU2FxV1BSTWpBdGp0QzFtN18tTXZrSGJrbGlOUllxRG9peHF5M2FzWUlCZ2RMWHZNSGU5b1lhclptWDc2VTdfLUNKZ25iZXliT3JHMDJ5SnBTU0dwaGpnajIta0RIZDZydw?oc=5",
-          "Category": "Product Launch/Service",
-          "Sentiment": 0.6,
-          "Impact": 0.5,
-          "Date": "2026-02-17 09:36:49"
-        },
-        {
-          "Headline": "Apple (AAPL) Valuation Check After AI Delays And New FTC Scrutiny - Yahoo Finance",
-          "URL": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQeGVYR0JZMzVfOGRuQll4bW9Bc296andmZ2l3cGFmRmNNaUVnQzFHZTcxcXVmZ25iLWpTUXBrTzlYdVdLTEphNTlIcGVxWm94TkJvMmwxSjEtaS1jWk80NDFFb2xaOUFHa0gzZmdsRjZlTDVNcUwxOTRWdzBZUERJLQ?oc=5",
-          "Category": "Valuation/Technology/Regulatory",
-          "Sentiment": -0.7,
-          "Impact": 0.8,
-          "Date": "2026-02-17 09:36:49"
-        },
-        {
-          "Headline": "Apple Inc. (AAPL): Record Revenue vs. Regulatory Reality \u2013 A 2026 Deep Dive - FinancialContent",
-          "URL": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNYWtUYThmSXVETnlGM0w1SjZLWkxSejFjUWkxbUVSbGZUSGZhUlBMbjZqUjRSb1RfWjcxc2NWUlJ0QWYxR0lfdEFwRDdvR05aRUVQVXItMGpYc2RZeWV3NEdMQjN2RjN4NEI5SlFIb3VlYjFLd2NZT2RVNFIyaDVfVTdmSG9BUEhSanJzdjY3V082VkZna0NxUXNlQ0ttWFVJcTM3eXBaQlFRcmppc0F2TEdSbjZfbVVrbmFqV3hsU0NhT3p2S01LZWN5VlVHcXExdzBCSHB3?oc=5",
-          "Category": "Financial/Regulatory",
-          "Sentiment": 0.0,
-          "Impact": 0.8,
-          "Date": "2026-02-17 09:36:49"
-        },
-        {
-          "Headline": "Apple AAPL to Unveil iPhone 17e in Press Release Twist - NAI500",
-          "URL": "https://news.google.com/rss/articles/CBMikAFBVV95cUxObThLMlNud05MdGlZcUlxdFJjYmc2UkUzallBX2FHRnpkM3JJMm5DMkFQS2RQWXphdVdaY1ZCWTRNcHRCbUxYSXNjYUo4akNjb2FITzkzeDg3UXhrYmdsdXoxREpWd0VOVTBrbEVpcnJFYW9UUkpSU3VuOHVvalZ1Rm5QeFhGTkVqQTVsQ2JINUs?oc=5",
-          "Category": "Product Announcement/Hardware",
-          "Sentiment": 0.7,
-          "Impact": 0.8,
-          "Date": "2026-02-17 09:36:49"
+          "Headline": "Apple Stock AAPL Jumps on Upgrade and Innovation Push, yet AI and Regulatory Risk Linger - FXLeaders",
+          "URL": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQeG5lY1RXQ2wwOUx6TUFOM1FVTzQwUVZxSjNlZHNZa0tqQ3NxMDRtRlJ2MXZlR1kwS0ZRRWVMMHdWMWdiZUJYaGM0aVU5dzhWdWJpeWtJaGtwNmpoQW96MkZjYmFNd2psaVNIbGh3b1FXemhmUUtMdnpHZXFVdTBmR0NuanJHVW5YdklHekJIWDVmcm12MEFNbDBBZ015WFh5bVg5cVg5VW9rTDYtU1VlclZ2X3BOUmF0R1k4WXVSSjg0Z3ZqVUVmY0FR?oc=5",
+          "Category": "Market Reaction",
+          "Sentiment": 0.2,
+          "Impact": 0.7,
+          "Date": "2026-02-18 09:35:24"
         }
       ],
       "Signal": "WAIT"
@@ -233,6 +233,22 @@ const DASHBOARD_DATA = {
       "Headline": "ABNB Stock Surges 10% With A 5-day Winning Spree On Strong Guidance - Trefis",
       "URL": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxNZDdqVk0tMVRaUGd3dlJ5YXNod2Uxdmh1aWRRWmRiZmdqV2JvbFIyTTFRdU9oRXgzNHAySGJ2U0w0N2NzejFHRjlvN3dwdHBjOFZzQjBlUG1Mc01pSXAxWm00eGhjY3RKZWROaVB1VlNscVkzazhuNUdScURLZjQ0STZsXzE3UDB5TUtvcVdkS1pNcWJrV1lULVZxYXI1bTZDMFJYQjBRTmlCV25kWFpHLXc2bWpxbURhaWFKaEIzX2pka1ZDRkh3elJPNDJ3MF9weXc?oc=5",
       "All_News": [
+        {
+          "Headline": "Alliance Wealth Advisors LLC UT Has $1.08 Million Holdings in Airbnb, Inc. $ABNB - Defense World",
+          "URL": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQWE5vYXROazc1NHd6SjM0ckN4T3BOempmb1BJenFMX0Z4ZWFmeFI0U3ZFVDk2ZFQyQ2Rsd3MtMDdob3ktZ0RqZFdVVGhEQnB4eW5BRXRDSXlQQzM2YnNMR3RzNktTREtkbEFDNjctTW1OdWx5SzdRcW5yQklHVE9EamRtRi1kRUFtWjJwWVFZS0puWERvcTMydkFWMEVPb05RNWNWa1lGN0xjOTlYR3owV2lNWjY0dkw5aFBoOGlR?oc=5",
+          "Category": "Institutional Investment",
+          "Sentiment": 0.2,
+          "Impact": 0.3,
+          "Date": "2026-02-22 09:19:10"
+        },
+        {
+          "Headline": "Interesting ABNB Put And Call Options For October 16th - Nasdaq",
+          "URL": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOOXN3QUtYWTRWa3VDeEMtb1BwZG43Mm5nTnllbVQ5QkRIektsczdBVzE0UHJ1WU5DYlZoUWl4QUtaMm9oOWVXRG1ZcjdHQldsWjhYSkhsbHdqWTRNS2psRGlBN0N1ci1kV1NOSVFLaV9DekNFN0xFSzQ1MDlwbU1vaHNQRHdvaHJBT0E?oc=5",
+          "Category": "Company Specific - Options Activity",
+          "Sentiment": 0.0,
+          "Impact": 0.3,
+          "Date": "2026-02-21 09:19:25"
+        },
         {
           "Headline": "ABNB Stock Surges 10% With A 5-day Winning Spree On Strong Guidance - Trefis",
           "URL": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxNZDdqVk0tMVRaUGd3dlJ5YXNod2Uxdmh1aWRRWmRiZmdqV2JvbFIyTTFRdU9oRXgzNHAySGJ2U0w0N2NzejFHRjlvN3dwdHBjOFZzQjBlUG1Mc01pSXAxWm00eGhjY3RKZWROaVB1VlNscVkzazhuNUdScURLZjQ0STZsXzE3UDB5TUtvcVdkS1pNcWJrV1lULVZxYXI1bTZDMFJYQjBRTmlCV25kWFpHLXc2bWpxbURhaWFKaEIzX2pka1ZDRkh3elJPNDJ3MF9weXc?oc=5",
@@ -250,12 +266,12 @@ const DASHBOARD_DATA = {
           "Date": "2026-02-21 09:19:25"
         },
         {
-          "Headline": "Interesting ABNB Put And Call Options For October 16th - Nasdaq",
-          "URL": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOOXN3QUtYWTRWa3VDeEMtb1BwZG43Mm5nTnllbVQ5QkRIektsczdBVzE0UHJ1WU5DYlZoUWl4QUtaMm9oOWVXRG1ZcjdHQldsWjhYSkhsbHdqWTRNS2psRGlBN0N1ci1kV1NOSVFLaV9DekNFN0xFSzQ1MDlwbU1vaHNQRHdvaHJBT0E?oc=5",
-          "Category": "Company Specific - Options Activity",
-          "Sentiment": 0.0,
-          "Impact": 0.3,
-          "Date": "2026-02-21 09:19:25"
+          "Headline": "ABNB stock rises after-market on strong Q1 forecast: Cathie Wood dumps shares but retail has turned 'extremely bullish' - MSN",
+          "URL": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxOTVJWeU11cDJvVG9xN3RGNHR0TTRFSENkNDNQUzBIbS1TbnFoNTdBMEdxcEcxOXJZcXpWSjhlQXQ2cU1iX3dQaExiUW1PUFlFZUI2Zy1BRWR6ZmZPYXdHU2w5aUFmRVdkVTVHY3ZNYmV5cWdDT0dPcEx1WFhoVjJsc2thdmVnQ0s3SnAtVXV5cEpkZ1I4VjFYLVgwRmw3NEZQeTJISjNCX0YwQl9kRFJkSXJWR2t6dkZXcDVLbGItRTVzdUlGQW9tOWxqSGgwNG1oS0Y2dWRZakU0QWZldWQ5aXdDRUx4U1NPWmVic3IxWG84cmEyU0U4R2R0NnNoMnc?oc=5",
+          "Category": "Earnings/Market Activity",
+          "Sentiment": 0.3,
+          "Impact": 0.8,
+          "Date": "2026-02-20 09:30:21"
         },
         {
           "Headline": "Airbnb, Inc. (NASDAQ: ABNB) Q4 2025 earnings call transcript - MSN",
@@ -263,14 +279,6 @@ const DASHBOARD_DATA = {
           "Category": "Earnings",
           "Sentiment": 0.0,
           "Impact": 0.4,
-          "Date": "2026-02-20 09:30:21"
-        },
-        {
-          "Headline": "ABNB stock rises after-market on strong Q1 forecast: Cathie Wood dumps shares but retail has turned 'extremely bullish' - MSN",
-          "URL": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxOTVJWeU11cDJvVG9xN3RGNHR0TTRFSENkNDNQUzBIbS1TbnFoNTdBMEdxcEcxOXJZcXpWSjhlQXQ2cU1iX3dQaExiUW1PUFlFZUI2Zy1BRWR6ZmZPYXdHU2w5aUFmRVdkVTVHY3ZNYmV5cWdDT0dPcEx1WFhoVjJsc2thdmVnQ0s3SnAtVXV5cEpkZ1I4VjFYLVgwRmw3NEZQeTJISjNCX0YwQl9kRFJkSXJWR2t6dkZXcDVLbGItRTVzdUlGQW9tOWxqSGgwNG1oS0Y2dWRZakU0QWZldWQ5aXdDRUx4U1NPWmVic3IxWG84cmEyU0U4R2R0NnNoMnc?oc=5",
-          "Category": "Earnings/Market Activity",
-          "Sentiment": 0.3,
-          "Impact": 0.8,
           "Date": "2026-02-20 09:30:21"
         },
         {
@@ -290,27 +298,19 @@ const DASHBOARD_DATA = {
           "Date": "2026-02-19 09:34:39"
         },
         {
+          "Headline": "Airbnb Stock (ABNB) Flies Higher as Global Travelers Get to Delay Holiday Payments - TipRanks",
+          "URL": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOVlFsdkdreTFGMVJ6Z255c3RFM1I4NU5uelZ0d3F5YzRCNUNuVjc0Uk5UaUoyLUZZTW14UmJURTVIOURZbW15WGNBUzZMUFlRajg4TUxkMHFybTdoMWtlSGFSQ3N0WHpIa0FaOHdndHhtZUlfQU9mSmNOeFJMLV9CS2VCSWVIcGhhZW5JM2V4aVRGUkpDU0RTVm1QQnNMdnlIRjhjQnNidFJlZUV2NWF3?oc=5",
+          "Category": "Company News",
+          "Sentiment": 0.8,
+          "Impact": 0.7,
+          "Date": "2026-02-18 09:35:07"
+        },
+        {
           "Headline": "Airbnb (ABNB) Gets a Buy from RBC Capital - The Globe and Mail",
           "URL": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQUENtUS1HSG5laUhVY09iOE1OeDFrVWU3SXYtSEM3ZjRRM0RfZDU5OVRULVptNnpXc2FyMjZhRElhRlBQM0VwWkh0OWJYZlNaRU1ibWJfN3ZFeTdnUGkwenB0b1JQQl8zQ2xCaUVhTzk5VEY3WmxwV2RrRkZUMjdlT01EemgwMjJYSE4tWlF3Q24tSHU5NVgtVXVSdFo4NEkwbTRiT1FLZEp0ajcyeG9zdFlhUE9iZnhiWW5yRl9WbnE?oc=5",
           "Category": "Analyst Rating",
           "Sentiment": 0.7,
           "Impact": 0.6,
-          "Date": "2026-02-18 09:35:07"
-        },
-        {
-          "Headline": "ABNB: DA Davidson Lowers Price Target, Maintains Buy Rating | AB - GuruFocus",
-          "URL": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOaEk5UUtORlRPbTFGRnRwSnczWmZ5RGZNU21ydEJXZ185eFIwSjVxSENsZU1EU1h1OGFOUF9qUGhBdnhzYnpDNjljS1N3bHZRLUFnQThiUXVwd3oxMDB0eE5NdWVYV2U5c24zTnJGTmFFUXFrNUhuS1ppbE04Ry1NYVdEWlQ0VmlrOW5NXzJKdEpnS21pcnJNWGx0eDlQVVduUFZzV3VCMEtGV3VObmZ5eFpR?oc=5",
-          "Category": "Analyst Rating",
-          "Sentiment": 0.2,
-          "Impact": 0.6,
-          "Date": "2026-02-18 09:35:07"
-        },
-        {
-          "Headline": "Airbnb (ABNB) Stock: Edges Higher as Pay-Later Option Boosts Bookings - parameter.io",
-          "URL": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQNFhuZnNkb3hjU0lSQlUtTjg5Z2NQRHozNm42Znd1ZmFCb2trVXY2YVBaOW51WWt6NHNaREd5cGNMQ0szeGlnNm9pbldtZ2VfZUJ4N0syVGdUcFJvTjhFYkxJNFhoSDFDMDB0TDFheW82QWdUTzZwaERWTWVVUkpERFdKVlA4VzN4NFRKTy02cExWZw?oc=5",
-          "Category": "Company News",
-          "Sentiment": 0.7,
-          "Impact": 0.7,
           "Date": "2026-02-18 09:35:07"
         },
         {
@@ -322,36 +322,20 @@ const DASHBOARD_DATA = {
           "Date": "2026-02-18 09:35:07"
         },
         {
-          "Headline": "Airbnb Stock (ABNB) Flies Higher as Global Travelers Get to Delay Holiday Payments - TipRanks",
-          "URL": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOVlFsdkdreTFGMVJ6Z255c3RFM1I4NU5uelZ0d3F5YzRCNUNuVjc0Uk5UaUoyLUZZTW14UmJURTVIOURZbW15WGNBUzZMUFlRajg4TUxkMHFybTdoMWtlSGFSQ3N0WHpIa0FaOHdndHhtZUlfQU9mSmNOeFJMLV9CS2VCSWVIcGhhZW5JM2V4aVRGUkpDU0RTVm1QQnNMdnlIRjhjQnNidFJlZUV2NWF3?oc=5",
+          "Headline": "Airbnb (ABNB) Stock: Edges Higher as Pay-Later Option Boosts Bookings - parameter.io",
+          "URL": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQNFhuZnNkb3hjU0lSQlUtTjg5Z2NQRHozNm42Znd1ZmFCb2trVXY2YVBaOW51WWt6NHNaREd5cGNMQ0szeGlnNm9pbldtZ2VfZUJ4N0syVGdUcFJvTjhFYkxJNFhoSDFDMDB0TDFheW82QWdUTzZwaERWTWVVUkpERFdKVlA4VzN4NFRKTy02cExWZw?oc=5",
           "Category": "Company News",
-          "Sentiment": 0.8,
+          "Sentiment": 0.7,
           "Impact": 0.7,
           "Date": "2026-02-18 09:35:07"
         },
         {
-          "Headline": "Airbnb: Upgrading To Buy Amid Growth Acceleration (NASDAQ:ABNB) - Seeking Alpha",
-          "URL": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQSDdTVXQ5azlXZDN4bFNzVmtUOGRISW0zR0l0OTY3ck9RMDRtX3h4WkdWTzFsWW9kTmN3TzJjaEpZb2dWTHlHUG84aDlnWEdDQl9aSWtMb2JfV1ltUEdUMlN1VEtEcW9hX1g1b1ZDLTU0YkM0SnFGX21fVnBxdmJqUktQbUs4MENWUEswdV9wcTlBQWs?oc=5",
+          "Headline": "ABNB: DA Davidson Lowers Price Target, Maintains Buy Rating | AB - GuruFocus",
+          "URL": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOaEk5UUtORlRPbTFGRnRwSnczWmZ5RGZNU21ydEJXZ185eFIwSjVxSENsZU1EU1h1OGFOUF9qUGhBdnhzYnpDNjljS1N3bHZRLUFnQThiUXVwd3oxMDB0eE5NdWVYV2U5c24zTnJGTmFFUXFrNUhuS1ppbE04Ry1NYVdEWlQ0VmlrOW5NXzJKdEpnS21pcnJNWGx0eDlQVVduUFZzV3VCMEtGV3VObmZ5eFpR?oc=5",
           "Category": "Analyst Rating",
-          "Sentiment": 0.9,
-          "Impact": 0.8,
-          "Date": "2026-02-17 09:36:37"
-        },
-        {
-          "Headline": "Deutsche Bank Upgrades Airbnb (ABNB) - Nasdaq",
-          "URL": "https://news.google.com/rss/articles/CBMieEFVX3lxTE90LTBuV3BQdGZ1VW85eWdhNGlHdVlrUjFIdExua3RnUTYxeHlmV1B2TkFSTXNNSEc5NjdvS05TNm90SjQtZnI3TU9FTnFxMlp0dFZTcjJTOEIxa0ZBQzNpN1poVHd5R1g0OUxGdWVTM3B0MUU0eGdFdQ?oc=5",
-          "Category": "Analyst Rating",
-          "Sentiment": 0.7,
-          "Impact": 0.7,
-          "Date": "2026-02-17 09:36:37"
-        },
-        {
-          "Headline": "The AI-Native Travel Powerhouse: A Deep Dive into Airbnb\u2019s (ABNB) 2026 Outlook - FinancialContent",
-          "URL": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxOSTQxWWdTSzV2WldUZ3dRTzhnc3l1NU8xVUtyM2kxempCU2tiT3NzbUJ2a0dyRlZlT1QtT1pwc2NWbkZudFRvT1pzT2ZxYkd2b3JJdlphUEtVWjhsQ3U1UV9ROVZwNzVfWEVYSzJlcmt2UllGZlZnYjFRQVRqSW5vSl83cFA5YXltbHZTejZXY2c5ZUJ5RjdpOEVtSC1yeXZkdFR3bDlBdExKNmZnZ1hpajRKOE12YkgxOWNCeUF5QWNOektQTXZINkJmamZoODlzVzJZcklsbXUzbXhqclE?oc=5",
-          "Category": "Company Specific",
-          "Sentiment": 0.4,
+          "Sentiment": 0.2,
           "Impact": 0.6,
-          "Date": "2026-02-17 09:36:37"
+          "Date": "2026-02-18 09:35:07"
         }
       ],
       "Signal": "BULLISH_BREAKOUT"
@@ -365,6 +349,54 @@ const DASHBOARD_DATA = {
       "Headline": "BTIG Research Has Lowered Expectations for Abbott Laboratories (NYSE:ABT) Stock Price - Defense World",
       "URL": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQTkJkUnhHbnE5eTBnQ0syU3RMYUJQVUt3dEJaR2VKb1dYN1hwM2FJZ0IwQkpNamQ4NjdGdzRIdjFWUll2Z0IyUFYzSnVISHJLcUh1d1JhajMwY2NyRGdMRDVhbTlOblZ0bm9KTzc3a01Ec2ZXd3dUWWd1cXRoWXFWd3NVT0tWdGJpMTUxeVFTWU5ZdnFmSlJ1T1Vlbkd3UmU0djlyQ3pUMEhwblZGdG05WEMtWGhRbzJZak9YWUhPSk1ZcmlnR2c?oc=5",
       "All_News": [
+        {
+          "Headline": "Raiffeisen Bank International AG Purchases 33,095 Shares of Abbott Laboratories $ABT - MarketBeat",
+          "URL": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxPUUlhZmxaYVlleVlndks4LXdOWlcxN1FVZ1pTUWdfemlKSUgxdFBSSEdOZ0Q0UDRwb1YyUjRJVHUzQzlfTFN2S0NJYnphVUdkazJFRU9tMzFaU3NLR2NFUjBzaUJPaFp2Y3FxbEUtT0pDX0E4RGtmbzVEeXh0cFZmc3otNEwyRXJXNkJNY2NtRndJYTBtcS0wVlRuVTF3N2xaV1h4ekwtaEljclRhNWw5UTY1dGN5MHpvSmc5aS1QWTJUUVFrLVhzSU56NE5rcTZQZGtSYlR0cGZmZUk?oc=5",
+          "Category": "Institutional Investment",
+          "Sentiment": 0.5,
+          "Impact": 0.4,
+          "Date": "2026-02-22 09:19:08"
+        },
+        {
+          "Headline": "Siligmueller & Norvid Wealth Advisors LLC Purchases Shares of 11,538 Abbott Laboratories $ABT - MarketBeat",
+          "URL": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxQeXhfX1RwR0JTeC16bzhBVlZGeXVjQ1Jyc1hkYm5sbnMxZHphNlVrb0hGWHNhaGxDbWVRdWFGWUQ2by1ncDNXVHRTc1JDMWVMb0hVRFNMTFJtMkk5WFNnaFdZUE0xZW9yZC1nZGNzNVNrbVFwcF9oOG9iWktIaFE0X0d5M2NGWW44NFRSU0JiaGFVdy0wcVdWeVUyeWQ4ajZNS1prbm4zQTF3WER0U1BCRHBSeWxQem8zTG9kMVlibXAtUi1wbURPWThXQWRXSWEtbHdreGNTQjRCaGw5U2VvUGNXN0M?oc=5",
+          "Category": "Institutional Investment",
+          "Sentiment": 0.4,
+          "Impact": 0.3,
+          "Date": "2026-02-22 09:19:08"
+        },
+        {
+          "Headline": "China Universal Asset Management Co. Ltd. Sells 15,607 Shares of Abbott Laboratories $ABT - MarketBeat",
+          "URL": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxQNng2blhXMWdDZUFrMVVBOWpoSkl6UHNTRzdjamFIU3IwZGpKcjI1Rmx5aVBJbGZyczV0TXc4bFdidFNsZ0MzU1RWZnRBVTYzeVFMcDhYWXk0MnBIN05oN1V5Z1U3UUtjNW45bmlXTU5kUzQ0TTB4WGxqa1lPZFpqX3NWeWcxbVBpckJnaFEyVi0zT2lCUEZmaHM0SFBWYWhYbEdRS3hoX2lRT200d2ltUnZHbHYyTERZSnhwQmhZN2lIM3RQeUxzTHQ0dnozZVBDMXlHeUw4cDl4cHdaYUg0?oc=5",
+          "Category": "Institutional Investment",
+          "Sentiment": -0.4,
+          "Impact": 0.3,
+          "Date": "2026-02-22 09:19:08"
+        },
+        {
+          "Headline": "NewEdge Wealth LLC Has $6.20 Million Stake in Abbott Laboratories $ABT - MarketBeat",
+          "URL": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOejBWOFB5Mnd2UXFlRlhkRDMzZV9mTC1sSm5TeEt1bm1EMVBYQmRGaldiQWJOWUNNRlpic0RyMkFpYkRtUmVFdUNMYXJTMW5ITExkb243U3lkVF9XM0tWVHVCajZQcU0tTnVzRzd3ZU1CX2pFaFpaZ0cxU2N2UENNV0FzSGtUcW04SXhiWjdrM2lYcXE1cEJmWXFXaWtXTFo3NEdlalpBcXpIZjVkMFlDcTVLbTFtanBYWkJFVlppWEV5RU5WV05B?oc=5",
+          "Category": "Fund Activity",
+          "Sentiment": 0.6,
+          "Impact": 0.5,
+          "Date": "2026-02-21 09:19:09"
+        },
+        {
+          "Headline": "BSX vs. ABT: Which MedTech Stock is the Better Investment Now? - Zacks Investment Research",
+          "URL": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNMVFZekZFR1l5RFpJc2JWX3pjai1tTS1qNGRfMDR6ZHFKaEdiaWpvbUtSakJoVGJJcDZjNmdSbWd2ZlZWSnE0MzhsdGpWMnJIOEt3RTRfQ3ZxczFfWlRzMFNhdVNZbTlMbld2YnZSN01uZU83ekNUdHRVcDk5NnBCbDlaZ1FpS0tRZGhBWnBvVUxmZEFYUVJaYlBzZlFSWF9OWFE?oc=5",
+          "Category": "Comparison",
+          "Sentiment": 0.0,
+          "Impact": 0.3,
+          "Date": "2026-02-21 09:19:09"
+        },
+        {
+          "Headline": "Elefante Mark B Boosts Position in Abbott Laboratories $ABT - Defense World",
+          "URL": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOeHdRcnVodWdzTkY1MHVwcFVrN1J3d2RWVG9pbllLWjFya1ZNMFllOWRMOWdNZDV6U0gxWHBfUXA3X2lZc18ycTdsNnJGSWJaSUJrS3hoNWVUaTFTQnhWazdxRG5rTkRTYWExcFk1U3Nlc2hia3RSWTlpeVJpSFhYTzhPcWF4R09SYWlaNjlabVlQbERqNWlLX21PTVFBLWVCMzVOanB3?oc=5",
+          "Category": "Fund Activity",
+          "Sentiment": 0.6,
+          "Impact": 0.5,
+          "Date": "2026-02-21 09:19:09"
+        },
         {
           "Headline": "Rep. Thomas H. Kean, Jr. Purchases Shares of Abbott Laboratories (NYSE:ABT) - MarketBeat",
           "URL": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOM3Z0TXJHQ2NmU05SSUxzd1luVGF0QWdZeWNHOEtYeEFfMnMzZFNadnNDalE4emdXNFQtc0lpbkxLQTZ2VXliY2pPeXE3cThhWDBKeTBkUko4dEN6aHI0TDRPdEUydHZLdHFjdUpjVlJaQkRhSVNCbkdKUnVnc0NiMGVHWEItTVZ3SS1hUTRZV29FUFBCYnZ2RGpnMUpqTzlDZGlRcEx6VGhkVUJHdjUxYjBxckV5MXB6eTViWDRsNA?oc=5",
@@ -382,36 +414,28 @@ const DASHBOARD_DATA = {
           "Date": "2026-02-21 09:19:09"
         },
         {
-          "Headline": "NewEdge Wealth LLC Has $6.20 Million Stake in Abbott Laboratories $ABT - MarketBeat",
-          "URL": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOejBWOFB5Mnd2UXFlRlhkRDMzZV9mTC1sSm5TeEt1bm1EMVBYQmRGaldiQWJOWUNNRlpic0RyMkFpYkRtUmVFdUNMYXJTMW5ITExkb243U3lkVF9XM0tWVHVCajZQcU0tTnVzRzd3ZU1CX2pFaFpaZ0cxU2N2UENNV0FzSGtUcW04SXhiWjdrM2lYcXE1cEJmWXFXaWtXTFo3NEdlalpBcXpIZjVkMFlDcTVLbTFtanBYWkJFVlppWEV5RU5WV05B?oc=5",
-          "Category": "Fund Activity",
-          "Sentiment": 0.6,
-          "Impact": 0.5,
-          "Date": "2026-02-21 09:19:09"
-        },
-        {
-          "Headline": "Elefante Mark B Boosts Position in Abbott Laboratories $ABT - Defense World",
-          "URL": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOeHdRcnVodWdzTkY1MHVwcFVrN1J3d2RWVG9pbllLWjFya1ZNMFllOWRMOWdNZDV6U0gxWHBfUXA3X2lZc18ycTdsNnJGSWJaSUJrS3hoNWVUaTFTQnhWazdxRG5rTkRTYWExcFk1U3Nlc2hia3RSWTlpeVJpSFhYTzhPcWF4R09SYWlaNjlabVlQbERqNWlLX21PTVFBLWVCMzVOanB3?oc=5",
-          "Category": "Fund Activity",
-          "Sentiment": 0.6,
-          "Impact": 0.5,
-          "Date": "2026-02-21 09:19:09"
-        },
-        {
-          "Headline": "BSX vs. ABT: Which MedTech Stock is the Better Investment Now? - Zacks Investment Research",
-          "URL": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNMVFZekZFR1l5RFpJc2JWX3pjai1tTS1qNGRfMDR6ZHFKaEdiaWpvbUtSakJoVGJJcDZjNmdSbWd2ZlZWSnE0MzhsdGpWMnJIOEt3RTRfQ3ZxczFfWlRzMFNhdVNZbTlMbld2YnZSN01uZU83ekNUdHRVcDk5NnBCbDlaZ1FpS0tRZGhBWnBvVUxmZEFYUVJaYlBzZlFSWF9OWFE?oc=5",
-          "Category": "Comparison",
-          "Sentiment": 0.0,
-          "Impact": 0.3,
-          "Date": "2026-02-21 09:19:09"
-        },
-        {
           "Headline": "Hemenway Trust Co LLC Has $45.81 Million Holdings in Abbott Laboratories $ABT - MarketBeat",
           "URL": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNa25zMjJXNUlrdFBwRm9TVVhmNzVnbG43b0F0YUw4VFNZT290VG5fR2ZQZTlib3prZjFmckh1S0ZIRFhsdzJDdW9XakRFa0lPRVY0YVZrLUhMMmQ4cDAxaFdqdVJ1R0daYlZueWtPZE5keGlwcEg3Q3hUcFZRYXJoa3E4TGZ0cGphLUpjLXNVSkZGdmhLUVBROTNQdGx1LXVXLVU5VXk2QUl3VGMwR2ZnU3pRdjhiT0FtVVN1T0dzMzZnbEtiMGptZU1WMC1ybE8y?oc=5",
           "Category": "Institutional Holdings",
           "Sentiment": 0.0,
           "Impact": 0.1,
           "Date": "2026-02-20 09:30:17"
+        },
+        {
+          "Headline": "BTIG Research Has Lowered Expectations for Abbott Laboratories (NYSE:ABT) Stock Price - Defense World",
+          "URL": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQTkJkUnhHbnE5eTBnQ0syU3RMYUJQVUt3dEJaR2VKb1dYN1hwM2FJZ0IwQkpNamQ4NjdGdzRIdjFWUll2Z0IyUFYzSnVISHJLcUh1d1JhajMwY2NyRGdMRDVhbTlOblZ0bm9KTzc3a01Ec2ZXd3dUWWd1cXRoWXFWd3NVT0tWdGJpMTUxeVFTWU5ZdnFmSlJ1T1Vlbkd3UmU0djlyQ3pUMEhwblZGdG05WEMtWGhRbzJZak9YWUhPSk1ZcmlnR2c?oc=5",
+          "Category": "Analyst Rating/Outlook",
+          "Sentiment": -0.7,
+          "Impact": 0.8,
+          "Date": "2026-02-19 09:34:22"
+        },
+        {
+          "Headline": "Abbott Laboratories (ABT) Is a Trending Stock: Facts to Know Before Betting on It - Yahoo! Finance Canada",
+          "URL": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQVmZ1V3I4ZWw2M055MWlwS1FEalJNamhNX21iY19ULXNZNU1yZXlmcmRUbXF0OVJUYU9jVjFJOXNKSkJTWUpYNHp0ZE5qSm1oc01YT0xfaEtzSEhIbktobEVIUjI2X1E1d3lCWEVzeVdHV1h1elpUcFhJYVpVMTdlUFRkeHBuRjJFZ0F6MWp1YkU?oc=5",
+          "Category": "Market Attention/Information",
+          "Sentiment": 0.0,
+          "Impact": 0.2,
+          "Date": "2026-02-19 09:34:22"
         },
         {
           "Headline": "ABT.SW Abbott Laboratories CHF100.00 pre-market 19 Feb 2026: Oversold bounce - Meyka",
@@ -430,34 +454,10 @@ const DASHBOARD_DATA = {
           "Date": "2026-02-19 09:34:22"
         },
         {
-          "Headline": "Abbott Laboratories (ABT) Is a Trending Stock: Facts to Know Before Betting on It - Yahoo! Finance Canada",
-          "URL": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQVmZ1V3I4ZWw2M055MWlwS1FEalJNamhNX21iY19ULXNZNU1yZXlmcmRUbXF0OVJUYU9jVjFJOXNKSkJTWUpYNHp0ZE5qSm1oc01YT0xfaEtzSEhIbktobEVIUjI2X1E1d3lCWEVzeVdHV1h1elpUcFhJYVpVMTdlUFRkeHBuRjJFZ0F6MWp1YkU?oc=5",
-          "Category": "Market Attention/Information",
-          "Sentiment": 0.0,
-          "Impact": 0.2,
-          "Date": "2026-02-19 09:34:22"
-        },
-        {
-          "Headline": "BTIG Research Has Lowered Expectations for Abbott Laboratories (NYSE:ABT) Stock Price - Defense World",
-          "URL": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQTkJkUnhHbnE5eTBnQ0syU3RMYUJQVUt3dEJaR2VKb1dYN1hwM2FJZ0IwQkpNamQ4NjdGdzRIdjFWUll2Z0IyUFYzSnVISHJLcUh1d1JhajMwY2NyRGdMRDVhbTlOblZ0bm9KTzc3a01Ec2ZXd3dUWWd1cXRoWXFWd3NVT0tWdGJpMTUxeVFTWU5ZdnFmSlJ1T1Vlbkd3UmU0djlyQ3pUMEhwblZGdG05WEMtWGhRbzJZak9YWUhPSk1ZcmlnR2c?oc=5",
-          "Category": "Analyst Rating/Outlook",
-          "Sentiment": -0.7,
-          "Impact": 0.8,
-          "Date": "2026-02-19 09:34:22"
-        },
-        {
-          "Headline": "Merit Financial Group LLC Grows Holdings in Abbott Laboratories $ABT - MarketBeat",
-          "URL": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQcEJTX3ZVUndmTUFJZGc3bkpSVW1mSHNYTk9PVXNFb1dCM2ZwaDZsMm5MTFo0eTZmeVBtZzJlaGFZSFZ5QzExdmVNQkZtVk9nVWVURENjVjF0ZHNtQ0VDMHFZcjE0V3ZfY1ZQWjdBNHE4dm45a3FtWWZORTVPMlY3SFV4ejFra2kxckhFMnlKZkZHMFFRWWZERmVpNUQ4X2ZqdzIwTGRxamdiOTNiRjRQbDI2TXZGalpzVU5GaV9rWWxtekJWNFBF?oc=5",
+          "Headline": "Skandinaviska Enskilda Banken AB publ Buys 190,255 Shares of Abbott Laboratories $ABT - MarketBeat",
+          "URL": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQR2ZaTERTNmctMEpaT3ZIT2xQMWlTcHBiSS00eTRGT2JMZnZUbW1Qd3gtR3dYNFFBYjdpeXNPUUtXSkl4X3JBdEhUOFRzakJlcU9XWVFnYV9tX3QwY2RKWG04Tjc1Ql8wa1p3bk1NVU9lSVdTTXZkV1F4dG16SDYwRU9PQ0lEQ2s1aEluT0diNkdLTlVTLTM3SnlRb3RZb1U3MUZOM3JDdkZFSFllbEstT2MxUktpejlnb0VWbVo5NXQ3U1dKVlNnLUtGUjhBdG5EX19JZk1SQXdQRmpD?oc=5",
           "Category": "Institutional Investment",
           "Sentiment": 0.2,
-          "Impact": 0.2,
-          "Date": "2026-02-18 09:35:02"
-        },
-        {
-          "Headline": "NEOS Investment Management LLC Acquires 72,502 Shares of Abbott Laboratories $ABT - MarketBeat",
-          "URL": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNZ2t2Y0RIQzBqYzFlQVp3S0pNTVd5Z3dFbDhfOHVDXzEtR3NZbkRab3pTRm1yTlNjbVhZN2JNN25wVnpPYm5HcXgxRDI5Uzd0R0RacUdJZFJtM0s4UkczTG5iVE1DakxpQTRUQnU4WTJaMmJhSXhhcE9IYmNEMFl2SU5HQ1dXa2hwTDlDc1d4ZVVabWRvVWp4cWc5c2FXUFViUnB1bElycUd2UU5LZnFuNlN3Y3N3TUtDUk1uSHVMN1NEV1NobHN2VE1PR21WU1M0V3VFRzZfUQ?oc=5",
-          "Category": "Institutional Investment",
-          "Sentiment": 0.1,
           "Impact": 0.2,
           "Date": "2026-02-18 09:35:02"
         },
@@ -470,52 +470,20 @@ const DASHBOARD_DATA = {
           "Date": "2026-02-18 09:35:02"
         },
         {
-          "Headline": "Skandinaviska Enskilda Banken AB publ Buys 190,255 Shares of Abbott Laboratories $ABT - MarketBeat",
-          "URL": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQR2ZaTERTNmctMEpaT3ZIT2xQMWlTcHBiSS00eTRGT2JMZnZUbW1Qd3gtR3dYNFFBYjdpeXNPUUtXSkl4X3JBdEhUOFRzakJlcU9XWVFnYV9tX3QwY2RKWG04Tjc1Ql8wa1p3bk1NVU9lSVdTTXZkV1F4dG16SDYwRU9PQ0lEQ2s1aEluT0diNkdLTlVTLTM3SnlRb3RZb1U3MUZOM3JDdkZFSFllbEstT2MxUktpejlnb0VWbVo5NXQ3U1dKVlNnLUtGUjhBdG5EX19JZk1SQXdQRmpD?oc=5",
+          "Headline": "NEOS Investment Management LLC Acquires 72,502 Shares of Abbott Laboratories $ABT - MarketBeat",
+          "URL": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNZ2t2Y0RIQzBqYzFlQVp3S0pNTVd5Z3dFbDhfOHVDXzEtR3NZbkRab3pTRm1yTlNjbVhZN2JNN25wVnpPYm5HcXgxRDI5Uzd0R0RacUdJZFJtM0s4UkczTG5iVE1DakxpQTRUQnU4WTJaMmJhSXhhcE9IYmNEMFl2SU5HQ1dXa2hwTDlDc1d4ZVVabWRvVWp4cWc5c2FXUFViUnB1bElycUd2UU5LZnFuNlN3Y3N3TUtDUk1uSHVMN1NEV1NobHN2VE1PR21WU1M0V3VFRzZfUQ?oc=5",
           "Category": "Institutional Investment",
-          "Sentiment": 0.2,
+          "Sentiment": 0.1,
           "Impact": 0.2,
           "Date": "2026-02-18 09:35:02"
         },
         {
-          "Headline": "Abbott Laboratories (ABT) Stock Analysis: 18% Potential Upside Beckons Investors - DirectorsTalk Interviews",
-          "URL": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQZHpySWhWNTFIWUlBVWttV3Z6Smh0aVFvd0N1NDZ5ZDFWdmFYam8yRkhJTUQwRHRMdUE3N1pZLUdQV3N4M0g3a0FWVWtOUmpNeHp2NlRmNWZmajJrY3Z3VmxqeWZwUXZuTkdMU3pXeFMxX0JSRDQ2MjlXZnZpQnA2Yk1qZEpPb3R5bmU5MDJJRGhwd01YU0NGRTNGaXVjeV9IdFU1ZFBDZDd4UmlBSk0zNWhmM1dYaVZWNGpaZ0pRdE1CU0tfUHc?oc=5",
-          "Category": "Analyst Report",
-          "Sentiment": 0.7,
-          "Impact": 0.6,
-          "Date": "2026-02-17 09:36:54"
-        },
-        {
-          "Headline": "Abbott Laboratories $ABT Shares Purchased by Vanguard Group Inc. - MarketBeat",
-          "URL": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPRzlnNEdWaXR6aG93UlRhVHRzaFNLNXc4aHNqa1VCWi1meU9faEo3SU1jMGxUb0hPY1k0YmVSOElqbU14TkdNVkgzZWhTX0JROThsRWp5SjlDSnk4RnZwVzBrcUdIVC1GWG9YbkptMWc4ZmpkdTEweW9WUEdkS2ZUbjA2MkdwN0J1LTg1SWM2cXZtMGI2VU1acHZrWTRDRzdnQ25XWVhZUGRZRXQ0UkhZWXh6empQT25QeVROZ1MzTC0?oc=5",
-          "Category": "Institutional Trading Activity",
-          "Sentiment": 0.8,
-          "Impact": 0.8,
-          "Date": "2026-02-17 09:36:54"
-        },
-        {
-          "Headline": "M&G PLC Buys New Shares in Abbott Laboratories $ABT - MarketBeat",
-          "URL": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOQlozNDRCVk1STG9VZHZMbWlaN29WRDBERm1acEhUQ3B2dndZUkNTY0RxbWRSMWZVWUNFaTdDRXp4dW8tOTBPMFBDY0xRbTRKUUpTbjFzY29YaEF3Z1Voamo0cnNjdEVRaHc3Z2hfRERKRGRuME9PSXhWV19iYjNkS1pfVVdveGRkSlgzeXlROG0wTzhTaXEtMmxVa3VYdVNoRmx6cmpvUTA2MWNHeFQ4?oc=5",
-          "Category": "Institutional Trading Activity",
-          "Sentiment": 0.6,
-          "Impact": 0.6,
-          "Date": "2026-02-17 09:36:54"
-        },
-        {
-          "Headline": "Pallas Capital Advisors LLC Reduces Stock Position in Abbott Laboratories $ABT - MarketBeat",
-          "URL": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxOT3JPdkxHbUlFclZzNzJBTGJrdVVkUHBqMzRHM3phRDVMQ2p5UnYyc3lCNUtFcjgzcjV4T3Z6YXVLWEtBMXFRRXdqaldZOVd5dWg1UmFvVW0zSVgyVzZaeDhNZ3pWZGE1clpXSnpwZmdtUUg4VDA0ZGxJdHgxWGpoRWp3MUlYVVd3dGxwVXBNYnJGU0NsSml0N3pRSThpRkZnN293akxuTlRsTlRrOVNlME52cUUxOWtTcm4zalBFS3ljX1lHdHpadkQ1NjJORHlvTlBfZw?oc=5",
-          "Category": "Investment Activity",
-          "Sentiment": -0.7,
-          "Impact": 0.6,
-          "Date": "2026-02-17 09:36:54"
-        },
-        {
-          "Headline": "Southeast Asset Advisors LLC Acquires 9,600 Shares of Abbott Laboratories $ABT - MarketBeat",
-          "URL": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxQN1RLZGF0Um9xVDZVeTladW1TUDNHajJlVzlBa3FkV0RCSGtFbUhhRGx4Y19BVGtaR3hPRE9pUnJlQ3FMSENnbTUzS0hrWXJaZDNHdWlCSTFyZi1lUGkxRVBCY0VWTlRCZTRHVUlLbklMd2hkT0lXTGExaGx4azN2RmZoenl5U2w4MHR0b09RbEw0b1BzRFFfX2c2cG9PX0lTVzFybjRnbm03c1lTT21DNFB0c0FuNGFTQ0ZqSllySTVxeEppalhTV1ZHNk5pZVQzUVNF?oc=5",
-          "Category": "Institutional Trading Activity",
-          "Sentiment": 0.5,
-          "Impact": 0.5,
-          "Date": "2026-02-17 09:36:54"
+          "Headline": "Merit Financial Group LLC Grows Holdings in Abbott Laboratories $ABT - MarketBeat",
+          "URL": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQcEJTX3ZVUndmTUFJZGc3bkpSVW1mSHNYTk9PVXNFb1dCM2ZwaDZsMm5MTFo0eTZmeVBtZzJlaGFZSFZ5QzExdmVNQkZtVk9nVWVURENjVjF0ZHNtQ0VDMHFZcjE0V3ZfY1ZQWjdBNHE4dm45a3FtWWZORTVPMlY3SFV4ejFra2kxckhFMnlKZkZHMFFRWWZERmVpNUQ4X2ZqdzIwTGRxamdiOTNiRjRQbDI2TXZGalpzVU5GaV9rWWxtekJWNFBF?oc=5",
+          "Category": "Institutional Investment",
+          "Sentiment": 0.2,
+          "Impact": 0.2,
+          "Date": "2026-02-18 09:35:02"
         }
       ],
       "Signal": "BEARISH_DUMP"
@@ -523,18 +491,50 @@ const DASHBOARD_DATA = {
     {
       "Ticker": "ADBE",
       "Price": 258.61,
-      "LSTM_Confidence": 0.71,
-      "News_Sentiment": -0.8,
+      "LSTM_Confidence": 0.7,
+      "News_Sentiment": 0.3,
       "News_Impact": 0.9,
-      "Headline": "Adobe\u2019s (ADBE) Retreat Below $275 Unsettles Bullish Stock Thesis - TipRanks",
-      "URL": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNd1ZzLUIwbktJLTdnTFM1MEk0V0FuTUlremdxRVZYMFBMQmtyem5LZXNsRzg0aDQycUhVTDdiRTRhSnR3U0FYODhkZlMxTm5MN0duaXBDME5nd3lGenVadmhXQm04RmJTWFBpVER5U3pLdkpSTUh5ZE5oQ0k1dlk2cmFZLUlZTTZhT0VQbC1GM3dRY0VX?oc=5",
+      "Headline": "Adobe (ADBE) Stock Is Down 43% \u2013 Here\u2019s Why Some Analysts Still See 60% Upside - CoinCentral",
+      "URL": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOY05iVTZJa0pRNFF2TjNlNE5JbGN1TDBBcGN0WmhqRmRRUFJkYlg1T0lqUWx0UjN0VnN5Wk1ZVXhMeldZR3hWSmVzUERFN3dwSnY0cGxCN2RYLWphRkJtZ2trclhCT1RXTFo4amhvRFU2VEY2UzNldnViZTF5Q0F0Wk56eWtHYjM3N240eXNWcW9jc1lEM1hMTTdWT1k?oc=5",
       "All_News": [
         {
-          "Headline": "Adobe\u2019s (ADBE) Retreat Below $275 Unsettles Bullish Stock Thesis - TipRanks",
-          "URL": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNd1ZzLUIwbktJLTdnTFM1MEk0V0FuTUlremdxRVZYMFBMQmtyem5LZXNsRzg0aDQycUhVTDdiRTRhSnR3U0FYODhkZlMxTm5MN0duaXBDME5nd3lGenVadmhXQm04RmJTWFBpVER5U3pLdkpSTUh5ZE5oQ0k1dlk2cmFZLUlZTTZhT0VQbC1GM3dRY0VX?oc=5",
-          "Category": "Stock Movement",
-          "Sentiment": -0.8,
+          "Headline": "Adobe (ADBE) Stock Is Down 43% \u2013 Here\u2019s Why Some Analysts Still See 60% Upside - CoinCentral",
+          "URL": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOY05iVTZJa0pRNFF2TjNlNE5JbGN1TDBBcGN0WmhqRmRRUFJkYlg1T0lqUWx0UjN0VnN5Wk1ZVXhMeldZR3hWSmVzUERFN3dwSnY0cGxCN2RYLWphRkJtZ2trclhCT1RXTFo4amhvRFU2VEY2UzNldnViZTF5Q0F0Wk56eWtHYjM3N240eXNWcW9jc1lEM1hMTTdWT1k?oc=5",
+          "Category": "Stock Performance / Analyst Outlook",
+          "Sentiment": 0.3,
           "Impact": 0.9,
+          "Date": "2026-02-22 09:19:09"
+        },
+        {
+          "Headline": "US Market Recap: Should you avoid ADBE stock right now - July 2025 Recap & AI Powered Market Entry Strategies - baoquankhu1.vn",
+          "URL": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQbFBJTEpORWFNd0NkTEhBQzdpcDlQRGphc0NuSFhqLXhESVh3Qi1OeDgtdzZ2X0pzMDl5ZHZTT3J0MkVnd2pDVE5OWUF3eVk2Y2hRTHFvS2pXSWFfLUNXOVFWTjZrNDBkc19halUydmFadlVrTmdyUFRjTHNSSXZCSVZEdmc?oc=5",
+          "Category": "Market Analysis",
+          "Sentiment": -0.5,
+          "Impact": 0.6,
+          "Date": "2026-02-22 09:19:09"
+        },
+        {
+          "Headline": "$ADBE stock fell 3% this week. Here's what we see in our data. - Quiver Quantitative",
+          "URL": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQMm9FeS1YY1hFQlJkMXV6a0dyU2FkeUhOdGRXMlRfSW9SVGlrcUp5al9qQmg2U1JVcUJnQXUwWXJDaXVRc2s5SGVteHJhem1FbzEtYjYzLU04NGprcWR2a3hFRzZ5eFFydFhqX3h0ZmpWRTZwWm9HZnJseTN3TV9xM3pRYnV5WF9JSlZ3S0RxSXFhVEszb0xZd3Y2ZFBHbHhhTV9J?oc=5",
+          "Category": "Stock Performance",
+          "Sentiment": -0.6,
+          "Impact": 0.6,
+          "Date": "2026-02-22 09:19:09"
+        },
+        {
+          "Headline": "Alliance Wealth Advisors LLC UT Sells 3,797 Shares of Adobe Inc. $ADBE - Defense World",
+          "URL": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNdzVicEVaZkJFTC1sdk9ybk5NRjl2V2pERGFnQWdQd3lyZzlfRzZEM2NqdFJkODVMQ0xaMWUxa3ZUUTRoVmUzTGRNeHF2d1pJTWc3dElXRGRTYUhjTzJ2VWhvWHpFSHNwUUZNV0Y0VERfZGJtX0otQVVPc3hBNG9yRGFLWEhWYkt1U2NCbkxuZnh0NVhvUXpiYmNzSW1iYjhJTkVUOHJWWkhlcGNLYmVBWjBB?oc=5",
+          "Category": "Institutional Investment",
+          "Sentiment": -0.4,
+          "Impact": 0.2,
+          "Date": "2026-02-22 09:19:09"
+        },
+        {
+          "Headline": "Interesting ADBE Put And Call Options For October 16th - Nasdaq",
+          "URL": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPVGh0MU1TY2xSZTNYSGM1dVhuZE5KOHVuSXNhLTBnYWRKeEFHSW5KZ2VhZ3kwTlJEYkp5a3FOTXQ4emlPZUJPdlB3c05zSGFaLWpfUGg0bXVsazhsZ0FTUVRhVE5XbG5SMlN1RkhsTzV5Tkd1ajIyVWZvZGx1eFR6S0tMVW55V0RuTFE?oc=5",
+          "Category": "Options Activity",
+          "Sentiment": 0.0,
+          "Impact": 0.3,
           "Date": "2026-02-21 09:19:09"
         },
         {
@@ -546,11 +546,11 @@ const DASHBOARD_DATA = {
           "Date": "2026-02-21 09:19:09"
         },
         {
-          "Headline": "Interesting ADBE Put And Call Options For October 16th - Nasdaq",
-          "URL": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPVGh0MU1TY2xSZTNYSGM1dVhuZE5KOHVuSXNhLTBnYWRKeEFHSW5KZ2VhZ3kwTlJEYkp5a3FOTXQ4emlPZUJPdlB3c05zSGFaLWpfUGg0bXVsazhsZ0FTUVRhVE5XbG5SMlN1RkhsTzV5Tkd1ajIyVWZvZGx1eFR6S0tMVW55V0RuTFE?oc=5",
-          "Category": "Options Activity",
-          "Sentiment": 0.0,
-          "Impact": 0.3,
+          "Headline": "Adobe\u2019s (ADBE) Retreat Below $275 Unsettles Bullish Stock Thesis - TipRanks",
+          "URL": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNd1ZzLUIwbktJLTdnTFM1MEk0V0FuTUlremdxRVZYMFBMQmtyem5LZXNsRzg0aDQycUhVTDdiRTRhSnR3U0FYODhkZlMxTm5MN0duaXBDME5nd3lGenVadmhXQm04RmJTWFBpVER5U3pLdkpSTUh5ZE5oQ0k1dlk2cmFZLUlZTTZhT0VQbC1GM3dRY0VX?oc=5",
+          "Category": "Stock Movement",
+          "Sentiment": -0.8,
+          "Impact": 0.9,
           "Date": "2026-02-21 09:19:09"
         },
         {
@@ -570,19 +570,19 @@ const DASHBOARD_DATA = {
           "Date": "2026-02-20 09:30:18"
         },
         {
-          "Headline": "13,521 Shares in Adobe Inc. $ADBE Acquired by First National Bank of Omaha - Defense World",
-          "URL": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNWi1iZ2NZUnFxelZrSmtEV2xxT3dGR1BlTmdlZXZOcG5SMk40SnNyX01BVS02VEdOLUo0LXJjQ3Y1NTM4UzVmSGNVb2d2Mm9ZWjJOYnRyVE1yQmludURoSTBjbHBOSTFIRVd6YldRNGdSUDViWVlKb2ptYjNrUkhsUGJEVlM1TGN5elg2MHpYbUhlYV9KSUsybGk5ZGN2RGNsWGNycVZKVUVKcGsybHlxRUJ0bk9kREU?oc=5",
-          "Category": "Institutional Investment",
-          "Sentiment": 0.3,
-          "Impact": 0.3,
-          "Date": "2026-02-19 09:34:31"
-        },
-        {
           "Headline": "Legal AI Training Suits And Analyst Doubts Could Be A Game Changer For Adobe (ADBE) - Yahoo Finance",
           "URL": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOYXV1aHR2ZGFlZS13QTF3Tzd0VFNFSXF3SF80SlNiSWdjSTBUR29mRFJGT0wwY1RBaXUxUHg0U21OYzllUVl6aXMzU05NbHBpaUpKYTRIazlWa3VraEFPQTFXVjlzR1ZMTXpuYXZ0R1p4ZERlTkplaWFjNWgzbTdsSnE1aw?oc=5",
           "Category": "Legal Issues / Analyst Opinion",
           "Sentiment": -0.8,
           "Impact": 0.9,
+          "Date": "2026-02-19 09:34:31"
+        },
+        {
+          "Headline": "13,521 Shares in Adobe Inc. $ADBE Acquired by First National Bank of Omaha - Defense World",
+          "URL": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNWi1iZ2NZUnFxelZrSmtEV2xxT3dGR1BlTmdlZXZOcG5SMk40SnNyX01BVS02VEdOLUo0LXJjQ3Y1NTM4UzVmSGNVb2d2Mm9ZWjJOYnRyVE1yQmludURoSTBjbHBOSTFIRVd6YldRNGdSUDViWVlKb2ptYjNrUkhsUGJEVlM1TGN5elg2MHpYbUhlYV9KSUsybGk5ZGN2RGNsWGNycVZKVUVKcGsybHlxRUJ0bk9kREU?oc=5",
+          "Category": "Institutional Investment",
+          "Sentiment": 0.3,
+          "Impact": 0.3,
           "Date": "2026-02-19 09:34:31"
         },
         {
@@ -610,14 +610,6 @@ const DASHBOARD_DATA = {
           "Date": "2026-02-18 09:35:05"
         },
         {
-          "Headline": "Adobe: The SaaS Apocalypse Is About To Meet A Valuation Check (NASDAQ:ADBE) - Seeking Alpha",
-          "URL": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPZ256Z0U0LVRpeDZBdDVDNDM1YlVBWFUyS29CSHhXYTZzYzNnYVloeUFCVVJEVFFWejNXUV81ZXl6RlhkMU4zc09qQzRfb3FwaFlfSEtpcG9sRFp1bVZ5eTZ4RUR6NzFtU1lhZUJ0TzZ1QURxY29UQmxTVjB2WmRWaUVNY2stdndmX25HOExwWUFtU3pyQnNkdUpQajVGckJHX0xn?oc=5",
-          "Category": "General",
-          "Sentiment": -0.9,
-          "Impact": 0.9,
-          "Date": "2026-02-18 09:35:05"
-        },
-        {
           "Headline": "Crestwood Advisors Group LLC Lowers Position in Adobe Inc. $ADBE - Defense World",
           "URL": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQemM0OExPSWN2V3ZDUG5SOFJUblowT3ZzeDNhdC1QQWtPMk5VQVJtb2R2d0VWa0dGZUlBbDk1VTd1bVN5UG42T3JlNnJDSjc4NmZPS0Fya2NETDVKN1JSbERlOFNWcU9wZ3I2V0Zxc3EydzZuQ20tVWtSVlN2RVJoNG16SEtFWV84eG1vQTV3VjNfSVhjYlR2ZTZ3WU5MZDVGNTV3emlsaWRZZXc?oc=5",
           "Category": "General",
@@ -626,23 +618,15 @@ const DASHBOARD_DATA = {
           "Date": "2026-02-18 09:35:05"
         },
         {
-          "Headline": "Adobe stock price in focus as ADBE nears Tuesday reopen after Presidents Day - Bez Kabli",
-          "URL": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOV3c4Y2VFd3p1SE9IRFZaOE9QMzAzX0M4enNKcXJOajlDaXkwNm5wRWxmWl9ET25TaFVlVG5GX0M5SUFGcUprZ1FsSW92bS11VFN6a2RJaXFBYkVMQVVZR21aaUwzZG9KMXpSbndCTndFOFlDbzNPUHlmV1lidmoxRkNvb3BsTDhuV3RaekFtb1JaMndNQzFiUm4zUlppMUdMQVplQQ?oc=5",
-          "Category": "market_observation",
-          "Sentiment": 0.0,
-          "Impact": 0.2,
-          "Date": "2026-02-17 09:36:46"
-        },
-        {
-          "Headline": "Adobe Inc. (NASDAQ:ADBE) Presents a Classic Value Investing Opportunity - ChartMill",
-          "URL": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPc2J3X3ZfRTA5OXBpa2dBRWF0aERGNWFRTXpFRE95RWdrRnhEZEZCeG1lMzZBcFZEaVpSd080b1JUWkV5NVNOWDJrZlFROGxRLUdtaUZreWo0Y0xjNnQ1MlRfaWFac0gyeFRXS2NPaHdud1RSMlV1V2ZNaU84cVRjWGtlV3U4UlM1OWV0b18tUGpQbTJHUjFmaFNRazMzRnZ6VnV6dGNUak9IbXdxaC1wREw0MlVLOElKWUk4?oc=5",
-          "Category": "investment_analysis",
-          "Sentiment": 0.8,
-          "Impact": 0.7,
-          "Date": "2026-02-17 09:36:46"
+          "Headline": "Adobe: The SaaS Apocalypse Is About To Meet A Valuation Check (NASDAQ:ADBE) - Seeking Alpha",
+          "URL": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPZ256Z0U0LVRpeDZBdDVDNDM1YlVBWFUyS29CSHhXYTZzYzNnYVloeUFCVVJEVFFWejNXUV81ZXl6RlhkMU4zc09qQzRfb3FwaFlfSEtpcG9sRFp1bVZ5eTZ4RUR6NzFtU1lhZUJ0TzZ1QURxY29UQmxTVjB2WmRWaUVNY2stdndmX25HOExwWUFtU3pyQnNkdUpQajVGckJHX0xn?oc=5",
+          "Category": "General",
+          "Sentiment": -0.9,
+          "Impact": 0.9,
+          "Date": "2026-02-18 09:35:05"
         }
       ],
-      "Signal": "BEARISH_DUMP"
+      "Signal": "VOLATILITY_WATCH"
     },
     {
       "Ticker": "AEP",
@@ -654,17 +638,25 @@ const DASHBOARD_DATA = {
       "URL": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxQQ0F0YU9JN3h4TWYwaTdud3NzbjNLLUVfejVZa0VXeTliQUQwSi1mc2xGMldRQUFZeFRCanBXTlR2WVVKS0pwUXppMmZCTE15b0F1TDlHN1RzT2E0bVhldklLd005dkxOLXA0T19Ca0hyaEZneU0zSVZGX0plVzBVMmlXbjFJSGtZWVYxc094cmlKcWV5OHdoZlFWaGVHMWxEQTZvVkxyX1lUNV9DZV9ydl9jN3d1ODk2Y2tDV0FZUUhZVk8xY2Vyc05WNHhGeWJrRmhldTVTNk1YTjZveHd6Wkl2TGxrRWFtRl9hNzJB?oc=5",
       "All_News": [
         {
+          "Headline": "Price-Driven Insight from (AEP) for Rule-Based Strategy - Stock Traders Daily",
+          "URL": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOWnpvUFM1cFl2c1NidU1QVV9sakJNaW5mUXU4NFp6ZHFicUJpdnptOWMwUlg1QUFJX1VVWnJkemRaWVJBa3BLaHhIWmVMNnpZTEZRaGpjNnNjblVTaUxvOC1rNXdfdDh2ZnY3QlpBY28tZWxlcS12Ul95VThtWmdrUWZfamVlaF96NGhqMlFFZVgyXy1WUXlMTHpYcmh5WWtreDFkc21SeG1GMEdjMkNsZnI4VXlkWm1BV2Y4R0xVZUgyTjY5ZWNHb2hsM2JsZw?oc=5",
+          "Category": "Trading Strategy",
+          "Sentiment": 0.1,
+          "Impact": 0.3,
+          "Date": "2026-02-22 09:19:06"
+        },
+        {
+          "Headline": "American Electric Power (NASDAQ:AEP) Stock Price Expected to Rise, TD Cowen Analyst Says - Defense World",
+          "URL": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQb205bDNmWFNHUlBFMGRBQU1iR25tSWFhVHROZlg5blZudGVUNDJyaTMyT2plTmtTQlczWHV2dlk5UVVWNDFPWDV6UjZsVjdBQ3kxRTByRXdnVFV4RU4wQVh5QS1vSW1QUEM4NEwxUUdab2hKbm9CRWlCNTBkTktHZHhpNWk2Nk5oTHhQNDRfbE9KMDhhbEpIOURYQ3R0ZnJwZFVhVXhGNmlKaVp2UHlwN3RZMTFZTXZaVkFDeHNOTnNYbkVFaVh2eg?oc=5",
+          "Category": "Analyst Rating",
+          "Sentiment": 0.8,
+          "Impact": 0.7,
+          "Date": "2026-02-22 09:19:06"
+        },
+        {
           "Headline": "TD Cowen Maintains Buy Rating and Raises Price Target for AEP | - GuruFocus",
           "URL": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPRjRHLVFEd3VuS0J4N0k2V21JaEhOVlhqNEpBZjFKSzIwcXVHQlEwNlNHeHNoaThtb0EzZW1UcVlTNnNsQUZCU3JDQjBNMjhOWWZhWHNWQkVhbDBtM0dRb0QwcWhYdHBnTFAwZVdJZkptSDhDVDFIYVRJRS1CTXVkZm1jUlJKZnZ4SjdNOU40a243b20wNHhZN1MxV3YyQXJ3S1E5MUFrMmhVS0lsYjhLemRud2VkQQ?oc=5",
           "Category": "Analyst Rating",
-          "Sentiment": 0.9,
-          "Impact": 0.8,
-          "Date": "2026-02-21 09:19:19"
-        },
-        {
-          "Headline": "AEP: Expanding Contracted Load and Conservative $72B Capital Plan Support 7%\u20139% EPS Growth and Potential Premium Valuation - TipRanks",
-          "URL": "https://news.google.com/rss/articles/CBMi_gFBVV95cUxPSlVqbGlBTWpFSUJkekFNeWpTV0ktVGtncGNKeGpHaG92LXktRWNkc2k3WUFTcWFZbEtsOUp5MzRCOXJmaTBmQ1JmTWJyeWlIeGUxYzBpNjNBU2NUWE95S1V4OHl1djZQelczSkNEVlQ1QTcxY1AzR09ieGNFT3k0X3ROaHdNV2F1VWNIVzBQYnI0dHhCTXV3SHVDRjhDdlA5S3BZM1hXRnJlQ2RVSjdwTEIwRk1rbU1TNUVBLWxiOVNjR1pHa1YwOVdBUkxPb1RSM05GeHVnQVE0ZmlrdGhjdFZyemczdnVGdngwaTBqcVp6ZUNnclM1eHUzZXdBZw?oc=5",
-          "Category": "Company Financials",
           "Sentiment": 0.9,
           "Impact": 0.8,
           "Date": "2026-02-21 09:19:19"
@@ -678,12 +670,12 @@ const DASHBOARD_DATA = {
           "Date": "2026-02-21 09:19:19"
         },
         {
-          "Headline": "AEP Rose 8% This Week. Here\u2019s How Much the Stock Could Rise in 2026 - TIKR.com",
-          "URL": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQU29oRDhvU0h3Z2c5ei1BdEx4bDJ3alNpc29xU3laM3V5RFFKVGhKTDZGcUFWYzRSVkt4OFRicWFvamFRYy1ha1ZhZFVMTHhOOHI3eGpicWpWemNmMExNbUszSFRPamRpZlNMaDBFYW5JQkV1ME1fcVJNaWE1M1Z1aFhmMGlFUE94ajQwN2R0LVBJSEtn?oc=5",
-          "Category": "Market Analysis",
-          "Sentiment": 0.7,
-          "Impact": 0.6,
-          "Date": "2026-02-19 09:34:42"
+          "Headline": "AEP: Expanding Contracted Load and Conservative $72B Capital Plan Support 7%\u20139% EPS Growth and Potential Premium Valuation - TipRanks",
+          "URL": "https://news.google.com/rss/articles/CBMi_gFBVV95cUxPSlVqbGlBTWpFSUJkekFNeWpTV0ktVGtncGNKeGpHaG92LXktRWNkc2k3WUFTcWFZbEtsOUp5MzRCOXJmaTBmQ1JmTWJyeWlIeGUxYzBpNjNBU2NUWE95S1V4OHl1djZQelczSkNEVlQ1QTcxY1AzR09ieGNFT3k0X3ROaHdNV2F1VWNIVzBQYnI0dHhCTXV3SHVDRjhDdlA5S3BZM1hXRnJlQ2RVSjdwTEIwRk1rbU1TNUVBLWxiOVNjR1pHa1YwOVdBUkxPb1RSM05GeHVnQVE0ZmlrdGhjdFZyemczdnVGdngwaTBqcVp6ZUNnclM1eHUzZXdBZw?oc=5",
+          "Category": "Company Financials",
+          "Sentiment": 0.9,
+          "Impact": 0.8,
+          "Date": "2026-02-21 09:19:19"
         },
         {
           "Headline": "AEP doubles contracted load outlook to 56 GW by 2030 while reaffirming 7%-9% earnings growth through 2030 - MSN",
@@ -691,6 +683,14 @@ const DASHBOARD_DATA = {
           "Category": "Company News",
           "Sentiment": 0.9,
           "Impact": 0.9,
+          "Date": "2026-02-19 09:34:42"
+        },
+        {
+          "Headline": "AEP Rose 8% This Week. Here\u2019s How Much the Stock Could Rise in 2026 - TIKR.com",
+          "URL": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQU29oRDhvU0h3Z2c5ei1BdEx4bDJ3alNpc29xU3laM3V5RFFKVGhKTDZGcUFWYzRSVkt4OFRicWFvamFRYy1ha1ZhZFVMTHhOOHI3eGpicWpWemNmMExNbUszSFRPamRpZlNMaDBFYW5JQkV1ME1fcVJNaWE1M1Z1aFhmMGlFUE94ajQwN2R0LVBJSEtn?oc=5",
+          "Category": "Market Analysis",
+          "Sentiment": 0.7,
+          "Impact": 0.6,
           "Date": "2026-02-19 09:34:42"
         },
         {
@@ -708,30 +708,6 @@ const DASHBOARD_DATA = {
           "Sentiment": 0.8,
           "Impact": 0.7,
           "Date": "2026-02-18 09:35:11"
-        },
-        {
-          "Headline": "Wolfe Research Upgrades American Electric Power (AEP) - Nasdaq",
-          "URL": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQdUo2R3ZCNmdDMlg5Qkcxal9kWG85SjA5MVZaZlR6Nk1EQTZ4RVBHSzhJZGtTUzFIOUVoMEFxMlhaaEs1Y2szWDFnTk5Yb3ZvM05GcnNTTDVCQ3ZpYTdadzZQM3dNa2pLNnZtX1MxU1lQd0hQRENxZ00zMXVfdy05OEpqdTVvR1EzeEVxaVdxMA?oc=5",
-          "Category": "Analyst Rating",
-          "Sentiment": 0.7,
-          "Impact": 0.7,
-          "Date": "2026-02-17 09:36:38"
-        },
-        {
-          "Headline": "Head-To-Head Survey: American Electric Power (NASDAQ:AEP) and Unitil (NYSE:UTL) - Defense World",
-          "URL": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOeWkzeHRDUnhJWTZkZzk1aS1RZEFQUUJYUkZLOFZXTndCSjM2dVJuM0JRM0daUWRVNV9KZTVJS29QdGhMRExlbUd0Z3pnVlZtVW53U2w2OU9sZW5UUXNrc1BmZXU2MXhucXFuUnVlSE85d2czaUhfay1tUVg1aEJuNWJFOUNrTTFsa0ZTNHY3Y2ZuVFVtOXJUcENMMTFTZ0VEdlpXcDV4MFJ3ZWk0TWdRMkprQV9rZVBV?oc=5",
-          "Category": "Company Comparison",
-          "Sentiment": 0.0,
-          "Impact": 0.3,
-          "Date": "2026-02-17 09:36:38"
-        },
-        {
-          "Headline": "Paycom and AEP report revenue growth in 2025 with strong outlook - The Journal Record",
-          "URL": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9RQnNXdUdkd3plc1BzbF9oV2dMaURwaGR0Y1VJQXV2eGYyMklqeTEzNnZLU284RkJ0WWhDbkx4X0RxY01raXNJZlVGMWdfZ19tZEZTRGhVaEd1M2NaeV95bEJZdEJaMFJYNmNZNWVZc3J4YWxsbm53?oc=5",
-          "Category": "Earnings",
-          "Sentiment": 0.8,
-          "Impact": 0.8,
-          "Date": "2026-02-17 09:36:38"
         }
       ],
       "Signal": "WAIT"
@@ -740,11 +716,19 @@ const DASHBOARD_DATA = {
       "Ticker": "AFL",
       "Price": 114.03,
       "LSTM_Confidence": 0.61,
-      "News_Sentiment": -0.7,
-      "News_Impact": 0.6,
-      "Headline": "Aflac Incorporated $AFL Position Decreased by State of New Jersey Common Pension Fund D - MarketBeat",
-      "URL": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNNkowUWwzc2VCWU1RcTFMV2xlelE3cWFCMHFFU0xyWDNiV2RrcTllMmdVVFJBb2lkVmVuT3JiVTVCQ1hjajNDREpSZFVBR2xCQVJsV0J2Y3J4Y1dSMGhKN3kwVDNqemlocUF4ckQyZUpYeHpYM2tvWkR1bTVJRVVNWnVkTml0aldWbm80S1RCX0RkOUktVEZGNkxTcXRVRXBhU1RqZGJJVURHNGxicmJNVm9hUWVMTGpWZENzcHV6djZ6QW5YMHdTeGdxYXNpZGhHSGNFU2VHVHF3cGR6dGctUg?oc=5",
+      "News_Sentiment": 0.6,
+      "News_Impact": 0.5,
+      "Headline": "NEOS Investment Management LLC Purchases 19,368 Shares of Aflac Incorporated $AFL - MarketBeat",
+      "URL": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNWW1ocnNfOURSX3hVcnlyb3h4RXJPNTNtTHRraXhRaHJnNmxIaXZ3ZWpKdXlHR1pUTWJrUDV1cFVkYkVISkdZbVlqd1ozaXBkYjNxV0JSeVNNR3dtSGFIeUl3SExKMmhLUWxlQ3JPek5NdkoyUWRzSWl5bGU1M1VsUnhVR0dGcVZLaFF3YTlESlh5Y2VFYUdFME1TczllUUJHR202WFJ6UXdBUG5pejhWNjUtTkE1U1NjWUhhd2xKTGRTd25BQ1ZNenYta2dxOXFiMFRuSlJGOA?oc=5",
       "All_News": [
+        {
+          "Headline": "The Technical Signals Behind (AFL) That Institutions Follow - Stock Traders Daily",
+          "URL": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNY0R6NGtPb0FGRWt4dHFGVUZDXy1lSzlDVGJEMnVVNXloRTB4TFhUS1RFLUpFc09xTHBEWHhpcFNDU200ZGQ4NGVsd1M3RDlEcFctX0xDRjFsNEFEVGJpRG9fS1VnWnlTMG0tVnZWRWxmdGJTX0hSbWFwMGN4Zk5WTGJKZHV1TFZMVWdxZnNMaWE3TGxLbTB4WHpGN1p1a1pDUGNVNm9YeHhGa29JNFo0MXNwVjdtLVBnZV9iLWJNVmRmR2M5RUhTMUo1Q2tNZ1pfanA4?oc=5",
+          "Category": "Technical Analysis",
+          "Sentiment": 0.0,
+          "Impact": 0.2,
+          "Date": "2026-02-22 09:19:14"
+        },
         {
           "Headline": "Interesting AFL Put And Call Options For June 2027 - Nasdaq",
           "URL": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQRURQYXpSQ0pnOXVJXzJnd3FqQk9iclFDZjcxZ29mSTlQOXVSekRNSlBQamFkaEdZcWpqMDRoZjNlVXdHSU1WRmVYTmZvTGlXbUdTT3dNR2J3VkEyYmo0LVphVkJ5N1YwSHlnZEg5VzMya0ptNjR0YUtCSkhnUW12V0QzVEU?oc=5",
@@ -760,38 +744,6 @@ const DASHBOARD_DATA = {
           "Sentiment": 0.6,
           "Impact": 0.5,
           "Date": "2026-02-20 09:30:12"
-        },
-        {
-          "Headline": "Aflac Incorporated $AFL Position Decreased by State of New Jersey Common Pension Fund D - MarketBeat",
-          "URL": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNNkowUWwzc2VCWU1RcTFMV2xlelE3cWFCMHFFU0xyWDNiV2RrcTllMmdVVFJBb2lkVmVuT3JiVTVCQ1hjajNDREpSZFVBR2xCQVJsV0J2Y3J4Y1dSMGhKN3kwVDNqemlocUF4ckQyZUpYeHpYM2tvWkR1bTVJRVVNWnVkTml0aldWbm80S1RCX0RkOUktVEZGNkxTcXRVRXBhU1RqZGJJVURHNGxicmJNVm9hUWVMTGpWZENzcHV6djZ6QW5YMHdTeGdxYXNpZGhHSGNFU2VHVHF3cGR6dGctUg?oc=5",
-          "Category": "Investment Flow",
-          "Sentiment": -0.7,
-          "Impact": 0.6,
-          "Date": "2026-02-17 09:36:35"
-        },
-        {
-          "Headline": "HighTower Advisors LLC Increases Position in Aflac Incorporated $AFL - MarketBeat",
-          "URL": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPM2Q0Sy1md0FWd0Y4c1Z2RnJPQlNUMExTbHE0MFVya1hCZzlJbGFjR09CZ3BnRkJpdXd5czVubnprdEloWFJCV25rOHhYUk1CTmZyUDZKMWpMaWlXS0FoTUd5ekNPODNPZHJzUDYyQ3h5cW1IR01Icl9KS01LUnJYNGhqZE5NZHdQMnN4VmpUQUVscEZZQ1lCMWQ2a0k4d3FXazlUUU1RdU5VMzJseDBXdlNzQkl3MkpKVXF3UGE2LWNhWElXVUpV?oc=5",
-          "Category": "Investment Flow",
-          "Sentiment": 0.7,
-          "Impact": 0.5,
-          "Date": "2026-02-17 09:36:35"
-        },
-        {
-          "Headline": "AFLAC Inc (NYSE:AFL) Shows High Technical and Setup Ratings for a Potential Breakout - ChartMill",
-          "URL": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNdTFFRXp5VjJaWThuaUVBTWdjZXFTLU1qUVNBVE9JV1M4cUxPSUNXWlVhN3lFRkxxLXBNSDh0WDNrNk5DZnNJdEFDRzNyUi1Bamc5M0RkYy11cW5SaHlfX2NvV0gxQndDQS1KQ09IZ0RwRmhBMTJNQUR1d19qc0lHelhKczY1a0JxUmZuaFFFdldETGZBMHNUNTZfbXY2TG5QZDJVN09CYUNZM0twSWt1WWR4VVRlWU1zd1JGU3hoc190bFpQdXBGRTYtWTY?oc=5",
-          "Category": "Technical Analysis",
-          "Sentiment": 0.8,
-          "Impact": 0.5,
-          "Date": "2026-02-17 09:36:35"
-        },
-        {
-          "Headline": "Aflac Incorporated $AFL Holdings Lowered by Aberdeen Group plc - MarketBeat",
-          "URL": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNNWYtS0JBWUlEenFYUlJiTmQyYTJQY3pNZDFBN0lfYWdvSl9wRnpoa3htdm1OazZTWkpZeEFhb0RDTk04SVl6eVhFc3Q2OGJvYnJyWGhWd2FfX3ViaEdJUmN4emxVdG14MjBlbVZES3Vlb1pqeWIwUmozWlBldjY2V0EzczgzZ3J3ai1DU2tXT25jUmlNU2JjczRfX1BSWTNpSHNRNHJTc3R6YjUzUm5hTVE4X19XbW9xLTdCU2NoTQ?oc=5",
-          "Category": "Investment Flow",
-          "Sentiment": -0.6,
-          "Impact": 0.5,
-          "Date": "2026-02-17 09:36:35"
         }
       ],
       "Signal": "WAIT"
@@ -805,6 +757,22 @@ const DASHBOARD_DATA = {
       "Headline": "AIG attributable profit slides to $735m in Q4 - MSN",
       "URL": "https://news.google.com/rss/articles/CBMi2AJBVV95cUxQVUJzMW5QTVNVN1J3aE5rU1k1MTE1LUp0Z3dpWlpGR1cyS1Q5VUxYWV9JNHE2WldVNjlXeFZOLUwxWE1XSXJPUFFEUDJCTTdkR3otdXZ1TF96VkRRMEJVMUFNT2VPRDJkUXB3Vk9teUFWVDdWYjQ0WXpyVmZ6RWpqOV9HMG1mdy1Yc3YzUjBwblZ3ZHBjaGYzemJsU1pubXBVS013UEMyQlpBZHhoOHpkX1pDdGhKY1VTdFc0MWRrdkdnVmVwRUdxVmlMTjNjSHdVdUxmZEk5ZUNnWDBMcmRwcFh1U3M5d3Q4VkdRWERMdWNaTXhzRWl2ZDk4LXNkZXVUUEdKSXlSS0FiZ3ZUVFQwM3NGQmpYWWw2Mm8zQndSN3BtWkxBZ1dkNkJnZk9UNzhGNmFnc05KVWhULUpOcjh6QnVwRDJ4ME9iQkRsYUZWUWRxQm1nMEJJVg?oc=5",
       "All_News": [
+        {
+          "Headline": "Bridgewater Advisors Inc. Cuts Holdings in American International Group, Inc. $AIG - Defense World",
+          "URL": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNUzA4SmlKeUJ4RXJBWTQ3UWhHNTRMcWY0X2RGVW5PSFRfWTY2b2szTmEwcFBBclp4dnZGOGc3ZVdYdTNBNlM1R1BvRkJvQXJPWVNHWlZPZ3RCSDJqUU5NcnJJSTU0eGJiSEhHb2ZMV2JKTEFJOE9kU05ERTFzakVYRkRsUVgzaERiOENVM2VwY3F1OGNqeEZucEkyOGVHa1NNTktpMEFKbG16OERyQjdmWEU4M2FvZldQdHpUdUMxYlc?oc=5",
+          "Category": "Institutional Ownership",
+          "Sentiment": -0.7,
+          "Impact": 0.7,
+          "Date": "2026-02-22 09:19:13"
+        },
+        {
+          "Headline": "Precision Trading with American International Group Inc. (AIG) Risk Zones - Stock Traders Daily",
+          "URL": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxPNjZNcUZhMzBXZEJGRDBKZk5iTDNFN1doOGFFekFCa1pkZVVFNlB6M0J2dU1GdVdrcEVSbmpGLUVGVlJXM2ZLTHUwQXZTOUZZbTA4US1VaUVJRFNwa1Qxb2Z1M29GZ2tRSjBTemRxTTN0R3VmcVlNNllLUk9ITXFDY016Ymtlb2pZSE9sMjV1cnk1RnU3dEE4SlcyRmZWeW15WlBEUm5iREtSZDRtWGpSbzRhY3o2OC1nUGdmYzZBamdHLTVaSUZ2RXBnVGZTUThQUnVKMzRlck1tY3BmbzdNVEpTQ3FyZw?oc=5",
+          "Category": "Technical Analysis",
+          "Sentiment": 0.0,
+          "Impact": 0.2,
+          "Date": "2026-02-22 09:19:13"
+        },
         {
           "Headline": "Cornerstone Advisors LLC Has $974,000 Holdings in American International Group, Inc. $AIG - Defense World",
           "URL": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNZWE4anZTMTBsSk9zNWRQZUxGQUtMRW51VlduMkh1eExVQWYtdTZ3YWhTUEZ3SWYtV25JYXVsSmtWMmdDd19nc2JkMkdGeEtnNGhHMUszSUJvd01PWXhrTm1YVE9jMW10LXdUVXhvZnhOZVo3aXNnUVMyVTQyaDlKS21UZkswQzNuX0R1ZWowVHJtTVNrOFYtUG9PMWdock9IWFlXRDVHUnRJOGF0UEZpUFhBeldycm1qS3V3cE1rMDJIZzNtS0xLNA?oc=5",
@@ -854,14 +822,6 @@ const DASHBOARD_DATA = {
           "Date": "2026-02-18 09:35:22"
         },
         {
-          "Headline": "The 5 most interesting analyst questions from AIG\u2019s Q4 earnings call - MSN",
-          "URL": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQUG9PUFk0dzVpX2xoUHNsMlE2MTBrLThRekZJM0ZSVGNETjBMdUZmTUx5OUYyNEc4dVlKcEQ1OTJTeE93S0hxaG9aNDFEOFlUSS1TNDh1bWNTV2xEaTFrekRJaUZBMHNUVzJrakhkYjV2RklSS1dHUjc2M3ZvNDFuS3dfM2t6eEZROTJnaE5MWm5MLTI3RDEycVctb3h5RU02NW9uTkU1MWQzdmxvOS13TkZsVVgySVlVYTBsS09DZw?oc=5",
-          "Category": "Earnings Call",
-          "Sentiment": 0.0,
-          "Impact": 0.3,
-          "Date": "2026-02-18 09:35:22"
-        },
-        {
           "Headline": "UBS Maintains Buy Rating on AIG, Lowers Price Target | AIG Stock News - GuruFocus",
           "URL": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOQ2hTUE84YjVGbC10ZUpsQ0hBSHlpRlVoeWxxQmZHSXR1UE1zT0tqQ1RvUklHQWU2WlFyV2xGdTRjY2NBVDhkeHN2eW1zR01PeklUTkE5RHZWeTJrX2tvdjZHdzVuanRwZHFXQUFISjQxdm0xVGRmRG1NOTZEYzBPSjEwMGxXWE00N2ZtTkpsYXVZczVJTTNNWU8wUmdkbjlSMGgxVVY0dXI?oc=5",
           "Category": "Analyst Rating/Price Target",
@@ -870,11 +830,11 @@ const DASHBOARD_DATA = {
           "Date": "2026-02-18 09:35:22"
         },
         {
-          "Headline": "American International Group (NYSE:AIG) Given New $92.00 Price Target at UBS Group - Defense World",
-          "URL": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNZ1ZDX282ZTdVRm5tNlgxVXFFb0RlMUY4YVV4elJwRzR5Q1FRVEhTM09JbUlnOERUdDdUcmlrQUtHMlRmNldya0FCaHJJclBFZ3lGV1FfeEc4X1JwWEc2OTBidjN1aHllajEyaUJQQUh2ZTI1MWlHNEtPdmdVd2ZQdWdPM01jOXFfMVR1d2RRLURQeHV1aXBoaFRReUpHMS0zcEd3dlB1bXg5QnJKOXhlN2VPMGhxVDNPcDN3RkNEWlg?oc=5",
-          "Category": "Analyst Rating/Price Target",
-          "Sentiment": 0.6,
-          "Impact": 0.6,
+          "Headline": "The 5 most interesting analyst questions from AIG\u2019s Q4 earnings call - MSN",
+          "URL": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQUG9PUFk0dzVpX2xoUHNsMlE2MTBrLThRekZJM0ZSVGNETjBMdUZmTUx5OUYyNEc4dVlKcEQ1OTJTeE93S0hxaG9aNDFEOFlUSS1TNDh1bWNTV2xEaTFrekRJaUZBMHNUVzJrakhkYjV2RklSS1dHUjc2M3ZvNDFuS3dfM2t6eEZROTJnaE5MWm5MLTI3RDEycVctb3h5RU02NW9uTkU1MWQzdmxvOS13TkZsVVgySVlVYTBsS09DZw?oc=5",
+          "Category": "Earnings Call",
+          "Sentiment": 0.0,
+          "Impact": 0.3,
           "Date": "2026-02-18 09:35:22"
         },
         {
@@ -886,12 +846,12 @@ const DASHBOARD_DATA = {
           "Date": "2026-02-18 09:35:22"
         },
         {
-          "Headline": "Can Mixed Fundamentals Have A Negative Impact on American International Group, Inc. (NYSE:AIG) Current Share Price Momentum? - Yahoo Finance",
-          "URL": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNWk44YWI0Ym94VVNwdnNhaVY0XzFqcFNOZVFxTFJ5Y1R5Q194SFpmWDkxOUF0aXpkcFBBZHdoaG9iTmMtZW5scWZCSWtZRXJOOHNEWFhNblFRZkN4S1pKZU5yOVBmamE1cDBVNUQ2cU54cnBUUGwzQUJBVDkwWi1jMWZzUnpyUXdKcVBiYWtpMXNZaDg?oc=5",
-          "Category": "Company Analysis",
-          "Sentiment": -0.3,
+          "Headline": "American International Group (NYSE:AIG) Given New $92.00 Price Target at UBS Group - Defense World",
+          "URL": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNZ1ZDX282ZTdVRm5tNlgxVXFFb0RlMUY4YVV4elJwRzR5Q1FRVEhTM09JbUlnOERUdDdUcmlrQUtHMlRmNldya0FCaHJJclBFZ3lGV1FfeEc4X1JwWEc2OTBidjN1aHllajEyaUJQQUh2ZTI1MWlHNEtPdmdVd2ZQdWdPM01jOXFfMVR1d2RRLURQeHV1aXBoaFRReUpHMS0zcEd3dlB1bXg5QnJKOXhlN2VPMGhxVDNPcDN3RkNEWlg?oc=5",
+          "Category": "Analyst Rating/Price Target",
+          "Sentiment": 0.6,
           "Impact": 0.6,
-          "Date": "2026-02-17 09:36:54"
+          "Date": "2026-02-18 09:35:22"
         }
       ],
       "Signal": "WAIT"
@@ -905,6 +865,70 @@ const DASHBOARD_DATA = {
       "Headline": "Akamai (AKAM) stock drops as memory costs bite guidance; Wall Street watches capex, pricing - Bez Kabli",
       "URL": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQNlE2RDBrTmpNMXRuU3NmR05LYUcwVkgwNlhmRXYtNGlwSUlxTy1YX3pXOHRIVXZCU0V1ZVBoYTMxTGJHenlNazJFc0ZPSFVzemo3b09VR1I2QW8wQ0FMT2NjYjlkQV9yUUY5REFnMnlZQUR5dnFLOV9FUlFEd0tBelpHTnUyeFJjTF82T3BYNm42bUVVSkhvbDZ5X1NlTG4taFdybG52ZG81UUZ6OEdvbXNhcw?oc=5",
       "All_News": [
+        {
+          "Headline": "Scotiabank Forecasts Strong Price Appreciation for Akamai Technologies (NASDAQ:AKAM) Stock - Defense World",
+          "URL": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQbUc5c2FZS2FDZmdZd3p3ejFSOHRua2xKM0VqczVPMGYwdWhQRkNBVDRxNk9FNXJ1TU9fNXFoNXE1cmxrWW0yNWhudXZYeG96QjMxdTF2UUE0djVQUDhHRWFxRXYyU09sNG53czQxX1h5dmZySTJlSmRKZy02MHdlNTZKUFlLQU4yYzk0dlViVWNZWEZmcUtvVURkbEc3YWhVWlRRdHVSVmMwSnJXTGdhYzVkb1dDWGhrSkNpTFJCTkVrWFI1M09XTmFQZ0M?oc=5",
+          "Category": "Analyst Rating",
+          "Sentiment": 0.8,
+          "Impact": 0.7,
+          "Date": "2026-02-22 09:19:11"
+        },
+        {
+          "Headline": "A Quick Look at Today's Ratings for Akamai(AKAM.US), With a Forecast Between $72 to $125 - \u5bcc\u9014\u725b\u725b",
+          "URL": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOYmNNNlVBVm9Wa0FQdzFFd2xDNG51c2JpUW8wdDl5NmxPSURjcXVqMzNiU29Ic3IyRWhzbk9vb2tlR1R4dFdWRkh4TTZ5V25IX0ZTNm9SZlZfQ0hFNlM0eWx1S04zTGVyVm4wZTNCbHF6WnRBSE5uQXN6WVdrcmRmdE40YzFnREJQTThjWVJTYUNDSUx5?oc=5",
+          "Category": "Analyst Rating",
+          "Sentiment": 0.3,
+          "Impact": 0.5,
+          "Date": "2026-02-22 09:19:11"
+        },
+        {
+          "Headline": "KeyCorp Forecasts Strong Price Appreciation for Akamai Technologies (NASDAQ:AKAM) Stock - Defense World",
+          "URL": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNZUlqVUtoeXgxWTVJM05WR0RNMVBwejk5dVhBR2UtV19makZKODVCTXNaNTFBWTJqX1hGdzU5QjBoQTE1aTJEWkF1UThXdzhHU05GZnByVDc1cTNKbHVZSmxoUzlxZEN5emFCTzJhNlVFdFdfYVk5M2RxLTJnTUs4bTYtaEUtTjhSU0dBUXQ2UDBCczQ2ZVZXSkF3MHdvaUF2SGJiZ0Nva0dFLTZ4MW1WemdzSnJaRmlaYzFkYTNlbE1TODRQTHdOLQ?oc=5",
+          "Category": "Analyst Rating",
+          "Sentiment": 0.8,
+          "Impact": 0.7,
+          "Date": "2026-02-22 09:19:11"
+        },
+        {
+          "Headline": "Citigroup Forecasts Strong Price Appreciation for Akamai Technologies (NASDAQ:AKAM) Stock - Defense World",
+          "URL": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPOHpNczg1Z2pSSFZiUUlLNXpFNm5WWlNOdm1vY2dlYkZWdUFOZFJZOFZ2T3lLZ3d0MVp3dlNzV2RncGNGdTBNREplQTNkdXdXNnU2b2ZIeXNXcWJTRWtFbDFDaFBidWxqSzMwcDE1cWc5UWdtbTlpSWpuQ0oxdE5NVHBFR1dfYUgzRGVfOHQzX3h6X2lTZWhJaXJTaTlCX2xNNU56SGtiVlNOUkdDMFY2d3JtY09RdzlCQU5jbjBvdWoySzVkMk9FeXZFYw?oc=5",
+          "Category": "Analyst Rating",
+          "Sentiment": 0.8,
+          "Impact": 0.7,
+          "Date": "2026-02-22 09:19:11"
+        },
+        {
+          "Headline": "The Goldman Sachs Group Forecasts Strong Price Appreciation for Akamai Technologies (NASDAQ:AKAM) Stock - Defense World",
+          "URL": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxQSEFxNHZwNWVSTjFZcWlHMmtyUDR1YmdrNkM4YzViaE5NVjUteXdoQTAzZ1ZyUWxIeE9rTEJXeXJCeEpFWlRzUWpkdUlfMHh4TERqSVo5WkdKM014azZJZk94bTBWMF9VcGxZVlZRT1hWaU5yVF84YXlyRDJHOWpHZkdXRWdDd2wwY3ozenRCUXE2M3RXMVpKaTBEOW1zNzUwN2NGamMzZldzcUlwOWZ6NVNJLU9PMGRFbU8xLXRZb0J6M1YzcGptYjR0NXUwQV8wOVAxRVRrSHlCMk1XZWc?oc=5",
+          "Category": "Analyst Rating",
+          "Sentiment": 0.9,
+          "Impact": 0.8,
+          "Date": "2026-02-22 09:19:11"
+        },
+        {
+          "Headline": "Akamai Technologies Inc (AKAM) Shares Gap Down to $98.4 on Feb 2 - GuruFocus",
+          "URL": "https://news.google.com/rss/articles/CBMisgFBVV95cUxObl9rQktJWUh0clM4dGRucGNuYUNqczlycTJReUE2MXRMR0JMUEJPT3RuOXFGdi1PYXRUdjJlUTYtRFB4U29fZllNd2p3VDQ3dGt1Y2ZsY0txazZqNUMta2cwcEVma2xYcVpxZW1NM2ZqQi0xUG84UFN4T2xrNHBZQTJGNG1oSktLaHEtOHlmZ1Y4OUMyeU95bkpVQ2ppX3FFMWZMWUF4dzFaVDNuOFV2bDl3?oc=5",
+          "Category": "Stock Movement",
+          "Sentiment": -0.8,
+          "Impact": 0.9,
+          "Date": "2026-02-21 09:19:12"
+        },
+        {
+          "Headline": "Akamai Technologies, Inc. (NASDAQ:AKAM) Q4 2025 Earnings Call Transcript - Insider Monkey",
+          "URL": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPWFRpREk5eWNyZ0dWdFB4bWhXa1NobFVNRTYyM3ctakZqMGhpbF9DRTJULTgwckhQYmt3SnZIS2kxbUNwWjBId1BaZ1BQeEVRVVpxb3NSbXcwNEZVX1pFZ0daTTcxeXVITTRlSFIxUzlRTnBHVmpiTGpIazJic01td2QxQi1LZnpEbmc1aVkwVDlYd2lHeXFYbDRTQm5SYnVuQjZFRmhweUpVbWpLYlBqbg?oc=5",
+          "Category": "Earnings",
+          "Sentiment": 0.0,
+          "Impact": 0.6,
+          "Date": "2026-02-21 09:19:12"
+        },
+        {
+          "Headline": "A Quick Look at Today's Ratings for Akamai(AKAM.US), With a Forecast Between $110 to $120 - \u5bcc\u9014\u725b\u725b",
+          "URL": "https://news.google.com/rss/articles/CBMilAFBVV95cUxORWFleVRDS0FFbHFkVnY2ZkpOQnQwbW04MEFmdS1aM0I4YnRvaWV4eVh6S0dmQ0Q5dkJMRWdhODFmZU83TUxiMnlJYmRLc2lqTlJsb0ZweVRqT3BWVXFVNk9vbDdrOGFjQmQ0c0VubnFHcTNORnpQVjZ6RHlpQ1lLQk1qRzJZM195Rjh1SXlaQzhfYkR2?oc=5",
+          "Category": "Analyst Rating",
+          "Sentiment": 0.5,
+          "Impact": 0.7,
+          "Date": "2026-02-21 09:19:12"
+        },
         {
           "Headline": "Why Akamai Technologies (AKAM) Shares Are Sliding Today - Finviz",
           "URL": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQa1BzWTlxSVlqcUVBY0FqdC1nSHVGc0s2ZHlxaUhMdkt4cnhjZElDZXI3bG9wYW95Mk56eTZKSzhqV1lGX05fVFQ3VHFlVmloMFE5WXNFSlNFYS00MHBzYnB6N3IzTnJFY2lJN18zRDhKQXR5VWhjdzBzRXd5WlJVLU52NzlEQmNwVXd1VQ?oc=5",
@@ -920,38 +944,6 @@ const DASHBOARD_DATA = {
           "Sentiment": -0.9,
           "Impact": 1.0,
           "Date": "2026-02-21 09:19:12"
-        },
-        {
-          "Headline": "Akamai Technologies Inc (AKAM) Shares Gap Down to $98.4 on Feb 2 - GuruFocus",
-          "URL": "https://news.google.com/rss/articles/CBMisgFBVV95cUxObl9rQktJWUh0clM4dGRucGNuYUNqczlycTJReUE2MXRMR0JMUEJPT3RuOXFGdi1PYXRUdjJlUTYtRFB4U29fZllNd2p3VDQ3dGt1Y2ZsY0txazZqNUMta2cwcEVma2xYcVpxZW1NM2ZqQi0xUG84UFN4T2xrNHBZQTJGNG1oSktLaHEtOHlmZ1Y4OUMyeU95bkpVQ2ppX3FFMWZMWUF4dzFaVDNuOFV2bDl3?oc=5",
-          "Category": "Stock Movement",
-          "Sentiment": -0.8,
-          "Impact": 0.9,
-          "Date": "2026-02-21 09:19:12"
-        },
-        {
-          "Headline": "A Quick Look at Today's Ratings for Akamai(AKAM.US), With a Forecast Between $110 to $120 - \u5bcc\u9014\u725b\u725b",
-          "URL": "https://news.google.com/rss/articles/CBMilAFBVV95cUxORWFleVRDS0FFbHFkVnY2ZkpOQnQwbW04MEFmdS1aM0I4YnRvaWV4eVh6S0dmQ0Q5dkJMRWdhODFmZU83TUxiMnlJYmRLc2lqTlJsb0ZweVRqT3BWVXFVNk9vbDdrOGFjQmQ0c0VubnFHcTNORnpQVjZ6RHlpQ1lLQk1qRzJZM195Rjh1SXlaQzhfYkR2?oc=5",
-          "Category": "Analyst Rating",
-          "Sentiment": 0.5,
-          "Impact": 0.7,
-          "Date": "2026-02-21 09:19:12"
-        },
-        {
-          "Headline": "Akamai Technologies, Inc. (NASDAQ:AKAM) Q4 2025 Earnings Call Transcript - Insider Monkey",
-          "URL": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPWFRpREk5eWNyZ0dWdFB4bWhXa1NobFVNRTYyM3ctakZqMGhpbF9DRTJULTgwckhQYmt3SnZIS2kxbUNwWjBId1BaZ1BQeEVRVVpxb3NSbXcwNEZVX1pFZ0daTTcxeXVITTRlSFIxUzlRTnBHVmpiTGpIazJic01td2QxQi1LZnpEbmc1aVkwVDlYd2lHeXFYbDRTQm5SYnVuQjZFRmhweUpVbWpLYlBqbg?oc=5",
-          "Category": "Earnings",
-          "Sentiment": 0.0,
-          "Impact": 0.6,
-          "Date": "2026-02-21 09:19:12"
-        },
-        {
-          "Headline": "Akamai Technologies (AKAM) Beats Q4 Earnings and Revenue Estimates - Yahoo Finance",
-          "URL": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOWkRlRm1ZeS1pYVNOeEgySkhZVmo4Q0EtTFR1dmZ4U0F0YmtCa2pZZmFnTVVqNFBhLTdDNlhFOTk1QkNFa05VSU4xSDBEdkRJRFR3dGhEU1kxVHNhMUktUzRqT0NjdThmSDVpQi1Qb0d4QnpXWk5IRmRqbVRCUXdMYTNSdUx1UQ?oc=5",
-          "Category": "Earnings",
-          "Sentiment": 0.8,
-          "Impact": 0.9,
-          "Date": "2026-02-20 09:30:23"
         },
         {
           "Headline": "Akamai (AKAM) Shares Fall on Disappointing Earnings Guidance - GuruFocus",
@@ -970,14 +962,6 @@ const DASHBOARD_DATA = {
           "Date": "2026-02-20 09:30:23"
         },
         {
-          "Headline": "Earnings Flash (AKAM) Akamai Technologies, Inc. Reports Q4 Revenue $1.09B, vs. FactSet Est of $1.08B - marketscreener.com",
-          "URL": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxOTHFxT0kzTUxzSjdaWmIwSk5fanZpS2pXa0JIX3BZTEJHZXVLZmFkdDA4cTNPZlhEWlNJU3UxVkhhd09FVURnWFRpZUo3eWNCSFRFc3RmU3N6RnBaNVlzV2lFeVJTbWdoclNaS2oxRjhOM0gtTmJwbTM2SUtjZUxPY1ZrZG8zYncwS3dfOGdZMjhBYmtsWlhsUlF6MXNlRnJYMi1YaWdlb201Q3dYSWNKZ2xwRU96RTJoNEVITlYzcElpWDE2OTFHek96dFBjQ0t5eldSMlRFN3VsLTJFMEE?oc=5",
-          "Category": "Earnings",
-          "Sentiment": 0.7,
-          "Impact": 0.9,
-          "Date": "2026-02-20 09:30:23"
-        },
-        {
           "Headline": "Akamai Technologies (AKAM) Reports Strong Q4 Earnings with 7% Re - GuruFocus",
           "URL": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPSVRQaDZJZzU3ZXMzQ3N4SlVMNlNjbmRueS1oa3Q5NThUOUVUWl9laXZNOTVYR0l5MzlIblNENzNOREdZbGNkNzg4akVfSUlvaFdiZm9Pd1kxS3dZdUNISVlmejREbHlqV01yZHhTWDdpMGdkT0dsNzI3UGhNaWdZX2hydXNZVHF5RzJiV0Jwa01FOEFEVUZPNXFadUYtTkQwdk1MSFlQRUowZ2gtNlNMWmRn?oc=5",
           "Category": "Earnings",
@@ -986,12 +970,20 @@ const DASHBOARD_DATA = {
           "Date": "2026-02-20 09:30:23"
         },
         {
-          "Headline": "Will Healthy Revenue Growth Boost Akamai's (AKAM) Q4 Earnings? - Nasdaq",
-          "URL": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNVlh3d0V3djVnU3B0OHdCcDhfMlhDLXdGUW9vVUd5T0VkNlo1M1RPUHdiOXZmdUJ3ejdnZ19fdFgyZE4wb0EzZjZaRnhJaWRuYThzTWZjak5kdU5LWE9xWEJDa09JYWEyRHNCWFNYSUdkNHlXTHc1cTlpUjBsV0xMN1ZGeDhjY3d2TkhDMk9yb1ZhMEZ5?oc=5",
-          "Category": "earnings_forecast",
+          "Headline": "Akamai Technologies (AKAM) Beats Q4 Earnings and Revenue Estimates - Yahoo Finance",
+          "URL": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOWkRlRm1ZeS1pYVNOeEgySkhZVmo4Q0EtTFR1dmZ4U0F0YmtCa2pZZmFnTVVqNFBhLTdDNlhFOTk1QkNFa05VSU4xSDBEdkRJRFR3dGhEU1kxVHNhMUktUzRqT0NjdThmSDVpQi1Qb0d4QnpXWk5IRmRqbVRCUXdMYTNSdUx1UQ?oc=5",
+          "Category": "Earnings",
+          "Sentiment": 0.8,
+          "Impact": 0.9,
+          "Date": "2026-02-20 09:30:23"
+        },
+        {
+          "Headline": "Earnings Flash (AKAM) Akamai Technologies, Inc. Reports Q4 Revenue $1.09B, vs. FactSet Est of $1.08B - marketscreener.com",
+          "URL": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxOTHFxT0kzTUxzSjdaWmIwSk5fanZpS2pXa0JIX3BZTEJHZXVLZmFkdDA4cTNPZlhEWlNJU3UxVkhhd09FVURnWFRpZUo3eWNCSFRFc3RmU3N6RnBaNVlzV2lFeVJTbWdoclNaS2oxRjhOM0gtTmJwbTM2SUtjZUxPY1ZrZG8zYncwS3dfOGdZMjhBYmtsWlhsUlF6MXNlRnJYMi1YaWdlb201Q3dYSWNKZ2xwRU96RTJoNEVITlYzcElpWDE2OTFHek96dFBjQ0t5eldSMlRFN3VsLTJFMEE?oc=5",
+          "Category": "Earnings",
           "Sentiment": 0.7,
-          "Impact": 0.7,
-          "Date": "2026-02-17 09:36:41"
+          "Impact": 0.9,
+          "Date": "2026-02-20 09:30:23"
         }
       ],
       "Signal": "BEARISH_DUMP"
@@ -1038,8 +1030,16 @@ const DASHBOARD_DATA = {
           "Date": "2026-02-19 09:34:41"
         },
         {
-          "Headline": "B of A Securities Upgrades Albemarle (ALB) - Nasdaq",
-          "URL": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1kM1hZcWJrV1pxVW1jeWhmVzZFcmdrNzdZYlgzdkNPd0ZRaF85dTJmZTFBX0k0T0hoSnJkaW9FVmpIZGlhaWtGc3JWZ09PMUIzOGk5Z2tzTEhIRUVVSzh2TlRWZWExdlh1MU5WRF9YdWhaVHlJRlE?oc=5",
+          "Headline": "Albemarle (ALB) Gets a Buy from RBC Capital - The Globe and Mail",
+          "URL": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPLVh4Tlk2WXptQXB3dXJWdk9oWGVJTWZubVh0RDJXaDNVRHdjUl9wWmV6Qk1ueHhnVnhmSGVLcWhtQm41S0FWSTNFWGFkNnFiaG1kSk01ckZQdFRLMXMwck4yRnppX05FYjRSY3lOeDJWb1FqUENwQVRYRWIwQWt0RFpxeVNlSkxTQktmVmctek5oNS1VcVJ4X3ZWdDVoRDVYVk1Dc284amRqdTFTQXpMRDg1OXA1V3J3ZWVfVVV4cWdOZw?oc=5",
+          "Category": "Analyst Rating",
+          "Sentiment": 0.7,
+          "Impact": 0.6,
+          "Date": "2026-02-18 09:35:08"
+        },
+        {
+          "Headline": "Albemarle (ALB) Upgraded to 'Buy' by Bank of America - GuruFocus",
+          "URL": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNaTBUOUJrMUl1Uk5XZmx3Sm5BbUVjRV9vS1ZYTWRnT29fc2NJZ01kb0JBZF8wSVlYTTRicDhEWW1zY1JpNF9aV0N2bklUd0xhVDNHdlRGanRSN01ueW82MGZpbXNUSDc2OFJqQnVNZ1k4ck1vSkhidHgzVVdjdmliZnl4WEdrYTlnYTU1LXo1ZkI?oc=5",
           "Category": "Analyst Rating",
           "Sentiment": 0.8,
           "Impact": 0.7,
@@ -1054,27 +1054,19 @@ const DASHBOARD_DATA = {
           "Date": "2026-02-18 09:35:08"
         },
         {
-          "Headline": "Albemarle (ALB) Upgraded to 'Buy' by Bank of America - GuruFocus",
-          "URL": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNaTBUOUJrMUl1Uk5XZmx3Sm5BbUVjRV9vS1ZYTWRnT29fc2NJZ01kb0JBZF8wSVlYTTRicDhEWW1zY1JpNF9aV0N2bklUd0xhVDNHdlRGanRSN01ueW82MGZpbXNUSDc2OFJqQnVNZ1k4ck1vSkhidHgzVVdjdmliZnl4WEdrYTlnYTU1LXo1ZkI?oc=5",
-          "Category": "Analyst Rating",
-          "Sentiment": 0.8,
-          "Impact": 0.7,
-          "Date": "2026-02-18 09:35:08"
-        },
-        {
-          "Headline": "Albemarle (ALB) Gets a Buy from RBC Capital - The Globe and Mail",
-          "URL": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPLVh4Tlk2WXptQXB3dXJWdk9oWGVJTWZubVh0RDJXaDNVRHdjUl9wWmV6Qk1ueHhnVnhmSGVLcWhtQm41S0FWSTNFWGFkNnFiaG1kSk01ckZQdFRLMXMwck4yRnppX05FYjRSY3lOeDJWb1FqUENwQVRYRWIwQWt0RFpxeVNlSkxTQktmVmctek5oNS1VcVJ4X3ZWdDVoRDVYVk1Dc284amRqdTFTQXpMRDg1OXA1V3J3ZWVfVVV4cWdOZw?oc=5",
-          "Category": "Analyst Rating",
-          "Sentiment": 0.7,
-          "Impact": 0.6,
-          "Date": "2026-02-18 09:35:08"
-        },
-        {
           "Headline": "Albemarle raised to Buy at BofA as market improvement looks increasingly structural (ALB:NYSE) - Seeking Alpha",
           "URL": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQZ2ZScVdRNFlkWUZScTN5ZGk1eGxUSGZQeWo5c05OZVpROEgwVDFYRzYxVGNJZ2FIVzN0YzIzRkFUZVVzZ3BOcGdoU3haRV9IRnlpLXJNYi16XzhMYWtiWW13b0gyWi1Gd1dyYmZnSTFFVmxSWGJfUTJDb2lLLXo1T0NORm9SRzlaWVRjdjJaYXJ6QVk2dFNuSGtNWjVPNVhob2pTY3pBNTNqZ3QwOWRFcWtTZzVmY2RBNHROLTlB?oc=5",
           "Category": "Analyst Rating",
           "Sentiment": 0.9,
           "Impact": 0.8,
+          "Date": "2026-02-18 09:35:08"
+        },
+        {
+          "Headline": "B of A Securities Upgrades Albemarle (ALB) - Nasdaq",
+          "URL": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1kM1hZcWJrV1pxVW1jeWhmVzZFcmdrNzdZYlgzdkNPd0ZRaF85dTJmZTFBX0k0T0hoSnJkaW9FVmpIZGlhaWtGc3JWZ09PMUIzOGk5Z2tzTEhIRUVVSzh2TlRWZWExdlh1MU5WRF9YdWhaVHlJRlE?oc=5",
+          "Category": "Analyst Rating",
+          "Sentiment": 0.8,
+          "Impact": 0.7,
           "Date": "2026-02-18 09:35:08"
         }
       ],
@@ -1084,16 +1076,16 @@ const DASHBOARD_DATA = {
       "Ticker": "ALGN",
       "Price": 190.02,
       "LSTM_Confidence": 0.6,
-      "News_Sentiment": 0.8,
-      "News_Impact": 0.7,
-      "Headline": "Envestnet Asset Management Inc. Buys 30,686 Shares of Align Technology, Inc. $ALGN - MarketBeat",
-      "URL": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNenBOTjJvMW5HUEMtbFdRMUlONXdRbDQ2ajcwSXR2cDMzaFE5WWJsY1BoY2Nfdk5VX0dQTWcyaHhrV1I3Qi13dWFDUURDcGdhVVhTeHEyX3lENHdIV2d2STBTS05EQnA2OFJmdUFSdWJaT2tOMmVpU25JTGg4d0ptMVk2cmk1UnJkbEdiazFHZ1cza2syNlJVbHZQc0NuQmR4THFpZHNRVHlPUG1Jc0Z0Z21hc2ZlQ1BxaTRSWjhYLWxtSkMxYUpzWktDZ193dDA0VUhrcw?oc=5",
+      "News_Sentiment": -0.6,
+      "News_Impact": 0.6,
+      "Headline": "Insider Sale: EVP of $ALGN Sells 7,969 Shares - Quiver Quantitative",
+      "URL": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQQ05xaDlteDk1UEptaTMzbHFhSm91SnVCZDczRnN4ZU1FS2VpZWoyaV9icDJpdEJpWjdwcWltVzhXdjJiV0diSk1abHUtSzQxUExjcldsbjA1Y214akgtR3h5a3FjdjZtUDRCZ0Q0MkEtSXNHRkNLR3BqQlh5U1JMOUt6Z0tYVzNnWHBEYw?oc=5",
       "All_News": [
         {
-          "Headline": "Aberdeen Group plc Raises Stake in Align Technology, Inc. $ALGN - Defense World",
-          "URL": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOMkx1M3lSN2tIeUN1ZF81NThCT2pwRmxmV2l4ZUptMEI1VmlDcGFtV3dJU3JZSk9FS1FxQ1ZQMk8yWmtDYUlZdi0yRi04ZTBIU0lJWkZ6ek11a1ZmdmJJRHBOVnotaW9GY1J0SDBrM01VR2tRcUhKdENrQmNLdGxneW05QXZVSUkwOThEUHNkeFdFLUFvb2lYRGh5OER6VDM3VDF3N2FJMzk?oc=5",
-          "Category": "Company Specific - Investment Activity",
-          "Sentiment": 0.7,
+          "Headline": "Insider Sale: EVP of $ALGN Sells 7,969 Shares - Quiver Quantitative",
+          "URL": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQQ05xaDlteDk1UEptaTMzbHFhSm91SnVCZDczRnN4ZU1FS2VpZWoyaV9icDJpdEJpWjdwcWltVzhXdjJiV0diSk1abHUtSzQxUExjcldsbjA1Y214akgtR3h5a3FjdjZtUDRCZ0Q0MkEtSXNHRkNLR3BqQlh5U1JMOUt6Z0tYVzNnWHBEYw?oc=5",
+          "Category": "Insider Trading",
+          "Sentiment": -0.6,
           "Impact": 0.6,
           "Date": "2026-02-21 09:19:24"
         },
@@ -1106,24 +1098,16 @@ const DASHBOARD_DATA = {
           "Date": "2026-02-21 09:19:24"
         },
         {
-          "Headline": "Insider Sale: EVP of $ALGN Sells 7,969 Shares - Quiver Quantitative",
-          "URL": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQQ05xaDlteDk1UEptaTMzbHFhSm91SnVCZDczRnN4ZU1FS2VpZWoyaV9icDJpdEJpWjdwcWltVzhXdjJiV0diSk1abHUtSzQxUExjcldsbjA1Y214akgtR3h5a3FjdjZtUDRCZ0Q0MkEtSXNHRkNLR3BqQlh5U1JMOUt6Z0tYVzNnWHBEYw?oc=5",
-          "Category": "Insider Trading",
-          "Sentiment": -0.6,
+          "Headline": "Aberdeen Group plc Raises Stake in Align Technology, Inc. $ALGN - Defense World",
+          "URL": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOMkx1M3lSN2tIeUN1ZF81NThCT2pwRmxmV2l4ZUptMEI1VmlDcGFtV3dJU3JZSk9FS1FxQ1ZQMk8yWmtDYUlZdi0yRi04ZTBIU0lJWkZ6ek11a1ZmdmJJRHBOVnotaW9GY1J0SDBrM01VR2tRcUhKdENrQmNLdGxneW05QXZVSUkwOThEUHNkeFdFLUFvb2lYRGh5OER6VDM3VDF3N2FJMzk?oc=5",
+          "Category": "Company Specific - Investment Activity",
+          "Sentiment": 0.7,
           "Impact": 0.6,
           "Date": "2026-02-21 09:19:24"
         },
         {
           "Headline": "Align Technology, Inc. $ALGN Stock Position Raised by Rhumbline Advisers - Defense World",
           "URL": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNUkc3dmttX044YnMtUzlMTHNlbzFPZGZVZ1ZnS1N5Z1lwNUxxVWFFM08tTFE4Z3MtTUxpSXo4UGkyMEdtN3pseHpuazFobTBBblVhdk1hZTFVY29Vd3RZVl9DUFJidWV4STIxYXl4M3FOTmo2d3k2aHZKaTNYRDZ4QXdXR05mbFlvQkI3OHMxclpxMndlQ2hnU0s3d3doUEgycmtwZFp6Vi1CZDEtZ0NwUnduWVA?oc=5",
-          "Category": "Investment Activity",
-          "Sentiment": 0.6,
-          "Impact": 0.5,
-          "Date": "2026-02-18 09:35:08"
-        },
-        {
-          "Headline": "M&G PLC Buys New Shares in Align Technology, Inc. $ALGN - MarketBeat",
-          "URL": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPRWpVWGRtdlR5NVYwMGJ4T0lkR2FFQUZzd1B2cHhKYVdGdno0dTVUclRsN2p6N1ZKZFlvam9BTWdzUGJYQjdIODlfM29EX2E1UWxqcEZkX01aUnp2OWNZeDdTeXcxS2g4MVZ4eWpuRzZtNmVNMUhFMHJaWGFzZlJjWWw0RVhNYW1BXzVaSWpMc3p1T2dmTTRHSnJJclFHU2RXZHR1eVRDb2RseVJ5ZnJwOUVn?oc=5",
           "Category": "Investment Activity",
           "Sentiment": 0.6,
           "Impact": 0.5,
@@ -1138,20 +1122,12 @@ const DASHBOARD_DATA = {
           "Date": "2026-02-18 09:35:08"
         },
         {
-          "Headline": "Align Technology, Inc. (ALGN) Stock Analysis: Navigating Growth with 6.32% Potential Upside - DirectorsTalk Interviews",
-          "URL": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQUlRlYWdIT1hjZExqNDNCaVJ5dDQ3b1ZaTXNZanFZZjdScElMZmhYakN1Vl9qMVNvREktT2lhMWtoc1VvZkhObnFyWktIcDhkYlZ3Y0Z1V0huSlJWS1ZWZGlJQ1ZtN3FYVnJ3ei1fQWVIXzdOVEhnUzE2cGtlZ082UlpZb0R2Q0d3Z0RjWjRhRWZNNk1IbmR5WEFvN2htdDF4eXFmR2plUDI5NnNLY2VRUUQ2c3cydzlyZGFOQmRmR1EwVzh4YVdBdWFQWnlFRlZwa1E?oc=5",
-          "Category": "Analyst Report",
-          "Sentiment": 0.7,
-          "Impact": 0.6,
-          "Date": "2026-02-17 09:36:55"
-        },
-        {
-          "Headline": "Envestnet Asset Management Inc. Buys 30,686 Shares of Align Technology, Inc. $ALGN - MarketBeat",
-          "URL": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNenBOTjJvMW5HUEMtbFdRMUlONXdRbDQ2ajcwSXR2cDMzaFE5WWJsY1BoY2Nfdk5VX0dQTWcyaHhrV1I3Qi13dWFDUURDcGdhVVhTeHEyX3lENHdIV2d2STBTS05EQnA2OFJmdUFSdWJaT2tOMmVpU25JTGg4d0ptMVk2cmk1UnJkbEdiazFHZ1cza2syNlJVbHZQc0NuQmR4THFpZHNRVHlPUG1Jc0Z0Z21hc2ZlQ1BxaTRSWjhYLWxtSkMxYUpzWktDZ193dDA0VUhrcw?oc=5",
+          "Headline": "M&G PLC Buys New Shares in Align Technology, Inc. $ALGN - MarketBeat",
+          "URL": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPRWpVWGRtdlR5NVYwMGJ4T0lkR2FFQUZzd1B2cHhKYVdGdno0dTVUclRsN2p6N1ZKZFlvam9BTWdzUGJYQjdIODlfM29EX2E1UWxqcEZkX01aUnp2OWNZeDdTeXcxS2g4MVZ4eWpuRzZtNmVNMUhFMHJaWGFzZlJjWWw0RVhNYW1BXzVaSWpMc3p1T2dmTTRHSnJJclFHU2RXZHR1eVRDb2RseVJ5ZnJwOUVn?oc=5",
           "Category": "Investment Activity",
-          "Sentiment": 0.8,
-          "Impact": 0.7,
-          "Date": "2026-02-17 09:36:55"
+          "Sentiment": 0.6,
+          "Impact": 0.5,
+          "Date": "2026-02-18 09:35:08"
         }
       ],
       "Signal": "WAIT"
@@ -1166,6 +1142,30 @@ const DASHBOARD_DATA = {
       "URL": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9Fck9jZDBGS25VZ3hqekp0akswTzdYaUhRekE4UnlIalhXR1VaOWYzVFpwMzlXazJDUVNGT3dBVDc4U1F3NkhROFJlREJxVUszOVFqWDNmWk0wMDh5R294dzRtMjdSUGhtMG93dWljV181NU0tTzhmeWlDakJvT3M?oc=5",
       "All_News": [
         {
+          "Headline": "Behavioral Patterns of AMAT and Institutional Flows - Stock Traders Daily",
+          "URL": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOUy1idWtRQ2tPWVJuWDJzcWNMT2dpd2xhR0JVRnRINHZfNGFodUJ1WFpSX3Z3VmZZQTFDYkZZeDZfY1VQN294WDFPUm9nTXdsSjI1cXVmNHM5Qy1wOFIxQTByTFo2SzBJZEwwN2Z4MHg3eE00QzNwUWd6V29MN2ZRLXdLckdKUVBuVmlzSW5qZ2lkVDNYUzJCaFFqNTZETC1SeXE1bVZiTl9tZ1hHdjBWZkh4d3I4WjVMdFo2TF8wcFZYbDJZUnktZkU4MA?oc=5",
+          "Category": "Analysis/Report",
+          "Sentiment": 0.0,
+          "Impact": 0.1,
+          "Date": "2026-02-22 09:18:57"
+        },
+        {
+          "Headline": "Dempze Nancy E Has $1.64 Million Stake in Applied Materials, Inc. $AMAT - Defense World",
+          "URL": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQQnZabjJrdHE3b0hVWGJ1WDloMUhIWVVDb1NYWVJwQjJuaHdFT0ZJUHlaVTZRS1NOOTR3R2VHeTNxMDg2ZnpORWVKcjVmMlZkeTAyU0NQZnF4STBpMGV2anVEYUNvaW1aVUo1T1RadEduQjYxdmstZEotb2RDOGR5Y0RUb1BtZzY0Q21oNW54eU1WOUszMURTVjlGcERrVEhUanJSeE90ZFBlcmdKQ18zT1p3?oc=5",
+          "Category": "Insider/Stakeholder Activity",
+          "Sentiment": 0.1,
+          "Impact": 0.2,
+          "Date": "2026-02-22 09:18:57"
+        },
+        {
+          "Headline": "Morgan Stanley Raises its Price Target on Applied Materials, Inc. (AMAT) to $420 and Keeps an Overweight Rating - Insider Monkey",
+          "URL": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxPSEg5T1dhZlRzNURfSXpMMDZyUlRQdTR5SHQwaWNBdjJLVUFGdi1fOEpNM3AyQ3ZZSmpIVzlwX1JYLUF0UWtBdjkycWdoNk1fcXY0Z3R3RHJCUFV6V3FEQTZjNzBaVDR1VERyY2JJcEFMVUxFMUVNVkRWVWFmWV9tYkZ2R0VwWEFUaTNFaFZKTFpNR0J1WFo5SmxYR3NCcU5yTWdqbmJmRFlMVWVtY1FkWmkxZC0tYnhlaDlKQ3dwbTk3OFFpRzI5Tkk0UUdZcFJoZDYyellmU1NJX3dPWkJzd0M0eGfSAewBQVVfeXFMTW1QZjduQmY4aDZmVDF3aW9wQU9rTHZFMlF0TW1YUERZczBybTJTaldBOF9zYWZtcEw0bkZLZ3N5ZHViQlA1T0RBRldwQ3FSb1QzTG1CMTdTRlI5WDljaVhyX2x1Qkt3NmRvU3VCRk4wRERRd0RmZDlUTmJteW1FX0V5bkpRZm5ydVBBQkprVDZOM0hSNTFpZVprN2p1YlR6QWQxSG9wZVlwYS01UkN6VzhmNFYxQXY1VkVOamktTnRUTTg0c2NyQ2QybGNxYXF0djJjZnVwWTNSSDd0NnVpd3l2SHhXUjNPVEI5Xy0?oc=5",
+          "Category": "Analyst Rating/Target",
+          "Sentiment": 0.8,
+          "Impact": 0.7,
+          "Date": "2026-02-22 09:18:57"
+        },
+        {
           "Headline": "Interesting AMAT Put And Call Options For October 16th - Nasdaq",
           "URL": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNOUc2cjNiSjQ5MGl6dV9KYlV6bnYyWU5UY2ktNFYtNGlManE3aDBVMGdTdGU1UGRMbFY3VmNMVE16MTNVamJnRkVEcW02RlVONUIzWURpckRDbmpWUnRNQi04SmNabFJiZjhwNHpFSVJUdlBPcXVSZzYxaFVsNlN0NFM1RHBPZGIzYWc?oc=5",
           "Category": "Options Activity",
@@ -1174,19 +1174,19 @@ const DASHBOARD_DATA = {
           "Date": "2026-02-21 09:19:10"
         },
         {
-          "Headline": "Applied Materials AMAT Q1 2026 Earnings Transcript - AOL.com",
-          "URL": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9Fck9jZDBGS25VZ3hqekp0akswTzdYaUhRekE4UnlIalhXR1VaOWYzVFpwMzlXazJDUVNGT3dBVDc4U1F3NkhROFJlREJxVUszOVFqWDNmWk0wMDh5R294dzRtMjdSUGhtMG93dWljV181NU0tTzhmeWlDakJvT3M?oc=5",
-          "Category": "Earnings Report",
-          "Sentiment": 0.0,
-          "Impact": 0.8,
-          "Date": "2026-02-20 09:30:13"
-        },
-        {
           "Headline": "Applied Materials (Nasdaq: AMAT): Positioned at the Core of the AI-Driven Semiconductor Capex Cycle - Smartkarma",
           "URL": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxPSkVuQ2ZwX2ZhU0sydUI4SlpQSzJVdkxJOHk2NzJhbmJKSXhPNHN5aWFsY0oweUdPV1JEVXl0X2pHYldZek5CUFdnOVNMVHh4dElxd215T1NCOUhqVnltb0hfVjRxZmlwcm1RSHJpbGljazljQ2dENjNnYk1yWEZHVkc4b1Y0c0ozUmRCRlAwY3o3bEZOaW8zQTEwakxLck8zWklnb3dVZEFQajRVN2VhbEt4MXNjbXNIclp2Z3VaZHl4Qkg1OG5aMmVzbEh0bkRCLThDbmtRaDJTQXZXbFF1R01pRmRKWnFLY3VRXzdOMG44VTdt?oc=5",
           "Category": "Company Specific / Market Positioning",
           "Sentiment": 0.8,
           "Impact": 0.7,
+          "Date": "2026-02-20 09:30:13"
+        },
+        {
+          "Headline": "Applied Materials AMAT Q1 2026 Earnings Transcript - AOL.com",
+          "URL": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9Fck9jZDBGS25VZ3hqekp0akswTzdYaUhRekE4UnlIalhXR1VaOWYzVFpwMzlXazJDUVNGT3dBVDc4U1F3NkhROFJlREJxVUszOVFqWDNmWk0wMDh5R294dzRtMjdSUGhtMG93dWljV181NU0tTzhmeWlDakJvT3M?oc=5",
+          "Category": "Earnings Report",
+          "Sentiment": 0.0,
+          "Impact": 0.8,
           "Date": "2026-02-20 09:30:13"
         },
         {
@@ -1230,6 +1230,14 @@ const DASHBOARD_DATA = {
           "Date": "2026-02-19 09:34:32"
         },
         {
+          "Headline": "Looking At The Narrative For Applied Materials AMAT As Analyst Views Reset - Yahoo Finance",
+          "URL": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPODQyM1huZXBBNzNhUWdzdGxUTGltZVRNWko5V0NoSjVmTWZna3BoaTVaOVExc05OdjFRQW85SnNnQ1Y4ZUZfUm50a1FBNk9fUlVRZUFsWE5mNzF5Q0tNNlEtczYwUHJjaVhya2pjSXozUS1Sd1JPdklTZlJXWlY5cXA5emx5ZV83VTNlWktkNA?oc=5",
+          "Category": "Analyst Commentary",
+          "Sentiment": 0.0,
+          "Impact": 0.1,
+          "Date": "2026-02-18 09:35:03"
+        },
+        {
           "Headline": "Applied Materials stock price today: AMAT slips as chip stocks cool, March updates ahead - Bez Kabli",
           "URL": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOUDRFOElJWFhLbEhoWDRkcFFhczV2cE5xdVVUVDYzR25mWm5TV00yLURjQ1Q2eXFrRmxTMmktU0cyby1Lbm9IeHZDRUNlLXFORE55cGN5bWFaRXdiQjZldmIwWENkRFNFdHc4eXFLcllpUnhockNvdFByaG9LN0J5M2E2SlVtM1NORl9FQ1RjUzZIbGJNd2VTY2dBU1VWbTFNTWd1NHFKdXFaZE5HVG1ydUJB?oc=5",
           "Category": "Market Movement",
@@ -1260,38 +1268,6 @@ const DASHBOARD_DATA = {
           "Sentiment": 0.6,
           "Impact": 0.5,
           "Date": "2026-02-18 09:35:03"
-        },
-        {
-          "Headline": "Looking At The Narrative For Applied Materials AMAT As Analyst Views Reset - Yahoo Finance",
-          "URL": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPODQyM1huZXBBNzNhUWdzdGxUTGltZVRNWko5V0NoSjVmTWZna3BoaTVaOVExc05OdjFRQW85SnNnQ1Y4ZUZfUm50a1FBNk9fUlVRZUFsWE5mNzF5Q0tNNlEtczYwUHJjaVhya2pjSXozUS1Sd1JPdklTZlJXWlY5cXA5emx5ZV83VTNlWktkNA?oc=5",
-          "Category": "Analyst Commentary",
-          "Sentiment": 0.0,
-          "Impact": 0.1,
-          "Date": "2026-02-18 09:35:03"
-        },
-        {
-          "Headline": "Applied Materials stock: what to know after AMAT\u2019s earnings jump, with Wall Street shut for Presidents Day - TechStock\u00b2",
-          "URL": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPQU5RTmlHOEliR1lsemlxRzA5ZlZkSC1LcXBhY3NFNkRzWlUyazNSSmhiLWRWU2Z2a1VCTXhybUt0cGR6Ty1vYXVxcGN0R1lwQXZucE1naGZ3ZlUzdHZSOW81N0d0dnc2TTk2TDlQc0E3ZFBuZEZNVFNWSHgwTUM4bm1ILUR1MHk1VUVHaFJnMk1oZGNzME1xbGNUUS1NWFQwQTZLdE9GWWJHYVVYdm9pOVBrekJWZXZ2Vkp4ZnM2aGl0QQ?oc=5",
-          "Category": "Earnings Report",
-          "Sentiment": 0.7,
-          "Impact": 0.8,
-          "Date": "2026-02-17 09:36:56"
-        },
-        {
-          "Headline": "Applied Materials stock pauses on Presidents Day after AMAT\u2019s 8% jump \u2014 what\u2019s next for the chip-tool maker - Bez Kabli",
-          "URL": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNbGxZSS1Kbjk5WWFaVUcwQlpBTkw5aF9pWUVna3lGV2I4MmVsWERHVnNQZDJiZWQ0NFJldXIyR0lDZG1sYkExWUpqNTlLZlQ1UjVoYWJyMDhFTzBpS2hGTHA2anY0NnQwRjFMdFBsbTljbkxjNWh1aldlT0lmTzBJeDhINTVad1RiQUJYbXZUQmlHVWRKU2tKX1BGeDBaTXE0RmlucmZtQUhJOVdXQ0lIVFptQlB6Z0FEV3M0ZENQOGZDRmVmMi1J?oc=5",
-          "Category": "Market News",
-          "Sentiment": 0.5,
-          "Impact": 0.7,
-          "Date": "2026-02-17 09:36:56"
-        },
-        {
-          "Headline": "SA analyst upgrades/downgrades: AMAT, ACN, CL, and CRDO - MSN",
-          "URL": "https://news.google.com/rss/articles/CBMivgJBVV95cUxNaE1uSVVWdkZlYTZjd2w4Tmp5VFdTU2xqMlJFUi1OczMtZmtBQjZyUE5jNndfcmMwSDlEZUNVTmtKdGgwQnRsUGd6R0UwZjE2RFdhUTNld1hueU1tMUtSQlhhbGlLUHlySzBMc1JGdTJPcXRrSzhwSTVxMzJ6YUlUU2h1WGJsa2JhOGg5aVYzVVRHODJRVUFCYVVTWnFEOUtxVkN2bk9HeEwxTXFOQnFualVLZTlfeVRoUTdPc0N0RWhwQWhwbGFjcGpvU0RORV8wQjJockxkRGpXN1ZESElXcW11alNJWjNQZWF6SkNxc1N2RzdTeU1LWl9FTy1mUE5pWHFEMjcwNzhJS210ZTB0RzVNek1uTVg2RlpLSmRSU1UyY2hqNU9lVzRUdFVNVlJudkZkeERHYUM4bWJTR2c?oc=5",
-          "Category": "Analyst Report",
-          "Sentiment": 0.0,
-          "Impact": 0.5,
-          "Date": "2026-02-17 09:36:56"
         }
       ],
       "Signal": "WAIT"
@@ -1344,14 +1320,6 @@ const DASHBOARD_DATA = {
           "Sentiment": 0.9,
           "Impact": 0.8,
           "Date": "2026-02-18 09:35:23"
-        },
-        {
-          "Headline": "Bank of America reaffirms buy on Amcor (AMCR), raises target to $56 - MSN",
-          "URL": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxNZTRuRDYwZk9VdC1FNnItanhxemgyaTVuaEpkY0NndUo3Rm1LQzlfaHl5M29SZllsbzlGcEJpWjJ0bnJ2Rms5TGlPZGc2aHdYNk9OSDFMRnlSMlA2bDAxeXRSQnJMM2c2Wi1YN1FzNGRaYlAtUDRCYVVMcngwTTFHNTZJc00wQWFaYTFWM2ZqY1VlYVdyYl9NTXN4RHctbUF1dEpNdTdqSkpuZV9GNDRXVjFVeXhuVDZLUUE4enZ2LUFXYjZuRVVNZWZPeXBGVzFuRlZXUi1FNm0xRlk?oc=5",
-          "Category": "analyst_rating",
-          "Sentiment": 0.9,
-          "Impact": 0.8,
-          "Date": "2026-02-17 09:36:38"
         }
       ],
       "Signal": "WAIT"
@@ -1362,23 +1330,63 @@ const DASHBOARD_DATA = {
       "LSTM_Confidence": 0.72,
       "News_Sentiment": 0.9,
       "News_Impact": 0.9,
-      "Headline": "Benchmark Sees Advanced Micro Devices (AMD) Generating Tens of Billions in AI Revenue by 2027 - Insider Monkey",
-      "URL": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPZ0dkQjNBOTQtUEJkOUp2Ymt0YnFkeEVmc1ZnSkJLa0ZVY29nT0ZaaEVPT1ltN3R6OHJEdVIzMVpmVEpEMG9ZYlUyTm9VYkt0OE9lYjNFb1BUbXVnZmlQdDVadk41UlhnTXJBTGVma01qOGJaRGNWbEN3YWpOb1Jmc2xEZ0FJTlFHZGNXMFJHYlFxYWZBV3A3NFZSWENYV0lYQ1ZsN3YyMXNRNlpoZ041Y1REQWtDYVVuSmRzSXplTjB6Y05oMDRkTU9xeWQteVJj0gHYAUFVX3lxTE4zaUl0aVJmYWtNZ1J0b2x3ODhqR2tmMVdzd0RIeVl4YzJzcTE4S3R1QUNqR1Y4aVJkanJVWGUyV25QUE1Xd2JYcUNhaHZ3QUl6a1dFQzJ6bVk5Rk0zN2piQkxiUDNqRWdRa2xEeHBUR0dscS1RbmpBMjJqNDMxM3RiN2dHRkE1eFh0WmdtUnF3UnVfcGhjNlVjRWtkaERJZWZSU1F6WlgxY1hNT0ZJNkc4eGJTNm9Qb3RTWkhhRnI3T2NVSkJ1WXktRG5tbU0xNGI3ZmZvRHFKVg?oc=5",
+      "Headline": "Benchmark Sees Advanced Micro Devices (AMD) Generating Tens of Billions in AI Revenue by 2027 - Yahoo Finance",
+      "URL": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPa2VYQVJ2cjZjTnExZlhlaWZKS3JlaFZGLWNfcUtlSlkzT0RHTkN6cEFQVXktNVRCUHRQdVhEZTNfU0xEMURldTZSVWEyczhWcWNWRnBDcVIwQ3BzUExiZkNPekVOdnl6bDJPMnFRenNFbWFVUzgwRnlDbTFERGtVTmdTLUswbkZpd3k0?oc=5",
       "All_News": [
+        {
+          "Headline": "Nvidia\u2019s Week: UBS Raises Target, Hyperscaler Spending Holds, AMD Stumbles - AOL.com",
+          "URL": "https://news.google.com/rss/articles/CBMifkFVX3lxTE5SU2JsTFVtaFhhSk5HZHAwb1B5Q0QzUEVaYmIxTzg1XzdPOUlfeUpVdWVudFVXcTZLT21RelBmZk43c1JwNWNWclV0Y2FwRHVRNHBWYWY2RTE0RFVnd19mWjZ3Z2lYQkN6b2dDbEk0VmNtYTQxczNxaHhWSHduUQ?oc=5",
+          "Category": "Market Movement",
+          "Sentiment": -0.7,
+          "Impact": 0.6,
+          "Date": "2026-02-22 09:18:59"
+        },
+        {
+          "Headline": "After Massive OpenAI Deal, Is AMD Stock Still a Buy? - AOL.com",
+          "URL": "https://news.google.com/rss/articles/CBMifkFVX3lxTFBxWHFYQjBHc0dJdGs2ek1vTUZpcTJUcjdvQ2tpa0s1a3hGeXV6RkJuVzJLcms5NndMUzBsaW83dXpxXzNTTEdkRldFNDRyQjQ3R3cwZHJ1NTU5bWQ2LXd0LTUtbXdxYW9qZmdpRmtNbmF0ZG53VzBHWXVSWjkxUQ?oc=5",
+          "Category": "Stock Analysis",
+          "Sentiment": 0.2,
+          "Impact": 0.5,
+          "Date": "2026-02-22 09:18:59"
+        },
+        {
+          "Headline": "AMD stock ends lower near $200 after Crusoe loan backstop report; Nvidia earnings loom - Bez Kabli",
+          "URL": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNZ0NLNmJMQmM2WHQ1S19KWjZRbWhzY1R6TjRQclk0TnRaaDY0S1JkRE1QRERmV0t3RHdHdFJkcllKUlpOM1daUFUtOGZCaHBTSU5uTFZtY2htWnhCZEVFUkpTQ3JyWWZtTzZMQ0RmR0xzdnItWHdiOElvQ2ZMcDcyMjdVMTFBY1pWRkNEdF9INzlfaTdkblZ0WW9mYWtWNHNXUFE0bUFwN3VEWUNRM1lF?oc=5",
+          "Category": "Stock Performance/Corporate Finance",
+          "Sentiment": -0.6,
+          "Impact": 0.7,
+          "Date": "2026-02-22 09:18:59"
+        },
+        {
+          "Headline": "AMD mirrors Nvidia strategy with $300M Crusoe backstop deal: report - MSN",
+          "URL": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNVWtNbUFXMXBLNEFkbDhlZHNpME5jbnBZU1RHNkRveWNCNWRJa0FLNmMzSENkY1Y0eHVlbXZ5YU82MU5OSjJNRERPa0QxQ1ZPWjNlT2poLUUxQXNwUkN3NDNXNUUydlN4QzdvV2pBalVQZnA3TEpJQVFwYVIxRWFmRlBOUXZNcmNNbXRueEJOdUc3VEhOLThLdHZJdHc0NXdxbVJjNHNPZGlSeTRmMUtMSjlQRnhlWkltLURF?oc=5",
+          "Category": "Corporate Finance/Strategy",
+          "Sentiment": 0.3,
+          "Impact": 0.5,
+          "Date": "2026-02-22 09:18:59"
+        },
+        {
+          "Headline": "AMD Ryzen 7 in 2026: Still the Smart CPU Upgrade Gen Z Shouldn\u2019t Skip - AD HOC NEWS",
+          "URL": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPSzV6ZUVrWXJORFlSVVRRTVpNdXJsM0NRSkNOcXZILTBPMDh5TmJGRmtQV01POE5reE5JMkQwYnNPS3BuenNwSTZSUS1EdGp3OExpcHlXU3lud3FhNGxQdTJrMFVkQ0YwaWNTNFBOWUFmTE5QQjRiNHMzYkhycGJURjFESldoTzM5TklmUTFzSlQzeHluTnAzVXB5V3kzSmJwVjJHWms5NFVlSTFRT0l6dmEzZllqVjZOcnNoZHFBNkE3cGs5Y3c?oc=5",
+          "Category": "Product News",
+          "Sentiment": 0.7,
+          "Impact": 0.5,
+          "Date": "2026-02-22 09:18:59"
+        },
+        {
+          "Headline": "NVDA, INTC and AMD Forecast \u2013 Chips Look a Touch Soft Early Friday - FXEmpire",
+          "URL": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQNFc2bzBkWXM3U1V3NC00amQwMXkxSFRiazhkWnJCcW5FNlNXU1RPZmh5VjRwNGxTank1bXViQ2VHRFk2ck1GNEhBMzR2UlFqa04zM1QwN2h6Uk9hczhySkFmRzlPUzJWa0RqY2tRSUFDclpHYmJSa0U3aURYMjZVRVA2cC1ycjJ4alRqX1VSQVQ0Yjc3dEN2Qmc0NkxBY2VOY1RZdVdvUkhGRURiNzdpRk5rS3U?oc=5",
+          "Category": "Market Analysis",
+          "Sentiment": -0.5,
+          "Impact": 0.4,
+          "Date": "2026-02-21 09:19:27"
+        },
         {
           "Headline": "AMD underwrites $300m Crusoe loan so data center firm can buy its AI chips - report - DatacenterDynamics",
           "URL": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQMWpKdDFDTERWaEJzVGVod3NuZnc4azl3aG0xMUNLRExIRzl6NThwY0I4RDdPUnlWVUsyenVlNnItMUF5V1k2NzlRdVlVUkhnSWdSYy1EemlOT2d3czdIUldXTndwZ01KRVVwaVBKN3JYZ1NIRzlFY3laTzg5R3F4Q0xsR0pKTFh0Z2pKOVNRdU5GYXhCa3V1ZFhOdjc5YTNUOGp1a0Ewa0RVRG9FZmFraDdmNWE1aU5ocGVRcHppRklsQQ?oc=5",
           "Category": "Business Deal",
           "Sentiment": 0.6,
           "Impact": 0.8,
-          "Date": "2026-02-21 09:19:27"
-        },
-        {
-          "Headline": "Dow Jones futures rise amid shift out of tech; AMD, Lumentum, Eli Lilly are earnings movers - MSN",
-          "URL": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQMFlvQloxRi1maW1TY3RGRzNlem5VOUIwS2hFSW9VSTh3Nm5sQ2xZTy1YTkpOemlZZGdydkI2SkdpYV9Nd2RPVTdRVE1xeTBDeGtFMnZHLTJwcVdMQjJVMTRfMEhEYlNNNk1mcGMwaVlraEZ4YmJ0SWZXQzJSVUI1Yi1OVlBybzhTNnhZcVBwYndjVTdhLXdvaDhUNVBMY19NRTlZNDVXOXFrcnZ5Qm1IakMwd3BJdFZJV0N2RkdMYzdYNnpHSjJuOFVlWDB0UDQwTlRLWkcxUQ?oc=5",
-          "Category": "Market Analysis",
-          "Sentiment": -0.3,
-          "Impact": 0.5,
           "Date": "2026-02-21 09:19:27"
         },
         {
@@ -1390,11 +1398,11 @@ const DASHBOARD_DATA = {
           "Date": "2026-02-21 09:19:27"
         },
         {
-          "Headline": "NVDA, INTC and AMD Forecast \u2013 Chips Look a Touch Soft Early Friday - FXEmpire",
-          "URL": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQNFc2bzBkWXM3U1V3NC00amQwMXkxSFRiazhkWnJCcW5FNlNXU1RPZmh5VjRwNGxTank1bXViQ2VHRFk2ck1GNEhBMzR2UlFqa04zM1QwN2h6Uk9hczhySkFmRzlPUzJWa0RqY2tRSUFDclpHYmJSa0U3aURYMjZVRVA2cC1ycjJ4alRqX1VSQVQ0Yjc3dEN2Qmc0NkxBY2VOY1RZdVdvUkhGRURiNzdpRk5rS3U?oc=5",
+          "Headline": "Dow Jones futures rise amid shift out of tech; AMD, Lumentum, Eli Lilly are earnings movers - MSN",
+          "URL": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQMFlvQloxRi1maW1TY3RGRzNlem5VOUIwS2hFSW9VSTh3Nm5sQ2xZTy1YTkpOemlZZGdydkI2SkdpYV9Nd2RPVTdRVE1xeTBDeGtFMnZHLTJwcVdMQjJVMTRfMEhEYlNNNk1mcGMwaVlraEZ4YmJ0SWZXQzJSVUI1Yi1OVlBybzhTNnhZcVBwYndjVTdhLXdvaDhUNVBMY19NRTlZNDVXOXFrcnZ5Qm1IakMwd3BJdFZJV0N2RkdMYzdYNnpHSjJuOFVlWDB0UDQwTlRLWkcxUQ?oc=5",
           "Category": "Market Analysis",
-          "Sentiment": -0.5,
-          "Impact": 0.4,
+          "Sentiment": -0.3,
+          "Impact": 0.5,
           "Date": "2026-02-21 09:19:27"
         },
         {
@@ -1404,14 +1412,6 @@ const DASHBOARD_DATA = {
           "Sentiment": -0.3,
           "Impact": 0.7,
           "Date": "2026-02-21 09:19:27"
-        },
-        {
-          "Headline": "Benchmark Sees Advanced Micro Devices (AMD) Generating Tens of Billions in AI Revenue by 2027 - Insider Monkey",
-          "URL": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPZ0dkQjNBOTQtUEJkOUp2Ymt0YnFkeEVmc1ZnSkJLa0ZVY29nT0ZaaEVPT1ltN3R6OHJEdVIzMVpmVEpEMG9ZYlUyTm9VYkt0OE9lYjNFb1BUbXVnZmlQdDVadk41UlhnTXJBTGVma01qOGJaRGNWbEN3YWpOb1Jmc2xEZ0FJTlFHZGNXMFJHYlFxYWZBV3A3NFZSWENYV0lYQ1ZsN3YyMXNRNlpoZ041Y1REQWtDYVVuSmRzSXplTjB6Y05oMDRkTU9xeWQteVJj0gHYAUFVX3lxTE4zaUl0aVJmYWtNZ1J0b2x3ODhqR2tmMVdzd0RIeVl4YzJzcTE4S3R1QUNqR1Y4aVJkanJVWGUyV25QUE1Xd2JYcUNhaHZ3QUl6a1dFQzJ6bVk5Rk0zN2piQkxiUDNqRWdRa2xEeHBUR0dscS1RbmpBMjJqNDMxM3RiN2dHRkE1eFh0WmdtUnF3UnVfcGhjNlVjRWtkaERJZWZSU1F6WlgxY1hNT0ZJNkc4eGJTNm9Qb3RTWkhhRnI3T2NVSkJ1WXktRG5tbU0xNGI3ZmZvRHFKVg?oc=5",
-          "Category": "Analyst Report",
-          "Sentiment": 0.9,
-          "Impact": 0.9,
-          "Date": "2026-02-20 09:30:06"
         },
         {
           "Headline": "AMD Advanced Micro Devices : Earnings Webcast Q4 & FY 2025 - marketscreener.com",
@@ -1430,14 +1430,6 @@ const DASHBOARD_DATA = {
           "Date": "2026-02-20 09:30:06"
         },
         {
-          "Headline": "AMD's AI chips to be used as debt collateral in $300 million loan, report says \u2014 Cloud startup to use chips in Ohio datacenter - Tom's Hardware",
-          "URL": "https://news.google.com/rss/articles/CBMihwJBVV95cUxPOVBaem9EU1NRRmtNTTZEZ1BvYm1WTEtMM2hFMHlEcmgtS19lYUNRbGN0ZjZ0VGE3VDk4cGF5NFU4eWt3R2NOQW5TYUJoNXJpb010SGVkUk53MGgwNE4wT0NCbzloTlRTYll2THFzOUt1UnJmYks4RGIycFZEaV9hLW42elV1NDdEYzVWTUwxV0dvakdUYmZvLWFoU1Fwcnd2Ql96QkdKaDRma3hnaklMcmRxd3JRdEhFeEhYN05vd0NyOHd6TzRiQ01wNmlwNTFLclV5b3dNOVhYdm16VWVWUnYyUWpXOXUzNVB5eDVEZUVEX0Y1TzV4LVlmZXVhWlh2VnhYaUdxYw?oc=5",
-          "Category": "Product Adoption",
-          "Sentiment": 0.3,
-          "Impact": 0.4,
-          "Date": "2026-02-20 09:30:06"
-        },
-        {
           "Headline": "Benchmark Sees Advanced Micro Devices (AMD) Generating Tens of Billions in AI Revenue by 2027 - Yahoo Finance",
           "URL": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPa2VYQVJ2cjZjTnExZlhlaWZKS3JlaFZGLWNfcUtlSlkzT0RHTkN6cEFQVXktNVRCUHRQdVhEZTNfU0xEMURldTZSVWEyczhWcWNWRnBDcVIwQ3BzUExiZkNPekVOdnl6bDJPMnFRenNFbWFVUzgwRnlDbTFERGtVTmdTLUswbkZpd3k0?oc=5",
           "Category": "Analyst Report",
@@ -1446,11 +1438,35 @@ const DASHBOARD_DATA = {
           "Date": "2026-02-20 09:30:06"
         },
         {
-          "Headline": "AMD's stock takes a hit despite solid earnings. What happened? - MSN",
-          "URL": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNcHlaVjRMam5xSG96blNsSC1Lc2lvX3QwaVA1MkE3QVpSQUxjYXA3dTgtYUMxU00tXzFvMl9oTk82eXAtdHZTSTB3Yk0wTTBMalNLeDM4SnZtOXNqRWFNX2FqTUVROTFoUXRSSUR0b21BcklzamxpUV9yTkdRZ3VZTVZGcWF3ODVkYmhTNDVCc3RGNHpzUllpZWk3cWtEVkhjRElmQUN1SlBtMDBDaG1qb0pzMA?oc=5",
-          "Category": "Stock Movement",
-          "Sentiment": -0.7,
-          "Impact": 0.8,
+          "Headline": "Benchmark Sees Advanced Micro Devices (AMD) Generating Tens of Billions in AI Revenue by 2027 - Insider Monkey",
+          "URL": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPZ0dkQjNBOTQtUEJkOUp2Ymt0YnFkeEVmc1ZnSkJLa0ZVY29nT0ZaaEVPT1ltN3R6OHJEdVIzMVpmVEpEMG9ZYlUyTm9VYkt0OE9lYjNFb1BUbXVnZmlQdDVadk41UlhnTXJBTGVma01qOGJaRGNWbEN3YWpOb1Jmc2xEZ0FJTlFHZGNXMFJHYlFxYWZBV3A3NFZSWENYV0lYQ1ZsN3YyMXNRNlpoZ041Y1REQWtDYVVuSmRzSXplTjB6Y05oMDRkTU9xeWQteVJj0gHYAUFVX3lxTE4zaUl0aVJmYWtNZ1J0b2x3ODhqR2tmMVdzd0RIeVl4YzJzcTE4S3R1QUNqR1Y4aVJkanJVWGUyV25QUE1Xd2JYcUNhaHZ3QUl6a1dFQzJ6bVk5Rk0zN2piQkxiUDNqRWdRa2xEeHBUR0dscS1RbmpBMjJqNDMxM3RiN2dHRkE1eFh0WmdtUnF3UnVfcGhjNlVjRWtkaERJZWZSU1F6WlgxY1hNT0ZJNkc4eGJTNm9Qb3RTWkhhRnI3T2NVSkJ1WXktRG5tbU0xNGI3ZmZvRHFKVg?oc=5",
+          "Category": "Analyst Report",
+          "Sentiment": 0.9,
+          "Impact": 0.9,
+          "Date": "2026-02-20 09:30:06"
+        },
+        {
+          "Headline": "AMD's AI chips to be used as debt collateral in $300 million loan, report says \u2014 Cloud startup to use chips in Ohio datacenter - Tom's Hardware",
+          "URL": "https://news.google.com/rss/articles/CBMihwJBVV95cUxPOVBaem9EU1NRRmtNTTZEZ1BvYm1WTEtMM2hFMHlEcmgtS19lYUNRbGN0ZjZ0VGE3VDk4cGF5NFU4eWt3R2NOQW5TYUJoNXJpb010SGVkUk53MGgwNE4wT0NCbzloTlRTYll2THFzOUt1UnJmYks4RGIycFZEaV9hLW42elV1NDdEYzVWTUwxV0dvakdUYmZvLWFoU1Fwcnd2Ql96QkdKaDRma3hnaklMcmRxd3JRdEhFeEhYN05vd0NyOHd6TzRiQ01wNmlwNTFLclV5b3dNOVhYdm16VWVWUnYyUWpXOXUzNVB5eDVEZUVEX0Y1TzV4LVlmZXVhWlh2VnhYaUdxYw?oc=5",
+          "Category": "Product Adoption",
+          "Sentiment": 0.3,
+          "Impact": 0.4,
+          "Date": "2026-02-20 09:30:06"
+        },
+        {
+          "Headline": "Advanced Micro Devices (AMD) Announces Executive Incentive Plan and Special Equity Award - GuruFocus",
+          "URL": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPRHpoV29Ga3p6aC1qSnI1eHNUOUhtMG8xWVphMXNsTGhHeWk1TGhvQk5Nc1hnMHVKMTd3ZFI4dXNSTXhnWnozTXI3V2ZNcDBRZkhfRXBFV1ZRWXFpSnNoZzAteTEzamFLWFJZZEp3c0o5VEpYYWRpR21XRmtoV3JIa0lLZnc3ZkFYcVNvTjIwYmg0cnZNTkNiOWpZUm1saEl4eWNvS3dOaUp3TmZhNFFJaUhhWE0xU1hvWUljUXNsbG9tTmc?oc=5",
+          "Category": "Executive/Corporate Governance",
+          "Sentiment": 0.3,
+          "Impact": 0.3,
+          "Date": "2026-02-19 09:34:29"
+        },
+        {
+          "Headline": "AMD Says Report Of Delayed Instinct MI455X AI Accelerator Launch Is Total BS - HotHardware",
+          "URL": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE5scWhZRmhJUmFYa3l6VnRvd0VGclMtaG1sMHQyRnlBYnhEMEZnRWZXeWVaSHhpdkVwblNJLXMxZWd2Q3dIbEZNOG9aaVl3WnN5V0NQbm1NeTRIQTVoVEN6cmxB?oc=5",
+          "Category": "Product/PR",
+          "Sentiment": 0.6,
+          "Impact": 0.7,
           "Date": "2026-02-19 09:34:29"
         },
         {
@@ -1470,19 +1486,11 @@ const DASHBOARD_DATA = {
           "Date": "2026-02-19 09:34:29"
         },
         {
-          "Headline": "Advanced Micro Devices (AMD) Announces Executive Incentive Plan and Special Equity Award - GuruFocus",
-          "URL": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPRHpoV29Ga3p6aC1qSnI1eHNUOUhtMG8xWVphMXNsTGhHeWk1TGhvQk5Nc1hnMHVKMTd3ZFI4dXNSTXhnWnozTXI3V2ZNcDBRZkhfRXBFV1ZRWXFpSnNoZzAteTEzamFLWFJZZEp3c0o5VEpYYWRpR21XRmtoV3JIa0lLZnc3ZkFYcVNvTjIwYmg0cnZNTkNiOWpZUm1saEl4eWNvS3dOaUp3TmZhNFFJaUhhWE0xU1hvWUljUXNsbG9tTmc?oc=5",
-          "Category": "Executive/Corporate Governance",
-          "Sentiment": 0.3,
-          "Impact": 0.3,
-          "Date": "2026-02-19 09:34:29"
-        },
-        {
-          "Headline": "AMD Says Report Of Delayed Instinct MI455X AI Accelerator Launch Is Total BS - HotHardware",
-          "URL": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE5scWhZRmhJUmFYa3l6VnRvd0VGclMtaG1sMHQyRnlBYnhEMEZnRWZXeWVaSHhpdkVwblNJLXMxZWd2Q3dIbEZNOG9aaVl3WnN5V0NQbm1NeTRIQTVoVEN6cmxB?oc=5",
-          "Category": "Product/PR",
-          "Sentiment": 0.6,
-          "Impact": 0.7,
+          "Headline": "AMD's stock takes a hit despite solid earnings. What happened? - MSN",
+          "URL": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNcHlaVjRMam5xSG96blNsSC1Lc2lvX3QwaVA1MkE3QVpSQUxjYXA3dTgtYUMxU00tXzFvMl9oTk82eXAtdHZTSTB3Yk0wTTBMalNLeDM4SnZtOXNqRWFNX2FqTUVROTFoUXRSSUR0b21BcklzamxpUV9yTkdRZ3VZTVZGcWF3ODVkYmhTNDVCc3RGNHpzUllpZWk3cWtEVkhjRElmQUN1SlBtMDBDaG1qb0pzMA?oc=5",
+          "Category": "Stock Movement",
+          "Sentiment": -0.7,
+          "Impact": 0.8,
           "Date": "2026-02-19 09:34:29"
         },
         {
@@ -1494,11 +1502,11 @@ const DASHBOARD_DATA = {
           "Date": "2026-02-18 09:35:22"
         },
         {
-          "Headline": "AMD Just Announced a Huge Turnaround. Is It a Buy? - AOL.com",
-          "URL": "https://news.google.com/rss/articles/CBMiigRBVV95cUxNTjQxZzc4cDRSbGVXVW5yRm45c040aElmVWl0ZTFHNmF3Z2VzRTR0ODlCTjMzZF9YTDhnNmdPWEM4SUlVTTlvMG5vMWQxamt0STBkMkhwMzZ4a2xwc1hJRkFiNXdWeXFhc2RaTmx5M3IxNmJ2UnhjUFp1WjEzQ3B5V2RveUNmR3lzSk5GZUlISlVMX3EzUUozc2czSndqYWFqRU41V1dtOXN3WmNmNmdfSWxSdlRuSzZqenF1cFBvVzNxcGtobVdLUE84TUpNODR3MV9wRVJQaTVCTWpYMkVTOFBjcW9hd3dILUs4WXJGb0VGUnhacTEwODJudlVnWWlfVEdQb1UxOXd6WlEyU2hCei1nUldXQWdvYUNrRE85bXV1dVM1dkYta3FTLXpGUU4xSFplLVk3UHNxbm1aWmVtMkFoMTVtQ1YyU1pEZ0Z2SXZ0TWZBMFZralk1QkhmT1ZQS09WNld5MG1TSE5ucXB6eDdxZXY4TmptQ0UwUGhTUm5ucHFUQ2hYNW9kTXJ5YTFtdjlvTDhULUFkb3g2M0t1ZmlObmNYWkxrQVZITzBnSkFXa3RQc3pxTEsyUEpFOUE4N1M2QloyNGthTzJ4dnNVYjRONThYMkd4ZUdYSS1kVkhwMGhTb3ViZFZ0VE55QW1CeklvSDg4eHFGemRsSS1PNGxqUkZ6VVpNMGc?oc=5",
-          "Category": "Company Performance / Outlook",
+          "Headline": "Key facts: TCS reports $1.8B AI revenue; expands AMD partnership - TradingView",
+          "URL": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOY0JxYWdweVphZFhGYllZZmVlRExnMXNOM1NFNFNvNzgtUUhnZ05wcEtsOXNHMEl6X0FRLXMwQnlwX0p6SXZZaU5lNjlRbHZPT3o5NFptZ3NIaXAtWFg0OGUxc05DdkpBenhuRmJ1LS0yM2FYRWluTXF2YVdGNzUwZk14a2p6Wk82U3BOcjdMMEtPTUk4SU9WamEwbVNldjc5Mjd0SXQ1aHJSUDhuMXlwUUp3c0RBTXVUQTNsNjdvd1k?oc=5",
+          "Category": "Partnership",
           "Sentiment": 0.7,
-          "Impact": 0.7,
+          "Impact": 0.6,
           "Date": "2026-02-18 09:35:09"
         },
         {
@@ -1510,11 +1518,11 @@ const DASHBOARD_DATA = {
           "Date": "2026-02-18 09:35:09"
         },
         {
-          "Headline": "Key facts: TCS reports $1.8B AI revenue; expands AMD partnership - TradingView",
-          "URL": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOY0JxYWdweVphZFhGYllZZmVlRExnMXNOM1NFNFNvNzgtUUhnZ05wcEtsOXNHMEl6X0FRLXMwQnlwX0p6SXZZaU5lNjlRbHZPT3o5NFptZ3NIaXAtWFg0OGUxc05DdkpBenhuRmJ1LS0yM2FYRWluTXF2YVdGNzUwZk14a2p6Wk82U3BOcjdMMEtPTUk4SU9WamEwbVNldjc5Mjd0SXQ1aHJSUDhuMXlwUUp3c0RBTXVUQTNsNjdvd1k?oc=5",
-          "Category": "Partnership",
+          "Headline": "AMD Just Announced a Huge Turnaround. Is It a Buy? - AOL.com",
+          "URL": "https://news.google.com/rss/articles/CBMiigRBVV95cUxNTjQxZzc4cDRSbGVXVW5yRm45c040aElmVWl0ZTFHNmF3Z2VzRTR0ODlCTjMzZF9YTDhnNmdPWEM4SUlVTTlvMG5vMWQxamt0STBkMkhwMzZ4a2xwc1hJRkFiNXdWeXFhc2RaTmx5M3IxNmJ2UnhjUFp1WjEzQ3B5V2RveUNmR3lzSk5GZUlISlVMX3EzUUozc2czSndqYWFqRU41V1dtOXN3WmNmNmdfSWxSdlRuSzZqenF1cFBvVzNxcGtobVdLUE84TUpNODR3MV9wRVJQaTVCTWpYMkVTOFBjcW9hd3dILUs4WXJGb0VGUnhacTEwODJudlVnWWlfVEdQb1UxOXd6WlEyU2hCei1nUldXQWdvYUNrRE85bXV1dVM1dkYta3FTLXpGUU4xSFplLVk3UHNxbm1aWmVtMkFoMTVtQ1YyU1pEZ0Z2SXZ0TWZBMFZralk1QkhmT1ZQS09WNld5MG1TSE5ucXB6eDdxZXY4TmptQ0UwUGhTUm5ucHFUQ2hYNW9kTXJ5YTFtdjlvTDhULUFkb3g2M0t1ZmlObmNYWkxrQVZITzBnSkFXa3RQc3pxTEsyUEpFOUE4N1M2QloyNGthTzJ4dnNVYjRONThYMkd4ZUdYSS1kVkhwMGhTb3ViZFZ0VE55QW1CeklvSDg4eHFGemRsSS1PNGxqUkZ6VVpNMGc?oc=5",
+          "Category": "Company Performance / Outlook",
           "Sentiment": 0.7,
-          "Impact": 0.6,
+          "Impact": 0.7,
           "Date": "2026-02-18 09:35:09"
         },
         {
@@ -1524,54 +1532,6 @@ const DASHBOARD_DATA = {
           "Sentiment": 0.0,
           "Impact": 0.5,
           "Date": "2026-02-18 09:35:07"
-        },
-        {
-          "Headline": "Nvidia stock, AMD and Applied Materials: AI stocks to watch after the Wall Street holiday - TechStock\u00b2",
-          "URL": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOOU80YzVXVmVJWGVOdWpxSnkxV240ZXVkLWxnS3lKNjVkb19fcVN3cC1pV1JldWh0SG13ZkZqOFRaU1NnMDN5azZYcFVvZm44UWlsY3JOOGtnZ1VkMThFNWZSUU95emNMekJaNHVGT1BESDBBWWxfd3pENHRxSDNhT0ZRR0RCbGxIVTIzOEMwNE5ydHgtZ0FWRy1oVEVsUFZOSGwxeDlkUEhXVUht?oc=5",
-          "Category": "Market News",
-          "Sentiment": 0.0,
-          "Impact": 0.2,
-          "Date": "2026-02-17 09:36:56"
-        },
-        {
-          "Headline": "AMD Stock Leapfrogs into India as It Fires a Shot at Nvidia by Partnering with Tata Consultancy - TipRanks",
-          "URL": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNcjZtUUMwQUwtZU95VmloRDA3VVl2ODkyRURCMW5ETzI2TW1PSjRGS0tsSXpxdk94N0t0UjVEOW5KNWcxVDBzbzJQalBIZFpEQlg2ZlNaV2NScVhLSEg0U3lValVFQnF5ZFZ2QVVjVFpncUZFSzRMRUNIOXp4djl4MDFEMmNRTUktTE1hUmlCcHF1Z3hVWDF0bXlUX1JBYUtvSlVjanJidXd0OXQ0UDZXZVVPdTJUWV91OEw0dUJJaElGZjQ?oc=5",
-          "Category": "Partnership",
-          "Sentiment": 0.8,
-          "Impact": 0.8,
-          "Date": "2026-02-17 09:36:36"
-        },
-        {
-          "Headline": "Competing with Nvidia for Indian market share: AMD partners with Tata Consultancy Services - Bitget",
-          "URL": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE91SVRMSkoycUJmWkUxaHpIMHB1emFPWEZnVmlOUFdSdXRiY0VXbV9GZk44RzQ5UGYzd3VWUEZxTVJLZnJIeS1Bc01SNml3aVVZZnNUZ2phYjBTTHRjQ0NNWTBZRdIBY0FVX3lxTE91SVRMSkoycUJmWkUxaHpIMHB1emFPWEZnVmlOUFdSdXRiY0VXbV9GZk44RzQ5UGYzd3VWUEZxTVJLZnJIeS1Bc01SNml3aVVZZnNUZ2phYjBTTHRjQ0NNWTBZRQ?oc=5",
-          "Category": "Partnership",
-          "Sentiment": 0.7,
-          "Impact": 0.7,
-          "Date": "2026-02-17 09:36:36"
-        },
-        {
-          "Headline": "AMD Reports Strong Q4 Earnings but Shares Drop Nearly 12% - Intellectia AI",
-          "URL": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNcVk5dnpWQ0hPaVVXc0hUNl9GM0R3SklDRjVlbmhJYVd5dXExQ3RJSVRpb2pITUtMZHpjRFlubHhrRTVqbXNHb3VmSXBzYkp4T0hCOTRKOUZocGhxdW5FWDk0YlRHa1EtYVV4TUxrMFlsOVNrcGVBLVhLUmdkOXBYYm1nSF9ieWRSdWt6dUFPRFE2M09x?oc=5",
-          "Category": "Earnings",
-          "Sentiment": -0.4,
-          "Impact": 0.8,
-          "Date": "2026-02-17 09:36:36"
-        },
-        {
-          "Headline": "AMD stock in focus: TCS partnership puts \u2018Helios\u2019 AI plan for India on the tape - Bez Kabli",
-          "URL": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQR0RwcElyQlYxY1hwOTlBR0d0VnU1eGlwcGFzUllBT3pZNjQ3dEZrWkd5eXYxMl9TRmxpang5SjN2aUd2a3FJaG82MUVmYk5abG91Y2xRRWc0eWR3X2tjNGl2Rl9wUU5fNGFqU1loaVNRcGhZaTZqdHRtUFVkNUZSTERuVkM3TWhrbzFIeDUwdmtJcTlHRW9YM1FJbm9yR0pvdkxPdA?oc=5",
-          "Category": "Partnership",
-          "Sentiment": 0.7,
-          "Impact": 0.7,
-          "Date": "2026-02-17 09:36:36"
-        },
-        {
-          "Headline": "AMD Partners with TCS to Compete with Nvidia in India's AI Market - Siliconindia",
-          "URL": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQQkhHVkNLMk1FQWdMaVFHSVhJNVpmc1Z3UV8teVJrcUtZaU5aSjY1WDRPS3lBc1g1dE9UYjlYZnJISEU2MDNIajNoY054ZXYtRVBkLUFrNzJ1d0dIaTY0eHRCOVZmODFTSzVMTm1ZMkxRa2hfTENwX1VibXFOZVAxZVJyZnM5MTNaQzI5N3ZWWmM0WWJpYzF5UmdUa0ZJRko5bUtSRmJ0Nm9EcGxtSE1TSnozLVFBd0RZUUpTZXZTR1FfQU9aZi01bA?oc=5",
-          "Category": "Partnership",
-          "Sentiment": 0.7,
-          "Impact": 0.7,
-          "Date": "2026-02-17 09:36:36"
         }
       ],
       "Signal": "BULLISH_BREAKOUT"
@@ -1580,11 +1540,19 @@ const DASHBOARD_DATA = {
       "Ticker": "AME",
       "Price": 233.51,
       "LSTM_Confidence": 0.65,
-      "News_Sentiment": 0.9,
-      "News_Impact": 0.9,
-      "Headline": "Assessing AMETEK (AME) Valuation After Dividend Hike Strong Results And Positive Guidance - simplywall.st",
-      "URL": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPbFpodmRNdG9seUdKNFE1Z29xbWhxcFQxT1p2aDNOZVlRMkpWNkxTWllQMjBmVTNTeXVBYWhqc3NVSlVEN2VIcWZHMndub2NwbE1Scm1OUHAyWWlJQnBCNFRjaGdVYk1nMVpVMEMtdXpKSng4bnRrd0RyTU4yYkREdVQweVR5MFJkMmZtZ2xoSVNBZGlmcElfR1pnSThNNGR2UE5NMnI1eG1MTUMyMjc1cTFVSTh6MWZLdXJ2aUluRUhLRmFpaUE?oc=5",
+      "News_Sentiment": 0.8,
+      "News_Impact": 0.7,
+      "Headline": "AMETEK (NYSE:AME) Raised to Buy at Wall Street Zen - Defense World",
+      "URL": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPclRudDJ4c21ubENfYXV3V2FQMlVhQ01JUUtsNjlZZElJaXllNGtCYTBWR2I1Rm50QzFTZWdLUlh5RnRJQnlJR2gwNWJuRjNpNGZqNlFyY2JocVZJeGp1cmJ3WU4zQmtpNHRta0p5NGJzVjFwQk9VQW5aZXhpZC1yMjVRTnFJX0FlTkxZTHI1NjVNV3FQaHpn?oc=5",
       "All_News": [
+        {
+          "Headline": "AMETEK (NYSE:AME) Raised to Buy at Wall Street Zen - Defense World",
+          "URL": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPclRudDJ4c21ubENfYXV3V2FQMlVhQ01JUUtsNjlZZElJaXllNGtCYTBWR2I1Rm50QzFTZWdLUlh5RnRJQnlJR2gwNWJuRjNpNGZqNlFyY2JocVZJeGp1cmJ3WU4zQmtpNHRta0p5NGJzVjFwQk9VQW5aZXhpZC1yMjVRTnFJX0FlTkxZTHI1NjVNV3FQaHpn?oc=5",
+          "Category": "Analyst Rating",
+          "Sentiment": 0.8,
+          "Impact": 0.7,
+          "Date": "2026-02-22 09:19:09"
+        },
         {
           "Headline": "Why Ametek (AME) International Revenue Trends Deserve Your Attention - Yahoo Finance",
           "URL": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOSWtSRmo1bnVQakw1eXpYV01WZkdxUTc2Y3JMeEd0VmtzSXF4eW03VTNkelQxWDIwZ29VV3hsMXAyT3JfTjJxX3JZenFrcEhQVlNESGhfWmxqY2IwbS1vNEZrUzdjcEFqT1VVSnB4WmJDNkF3Y3NYa2pyZ1p3S192OUlsSXNqMHRBUmc?oc=5",
@@ -1592,14 +1560,6 @@ const DASHBOARD_DATA = {
           "Sentiment": 0.2,
           "Impact": 0.5,
           "Date": "2026-02-19 09:34:30"
-        },
-        {
-          "Headline": "Assessing AMETEK (AME) Valuation After Dividend Hike Strong Results And Positive Guidance - simplywall.st",
-          "URL": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPbFpodmRNdG9seUdKNFE1Z29xbWhxcFQxT1p2aDNOZVlRMkpWNkxTWllQMjBmVTNTeXVBYWhqc3NVSlVEN2VIcWZHMndub2NwbE1Scm1OUHAyWWlJQnBCNFRjaGdVYk1nMVpVMEMtdXpKSng4bnRrd0RyTU4yYkREdVQweVR5MFJkMmZtZ2xoSVNBZGlmcElfR1pnSThNNGR2UE5NMnI1eG1MTUMyMjc1cTFVSTh6MWZLdXJ2aUluRUhLRmFpaUE?oc=5",
-          "Category": "Earnings/Guidance",
-          "Sentiment": 0.9,
-          "Impact": 0.9,
-          "Date": "2026-02-17 09:36:50"
         }
       ],
       "Signal": "WAIT"
@@ -1608,18 +1568,42 @@ const DASHBOARD_DATA = {
       "Ticker": "AMT",
       "Price": 187.31,
       "LSTM_Confidence": 0.59,
-      "News_Sentiment": 0.0,
-      "News_Impact": 0.9,
-      "Headline": "American Tower (AMT) to Release Earnings on Tuesday - MarketBeat",
-      "URL": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNel9HVm9sTklSTEUyN1lJZlhRZkhqMUlmeTU3cFpYeERFUEFEWUVLSnVyUzFrU1hiRFZhWGI2WUtMMGdGTW9IVDZhNHA2bTFjUjlaTzFZLTd0N3FPMnRnWklPbzMzZHRtOGVLY0djQjlqd19KU041eWpQVmsyWldCV2gxazd1Z1RJR3MxVmItWlo0NnB5aThSb1ZBYXh6cDlsTzVhTUd3?oc=5",
+      "News_Sentiment": -0.8,
+      "News_Impact": 0.8,
+      "Headline": "American Tower (AMT) stock drops despite market gains: Important facts to note - MSN",
+      "URL": "https://news.google.com/rss/articles/CBMi9wFBVV95cUxNU0t1LWlfa1d1V3FHb1pNWmVKdTV0aW1vMkEwUkoyZlQ5dWFmclpucGxvNVFnMU1vTUJJT1VoLWFxeGNPdFpBdFFtRTBpTVFkV2I1TnFLMVVhcDhETGl1YkRTYW9VQ1g2ZHZfMnZFMG00VE4xbmd3WjlIREFTRlNZZVA0V1RDVjZiVW9SSlZnU2pCRXJyeXotZGp3X21zcW41OE0yXzlxdUFWWVFCXy1UcGVac0ZyajZzT1BQdzBSaWtETG9pME5UUWZfTkwtQ3cwVzhvY1dLM1Z1X05XY3VzYVpBUllscEtBWDVBbHJjNXZiMlozSGQ0?oc=5",
       "All_News": [
         {
-          "Headline": "American Tower: The Turnaround May Already Be Underway (NYSE:AMT) - Seeking Alpha",
-          "URL": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQSDdTa3FUd2N0d191ZXY4b2pZS3k5c01MSWppOHJvSXRnSGoydWtZRlNXcHpGM2ZnYm1XNjZvd0xkbVZDaWVBOGk5cFBjei1UaDc0YWJxNkduSGZVOU9lWnpyRmtBYUV2XzM2Y21QNHpXTmlWdkY3V3VmbXFnTkdwRGdabnpPSWNmNUhuU0twaEkzODRmbVlsa21R?oc=5",
-          "Category": "Market Analysis",
-          "Sentiment": 0.7,
+          "Headline": "American Tower Corporation $AMT Shares Sold by Stevens Capital Management LP - MarketBeat",
+          "URL": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQandGbHhZRm41YWRzcklPNHVhT3RhQ0ZKa3J5N2NNMzRqdHdZc1cyOVlvWkREQ2Z4NTVucG1LTi1mcHkyeXc1cXhiZ2tiYVRaaXhMekJFYU9UQWVlLXpKaXRaSlFyeDRmR2pURlQ5Q0pHYUNlRndES1ktcG5mT3hJWmlkNlZLSWx1elQxTVk0b3BlUUZCOTE4cGpfemZmQzNNaHdUNTJKRTkzNXVfTlpDM1IzRjk0eVFhNERSLXlaSzFPemJSd3FUMm8tZ1ZXVFN0OEE?oc=5",
+          "Category": "Institutional Holdings",
+          "Sentiment": -0.6,
           "Impact": 0.5,
-          "Date": "2026-02-21 09:19:28"
+          "Date": "2026-02-22 09:19:01"
+        },
+        {
+          "Headline": "Citi Reaffirms Their Buy Rating on American Tower (AMT) - The Globe and Mail",
+          "URL": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQZ2N6NnhRZ1J4UzNkVEl3QmcyWjNvRmx6WXhiNHVxbC1kbWwxc29WQlF0M3ViTUhuOWpmeFBpZGxPVzU0dkpGbG9aYklKZWdWQWt4Yi13a0F2ZXVJN2FwX09pMmtYNW9qNk1QUDQ5a1BObDd3UF94X0hHLWx6blhmbndIME5fa1pnYzI4T1d0bXBqN19LMk9EaXRvSlZZVjhid3MtNVhEQlMwUHMyUWZ4QTAxdWZQLXBwVWpacFMwS1ExUGl6MDRZVjc2YlloaEtNdVE?oc=5",
+          "Category": "Analyst Rating",
+          "Sentiment": 0.7,
+          "Impact": 0.6,
+          "Date": "2026-02-22 09:19:01"
+        },
+        {
+          "Headline": "American Tower (AMT) stock drops despite market gains: Important facts to note - MSN",
+          "URL": "https://news.google.com/rss/articles/CBMi9wFBVV95cUxNU0t1LWlfa1d1V3FHb1pNWmVKdTV0aW1vMkEwUkoyZlQ5dWFmclpucGxvNVFnMU1vTUJJT1VoLWFxeGNPdFpBdFFtRTBpTVFkV2I1TnFLMVVhcDhETGl1YkRTYW9VQ1g2ZHZfMnZFMG00VE4xbmd3WjlIREFTRlNZZVA0V1RDVjZiVW9SSlZnU2pCRXJyeXotZGp3X21zcW41OE0yXzlxdUFWWVFCXy1UcGVac0ZyajZzT1BQdzBSaWtETG9pME5UUWZfTkwtQ3cwVzhvY1dLM1Z1X05XY3VzYVpBUllscEtBWDVBbHJjNXZiMlozSGQ0?oc=5",
+          "Category": "Market Movement",
+          "Sentiment": -0.8,
+          "Impact": 0.8,
+          "Date": "2026-02-22 09:19:01"
+        },
+        {
+          "Headline": "American Tower Stock (AMT) Opinions on Upcoming Earnings - Quiver Quantitative",
+          "URL": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPZm16bUFmbnJOdHltclctRzV4SW10NlpaeXRETVd6NkdRd3JSOUFVOUVaSVpmOS1GUENDMV9CcDFlSWlxczJBdzVxeHFJbFRweUF5MFpWN1ZrN0w0SzJ2NTRGNHE3QW8wMHdSNG90ZHVEdGF3UkJnT3RCanA2bmk4TWNCNGVSbUZNMjRuUUNPZ19EMXNsV21DQg?oc=5",
+          "Category": "Earnings Preview",
+          "Sentiment": 0.0,
+          "Impact": 0.5,
+          "Date": "2026-02-22 09:19:01"
         },
         {
           "Headline": "American Tower Corporation $AMT Shares Sold by GSA Capital Partners LLP - MarketBeat",
@@ -1635,6 +1619,14 @@ const DASHBOARD_DATA = {
           "Category": "Investment",
           "Sentiment": 0.8,
           "Impact": 0.7,
+          "Date": "2026-02-21 09:19:28"
+        },
+        {
+          "Headline": "American Tower: The Turnaround May Already Be Underway (NYSE:AMT) - Seeking Alpha",
+          "URL": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQSDdTa3FUd2N0d191ZXY4b2pZS3k5c01MSWppOHJvSXRnSGoydWtZRlNXcHpGM2ZnYm1XNjZvd0xkbVZDaWVBOGk5cFBjei1UaDc0YWJxNkduSGZVOU9lWnpyRmtBYUV2XzM2Y21QNHpXTmlWdkY3V3VmbXFnTkdwRGdabnpPSWNmNUhuU0twaEkzODRmbVlsa21R?oc=5",
+          "Category": "Market Analysis",
+          "Sentiment": 0.7,
+          "Impact": 0.5,
           "Date": "2026-02-21 09:19:28"
         },
         {
@@ -1670,19 +1662,19 @@ const DASHBOARD_DATA = {
           "Date": "2026-02-20 09:30:22"
         },
         {
-          "Headline": "American Tower (AMT) Faces Setback After Six-Day Rally - GuruFocus",
-          "URL": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNMTZhMWdCUlA0elpoZjNiSWRhNGpFNXF6SnBSRmMzNVFPemlRemJwWVZaR2c3cmxXazViZ2VaZk5XYldVNTlfVldRWjFkRHRhd0RsR2ZuU01yaGkxYm5JYlEtN3JnRW1oZFg5dWt3RmFVUkYyNkNCVnByMk9Ya1FiT0t0QzYtUnlsSEVUTnZLU2pWeF8t?oc=5",
-          "Category": "Stock Movement",
-          "Sentiment": -0.4,
-          "Impact": 0.6,
-          "Date": "2026-02-19 09:34:37"
-        },
-        {
           "Headline": "American Tower (AMT) Stock Drops Despite Market Gains: Important Facts to Note - Yahoo Finance",
           "URL": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOeWZRZjd4LW1BcWFwTUt5TEhFczdUaFFua09aSVZlZzhfbXQxZnNrdDN4MU5GVU1iejJRdENoRUswV1NraVBIX3cwUXdMNW5yS096NVYzTEh6MU5BQUxoUER4dkhwYVd2VF9LekI4Qkxlc292TTBUcUhoaDF1Mno4anh3?oc=5",
           "Category": "Stock Movement",
           "Sentiment": -0.6,
           "Impact": 0.7,
+          "Date": "2026-02-19 09:34:37"
+        },
+        {
+          "Headline": "American Tower (AMT) Faces Setback After Six-Day Rally - GuruFocus",
+          "URL": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNMTZhMWdCUlA0elpoZjNiSWRhNGpFNXF6SnBSRmMzNVFPemlRemJwWVZaR2c3cmxXazViZ2VaZk5XYldVNTlfVldRWjFkRHRhd0RsR2ZuU01yaGkxYm5JYlEtN3JnRW1oZFg5dWt3RmFVUkYyNkNCVnByMk9Ya1FiT0t0QzYtUnlsSEVUTnZLU2pWeF8t?oc=5",
+          "Category": "Stock Movement",
+          "Sentiment": -0.4,
+          "Impact": 0.6,
           "Date": "2026-02-19 09:34:37"
         },
         {
@@ -1716,38 +1708,6 @@ const DASHBOARD_DATA = {
           "Sentiment": 0.9,
           "Impact": 0.8,
           "Date": "2026-02-18 09:35:13"
-        },
-        {
-          "Headline": "Vanguard Group Inc. Acquires 611,801 Shares of American Tower Corporation $AMT - MarketBeat",
-          "URL": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxNc2V6UGxETl8wR3hXVW9zTzByVXFRRnZmdllUeGRfcU5MNkk5RHBNRFNaVEtfcFc3V2lpLWRBZDc4cEYtQlNNaWwzMjFXWkRia2ZqQ1ZkRXBvZzRNLUVnUE9YLTBwVl9WSXRlNkRJSktVcUIxZ3BLejBTcDBtalAzdG9uTVluc2tpT0p1MXBraWlJdDdNaml3cUV1bUpPczdmSEluLTFHZVR2OF9GUmpHckJlQ1phbkxOZ3JYVGlLRzFEdWNaSmlBT2g5aXJWS0oyS0E?oc=5",
-          "Category": "ownership_change",
-          "Sentiment": 0.7,
-          "Impact": 0.7,
-          "Date": "2026-02-17 09:36:39"
-        },
-        {
-          "Headline": "M&G PLC Has $193.83 Million Position in American Tower Corporation $AMT - MarketBeat",
-          "URL": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOM3VMb0tUOGhWeXBKdzBVbmVpcnk0b0ZCR3pZbktzVzhpNFZKaC1FV0JMR2M2aUdpaWJZdnFLb2dqODJ4c0I3Q01FRmhhTC1PUnhHWkVlQWYweEk2VmhvbXAtekltNC1DRGlwZkJuYkg0SjFfZVY3YXpSbk13TXk5SUc2d2ZBNld6czlTZXk1UmVPcGtzbF9pUUMybGJFdjc5b19FUVZOZjh1aW4zN0pJT3U4VmlOb1RvWWltSW9rT0Qxd1puNHJr?oc=5",
-          "Category": "ownership_position",
-          "Sentiment": 0.2,
-          "Impact": 0.5,
-          "Date": "2026-02-17 09:36:39"
-        },
-        {
-          "Headline": "American Tower (AMT) to Release Earnings on Tuesday - MarketBeat",
-          "URL": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNel9HVm9sTklSTEUyN1lJZlhRZkhqMUlmeTU3cFpYeERFUEFEWUVLSnVyUzFrU1hiRFZhWGI2WUtMMGdGTW9IVDZhNHA2bTFjUjlaTzFZLTd0N3FPMnRnWklPbzMzZHRtOGVLY0djQjlqd19KU041eWpQVmsyWldCV2gxazd1Z1RJR3MxVmItWlo0NnB5aThSb1ZBYXh6cDlsTzVhTUd3?oc=5",
-          "Category": "earnings_announcement",
-          "Sentiment": 0.0,
-          "Impact": 0.9,
-          "Date": "2026-02-17 09:36:39"
-        },
-        {
-          "Headline": "Fifth Third Bancorp Has $27.20 Million Stock Position in American Tower Corporation $AMT - MarketBeat",
-          "URL": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxQemZGaXRyTUxGd3ZiRklNa3lfNFM3bUdjYng4UnZnQmhjTXdjcVpDdlZycVlncE54VU02TVA0LUhyX0lvRVJ3dERIajBDSjRZdmxkT2NUSHVEei1aVmREdjNtR0RhX3NmX0o3UVhnYVdrNDNGZXMyeElRUkpvT1lWMkxGUnJtN1lkQmEwMlFIWU5yc29Qd082SmRZUlhLMHc5cjBNWE5BMHFULU5TSUQ3VG1BTDhWQ1NFQUdvRFhDZVdWSkxkUjhadE1lLUNxVDZVeGdYZXVXc3o2Y1JMaWMw?oc=5",
-          "Category": "ownership_position",
-          "Sentiment": 0.2,
-          "Impact": 0.5,
-          "Date": "2026-02-17 09:36:39"
         }
       ],
       "Signal": "WAIT"
@@ -1790,6 +1750,30 @@ const DASHBOARD_DATA = {
       "URL": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNNENVV3NwM1ZSTXpwNWxPcGpyR2JqeGlvR0pxdUtEZW1GbW9LNE93c3hvSENIbS1UcHZaMWVGYkxJbkNnU1lyUWd0WDVaZVA4NTlkNkhVa1h4LWM2dWpuNk5sQk9QN3hRTGlkWnlZTmpqY0RRM0w5bFJnOEpJaEdxR1dGM2tVb1hnNmFmMEdwRHA?oc=5",
       "All_News": [
         {
+          "Headline": "Smead Capital Management Inc. Has $246.72 Million Stock Position in APA Corporation $APA - MarketBeat",
+          "URL": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxQQXNpTlRRYnRTRXBaOF91ZWNJWGtQM2RtYV9xN01SY2NHR21IbFVFWGxGY19BODRteEJlend3N2k5VXIwYmJXQjl5NUt5clBhUWYzSlkyd1U1aGlobnp1bWRDM2dFc3k1YWx0MEpFUDZyYnFNeFNGVmlKeFdINTMyZjBNS3dCajhkdDFwR2FySEZucEx3VjVXM1BaR0F4Y2hEaW5hU0xNYy1YSjFnSjNEemRZYzZwTkRieXZ4cklmTTZvVVdoUE9xSW1sTUVyTU5CNTZqZXZMcWZDWVdxbVE?oc=5",
+          "Category": "Institutional Ownership",
+          "Sentiment": 0.6,
+          "Impact": 0.5,
+          "Date": "2026-02-22 09:19:02"
+        },
+        {
+          "Headline": "Precision Trading with Apa Corporation (APA) Risk Zones - Stock Traders Daily",
+          "URL": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOdDRLeVprMkFRYjlobi1pYm12R0tpZy1kV3JyUkc4SHBJb1BJQzNUQmJObE5jV19yNEdGNFVJVGxwblRha1dYVV9JNWhXWWRGUVlEQVpzSkRPM0t3QjNDNjUzVnp0bDlvV21WQUZpQ0dnTXU1QTdvQUNBOEc2THJNeTBtVUl5MjE3Tk5OTEZ3ajNNODVkQ1VFc24tQ1A4cm9YWHdBSm9YSVJFWVV0cEJZazhwa21RclhxRndYa2ZzLW5VU2hIYm1ZR1RIVks1dw?oc=5",
+          "Category": "Trading Strategy",
+          "Sentiment": 0.1,
+          "Impact": 0.3,
+          "Date": "2026-02-22 09:19:02"
+        },
+        {
+          "Headline": "APA Corporation $APA Shares Sold by Synovus Financial Corp - MarketBeat",
+          "URL": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPLTlRelQyVV90U0k3SGo2czNSVUpWb3YyY3ZFMWxLYmdsVlpVLW8yTGJwdDYzTkpWSmctSktKNkgyNEZTOV9pVG1lMlVaa2dnZ0JQLW9ZZE4ydVFORmU4SUhiQ0xSU052MzlsMGh4Zk83b2d4Ti10aVVBYmlqUFVDd2Z0dGpoN0VYYkl4cVU2TDQ3SUFNNm1lQnpuckRMTF9fNXk3TlRoYXJaZG9haDd5T3dpdE01YnloWGc?oc=5",
+          "Category": "Institutional Holdings",
+          "Sentiment": -0.6,
+          "Impact": 0.5,
+          "Date": "2026-02-22 09:19:02"
+        },
+        {
           "Headline": "APA CORP (NASDAQ:APA) Presents a Compelling Case for Dividend Investors - ChartMill",
           "URL": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxObDdtRURsTFlCNmQ5WmxpWFlLSUtZaVNMeE5abWUzODZxZWlwcWJRQmROWGc3dml3OHJ6TnBUQzdYMVBHVXdsZjNNZGtNblJORjQyR1hScG95Y0xGVkExV2dEWlcwaXlCMTZBVFZBcEljOXEzRWU5NUwxMjZxaWxTdHNMVUlmTHR6MDJyQmJyNWFmYXY4bkRXbHN6NWU1RjJwbk43ZVZFYUxIZ0pBRTZ1SzBIZnBjd01ZZjdn?oc=5",
           "Category": "Investment Analysis",
@@ -1806,14 +1790,6 @@ const DASHBOARD_DATA = {
           "Date": "2026-02-21 09:19:14"
         },
         {
-          "Headline": "What is Morgans saying about APA, Bega Cheese, and Transurban shares? - The Motley Fool Australia",
-          "URL": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOLVJnMU40eE1VZkNCUllkVE5rM1A4ZlYtZ0lpcFNRT01mZHRUdWNKbl96Z2N5a2ZsdWdDS29XbnBianBwaTNLNy1LZWVhUEhRZTNtQ2ViMG1ua2Z1NXRaU1NXXzdsVkt5UW04OVhucmVKUFk5ZWFNTFZyeDJoWUhlRXhGaW1MS1p4aHN6UGlGQnFMWEdLbzhabUE3NGNkSFNrZmxuNQ?oc=5",
-          "Category": "Analyst Report",
-          "Sentiment": 0.0,
-          "Impact": 0.3,
-          "Date": "2026-02-20 09:30:19"
-        },
-        {
           "Headline": "Assessing APA Corporation (APA) Valuation As Analyst Sentiment Shifts And Dividend Is Reaffirmed - Yahoo Finance",
           "URL": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQOURkeXIxOElSb2FhMmdubnl5ZkNOQnRUbmhBNnE5YjZiR2dWaXQzdnFVaUVwWUhndDllcUp4MUxNUkFxcXg2bEdWdnczdEdhYWZ0S3pfN2RmN1pTcUFFWVNOTlU0M2VDUEFCSXdoWFdaTFUwNUNqX285NTJmOGJuSmJyV0RLYlNOZDM5STB3?oc=5",
           "Category": "Analyst Opinion/Dividend News",
@@ -1822,12 +1798,12 @@ const DASHBOARD_DATA = {
           "Date": "2026-02-20 09:30:19"
         },
         {
-          "Headline": "Earnings Preview: APA (APA) Q4 Earnings Expected to Decline - Finviz",
-          "URL": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNOFl4VXVrMlpBdHl5aEp5UUZqb1ZsZERJc1lneDcwQWtvM3R2NG91NzdUX2EzUDJINjdSWEJkYTdPcXh2TndtOWNpN1JBY3hGb3lEMXE1ZnpaVVROUGs0UEJtOU1kTHdzeHduNTY2WjVqOE5FM1hkQ0pYYzAxQWRyQ3prTlRYb1RtejNDbnhRcU4?oc=5",
-          "Category": "Earnings Preview",
-          "Sentiment": -0.6,
-          "Impact": 0.7,
-          "Date": "2026-02-19 09:34:35"
+          "Headline": "What is Morgans saying about APA, Bega Cheese, and Transurban shares? - The Motley Fool Australia",
+          "URL": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOLVJnMU40eE1VZkNCUllkVE5rM1A4ZlYtZ0lpcFNRT01mZHRUdWNKbl96Z2N5a2ZsdWdDS29XbnBianBwaTNLNy1LZWVhUEhRZTNtQ2ViMG1ua2Z1NXRaU1NXXzdsVkt5UW04OVhucmVKUFk5ZWFNTFZyeDJoWUhlRXhGaW1MS1p4aHN6UGlGQnFMWEdLbzhabUE3NGNkSFNrZmxuNQ?oc=5",
+          "Category": "Analyst Report",
+          "Sentiment": 0.0,
+          "Impact": 0.3,
+          "Date": "2026-02-20 09:30:19"
         },
         {
           "Headline": "APA (APA) Projected to Post Earnings on Wednesday - MarketBeat",
@@ -1838,10 +1814,34 @@ const DASHBOARD_DATA = {
           "Date": "2026-02-19 09:34:35"
         },
         {
+          "Headline": "Earnings Preview: APA (APA) Q4 Earnings Expected to Decline - Finviz",
+          "URL": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNOFl4VXVrMlpBdHl5aEp5UUZqb1ZsZERJc1lneDcwQWtvM3R2NG91NzdUX2EzUDJINjdSWEJkYTdPcXh2TndtOWNpN1JBY3hGb3lEMXE1ZnpaVVROUGs0UEJtOU1kTHdzeHduNTY2WjVqOE5FM1hkQ0pYYzAxQWRyQ3prTlRYb1RtejNDbnhRcU4?oc=5",
+          "Category": "Earnings Preview",
+          "Sentiment": -0.6,
+          "Impact": 0.7,
+          "Date": "2026-02-19 09:34:35"
+        },
+        {
+          "Headline": "APA (APA) Stock Sinks As Market Gains: What You Should Know - Nasdaq",
+          "URL": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNNENVV3NwM1ZSTXpwNWxPcGpyR2JqeGlvR0pxdUtEZW1GbW9LNE93c3hvSENIbS1UcHZaMWVGYkxJbkNnU1lyUWd0WDVaZVA4NTlkNkhVa1h4LWM2dWpuNk5sQk9QN3hRTGlkWnlZTmpqY0RRM0w5bFJnOEpJaEdxR1dGM2tVb1hnNmFmMEdwRHA?oc=5",
+          "Category": "General",
+          "Sentiment": -0.8,
+          "Impact": 0.8,
+          "Date": "2026-02-18 09:35:04"
+        },
+        {
           "Headline": "Stephens Issues Positive Forecast for APA (NASDAQ:APA) Stock Price - Defense World",
           "URL": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPU1lUY3p1UnhZemVVYlZUWlg4NE5vR2hhZi1Eamxvd2RPQ3h1MDVrRzZBS3dyOHBMejVaSC02ZDltc1RvV0c1ZmE0bzhfaFVHeHZLYU1wUUk5ZXoxMEprU2o2emxqZHFScnNIQXNzejRtS0VPLWVXelhrWGJicUgtREowd3dVSmdmSXV5Vk1PcGdaRmxFS09aRVZxbTVDLWxSR2NRemhnZVdoMjJG?oc=5",
           "Category": "General",
           "Sentiment": 0.7,
+          "Impact": 0.6,
+          "Date": "2026-02-18 09:35:04"
+        },
+        {
+          "Headline": "APA (NASDAQ:APA) Shares Unloaded Rep. Gilbert Ray Cisneros, Jr. - MarketBeat",
+          "URL": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOd2lQY1dheDlySWNZRkkwMzdWSGZ4dVR1dXdXdnYwcjFtbTB4TXR1QUVJc2xjZ09SYkpLWFhJU2NFeUpKcGgwanR0amhpNWFkMUhsRnI4TEFRdzBXX2s2b1pKYmJDOE5Pb0UwS3lXd0ZHS3VrdGFoZjFDeTVmakVheXV1YjJyZExzMU9DQUo0cWNvVDNKdEFYcUZaQmVhQVZKS0FUNG9SZ1lwdkhZaS1oVw?oc=5",
+          "Category": "Insider Trading",
+          "Sentiment": -0.6,
           "Impact": 0.6,
           "Date": "2026-02-18 09:35:04"
         },
@@ -1854,36 +1854,12 @@ const DASHBOARD_DATA = {
           "Date": "2026-02-18 09:35:04"
         },
         {
-          "Headline": "APA (APA) Stock Sinks As Market Gains: What You Should Know - Nasdaq",
-          "URL": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNNENVV3NwM1ZSTXpwNWxPcGpyR2JqeGlvR0pxdUtEZW1GbW9LNE93c3hvSENIbS1UcHZaMWVGYkxJbkNnU1lyUWd0WDVaZVA4NTlkNkhVa1h4LWM2dWpuNk5sQk9QN3hRTGlkWnlZTmpqY0RRM0w5bFJnOEpJaEdxR1dGM2tVb1hnNmFmMEdwRHA?oc=5",
-          "Category": "General",
-          "Sentiment": -0.8,
-          "Impact": 0.8,
-          "Date": "2026-02-18 09:35:04"
-        },
-        {
           "Headline": "APA Corp. price target raised to $24 from $23 at Stephens - TipRanks",
           "URL": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNSWx0SldTaGtWVktwZWxCZ08zUGtPQWtBcUNMTllqaFRjaFFFU2NKX2F6dlE3dmdDNW5WMDlyU1gtcG02U3V5MVdPQVBESTUtRlRHSk5VMmN2YW8yRGRUaFBIUzA1YkJCcFRRa2JRdU9QcEVKc1BTbHlxdlBDTFQ4RlNmOUNSLW51dWxFMkpJZlpfbGlfOENUa0JsY09xVnNqXzNFNkVQSQ?oc=5",
           "Category": "General",
           "Sentiment": 0.6,
           "Impact": 0.7,
           "Date": "2026-02-18 09:35:04"
-        },
-        {
-          "Headline": "APA (NASDAQ:APA) Shares Unloaded Rep. Gilbert Ray Cisneros, Jr. - MarketBeat",
-          "URL": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOd2lQY1dheDlySWNZRkkwMzdWSGZ4dVR1dXdXdnYwcjFtbTB4TXR1QUVJc2xjZ09SYkpLWFhJU2NFeUpKcGgwanR0amhpNWFkMUhsRnI4TEFRdzBXX2s2b1pKYmJDOE5Pb0UwS3lXd0ZHS3VrdGFoZjFDeTVmakVheXV1YjJyZExzMU9DQUo0cWNvVDNKdEFYcUZaQmVhQVZKS0FUNG9SZ1lwdkhZaS1oVw?oc=5",
-          "Category": "Insider Trading",
-          "Sentiment": -0.6,
-          "Impact": 0.6,
-          "Date": "2026-02-18 09:35:04"
-        },
-        {
-          "Headline": "Illinois Municipal Retirement Fund Has $3.12 Million Position in APA Corporation $APA - MarketBeat",
-          "URL": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxPa09HbXk3LVRzb1JGTjYzVF95SXhINWZhM1JzV0VxSHNvaVFOc0cxVnpGbUFENUtCbDIxQzg3ZjZYMWVQQWtzTENjVnF4c0wyYUVpRUwyZ0R2dzFwbkhycXpla2hrNzBCdmVIcnpBalVmT0pWWU10cVpSSURoeExvclBreUFFNWxHbm9XWnhFTGRnVTBNY3ZYUTBkeVJoMnlGTlVQcThxaU9VSzVnUjRNX0tUUmNtWVgyNlFkSmttUVprdHR2NDFtbVA5T29xUkZhejdRSUw2dXZkZ2s?oc=5",
-          "Category": "Investment Activity",
-          "Sentiment": 0.0,
-          "Impact": 0.3,
-          "Date": "2026-02-17 09:36:57"
         }
       ],
       "Signal": "WAIT"
@@ -1893,9 +1869,9 @@ const DASHBOARD_DATA = {
       "Price": 281.18,
       "LSTM_Confidence": 0.68,
       "News_Sentiment": 0.9,
-      "News_Impact": 0.9,
-      "Headline": "Air Products and Chemicals Stock (APD): Q1 2026 Earnings Beat, Analyst Outlook | 2026 Review - News and Statistics - IndexBox",
-      "URL": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOWkhmWnlyTGZzV3FhVGxRQWRJeUt2ZWpNb2FDN3dyc3Q2ZGJvS0ozd3B5dGttazFwdThjSUVMcTlxZVJvYUpDNjJVZGlPeFNDVmt5WTZnMmtTRnJYdC1SVEY5V0VrRnZmamNGZlpvenJkTG5ROW5JSXl6ejdGZnZFUnJSaVMwY2lpV1lKTFJGV0IxcUpUdzZ6VlYwOWItU25ReXBFbE1GMUpsT3I4?oc=5",
+      "News_Impact": 0.8,
+      "Headline": "Why Air Products and Chemicals (APD) is a Top Growth Stock for the Long-Term - Nasdaq",
+      "URL": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNd1JTQ3RCN1lWbUw4YjdKUjZUMi1uRzZiaDJlX3FncGtPdjFZUVpIVTVZNHN5R2dkRmVybUw0M1l6SGVvZ3lZS3FvdnN6R2hONU02ZkRzbC1MOGJXNFFuVXgybEM5QzZNNVN3SW16Unh6QUwzY1lDX3JDbWlGRGU4V1lEU014NnI5RG5YeVNnbkcwa1c1UmpxNQ?oc=5",
       "All_News": [
         {
           "Headline": "A Look At Air Products And Chemicals (APD) Valuation After Recent Share Price Rebound - Yahoo Finance",
@@ -1922,14 +1898,6 @@ const DASHBOARD_DATA = {
           "Date": "2026-02-19 09:34:28"
         },
         {
-          "Headline": "Here's Why Air Products and Chemicals (APD) is a Strong Momentum Stock - Yahoo Finance",
-          "URL": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQek13VGllUlAwQ09uLUVaZWZwRnJhLW9PbGwzNzE5ZE9BM2hZWnhUQTg5Ym05dkNDcktiMlBNZmliQ0QyNXVHbWRJb0FJX1NkUHJrWF9jbEgyVXZ6blc1dXRoZFRORENuV1FEbWZEOEVfZm83dkZENEFVLXBNUEpFWjNqOUI?oc=5",
-          "Category": "Investment Analysis",
-          "Sentiment": 0.7,
-          "Impact": 0.6,
-          "Date": "2026-02-18 09:35:10"
-        },
-        {
           "Headline": "Here's Why Air Products and Chemicals (APD) is a Strong Momentum Stock - Nasdaq",
           "URL": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNeUs4T3pnaEtXM29JMWFpSXpEU2FaelZsUEU4NUhoZ2VMLTZjbjZ6YTdVcFhnVG5rcnVRdm5makpoay1OdXNvc2lXZ1QwWDNsSVEwTmtCRGhIN2JXSnM4Skg1Yl81UHEwSThTekVmS0lSbzM3UnloaG9jLUJqTnpTLUUxWXk5UlIwRGlIdWQ0c3VpTXphVWdpZWtn?oc=5",
           "Category": "Investment Analysis",
@@ -1938,12 +1906,12 @@ const DASHBOARD_DATA = {
           "Date": "2026-02-18 09:35:10"
         },
         {
-          "Headline": "Air Products and Chemicals Stock (APD): Q1 2026 Earnings Beat, Analyst Outlook | 2026 Review - News and Statistics - IndexBox",
-          "URL": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOWkhmWnlyTGZzV3FhVGxRQWRJeUt2ZWpNb2FDN3dyc3Q2ZGJvS0ozd3B5dGttazFwdThjSUVMcTlxZVJvYUpDNjJVZGlPeFNDVmt5WTZnMmtTRnJYdC1SVEY5V0VrRnZmamNGZlpvenJkTG5ROW5JSXl6ejdGZnZFUnJSaVMwY2lpV1lKTFJGV0IxcUpUdzZ6VlYwOWItU25ReXBFbE1GMUpsT3I4?oc=5",
-          "Category": "Earnings Report",
-          "Sentiment": 0.9,
-          "Impact": 0.9,
-          "Date": "2026-02-17 09:36:58"
+          "Headline": "Here's Why Air Products and Chemicals (APD) is a Strong Momentum Stock - Yahoo Finance",
+          "URL": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQek13VGllUlAwQ09uLUVaZWZwRnJhLW9PbGwzNzE5ZE9BM2hZWnhUQTg5Ym05dkNDcktiMlBNZmliQ0QyNXVHbWRJb0FJX1NkUHJrWF9jbEgyVXZ6blc1dXRoZFRORENuV1FEbWZEOEVfZm83dkZENEFVLXBNUEpFWjNqOUI?oc=5",
+          "Category": "Investment Analysis",
+          "Sentiment": 0.7,
+          "Impact": 0.6,
+          "Date": "2026-02-18 09:35:10"
         }
       ],
       "Signal": "WAIT"
@@ -1958,12 +1926,20 @@ const DASHBOARD_DATA = {
       "URL": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQMFlHU0hwZlR2UkpZVWROUHVPRVgycjg4MThrV0dkTHhIeEhEeV90MC01d0Y5SU5RWTFuU3VCUkE4WjFMMlk5ZkJXd2swcHduNHFMQmQ3bUprdzhjdEEteVNoX1RqdkJ6cThITUtMZWM3cmN1Z2FFaktZcVRObGxXdkZQSkdmeF9JUWZBVzF6TTgwOUYySFo4Vno5UTltYUJ1NUUta3BxdXpnMHBOX3R4TzFvUHA2SnItUXc?oc=5",
       "All_News": [
         {
-          "Headline": "Apollo Global Management (NYSE:APO) Upgraded to Strong-Buy at Argus - MarketBeat",
-          "URL": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQMFlHU0hwZlR2UkpZVWROUHVPRVgycjg4MThrV0dkTHhIeEhEeV90MC01d0Y5SU5RWTFuU3VCUkE4WjFMMlk5ZkJXd2swcHduNHFMQmQ3bUprdzhjdEEteVNoX1RqdkJ6cThITUtMZWM3cmN1Z2FFaktZcVRObGxXdkZQSkdmeF9JUWZBVzF6TTgwOUYySFo4Vno5UTltYUJ1NUUta3BxdXpnMHBOX3R4TzFvUHA2SnItUXc?oc=5",
-          "Category": "Analyst Rating",
-          "Sentiment": 0.95,
-          "Impact": 0.9,
-          "Date": "2026-02-21 09:19:19"
+          "Headline": "Jupiter Asset Management Ltd. Has $13.52 Million Stock Holdings in Apollo Global Management Inc. $APO - MarketBeat",
+          "URL": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxPektZWDFhVlp6UnRzWUdlVzFzc05HSjFzQzZ3TVBrZzRkeUdwV2NaZGN3Q1JBQjJ4Mkl1d0h2TTZISklkb2djX1EzSVVSWFMtdUtvOU5HTE5JTk5UdlAyNkZGbThxTG9Ca0ZXUmVud25qekV6OTJ3QlVyM01YdS04TzFDR0N5N0FuNGxzcDU3OUJhQlFTNTZ0U1ZGNzVjMDM0RTVmUWhNMHlhZldJYkxrWWpMVDZXTE9lMFVySnhMMWhvQlROWVp3V3VmVW9aSE84c0tHRWh5VUFBMVM3VWt2eXk2Qk4wcnpyc3UtQk13?oc=5",
+          "Category": "Institutional Ownership",
+          "Sentiment": 0.4,
+          "Impact": 0.5,
+          "Date": "2026-02-22 09:19:12"
+        },
+        {
+          "Headline": "Apollo (APO) Q4 2025 Earnings Call Transcript - AOL.com",
+          "URL": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5oaWpheTVWUmVIMERzV190cFFqQVJHWmlNbWR2SUhfMXNiMUhjUGlUZ3dScFZuRzM4RUcxSGlKV2ZhN1gyR2JSQWZlUmk5M3hMb2RBOXRHSktpclVHTTdWSHd4Y28zeThXbF9EYzhxTk5RRkV5VENUMlRJMA?oc=5",
+          "Category": "Earnings Report",
+          "Sentiment": 0.0,
+          "Impact": 0.6,
+          "Date": "2026-02-22 09:19:12"
         },
         {
           "Headline": "Assetmark Inc. Sells 74,561 Shares of Apollo Global Management Inc. $APO - MarketBeat",
@@ -1971,6 +1947,14 @@ const DASHBOARD_DATA = {
           "Category": "Institutional Trading",
           "Sentiment": -0.6,
           "Impact": 0.6,
+          "Date": "2026-02-21 09:19:19"
+        },
+        {
+          "Headline": "Apollo Global Management (NYSE:APO) Upgraded to Strong-Buy at Argus - MarketBeat",
+          "URL": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQMFlHU0hwZlR2UkpZVWROUHVPRVgycjg4MThrV0dkTHhIeEhEeV90MC01d0Y5SU5RWTFuU3VCUkE4WjFMMlk5ZkJXd2swcHduNHFMQmQ3bUprdzhjdEEteVNoX1RqdkJ6cThITUtMZWM3cmN1Z2FFaktZcVRObGxXdkZQSkdmeF9JUWZBVzF6TTgwOUYySFo4Vno5UTltYUJ1NUUta3BxdXpnMHBOX3R4TzFvUHA2SnItUXc?oc=5",
+          "Category": "Analyst Rating",
+          "Sentiment": 0.95,
+          "Impact": 0.9,
           "Date": "2026-02-21 09:19:19"
         },
         {
@@ -2020,38 +2004,6 @@ const DASHBOARD_DATA = {
           "Sentiment": 0.2,
           "Impact": 0.6,
           "Date": "2026-02-18 09:35:06"
-        },
-        {
-          "Headline": "Aberdeen Group plc Cuts Stock Holdings in Apollo Global Management Inc. $APO - Defense World",
-          "URL": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOSDQ0b2VNQVFzZVNuMGFyckkzVmhObHRHTUM1QVNMWjFoX0hhMlYzSy1Ta3pLOGN0V3pfZFNPLThOVm90UXN1RlJNNDhfaC1HRDAyS1Y3aVc0U09RZWJZb2pJMnU4eENHdmp0dktTSHhqWTRFS3FESm85aHRZQWNobTZ0UGhFZTc3MVVGVjhGNFdyXzVZcm9oLUExYWthVlhPTXpqRlR5bzdPV01JNF9zazRCUWliZ0psVks0?oc=5",
-          "Category": "Institutional Trading Activity",
-          "Sentiment": -0.5,
-          "Impact": 0.6,
-          "Date": "2026-02-17 09:36:51"
-        },
-        {
-          "Headline": "Should You Buy Apollo Global Management, Inc. (NYSE:APO) For Its Upcoming Dividend? - simplywall.st",
-          "URL": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxQQ3RHY20ydzVNdkNOMjg3ZjhKNzRlM2N0bmJuREZBVWNBRmRGRGtBU2ZYWGJ2YWx4U1BfandEY3oweVdtQ3NRN1c4TTNNdUExWVB4aWhvYWJYdXFWYWdvbjhBeHotdFFIVFhsekVEZFlXZ1BtRHRqR1A0dFBid2NvUENTUF9ReUJ4Z2NnYkJEN29PTEZidFVjZVdscWg5Wk13V0VBRU5uVllsVVJpeWpuejJBNm1PU05uRGNqeGNKdS1FOXZuYUVjNjBidnk0bjg3Q2kwUk9uVVZYQnFiN1FQR2ZUa0dFZ2tx?oc=5",
-          "Category": "Dividend News",
-          "Sentiment": 0.4,
-          "Impact": 0.6,
-          "Date": "2026-02-17 09:36:51"
-        },
-        {
-          "Headline": "Todd Asset Management LLC Sells 235,363 Shares of Apollo Global Management Inc. $APO - MarketBeat",
-          "URL": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPMzFORzRWVU9JLVZTb2JnZ1R2cU5jUjNpVDhqYWlYUUhGVHVyNGt4TjNWRXlTVTNVTkE4aHZ1akU0Skc4V240NnRoSkhhdE0yazdWVlN1U05IQTBIZzNjd3hqOXNRTm9NbjdmVFJrNXU2eTJpNHQtcTVoeDUwUTVvXy1oSmI1Zk1mb1hpa3BVTWpZek55MTFVZlBtX2NtY0xzNF9CckhmbVZQNUw4Z0dONG51VEpVQmFrUVQzVDFvRmdURWpGS1Fha0tQZHp5dno0M0ZPeWNzRHRMQQ?oc=5",
-          "Category": "Institutional Trading Activity",
-          "Sentiment": -0.6,
-          "Impact": 0.7,
-          "Date": "2026-02-17 09:36:51"
-        },
-        {
-          "Headline": "Apollo Global Management (NYSE:APO) Rises on S&P 500 Credit Expansion - Kalkine Media",
-          "URL": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQakh4TllPNXVxV1VpMFA1WW15LWJ6UWtmdkVjaHN1VW80QWRoX1Q4a29oNGdtQ2lXMDRDcWx5YTUySXUyZENYRXc0X0dndjB4d01Ca0c3NjQ0X0ZGTDFDUWVvX3RRcXFBQnFFYmNwLTM4SUtFSzR4d3NTUkZaRmJtVTNwWWJzYm96eEQxWEc2cnM2S3lvckhtX1lNSlJqdDRyVDhaT2JVeFRhVDRaRzhN?oc=5",
-          "Category": "Company Performance",
-          "Sentiment": 0.7,
-          "Impact": 0.7,
-          "Date": "2026-02-17 09:36:51"
         }
       ],
       "Signal": "BULLISH_BREAKOUT"
@@ -2065,6 +2017,14 @@ const DASHBOARD_DATA = {
       "Headline": "AppLovin Stock Surges After The Bell: Here's Why - AppLovin (NASDAQ:APP) - Benzinga",
       "URL": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNcmdIVDZUdi1mTjBXR1NZajFQUzQ5YVlXTXNsVTlCUXBVTExNQ19PR3VRX3dJM3c0eVU4c3hJVWxKLVV0QWM0YWw1LS1vS3ZCc3gyU0l2clRJcTRVeUFwZXJNUjIxZkgxeVBuWXlnWFlxY292djMzWUdOQjlSVFRuRjdla29WLVZOUTFDNGlGOTJTSVlPT1RaX1JPUEpSWkRLZjBnczh0dWVOcDA?oc=5",
       "All_News": [
+        {
+          "Headline": "$APP stock rose 7% this week. Here's what we see in our data. - Quiver Quantitative",
+          "URL": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQVWJOYjM0VXpLX1FZTmh2MkRpSFVkWF92SE9WanZNdW5pVGNkVXdTTzNySjNJWk1YdVg4cFljQk1lUVBOQnFZOTRVTVFieWY3b3NxOVNUa0RXT3hyNFhhd3ZKVVMzdDNmcjZvd1o0WEY4aXVvZElpeG0zaHpDemt1TWQ5dE5vUWdxQXZJbVlPZFRaalh2Tmd4NXZLdTlWQk44?oc=5",
+          "Category": "Stock Performance",
+          "Sentiment": 0.8,
+          "Impact": 0.7,
+          "Date": "2026-02-22 09:19:05"
+        },
         {
           "Headline": "APP Tops Shopify Stock on Price & Potential - Trefis",
           "URL": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNLWIzdHY3Y2l5NmpacVR1ajNWd2lCVU9RTHZPZWNXQlFxMGpwTUxNV1FWb3hQOERvdnZHYU1semg2djFvVWhSaU5xUHl5S24xdkhGbWhleXdrUDhyb1IxZDhEMUJlUWFuWFpHblVUQ0hpVk11LUdmVHg5T0tMRmdNRE1YNjQ3RE4yZHE0RXkyZkpvRVNUekFGRTRtLVY5VEs2UnVqUXQ3a1o?oc=5",
@@ -2082,19 +2042,19 @@ const DASHBOARD_DATA = {
           "Date": "2026-02-21 09:19:20"
         },
         {
-          "Headline": "AppLovin Stock (APP) Jumps on Plan to Launch Its Own Social Media Platform - TipRanks",
-          "URL": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQZUdMRlJGdzRwWlN4aWhQbFdJU2stWUtfVjQ1T05TSDlhbnlsaENuZlVzTTladW5lYWFGMEticmE4YS1rVzVQNC1BSnlUNlJGSk5lcHJxTkZXcHpxWm5CUmU3YlFPbHlPRko2WDBLdG1ySkU4RmpUUlVhNDktUDY3Zm5TSGY5d3VYUW8yRFdpbkx5R0oxX2VaWTNhczdDNF9Ca3lXcg?oc=5",
-          "Category": "Company News/Strategic Move",
-          "Sentiment": 0.8,
-          "Impact": 0.9,
-          "Date": "2026-02-20 09:30:22"
-        },
-        {
           "Headline": "AppLovin Stock Surges After The Bell: Here's Why - AppLovin (NASDAQ:APP) - Benzinga",
           "URL": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNcmdIVDZUdi1mTjBXR1NZajFQUzQ5YVlXTXNsVTlCUXBVTExNQ19PR3VRX3dJM3c0eVU4c3hJVWxKLVV0QWM0YWw1LS1vS3ZCc3gyU0l2clRJcTRVeUFwZXJNUjIxZkgxeVBuWXlnWFlxY292djMzWUdOQjlSVFRuRjdla29WLVZOUTFDNGlGOTJTSVlPT1RaX1JPUEpSWkRLZjBnczh0dWVOcDA?oc=5",
           "Category": "Market Activity",
           "Sentiment": 0.9,
           "Impact": 0.95,
+          "Date": "2026-02-20 09:30:22"
+        },
+        {
+          "Headline": "AppLovin Stock (APP) Jumps on Plan to Launch Its Own Social Media Platform - TipRanks",
+          "URL": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQZUdMRlJGdzRwWlN4aWhQbFdJU2stWUtfVjQ1T05TSDlhbnlsaENuZlVzTTladW5lYWFGMEticmE4YS1rVzVQNC1BSnlUNlJGSk5lcHJxTkZXcHpxWm5CUmU3YlFPbHlPRko2WDBLdG1ySkU4RmpUUlVhNDktUDY3Zm5TSGY5d3VYUW8yRFdpbkx5R0oxX2VaWTNhczdDNF9Ca3lXcg?oc=5",
+          "Category": "Company News/Strategic Move",
+          "Sentiment": 0.8,
+          "Impact": 0.9,
           "Date": "2026-02-20 09:30:22"
         },
         {
@@ -2142,19 +2102,19 @@ const DASHBOARD_DATA = {
           "Date": "2026-02-19 09:34:21"
         },
         {
-          "Headline": "There May Be Reason For Hope In Aptiv's (NYSE:APTV) Disappointing Earnings - Yahoo Finance",
-          "URL": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1LdTZYWmdlN2hjVDV4RF9VeUZNZWFkVDRWT3NtUTB6TTZOZEJDNGVwRmZDaDRITnRXdnY5ejJxWVZVTHppODF5eVRiWmswbTU2bGNqeExJSWE5RkxfSDJuLXE2LUswYXU1WmNmZmFxcGdsM2JTQkh5UHNheHpSUQ?oc=5",
-          "Category": "Earnings/Financial Performance",
-          "Sentiment": 0.0,
-          "Impact": 0.7,
-          "Date": "2026-02-19 09:34:21"
-        },
-        {
           "Headline": "APTV: Spinning off EDS, Aptiv targets high-growth intelligent systems and non-auto markets - TradingView",
           "URL": "https://news.google.com/rss/articles/CBMihgJBVV95cUxPZDBkMndENjg3dWdPZjVFOGN6LTlHYVF5SU1UQmZ1ZENCQTYzZ0VrQnYzZHlaVXJSRVcxTEpadGhHb2tXN0dSZHFscUZDaGpvVzh6ZEVSbWdLcVBMOFBkZW5YeDAwTldTQ1o3cFVsYlFkc2NhZFQ2a1h0Y0IxMHlSRVZUVEFMc3ZYTDdRTlNKV0FzTGVkUlhTVk9FdWQ5N3RDZnJCbThFdkxzYVJrWjlCSVRrdDNOWXNDeFZTdm1VT2huM2hGN0taMHZoOFlWRkxhazVGRE5NaUUtTDA4Y3dCc0IzbDUwdXlVb1NRRXlfN1ZZc3hScTZDR0pTVjBtX01wbnlNRTNn?oc=5",
           "Category": "Strategy/Business Development",
           "Sentiment": 0.8,
           "Impact": 0.8,
+          "Date": "2026-02-19 09:34:21"
+        },
+        {
+          "Headline": "There May Be Reason For Hope In Aptiv's (NYSE:APTV) Disappointing Earnings - Yahoo Finance",
+          "URL": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1LdTZYWmdlN2hjVDV4RF9VeUZNZWFkVDRWT3NtUTB6TTZOZEJDNGVwRmZDaDRITnRXdnY5ejJxWVZVTHppODF5eVRiWmswbTU2bGNqeExJSWE5RkxfSDJuLXE2LUswYXU1WmNmZmFxcGdsM2JTQkh5UHNheHpSUQ?oc=5",
+          "Category": "Earnings/Financial Performance",
+          "Sentiment": 0.0,
+          "Impact": 0.7,
           "Date": "2026-02-19 09:34:21"
         },
         {
@@ -2178,14 +2138,6 @@ const DASHBOARD_DATA = {
       "URL": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQYXNxcHR2X2FzRmdaUEtpRmQ4ZUhMMFpNSUJ3d3JsczBLUi14RDRIU0ppVmI2ajhjT29pUzJMRlBuZjIyVlM5UEpzWG01M3hTRmhlR3E5MnBURjUtMlRESGRhVUZBMmdqRk53UXhYbGo2bFdFX1B1RkdfZURLZjRHZzE1Vm9sajRSUWxocjI3VzV4NU11dThEdER4UWV3V2tfNkhQU1NyUDBmYllZOEZn?oc=5",
       "All_News": [
         {
-          "Headline": "AWK.SI stock jumps 11.54% to SGD 0.58 on heavy volume: monitor liquidity and valuation - Meyka",
-          "URL": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQYXNxcHR2X2FzRmdaUEtpRmQ4ZUhMMFpNSUJ3d3JsczBLUi14RDRIU0ppVmI2ajhjT29pUzJMRlBuZjIyVlM5UEpzWG01M3hTRmhlR3E5MnBURjUtMlRESGRhVUZBMmdqRk53UXhYbGo2bFdFX1B1RkdfZURLZjRHZzE1Vm9sajRSUWxocjI3VzV4NU11dThEdER4UWV3V2tfNkhQU1NyUDBmYllZOEZn?oc=5",
-          "Category": "Stock Movement",
-          "Sentiment": 0.7,
-          "Impact": 0.9,
-          "Date": "2026-02-21 09:19:29"
-        },
-        {
           "Headline": "American Water Works Company, Inc. (NYSE:AWK) Q4 2025 Earnings Call Transcript - Insider Monkey",
           "URL": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNa2NNLUZUdENXLS0zMUplbFpDQk1BRHF1OE5kbkQ3dk9sYmRIR3QwN0N6LWxEcG84SFNodmFBaWh6V1l2VlByTW1WbmNIaHR6NjhtOVVZU0h3eHRZTUJJS0VWbkthTmRtODJKdkxNajR6T2FTMmZWNU1xbFByVlZuS1Z4N0l2bWdXSkZTU1NjMjZpXzdfZ0N1NHNSQmR0R3ZtbU02VFRONDduSlU3Zk83QnhWNmlLUGZp?oc=5",
           "Category": "Earnings",
@@ -2194,12 +2146,12 @@ const DASHBOARD_DATA = {
           "Date": "2026-02-21 09:19:29"
         },
         {
-          "Headline": "American Water Works Co Inc (AWK) Q4 2025 Earnings Call Highligh - GuruFocus",
-          "URL": "https://news.google.com/rss/articles/CBMigAJBVV95cUxQOG5DX1hYMU4ydlpYbWZ4cXVQQUF2SDBCZkE2VVNaVGdoNEZFRjJ6SFNTNVd0X0dsSnphSXFURGhzRFJyOExJbUw1bEJXNTRNMHZlOXBuTGczZm5aTll0Y29nYWhtRnZzQ1d0dTNnSmtmT0hKQTF0NVdfRXlYTWlHLV9xcUV3UXpfd3Bjc3JnYVVDMTNoM3pJRDh1OEF2YzloeHJTRDh6LUR5WGhXMnJ6OWRVaE9JV3pzUGpOa25MblFxdm5pbkJkN1g5MHRYQjBzNy1mVllGX0dhNUhWR2VZZGdyZVhkQnhuR2FybkxiZU9vTU1JZWl3ajVNUG1oWklw?oc=5",
-          "Category": "Earnings Report",
-          "Sentiment": 0.0,
-          "Impact": 0.5,
-          "Date": "2026-02-20 09:30:10"
+          "Headline": "AWK.SI stock jumps 11.54% to SGD 0.58 on heavy volume: monitor liquidity and valuation - Meyka",
+          "URL": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQYXNxcHR2X2FzRmdaUEtpRmQ4ZUhMMFpNSUJ3d3JsczBLUi14RDRIU0ppVmI2ajhjT29pUzJMRlBuZjIyVlM5UEpzWG01M3hTRmhlR3E5MnBURjUtMlRESGRhVUZBMmdqRk53UXhYbGo2bFdFX1B1RkdfZURLZjRHZzE1Vm9sajRSUWxocjI3VzV4NU11dThEdER4UWV3V2tfNkhQU1NyUDBmYllZOEZn?oc=5",
+          "Category": "Stock Movement",
+          "Sentiment": 0.7,
+          "Impact": 0.9,
+          "Date": "2026-02-21 09:19:29"
         },
         {
           "Headline": "6,700 Shares in American Water Works Company, Inc. $AWK Bought by Alberta Investment Management Corp - Defense World",
@@ -2218,6 +2170,22 @@ const DASHBOARD_DATA = {
           "Date": "2026-02-20 09:30:10"
         },
         {
+          "Headline": "American Water Works Co Inc (AWK) Q4 2025 Earnings Call Highligh - GuruFocus",
+          "URL": "https://news.google.com/rss/articles/CBMigAJBVV95cUxQOG5DX1hYMU4ydlpYbWZ4cXVQQUF2SDBCZkE2VVNaVGdoNEZFRjJ6SFNTNVd0X0dsSnphSXFURGhzRFJyOExJbUw1bEJXNTRNMHZlOXBuTGczZm5aTll0Y29nYWhtRnZzQ1d0dTNnSmtmT0hKQTF0NVdfRXlYTWlHLV9xcUV3UXpfd3Bjc3JnYVVDMTNoM3pJRDh1OEF2YzloeHJTRDh6LUR5WGhXMnJ6OWRVaE9JV3pzUGpOa25MblFxdm5pbkJkN1g5MHRYQjBzNy1mVllGX0dhNUhWR2VZZGdyZVhkQnhuR2FybkxiZU9vTU1JZWl3ajVNUG1oWklw?oc=5",
+          "Category": "Earnings Report",
+          "Sentiment": 0.0,
+          "Impact": 0.5,
+          "Date": "2026-02-20 09:30:10"
+        },
+        {
+          "Headline": "AMERICAN WATER WORKS ($AWK) Releases Q4 2025 Earnings - Quiver Quantitative",
+          "URL": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNSmdVSlFtdzBPSWFxUXR5eU5aUDdUeUY5WFl5TVpFTDQ3ZVdyWnZkUEp2cjVvNkZVbE1RbTRGclZ5ODJFN1pqdXhKWF9WSTB6MmZjLWV4S0gxRVdHZDJKSS1jeEowWV9KUFFpRUM2bzJ3SjJYcnk0TE5MUEsyY29mNnpuUS1wZF9ReDFUNnNkb1pUZ2VMUE9j?oc=5",
+          "Category": "Earnings",
+          "Sentiment": 0.0,
+          "Impact": 0.8,
+          "Date": "2026-02-19 09:34:36"
+        },
+        {
           "Headline": "American Water (AWK) Surpasses Revenue Expectations in Q4 - GuruFocus",
           "URL": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPV0lRQXVyQ2NZQjhMczUyT2J2UExqVmRWY0c2SXNzLTBWQjMwakdwYWhBNXJ4RVdHXzFnYmxSNHgtVFJzbU43a1J4Z3hlN25xOHF4QjNfZTE5UTc3WngyZEdEcnQ4VTl5YVNFTzZRXzZZRmZCY0xRYzEwSlNiZFd1eml6NkExcExNU3p0eXltZ3VmUGZtYzRZWXdR?oc=5",
           "Category": "Earnings",
@@ -2226,10 +2194,10 @@ const DASHBOARD_DATA = {
           "Date": "2026-02-19 09:34:36"
         },
         {
-          "Headline": "American Water Works (AWK) Q4 Earnings Lag Estimates - Yahoo Finance",
-          "URL": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1HU1BIT1k3WTNLX2h1cXZnM01SeWtvZTBQT2tyX3hwMTFPRkdUUnR0V0NJWXJNYTJLMllYb1dpMW54R29JaFFRY013TnhqQ2R5V3FacWpBMXBONHllVHRhakktQ3VQTlFQV3hRZlB3OE00SURwRXBVbERxamFKUQ?oc=5",
+          "Headline": "Earnings Flash (AWK) American Water Works Posts Q4 Adjusted EPS $1.24, vs. FactSet Est of $1.25 - marketscreener.com",
+          "URL": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxOc1BxNUxBbzRPbmZGX3plV3ZvV2ZLY0U2cGpqb3FGR2ROUWJNSGJqdnF4QThENWFKelFmekJObVRURm5tcDNkZllySWVENU12QTl6T0M5YThfRFExQ2drQ0RlcEctOV9RUllSSzVfbGo5eFVMYUpJU01DMWJqUlo2cVhvbXA0TTY0d3JDa3JmRVlLcmllQnQ4YVBvUkdtX0ZqaEdteklaWHpEcDhCb1FjTFU5ajJrZXFoa19PUGY1aTN1RkdoNHU0TGtlSkhRczVpdDIxRENDWW0yUQ?oc=5",
           "Category": "Earnings",
-          "Sentiment": -0.6,
+          "Sentiment": -0.2,
           "Impact": 0.9,
           "Date": "2026-02-19 09:34:36"
         },
@@ -2242,19 +2210,11 @@ const DASHBOARD_DATA = {
           "Date": "2026-02-19 09:34:36"
         },
         {
-          "Headline": "Earnings Flash (AWK) American Water Works Posts Q4 Adjusted EPS $1.24, vs. FactSet Est of $1.25 - marketscreener.com",
-          "URL": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxOc1BxNUxBbzRPbmZGX3plV3ZvV2ZLY0U2cGpqb3FGR2ROUWJNSGJqdnF4QThENWFKelFmekJObVRURm5tcDNkZllySWVENU12QTl6T0M5YThfRFExQ2drQ0RlcEctOV9RUllSSzVfbGo5eFVMYUpJU01DMWJqUlo2cVhvbXA0TTY0d3JDa3JmRVlLcmllQnQ4YVBvUkdtX0ZqaEdteklaWHpEcDhCb1FjTFU5ajJrZXFoa19PUGY1aTN1RkdoNHU0TGtlSkhRczVpdDIxRENDWW0yUQ?oc=5",
+          "Headline": "American Water Works (AWK) Q4 Earnings Lag Estimates - Yahoo Finance",
+          "URL": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1HU1BIT1k3WTNLX2h1cXZnM01SeWtvZTBQT2tyX3hwMTFPRkdUUnR0V0NJWXJNYTJLMllYb1dpMW54R29JaFFRY013TnhqQ2R5V3FacWpBMXBONHllVHRhakktQ3VQTlFQV3hRZlB3OE00SURwRXBVbERxamFKUQ?oc=5",
           "Category": "Earnings",
-          "Sentiment": -0.2,
+          "Sentiment": -0.6,
           "Impact": 0.9,
-          "Date": "2026-02-19 09:34:36"
-        },
-        {
-          "Headline": "AMERICAN WATER WORKS ($AWK) Releases Q4 2025 Earnings - Quiver Quantitative",
-          "URL": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNSmdVSlFtdzBPSWFxUXR5eU5aUDdUeUY5WFl5TVpFTDQ3ZVdyWnZkUEp2cjVvNkZVbE1RbTRGclZ5ODJFN1pqdXhKWF9WSTB6MmZjLWV4S0gxRVdHZDJKSS1jeEowWV9KUFFpRUM2bzJ3SjJYcnk0TE5MUEsyY29mNnpuUS1wZF9ReDFUNnNkb1pUZ2VMUE9j?oc=5",
-          "Category": "Earnings",
-          "Sentiment": 0.0,
-          "Impact": 0.8,
           "Date": "2026-02-19 09:34:36"
         }
       ],
@@ -2266,9 +2226,33 @@ const DASHBOARD_DATA = {
       "LSTM_Confidence": 0.67,
       "News_Sentiment": 0.9,
       "News_Impact": 0.9,
-      "Headline": "Alliant Energy (LNT) Reports Strong 2025 Earnings and Strategic Growth - GuruFocus",
-      "URL": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPbjNpc0l0Mjl6bHVheFJ6dDRCU1AteFd5YVlmREZHTVFyWTlqa2dKcTZXMGZtRmxXMW05anFWVU1ZYUdBbGZPUTY2YjROOVBVZ1VNYXNmRTJ0TTRQc1E1N2FhTHlTUXF2bVlHdzBLRDR6cV9xZU93NlJHTExkUG1FaUJZdlhRNTRPaEdUalU2cnhRVFJtMlhhelVEWkZjUWVFRW1fQjNnM05qZTJwWE81VC1IYWExc1Z6S2s4?oc=5",
+      "Headline": "Alliant Energy (LNT) Outperforms in Q4 Earnings and Revenue - GuruFocus",
+      "URL": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQZmw1OEVFYkd1X0xwUkhIT2dGbzZ4cU9ackZ3MFhBUngyS21GbURhNVJaSXBkaDJGbU80Q0ZKT19EZWZ0ek5WcUlKclVNbVVNcXZsd19XbjVzMXNHeEw5S1p0RXZjVFJ4MU5FdC1EV3FBZ2VheTBtUlI1WXNLTV9STE5GZmlaS0RvdnZTYzM5azZJTmN4ZnpNU0w5cnBHZjRGUkhBWnoxRGZFaDVP?oc=5",
       "All_News": [
+        {
+          "Headline": "Alliant Energy (LNT) Outperforms in Q4 Earnings and Revenue - GuruFocus",
+          "URL": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQZmw1OEVFYkd1X0xwUkhIT2dGbzZ4cU9ackZ3MFhBUngyS21GbURhNVJaSXBkaDJGbU80Q0ZKT19EZWZ0ek5WcUlKclVNbVVNcXZsd19XbjVzMXNHeEw5S1p0RXZjVFJ4MU5FdC1EV3FBZ2VheTBtUlI1WXNLTV9STE5GZmlaS0RvdnZTYzM5azZJTmN4ZnpNU0w5cnBHZjRGUkhBWnoxRGZFaDVP?oc=5",
+          "Category": "Earnings Report",
+          "Sentiment": 0.9,
+          "Impact": 0.9,
+          "Date": "2026-02-22 09:19:16"
+        },
+        {
+          "Headline": "Alliant Energy Corporation (NASDAQ:LNT) Q4 2025 Earnings Call Transcript - Insider Monkey",
+          "URL": "https://news.google.com/rss/articles/CBMiswFBVV95cUxObTB2dWIwa0t2UVVvbGttT2hxbG4zQkxIaUlVQ1dScUsteXdIc2dwOXVhZTdkeUctZkwydV9UUmlHcXpha1AtOHhndFBNNC1ZT0hZdGlrTGJncTFmbFV6bVNsVnF3ckV0UlZxcXNzc0NwcDlSeG9iN3Rfd1dya3YzdF9hN3VkV2tvMF92MFVfMlRBWVlUSUNKbWJLN0ZqRXRsQ2szQkxVQWJydkdQcUdHd1M1QQ?oc=5",
+          "Category": "Earnings Call",
+          "Sentiment": 0.0,
+          "Impact": 0.4,
+          "Date": "2026-02-22 09:19:16"
+        },
+        {
+          "Headline": "Alliant Energy Corp (LNT) Q4 2025 Earnings Call Highlights: Strong EPS Growth and Continued Dividend Increases - GuruFocus",
+          "URL": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxQbkJPUFJ3UktzQkVsQVE0RENqZXBIcmpQdFIzOW93TVdrOUs1a2wtUFR2eDZndUFkemljUWNFZldjZlgxNldScXNNVXBCUkl3SEpUYlZVTng0QzlXc2pkdlJGbGpDNVVFTEwyLTJ4ZG05ZjJIWjhfZ1NEd2d5Z2JEXzdUM3lyMFJkUFpGMnhqZGxrcjdMUW1xVlEwdkdKT01fSVU0S1Y5Mlc3QjBFUmNVUTBCTXNGZk5Oc0dsSkdENUdpRm9BNUJXTXZQTUpEWmlHRUJSYTN0Sld6V0NOTjdn?oc=5",
+          "Category": "Earnings",
+          "Sentiment": 0.9,
+          "Impact": 0.9,
+          "Date": "2026-02-21 09:19:11"
+        },
         {
           "Headline": "Aberdeen Group plc Sells 9,888 Shares of Alliant Energy Corporation $LNT - Defense World",
           "URL": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQQUctazJEbXhTbmd3VmJUV2VIdTBuNk9kODlyUFBOd3V5WmE3bUxJWXh5dlNzWkxFbFk2WjhsSnB0Mlg0MFlSSkwwU0VuamxTckJHSnZDWThPcTNYTTB4MF9hS3ZDMWw4SDNQM01iMmwwYWMwU013NGNsYVVnQTRFVWdjVUxvUjNyNlhmZk9sR0t4QnVnY1RicW9VcmQzX29WdkNweWwwWi00d0VHclA5dzJ6aDNpdw?oc=5",
@@ -2294,22 +2278,6 @@ const DASHBOARD_DATA = {
           "Date": "2026-02-21 09:19:11"
         },
         {
-          "Headline": "Alliant Energy Corp (LNT) Q4 2025 Earnings Call Highlights: Strong EPS Growth and Continued Dividend Increases - GuruFocus",
-          "URL": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxQbkJPUFJ3UktzQkVsQVE0RENqZXBIcmpQdFIzOW93TVdrOUs1a2wtUFR2eDZndUFkemljUWNFZldjZlgxNldScXNNVXBCUkl3SEpUYlZVTng0QzlXc2pkdlJGbGpDNVVFTEwyLTJ4ZG05ZjJIWjhfZ1NEd2d5Z2JEXzdUM3lyMFJkUFpGMnhqZGxrcjdMUW1xVlEwdkdKT01fSVU0S1Y5Mlc3QjBFUmNVUTBCTXNGZk5Oc0dsSkdENUdpRm9BNUJXTXZQTUpEWmlHRUJSYTN0Sld6V0NOTjdn?oc=5",
-          "Category": "Earnings",
-          "Sentiment": 0.9,
-          "Impact": 0.9,
-          "Date": "2026-02-21 09:19:11"
-        },
-        {
-          "Headline": "Alliant Energy (LNT) beats Q4 earnings and revenue estimates - MSN",
-          "URL": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPS0ZCMXhaV2xjS2xzWldCdnd5YXlSNEtjcGlCd002T3oycll3ZTZTWG9vb2M2TVJ0WTdmZWNXdG95RkhhU2JFZUVCTVRhQ3lVVjFHdDh3SmVicklFd2hzbV9FR3llUzI0OWdLakx0dW05dDRfeVhzSjYwb09aWUIzdHJLU09vbEh0YmVadld0SDJxb3hyMFJzZ3B3N3doMlFEMFpXVzlVcDlJLXVwZ1JPTFdhZEFlNzhscGhvN3pR?oc=5",
-          "Category": "Earnings",
-          "Sentiment": 0.8,
-          "Impact": 0.8,
-          "Date": "2026-02-20 09:30:14"
-        },
-        {
           "Headline": "Alliant Energy (LNT) Beats Q4 Earnings and Revenue Estimates - Yahoo Finance",
           "URL": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1hY3plcDc4MDd1eEZNRl9HMVgySEZOYTRUNW1QY0VhZmxIQzNSU1hqeVh6cXNhWTR6TEJHUU4zcEFJNmIwa0hkY1ZGS010eFZhUlhEdXJfMWpickRJZVN0R05GeG51ODdLZkN5MGJxZXBGM0p0RU1zbnNDUWJrQQ?oc=5",
           "Category": "Earnings",
@@ -2318,12 +2286,12 @@ const DASHBOARD_DATA = {
           "Date": "2026-02-20 09:30:14"
         },
         {
-          "Headline": "Arvest Bank Trust Division Has $1.94 Million Holdings in Alliant Energy Corporation $LNT - Defense World",
-          "URL": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPbHktem13Ujhrd09pMnYtckNTdk9NODJFbFByS0JoTEFMeDBlLXBvRnZSbkczSWFTZ3VGTFFDY2RHc0JfLV9pVnUxYkpzN1BYUTZ4ZlNjRFVFbVRMTmRSWXJXZlpHSkZ6dUgxbFlrdUJzM2tnSm9DTWxfT2lJUlNmYzU4ZGNSUE85Q204eXVGQ3dic01LSlp0Zl9TQmxSRkJ3Q29FX1l2RUxNZW82aDFpeEVDQ2VadmlaNHpDZUpOTUtZckxsalFWeHlmUQ?oc=5",
-          "Category": "Institutional Holdings",
-          "Sentiment": 0.1,
-          "Impact": 0.3,
-          "Date": "2026-02-17 09:36:47"
+          "Headline": "Alliant Energy (LNT) beats Q4 earnings and revenue estimates - MSN",
+          "URL": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPS0ZCMXhaV2xjS2xzWldCdnd5YXlSNEtjcGlCd002T3oycll3ZTZTWG9vb2M2TVJ0WTdmZWNXdG95RkhhU2JFZUVCTVRhQ3lVVjFHdDh3SmVicklFd2hzbV9FR3llUzI0OWdLakx0dW05dDRfeVhzSjYwb09aWUIzdHJLU09vbEh0YmVadld0SDJxb3hyMFJzZ3B3N3doMlFEMFpXVzlVcDlJLXVwZ1JPTFdhZEFlNzhscGhvN3pR?oc=5",
+          "Category": "Earnings",
+          "Sentiment": 0.8,
+          "Impact": 0.8,
+          "Date": "2026-02-20 09:30:14"
         }
       ],
       "Signal": "WAIT"
@@ -2337,6 +2305,14 @@ const DASHBOARD_DATA = {
       "Headline": "RBC Capital Raises 3M (MMM) Price Target to $130 but Maintains Underperform Rating - MSN",
       "URL": "https://news.google.com/rss/articles/CBMihwNBVV95cUxNSERRRHc3MXlzUkI2YmtQNFdHVjFXb1ZLbzZzSkd0dXo0bUozSWxwZ040Rlhpa01kVlF0RFBDX1BOQmN5dUY2eDFIUnVZcGhhVFN3d0daM21lZ09CQ3F2WnktNGtZWW5EaHI2R0VOdWE1ZkIxYW5EbGlzOE9fS1l6ZmJNV2gzLVFWYWM0M0hZOWVpc3RWOHd6eXh1dkhIdkpSeHp2aFEtUl9BNUJzVzhRQVFkMEo2d0NCbzhBRXcxeldrZHBveDgzMWRyNEozTElnZUtEczRDcExMekdqVjFvWDhZSHg1UElDMjRTdWlldV91cW9zYVZWeU5ETlhpd3FLTkdRdUt6X2lNVER2aWVCejZOd0l4QkFiZmd0czZfVWNuR2w4c0NxZlp0NTFXZTRMaklVNWZfQmdZLXZmb1JhaXhxYjhBM1RjcGh5S2hHQldKMWdpVGRiTlB3RUktel9wbzJJOFdIZWktYUxDNDdoMUNWUGwzU0pTdEtmUERUYTFCOGo3bGFF?oc=5",
       "All_News": [
+        {
+          "Headline": "Behavioral Patterns of MMM and Institutional Flows - Stock Traders Daily",
+          "URL": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOSDQ4OFZSR1pHMnQyQmthNDZnY0JPYnJXVWh3dVN3QjZvSG8tU3NrX1RRR3ZCMVlfWG4zam5lN3lfNExFTjZ1dnVGcXlnLUgwRGNpV05mc2loa1lXYUhiTHdudG5tdGJNb1pVeHRBU2UzUkQwRVJxWWljUmE2OGtvMndiYW1xaG5rUTV1S3N1X0d0YlI4ZDJ2NC10S2pQX2gwNnJ4WTJLaENBeHFITDU0dVpLVl82NlpGZU9yOVYtTXFxd18weDhzbXpaRQ?oc=5",
+          "Category": "Investment Analysis",
+          "Sentiment": 0.0,
+          "Impact": 0.5,
+          "Date": "2026-02-22 09:19:18"
+        },
         {
           "Headline": "L & S Advisors Inc Purchases 14,204 Shares of 3M Company $MMM - MarketBeat",
           "URL": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPaERHbHB2Um9QWlNfZHFsbW1mN2JiOU1VaXE2el9jN2RjQXNuQXN1aWdmV3J3QTgyWi1jV3pIQ1YzaFpzQlFkTFhTaGhwd2EtUE9yWDJxU1paaERDVkJibTBpVklIcFV1Y1RQaGdrbFpjU3FmVlEzSHhGUUkyeXlqaC1FVmZKVHpXVjhMUGJFSVk1cllGQk1wRVRlQ25mZ0VoWU15eDRiWS1PMXh1bDlFODdHY0kxbzBWQnc?oc=5",
@@ -2371,18 +2347,42 @@ const DASHBOARD_DATA = {
       "Ticker": "T",
       "Price": 27.98,
       "LSTM_Confidence": 0.47,
-      "News_Sentiment": -0.9,
+      "News_Sentiment": -0.8,
       "News_Impact": 0.9,
-      "Headline": "AT&T reached a $177M settlement over data breaches: Will you get a payment? - MSN",
-      "URL": "https://news.google.com/rss/articles/CBMi2wJBVV95cUxOdHdjald6N2NaYnNpY3dZQ0pPNmppQjBOc0hsWXJ5MEJ6Q24xQlQ3Z1lISjBLODdTbkpHaWEwd0Q1M0FqcmY2VnVON3k4VlI4REF2c05lLTQ2SGxYd192M2J5SFJ6U2FZMnV4Zkd6Yk9CQmVBYkgyZ1R6UmEzSmF2cVhJemxFemdJSTNnMU5vY0dpWHBya1JnM3Y4azJiOXN0VkVDR2ZrazRRdTdrOFdvVldqajJwRzFiZWJDWmlEZmJYb2g2b2htTDIzVXV4VEVNZEZmU3lhYV9KT3VlOW5TbU1xWmVjNDBnM1VtMExHVTYwYUx0NklYTjNGTW16QzMxeU9VVkNmZlZTeVZJUkY0NmxqS0VwMHZwZldtQ3NvMjM4UWZ4R2k1N0k2Sl9veEVpT1VTNWp0R1hUTGV5dDdNOHNLdWVXWGVuQnhiSy1HQ0hBazNpbzBtdy1lbw?oc=5",
+      "Headline": "AT&T agrees to $177M settlement over data breaches: What to know - MSN",
+      "URL": "https://news.google.com/rss/articles/CBMizgJBVV95cUxQb3Fya09JaE9RdmFyanNadWc1VTJGWW9EY0l0cmk2Q1FCRU5jZXdBc3ZaalBOQjNCZFlsWWctVC1OYWRKRFB6c1IzYURONzM3d1FneWhKVWhlR0NRY2ZZbmY0WmJRbDRLaWVRaEVVc2c3OUhKalVQVWN1ZGJEMXpRQW1QMFBYQW1YVmlieVJVQ3h2WlZJa3VSbVFVcmxVSE5jd1dDNWo3VnF0dkhyaHhhOTZKM0UzUDBILVFjTWxuMy10eHlPYlltVHJDeGdsVnI5TGdTbFNDNl9iM0xOTUVhWFpvT2V6SDFNZm16eGExSDJoM0tPTVNxRGJqWGFDSllDemV4UzV5S3ZwR2FOZGRzQ3hpTW9ZSjdUcG5fXzFjbU9XVTRFdDhoejFZTFVrOFN2WmlKSk9sbjhQSDRnQUhpSjhRbFAyd0VmNERrd3VB?oc=5",
       "All_News": [
         {
-          "Headline": "AT&T CEO on economy: There's stress in some consumer segments - AOL.com",
-          "URL": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5YOTZ5aGRITlNtVW96bWtJeHB6dHdIZFpWUHRYeXQyZzh2UFo4NDJBclFzbEZKYXhlSmM0TE85RWpIcWJla1AycXlEOVJuU3NZb1JnWjZVVHREN3A1VkhtZU1PRFM5RU4xN0IySWVVM3BOM09GRmttVURROA?oc=5",
-          "Category": "Company Specific - Economic Outlook",
-          "Sentiment": -0.5,
-          "Impact": 0.5,
-          "Date": "2026-02-21 09:19:26"
+          "Headline": "AT&T Unveils AmiGo Jr. Smartphone for Children, Integrating Advanced Device-Level Parental Controls - avandatimes.com",
+          "URL": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQa2RGR1h3NC1mTDBrRC1NRHNCZmpLS3VUeGlaYXdITTRFa2V5NGpURTJrMm1hNFFHM2htV01Xdk9DRDk2RXU3MFFrSFpjWl9YYWI1LXlRcXI4bVFCZzdVQVdDVW9INWhQMDd5eW1GbU1qLXo0TkFhQ0w4dGVoMHRibFdfOW1nNWNtM1JPTXl1dThRaEZRTk5tNWZrVzVXamVOZzRGbXRoeGpMLUZObVc4MzZabXhac29menZmN2k5YU1lT2dt?oc=5",
+          "Category": "Product Launch",
+          "Sentiment": 0.7,
+          "Impact": 0.6,
+          "Date": "2026-02-22 09:19:03"
+        },
+        {
+          "Headline": "AT&T expands lawsuit against T-Mobile over misleading advertising - MSN",
+          "URL": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNaG91Q2xKbFl4WWRNNUZoZHBMN0FOQm42NDhTWHdERjB1ZmVFY00yWXhkN3ROZ1ByWElZSXVJMldkV3A4c0FqSTFMTk5sUVpzQXZoRzFjWUdWbmJwb2c2eGFTVGhfczhBS0FaSXItWUZpRlR5Wi0xZGVnX1BNNkdmX3NTUjBBQVlhRHJBaGpQam1nd24xdWFpVVQ0bm5PNUNIbTlfdnFEV21VemZFMlBsNzUySXBuVHNYZzlr?oc=5",
+          "Category": "Legal Action",
+          "Sentiment": -0.2,
+          "Impact": 0.4,
+          "Date": "2026-02-22 09:19:03"
+        },
+        {
+          "Headline": "AT&T agrees to $177M settlement over data breaches: What to know - MSN",
+          "URL": "https://news.google.com/rss/articles/CBMizgJBVV95cUxQb3Fya09JaE9RdmFyanNadWc1VTJGWW9EY0l0cmk2Q1FCRU5jZXdBc3ZaalBOQjNCZFlsWWctVC1OYWRKRFB6c1IzYURONzM3d1FneWhKVWhlR0NRY2ZZbmY0WmJRbDRLaWVRaEVVc2c3OUhKalVQVWN1ZGJEMXpRQW1QMFBYQW1YVmlieVJVQ3h2WlZJa3VSbVFVcmxVSE5jd1dDNWo3VnF0dkhyaHhhOTZKM0UzUDBILVFjTWxuMy10eHlPYlltVHJDeGdsVnI5TGdTbFNDNl9iM0xOTUVhWFpvT2V6SDFNZm16eGExSDJoM0tPTVNxRGJqWGFDSllDemV4UzV5S3ZwR2FOZGRzQ3hpTW9ZSjdUcG5fXzFjbU9XVTRFdDhoejFZTFVrOFN2WmlKSk9sbjhQSDRnQUhpSjhRbFAyd0VmNERrd3VB?oc=5",
+          "Category": "Legal Settlement",
+          "Sentiment": -0.8,
+          "Impact": 0.9,
+          "Date": "2026-02-22 09:19:03"
+        },
+        {
+          "Headline": "AT&T cramming victim has to turn to this government agency to get justice - PhoneArena",
+          "URL": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNek95MDhRV2d5OHRsQW9IZ2YyUTFGdVhsN3o5cGRiOGFOR0FPSXB3WWtMRGlrdXJJaWhienVHY3RpeTlmYUhtLVV5a2tCbmZiNERpSFFjdGpRdXVybzhMUVEwcXJVOGZqdFZFNDJ1SmpTcm9td2VlZnpzNDBvWERweWwyNE9XTlBBa2hOTU9tbGNjNHJSYzNJcjRfR2VheUFjRlZFZVUyZw?oc=5",
+          "Category": "Customer Complaint",
+          "Sentiment": -0.7,
+          "Impact": 0.6,
+          "Date": "2026-02-22 09:19:03"
         },
         {
           "Headline": "Cisco and AT&T partner for 5G IoT services - Network World",
@@ -2417,11 +2417,19 @@ const DASHBOARD_DATA = {
           "Date": "2026-02-21 09:19:26"
         },
         {
-          "Headline": "SF\u2019s Union Square hums back to life with return of AT&T, The RealReal stores - The Real Deal",
-          "URL": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPTmRTMjFWTkVKWWhROHhkUmhoUWtrM0w4OEZhS3RRQThrWkR0cm1mdUNtR1piUmNJWjcybzlydzRtaG9xckhmZ2tSMzNVRVlLcnVPUmM4VUs4eDFCZDRsQVhMaTQ3NG1FeURubjVKQWFUSjllaWZMTjUyX0k5bFhPZXZ3TVBzeTRrVUpEUF9oV3BBVlBGcUtFeF8waEVpc2hqTnF1M0pRUURIZw?oc=5",
-          "Category": "Business Operations/Retail News",
-          "Sentiment": 0.5,
-          "Impact": 0.3,
+          "Headline": "AT&T CEO on economy: There's stress in some consumer segments - AOL.com",
+          "URL": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5YOTZ5aGRITlNtVW96bWtJeHB6dHdIZFpWUHRYeXQyZzh2UFo4NDJBclFzbEZKYXhlSmM0TE85RWpIcWJla1AycXlEOVJuU3NZb1JnWjZVVHREN3A1VkhtZU1PRFM5RU4xN0IySWVVM3BOM09GRmttVURROA?oc=5",
+          "Category": "Company Specific - Economic Outlook",
+          "Sentiment": -0.5,
+          "Impact": 0.5,
+          "Date": "2026-02-21 09:19:26"
+        },
+        {
+          "Headline": "AT&T, Cisco Launch 5G Standalone IoT Platform for Enterprises - The Fast Mode",
+          "URL": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPTmw5QUh0dnhXdWVnY0hLd0xVVV9zNmZFdjRFS0dWbjNZTnNmaUNsVTBXOGo1VV9DTXJBdllLbDU3bUFPY3ZGaWk5eHlPREJpUlp1eXdiSlc3LUszMGxOQW1Hc2YtMVhfM0FIU21CQkhqLTdCMnV1b2ZzSXJseHpnWjZjeENIY0k3UG9ucVJSY1g4cUxGbWgtQkNhMFR4cGU0TDdlUEJVNGl2Vk9CbGtwaHJPVlk1Zw?oc=5",
+          "Category": "Product Launch",
+          "Sentiment": 0.6,
+          "Impact": 0.6,
           "Date": "2026-02-20 09:30:16"
         },
         {
@@ -2433,12 +2441,36 @@ const DASHBOARD_DATA = {
           "Date": "2026-02-20 09:30:16"
         },
         {
-          "Headline": "AT&T, Cisco Launch 5G Standalone IoT Platform for Enterprises - The Fast Mode",
-          "URL": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPTmw5QUh0dnhXdWVnY0hLd0xVVV9zNmZFdjRFS0dWbjNZTnNmaUNsVTBXOGo1VV9DTXJBdllLbDU3bUFPY3ZGaWk5eHlPREJpUlp1eXdiSlc3LUszMGxOQW1Hc2YtMVhfM0FIU21CQkhqLTdCMnV1b2ZzSXJseHpnWjZjeENIY0k3UG9ucVJSY1g4cUxGbWgtQkNhMFR4cGU0TDdlUEJVNGl2Vk9CbGtwaHJPVlk1Zw?oc=5",
-          "Category": "Product Launch",
-          "Sentiment": 0.6,
-          "Impact": 0.6,
+          "Headline": "SF\u2019s Union Square hums back to life with return of AT&T, The RealReal stores - The Real Deal",
+          "URL": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPTmRTMjFWTkVKWWhROHhkUmhoUWtrM0w4OEZhS3RRQThrWkR0cm1mdUNtR1piUmNJWjcybzlydzRtaG9xckhmZ2tSMzNVRVlLcnVPUmM4VUs4eDFCZDRsQVhMaTQ3NG1FeURubjVKQWFUSjllaWZMTjUyX0k5bFhPZXZ3TVBzeTRrVUpEUF9oV3BBVlBGcUtFeF8waEVpc2hqTnF1M0pRUURIZw?oc=5",
+          "Category": "Business Operations/Retail News",
+          "Sentiment": 0.5,
+          "Impact": 0.3,
           "Date": "2026-02-20 09:30:16"
+        },
+        {
+          "Headline": "AT&T Lawsuit Over Diversity Data Puts Governance And Valuation In Focus - simplywall.st",
+          "URL": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQclVMOEV6bERyVHUxaXA4cVlRUVJqZUpNMDJoWFlBZGxDdUNSNU9JRHhveVNrTlNUVzNubnd3STBYS21FRTQxeXlVMFg4NjFuTk4xeWE4Y2VrYlVYb050MFp6alBXYWFxbHpGN2xJTVlILU5hcHhyenp0Z1VzOFZSUHQ5QW11eEJHeUloOFp1WkFIc216dUoxSVBmRVM0UFhuX29CT0dOQmwtLW53NHUxSVlKWGNTQ0lyNjRlcA?oc=5",
+          "Category": "Legal/Governance",
+          "Sentiment": -0.8,
+          "Impact": 0.8,
+          "Date": "2026-02-19 09:34:27"
+        },
+        {
+          "Headline": "AT&T reached a $177M settlement over data breaches: Will you get a payment? - MSN",
+          "URL": "https://news.google.com/rss/articles/CBMi2wJBVV95cUxOdHdjald6N2NaYnNpY3dZQ0pPNmppQjBOc0hsWXJ5MEJ6Q24xQlQ3Z1lISjBLODdTbkpHaWEwd0Q1M0FqcmY2VnVON3k4VlI4REF2c05lLTQ2SGxYd192M2J5SFJ6U2FZMnV4Zkd6Yk9CQmVBYkgyZ1R6UmEzSmF2cVhJemxFemdJSTNnMU5vY0dpWHBya1JnM3Y4azJiOXN0VkVDR2ZrazRRdTdrOFdvVldqajJwRzFiZWJDWmlEZmJYb2g2b2htTDIzVXV4VEVNZEZmU3lhYV9KT3VlOW5TbU1xWmVjNDBnM1VtMExHVTYwYUx0NklYTjNGTW16QzMxeU9VVkNmZlZTeVZJUkY0NmxqS0VwMHZwZldtQ3NvMjM4UWZ4R2k1N0k2Sl9veEVpT1VTNWp0R1hUTGV5dDdNOHNLdWVXWGVuQnhiSy1HQ0hBazNpbzBtdy1lbw?oc=5",
+          "Category": "Legal/Financial/Security",
+          "Sentiment": -0.9,
+          "Impact": 0.9,
+          "Date": "2026-02-19 09:34:27"
+        },
+        {
+          "Headline": "AT&T (T) Network Powers Sezzle's New Mobile Plan Launch - GuruFocus",
+          "URL": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPaFp1RHBiYmkxLUNadHF3Z29OYkRNWW1KeXZjM1ZjWWluUXV0VlZSb1hpb1JnNnd4dGtiZXdTX25DcWZIVmgxX2tRTlBZbjdNZzdfMXVBX2JqX2w1MUxnRElHeUNTU1pqckpfUHYySElqN3FzdVdrUV9QS3Q1ZWtWejhJOGxVNF9zUlhnaUl2NGhyLXpw?oc=5",
+          "Category": "Product/Partnership",
+          "Sentiment": 0.7,
+          "Impact": 0.6,
+          "Date": "2026-02-19 09:34:27"
         },
         {
           "Headline": "NYC pension funds put new SEC guidance to the test with AT&T lawsuit - Pensions & Investments",
@@ -2454,30 +2486,6 @@ const DASHBOARD_DATA = {
           "Category": "Legal/Competition",
           "Sentiment": 0.2,
           "Impact": 0.4,
-          "Date": "2026-02-19 09:34:27"
-        },
-        {
-          "Headline": "AT&T reached a $177M settlement over data breaches: Will you get a payment? - MSN",
-          "URL": "https://news.google.com/rss/articles/CBMi2wJBVV95cUxOdHdjald6N2NaYnNpY3dZQ0pPNmppQjBOc0hsWXJ5MEJ6Q24xQlQ3Z1lISjBLODdTbkpHaWEwd0Q1M0FqcmY2VnVON3k4VlI4REF2c05lLTQ2SGxYd192M2J5SFJ6U2FZMnV4Zkd6Yk9CQmVBYkgyZ1R6UmEzSmF2cVhJemxFemdJSTNnMU5vY0dpWHBya1JnM3Y4azJiOXN0VkVDR2ZrazRRdTdrOFdvVldqajJwRzFiZWJDWmlEZmJYb2g2b2htTDIzVXV4VEVNZEZmU3lhYV9KT3VlOW5TbU1xWmVjNDBnM1VtMExHVTYwYUx0NklYTjNGTW16QzMxeU9VVkNmZlZTeVZJUkY0NmxqS0VwMHZwZldtQ3NvMjM4UWZ4R2k1N0k2Sl9veEVpT1VTNWp0R1hUTGV5dDdNOHNLdWVXWGVuQnhiSy1HQ0hBazNpbzBtdy1lbw?oc=5",
-          "Category": "Legal/Financial/Security",
-          "Sentiment": -0.9,
-          "Impact": 0.9,
-          "Date": "2026-02-19 09:34:27"
-        },
-        {
-          "Headline": "AT&T Lawsuit Over Diversity Data Puts Governance And Valuation In Focus - simplywall.st",
-          "URL": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQclVMOEV6bERyVHUxaXA4cVlRUVJqZUpNMDJoWFlBZGxDdUNSNU9JRHhveVNrTlNUVzNubnd3STBYS21FRTQxeXlVMFg4NjFuTk4xeWE4Y2VrYlVYb050MFp6alBXYWFxbHpGN2xJTVlILU5hcHhyenp0Z1VzOFZSUHQ5QW11eEJHeUloOFp1WkFIc216dUoxSVBmRVM0UFhuX29CT0dOQmwtLW53NHUxSVlKWGNTQ0lyNjRlcA?oc=5",
-          "Category": "Legal/Governance",
-          "Sentiment": -0.8,
-          "Impact": 0.8,
-          "Date": "2026-02-19 09:34:27"
-        },
-        {
-          "Headline": "AT&T (T) Network Powers Sezzle's New Mobile Plan Launch - GuruFocus",
-          "URL": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPaFp1RHBiYmkxLUNadHF3Z29OYkRNWW1KeXZjM1ZjWWluUXV0VlZSb1hpb1JnNnd4dGtiZXdTX25DcWZIVmgxX2tRTlBZbjdNZzdfMXVBX2JqX2w1MUxnRElHeUNTU1pqckpfUHYySElqN3FzdVdrUV9QS3Q1ZWtWejhJOGxVNF9zUlhnaUl2NGhyLXpw?oc=5",
-          "Category": "Product/Partnership",
-          "Sentiment": 0.7,
-          "Impact": 0.6,
           "Date": "2026-02-19 09:34:27"
         },
         {
@@ -2519,30 +2527,6 @@ const DASHBOARD_DATA = {
           "Sentiment": 0.0,
           "Impact": 0.2,
           "Date": "2026-02-18 09:35:14"
-        },
-        {
-          "Headline": "SpaceX IPO Poses Existential Threat to AST SpaceMobile, Verizon, and AT&T - AOL.com",
-          "URL": "https://news.google.com/rss/articles/CBMiiwRBVV95cUxQc3JjS3FHT1RWbks0UFY4VE9Lb3UwNDh0UmtyWVhmbHJ0Ml9NVC1wSlRNcVAxQ0FMVURnN0RSUWUyd01ySFJSbGhkQV83d25uQVZNOXdJZFZvVE9vU0V5OU1fc0RXQzMwWG9HU3VVSnUtNHJ1dklCSm5nNzdNTFpub0FDRnk4bkJpRW1YOTVhbTh5UFkyRDJ6OTZacDZjbHVQVDZOdlBHT1ZEVV9KZkRET1RzOS14TXhra3RFUnNsNF9zVkRiUWRxWXRoMUFySzhjSWFSNGNjNTV2Q2VEUDlENHZqOFR1TnJNc21oeFZVQTJ5QmxMQ2kyMkN0TDR6MW94TGhweEFycEFNNUN6ckU0N3FUOEU1UlFVMEV5WWl5dU1YWE9JcXlFaEYtZ0hoQUxJcXZZQlo3MWJwV3FvbTQ4XzF4b3VhRkd0NDZaS2tYakJZSGpmZ3NMWTgzbUdwWHg3cnZER1h5YjB6dWNDWFlOSlEwYWx2cVl1SF80UkpkYWFqbU56aGxSMC1NSHNvVTM1MEtIUzlUeVpNYXoyaGxoM0hMbktzQ3lLUkt2RGNtSDZ6WGFlUXRRTW4zeE5LWW9BMWFjcVV1R056ZFRST2lmRFZZNjE2STEwVkVjU1JHT1pOeHhRVXV6YTBaTXdfaGMtcGtUTS1YUlFGd2g4RDhvakhJUHdHY2ZIRGxj?oc=5",
-          "Category": "Competition/Industry",
-          "Sentiment": -0.8,
-          "Impact": 0.8,
-          "Date": "2026-02-17 09:36:47"
-        },
-        {
-          "Headline": "AT&T reached a $177M settlement over data breaches: Will you get a payment? - MSN",
-          "URL": "https://news.google.com/rss/articles/CBMi2gJBVV95cUxPUHlfWGNlVFRNV2JvcU8tNVhwemEzQVktMDRyYk5QNlVOR0hwMVdGVDhkUjRkYjRQeUdpRERvR3JLMkl1WVJiTWEtRjNOMFFySmVQSDNHRWZaN3dMaGVkUkh4SDJSTFFMZWdVZEJBalRPcXk3Q283TVd5ZHhJakFWZVktOW5vUGc5Q0t5eXdSbTdzODVxbEtqNm94ME5FU2lTOHRtUDZUYmt2YUZjVTlBZjg3b21xMy1Tbm9xRWk2VFBmZHZRQlliWjFCVW1zQTViRHFBM3JMVVlUWnZEMG85VUJKUzI3Tmp3aUl6TUUxTmprWTNoakNIanhDaTlaeEN3cFlXZ0hKR01pNXp4RXJiN2cwcFp5elJ0VUZzRDY3SkpDNFRrNnI4bjNvYnBUVUdjS0RaT0ZWYzFDTFFUbG93Y19HbVZ1YmRSNVg2MWxWLXo1aWUxNGxnYndB?oc=5",
-          "Category": "Legal/Financial",
-          "Sentiment": -0.7,
-          "Impact": 0.7,
-          "Date": "2026-02-17 09:36:47"
-        },
-        {
-          "Headline": "AT&T CEO tells employees to work from office 5 days a week \u2013 or find a new job - MSN",
-          "URL": "https://news.google.com/rss/articles/CBMinANBVV95cUxON2NzSTBwRl92VkdONGVOVDIxcDhPbzVSNmhoQTB4SDloel9ienZ0SjY3R3RUTWgtQ1ZUUGExREFSTVdnb3YySERBNGxCcnMzems2LTNTaFVvS2pEeFE0cHZsSm9yTW5fNE1WcV9hVjZuVGZ5MkpkVDdBb01Od01uM0xyV2I1RHdxQnI0MFUtd01vTFBxWXhTdFFIVFpCRUFRVUgtbUlWUXk4ZVRoUElsRHdSMFlPMUZuaEpQVzdGS0FUQ2lPV2pxLXRxejFBemh3Q0pqV1VZSGxQa2JKRlRTU0tRRTQzYzFBSlljT3dGV3o2ZjNXNnliWmNQTl9neGNqU2RqZzRNN0x4dFRqNWlnWjU0UGplNUVFSHYxcFpaYW9zSzJNcXh6d0xPb1JRZzFlbFI2RDZNME5HNE9sb3NMWTNMTVQ0VU40TUpHSFg1TGhuTjI4ZWwwQ04xZlhFdU9MTVhHT3NsVUFhTHVGVTlqMVVwX2drUWFBTUxlR041ZFZOTlVmVlBQOXhnUGIwX3FnQUpzTXJYUk1BdVVV?oc=5",
-          "Category": "Corporate Policy/HR",
-          "Sentiment": -0.2,
-          "Impact": 0.5,
-          "Date": "2026-02-17 09:36:47"
         }
       ],
       "Signal": "WAIT"
