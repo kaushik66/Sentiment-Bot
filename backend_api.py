@@ -18,69 +18,60 @@ app = Flask(__name__)
 CORS(app)
 
 @app.route('/api/history/<ticker>')
-# @lru_cache(maxsize=100) # Simple in-memory cache
 def get_history(ticker):
     try:
-        from dotenv import load_dotenv
         import os
-        import requests
-        import datetime
+        import json
+        import sqlite3
         
-        load_dotenv()
-        api_key = os.environ.get('TIINGO_API_KEY')
-        if not api_key:
-             return jsonify({"error": "TIINGO_API_KEY missing"}), 500
-
-        print(f"Fetching history for {ticker} via Tiingo...")
+        ticker = ticker.upper()
+        print(f"Fetching history for {ticker} from local stock_vault.db...")
         
-        # 1. Fetch Company Meta Data
-        headers = {'Content-Type': 'application/json'}
-        meta_url = f"https://api.tiingo.com/tiingo/daily/{ticker}"
-        params_meta = {'token': api_key}
-        meta_response = requests.get(meta_url, params=params_meta, headers=headers)
-        
+        # 1. Fetch Company Meta Data (from local JSON)
         company_name = ticker
-        if meta_response.status_code == 200:
-             meta_data = meta_response.json()
-             company_name = meta_data.get('name', ticker)
+        try:
+            with open('sp500.json', 'r') as f:
+                sp500 = json.load(f)
+                for item in sp500:
+                    if item.get('ticker') == ticker:
+                        company_name = item.get('company', ticker)
+                        break
+        except Exception as e:
+            print(f"Could not load sp500.json for company name: {e}")
 
-        # 2. Fetch Price History
-        # Tiingo API dates
-        end_date = datetime.datetime.now()
-        start_date = "2010-01-01" # Full History
+        # 2. Fetch Price History from stock_vault.db
+        db_path = os.path.join("data", "stock_vault.db")
+        if not os.path.exists(db_path):
+             return jsonify({"error": "Local Database not found"}), 500
+             
+        conn = sqlite3.connect(db_path)
+        cursor = conn.cursor()
         
-        print(f"Requesting Tiingo data for {ticker} from {start_date} to {end_date.strftime('%Y-%m-%d')}")
+        # Order by date ASC to match chronological expectation of charts
+        cursor.execute("SELECT date, close, adjClose, volume FROM prices WHERE ticker = ? ORDER BY date ASC", (ticker,))
+        rows = cursor.fetchall()
+        conn.close()
         
-        hist_url = f"https://api.tiingo.com/tiingo/daily/{ticker}/prices"
-        params_hist = {
-            'startDate': start_date,
-            'endDate': end_date.strftime('%Y-%m-%d'),
-            'token': api_key,
-            'resampleFreq': 'daily' 
-        }
-        
-        response = requests.get(hist_url, params=params_hist, headers=headers)
-        if response.status_code != 200:
-            print(f"Tiingo Error: {response.text}")
+        if not rows:
+            print(f"No history found in database for {ticker}")
             return jsonify({"symbol": ticker, "companyName": company_name, "history": []}), 200
             
-        data = response.json()
+        print(f"Retrieved {len(rows)} data points from vault for {ticker}")
         
-        if data:
-            print(f"Received {len(data)} points. Last point date: {data[-1].get('date')}")
-        else:
-            print("Received empty data list from Tiingo")
-        
-        # Format: [{"date": "YYYY-MM-DD", "price": 123.45}, ...]
+        # Format: [{"date": "YYYY-MM-DD", "price": 123.45, "volume": 12345}, ...]
         formatted_history = []
-        for item in data:
-            d_str = item.get('date', '').split('T')[0]
-            price = item.get('close') or item.get('adjClose')
+        for row in rows:
+            date_str, close_price, adj_close, vol = row
+            # Prefer adjusted close if available
+            price = adj_close if adj_close is not None else close_price
             
-            if d_str and price is not None:
+            if date_str and price is not None:
+                # Tiingo dates often map cleanly; ensure no timestamps interfere
+                d_str = date_str.split('T')[0] if 'T' in date_str else date_str.split(' ')[0]
                 formatted_history.append({
                     "date": d_str,
-                    "price": round(float(price), 2)
+                    "price": round(float(price), 2),
+                    "volume": float(vol) if vol is not None else 0
                 })
             
         return jsonify({

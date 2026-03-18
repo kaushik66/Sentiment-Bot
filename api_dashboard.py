@@ -5,8 +5,6 @@ import datetime
 import os
 import json
 import time
-import tensorflow as tf
-from tensorflow.keras.models import load_model
 from dotenv import load_dotenv
 
 # Import our modules
@@ -18,15 +16,8 @@ except ImportError as e:
     print("Ensure monitor_news_v2.py and download_sp500_direct.py are in the same directory.")
     exit(1)
 
-# Suppress warnings
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
-
 # Config
 TARGET_FILE = 'valid_signals.csv'
-MODEL_PATH = 'models/hype_predictor_v3.keras'
-SENTIMENT_FILE = 'live_sentiment.csv'
-OUTPUT_FILE = 'dashboard_final.json'
-MODEL_PATH = 'models/hype_predictor_v3.keras'
 SENTIMENT_FILE = 'live_sentiment.csv'
 OUTPUT_FILE = 'dashboard_final.json'
 FRONTEND_JS_FILE = 'frontend-react/public/dashboard_data.js'
@@ -35,10 +26,16 @@ ALIAS_FILE = 'sp500.json'
 
 def load_tickers():
     try:
-        df = pd.read_csv(TARGET_FILE)
-        return df['Ticker'].tolist()
+        import sqlite3
+        conn = sqlite3.connect("data/stock_vault.db")
+        df = pd.read_sql_query("SELECT DISTINCT ticker FROM prices", conn)
+        conn.close()
+        
+        tickers = df['ticker'].tolist()
+        print(f"✅ Loaded {len(tickers)} distinct tickers from stock_vault.db")
+        return tickers
     except Exception as e:
-        print(f"❌ Error loading tickers: {e}")
+        print(f"❌ Error loading tickers from stock_vault.db: {e}")
         return []
 
 def run_news_agent(tickers):
@@ -137,84 +134,6 @@ def fetch_market_data(tickers):
     print(f"✅ Live data acquired for {len(stock_map)} stocks.")
     return stock_map
 
-def recreate_context_and_features(stock_map):
-    """Step 2b: Recreate Proxy & Features (V3 Logic)"""
-    print("   Reconstructing Market Index & Engineering Features...")
-    
-    # 1. Build Internal Market Index
-    returns_matrix = pd.DataFrame()
-    for t, df in stock_map.items():
-        if 'Close' in df.columns:
-            returns_matrix[t] = df['Close'].pct_change()
-            
-    if returns_matrix.empty:
-        return {}
-
-    # Mkt_Vol (Dispersion) -> VIX Proxy
-    # Logic from training: VIX_Close = Mkt_Vol * 100 * sqrt(252)
-    mkt_vol = returns_matrix.std(axis=1)
-    vix_proxy_series = mkt_vol * 100 * np.sqrt(252)
-    
-    # 2. Build X for each stock
-    lstm_inputs = {}
-    
-    for ticker, df in stock_map.items():
-        try:
-            # Join with VIX Proxy
-            df['VIX_Close'] = vix_proxy_series
-            df['VIX_Close'] = df['VIX_Close'].fillna(method='ffill').fillna(20.0) # Default VIX 20
-            
-            # Technicals (V3)
-            # RSI (14)
-            delta = df['Close'].diff()
-            gain = (delta.where(delta > 0, 0)).rolling(14).mean()
-            loss = (-delta.where(delta < 0, 0)).rolling(14).mean()
-            rs = gain / loss.replace(0, 1)
-            df['RSI'] = 100 - (100 / (1 + rs))
-            df['RSI'] = df['RSI'].fillna(50)
-            
-            # Vol_Z (30)
-            vol_mean = df['Volume'].rolling(30).mean()
-            vol_std = df['Volume'].rolling(30).std()
-            df['Vol_Z'] = (df['Volume'] - vol_mean) / vol_std.replace(0, 1)
-            df['Vol_Z'] = df['Vol_Z'].fillna(0)
-            
-            # Range
-            df['Range'] = (df['High'] - df['Low']) / df['Open']
-            
-            # Pct Change
-            df['Stock_Pct_Change'] = df['Close'].pct_change().fillna(0)
-            
-            # Features: ['Stock_Pct_Change', 'Vol_Z', 'Range', 'VIX_Close', 'RSI']
-            features = ['Stock_Pct_Change', 'Vol_Z', 'Range', 'VIX_Close', 'RSI']
-            df = df.fillna(0)
-            
-            last_60 = df.iloc[-60:].copy()
-            if len(last_60) == 60:
-                lstm_inputs[ticker] = last_60[features].values
-                
-        except Exception as e:
-            pass
-            
-    return lstm_inputs
-
-def run_predictions(lstm_inputs):
-    """Step 2c: Run Model"""
-    print("🧠 Running Predictions...")
-    try:
-        model = load_model(MODEL_PATH)
-    except:
-        print("❌ Model file not found.")
-        return {}
-        
-    probs = {}
-    for ticker, X in lstm_inputs.items():
-        X_in = np.array([X])
-        p = float(model.predict(X_in, verbose=0)[0][0])
-        probs[ticker] = p
-        
-    return probs
-
 def generate_dashboard():
     # Load Environment
     load_dotenv()
@@ -229,11 +148,9 @@ def generate_dashboard():
     
     # 2. Tech
     stock_map = fetch_market_data(tickers)
-    lstm_inputs = recreate_context_and_features(stock_map)
-    predictions = run_predictions(lstm_inputs)
     
-    # 3. Fusion logic
-    print("\n⚗️  STEP 3: Fusing Signals (Compass + Engine)...")
+    # 3. Fusion logic (Sentiment + Tech rules)
+    print("\n⚗️  STEP 3: Processing Signals...")
     
     final_output = []
     
@@ -242,9 +159,6 @@ def generate_dashboard():
         price = 0.0
         if ticker in stock_map and not stock_map[ticker].empty:
             price = round(stock_map[ticker]['Close'].iloc[-1], 2)
-            
-        # Get LSTM Prob
-        lstm_prob = predictions.get(ticker, 0.0)
         
         # Get Sentiment Details
         # Handle multiple headlines: take the most impactful/recent
@@ -302,30 +216,20 @@ def generate_dashboard():
         # Effective Sentiment
         eff_sentiment = sentiment * impact
         
-        # 4. Tagging
+        # 4. Tagging (Based on sentiment only now)
         tag = "WAIT"
         
-        # BULLISH_BREAKOUT
-        if lstm_prob > 0.7 and eff_sentiment > 0.3:
+        if eff_sentiment > 0.4:
             tag = "BULLISH_BREAKOUT"
-            
-        # BEARISH_DUMP
-        elif lstm_prob > 0.7 and eff_sentiment < -0.3:
+        elif eff_sentiment < -0.4:
             tag = "BEARISH_DUMP"
-            
-        # DIVERGENCE (Tech says move, Sentiment sleeps)
-        elif lstm_prob > 0.8 and impact < 0.2:
-            tag = "DIVERGENCE_WATCH"
-            
-        # VOLATILITY_WATCH (High Tech, Confused Sentiment)
-        elif lstm_prob > 0.7:
+        elif impact > 0.8:
              tag = "VOLATILITY_WATCH"
              
         # Add to list
         item = {
             "Ticker": ticker,
             "Price": price,
-            "LSTM_Confidence": round(lstm_prob, 2),
             "News_Sentiment": round(sentiment, 2),
             "News_Impact": round(impact, 2),
             "News_Impact": round(impact, 2),
@@ -339,7 +243,7 @@ def generate_dashboard():
         
         # Print significant ones
         if tag != "WAIT":
-            print(f"   🚨 {ticker}: {tag} (Prob {lstm_prob:.2f}, Sent {sentiment:.2f})")
+            print(f"   🚨 {ticker}: {tag} (Sent {sentiment:.2f}, Impact {impact:.2f})")
             
     # Final Structure with Timestamp
     payload = {
