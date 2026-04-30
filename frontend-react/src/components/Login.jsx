@@ -49,7 +49,7 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-950 grid grid-cols-1 lg:grid-cols-2">
+    <div className="min-h-screen bg-[color:var(--color-deep-space)] grid grid-cols-1 lg:grid-cols-2">
       
       {/* Left Side - Login Form */}
       <div className="flex items-center justify-center p-8 relative overflow-hidden">
@@ -68,14 +68,14 @@ const Login = () => {
                 CORTEX
               </h1>
             </div>
-            <p className="text-gray-400 text-lg">
+            <p className="text-[color:var(--color-secondary)] text-lg">
               {isLogin ? 'Welcome back. Sign in to your dashboard.' : 'Create an account to get started.'}
             </p>
           </div>
 
           <div className="space-y-6">
             {error && (
-              <div className="bg-red-500/10 border border-red-500/20 text-red-400 px-4 py-3 rounded-lg flex items-center gap-2 text-sm">
+              <div className="bg-[color:var(--color-risk)]/10 border border-red-500/20 text-[color:var(--color-risk)] px-4 py-3 rounded-lg flex items-center gap-2 text-sm">
                 <AlertCircle size={16} />
                 {error}
               </div>
@@ -83,13 +83,13 @@ const Login = () => {
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="space-y-2">
-                <label className="text-sm font-medium text-gray-300">Email Address</label>
+                <label className="text-sm font-medium text-[color:var(--color-secondary)]">Email Address</label>
                 <div className="relative group">
-                  <User className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-blue-400 transition-colors" size={18} />
+                  <User className="absolute left-3 top-1/2 -translate-y-1/2 text-[color:var(--color-secondary)] group-focus-within:text-[color:var(--color-action)] transition-colors" size={18} />
                   <input
                     type="email"
                     required
-                    className="w-full bg-gray-900 border border-gray-800 text-white rounded-lg py-3 pl-10 pr-4 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all placeholder:text-gray-600"
+                    className="w-full bg-[color:var(--color-panel)] border border-[color:var(--color-border-glass)] text-white rounded-lg py-3 pl-10 pr-4 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all placeholder:text-[color:var(--color-secondary)]"
                     placeholder="name@company.com"
                     value={formData.email}
                     onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
@@ -98,13 +98,13 @@ const Login = () => {
               </div>
 
               <div className="space-y-2">
-                <label className="text-sm font-medium text-gray-300">Password</label>
+                <label className="text-sm font-medium text-[color:var(--color-secondary)]">Password</label>
                 <div className="relative group">
-                  <Lock className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-blue-400 transition-colors" size={18} />
+                  <Lock className="absolute left-3 top-1/2 -translate-y-1/2 text-[color:var(--color-secondary)] group-focus-within:text-[color:var(--color-action)] transition-colors" size={18} />
                   <input
                     type={showPassword ? "text" : "password"}
                     required
-                    className="w-full bg-gray-900 border border-gray-800 text-white rounded-lg py-3 pl-10 pr-10 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all placeholder:text-gray-600"
+                    className="w-full bg-[color:var(--color-panel)] border border-[color:var(--color-border-glass)] text-white rounded-lg py-3 pl-10 pr-10 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all placeholder:text-[color:var(--color-secondary)]"
                     placeholder="Enter your password"
                     value={formData.password}
                     onChange={(e) => setFormData(prev => ({ ...prev, password: e.target.value }))}
@@ -112,7 +112,7 @@ const Login = () => {
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-300 transition-colors"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-[color:var(--color-secondary)] hover:text-[color:var(--color-secondary)] transition-colors"
                   >
                     {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
                   </button>
@@ -137,17 +137,17 @@ const Login = () => {
 
             <div className="relative">
               <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-gray-800" />
+                <div className="w-full border-t border-[color:var(--color-border-glass)]" />
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="px-2 bg-gray-950 text-gray-500">Or continue with</span>
+                <span className="px-2 bg-[color:var(--color-deep-space)] text-[color:var(--color-secondary)]">Or continue with</span>
               </div>
             </div>
 
             <button
               onClick={handleGoogleLogin}
               disabled={loading}
-              className="w-full bg-gray-900 border border-gray-800 text-white font-medium py-3 rounded-lg hover:bg-gray-800 transition-all flex items-center justify-center gap-3"
+              className="w-full bg-[color:var(--color-panel)] border border-[color:var(--color-border-glass)] text-white font-medium py-3 rounded-lg hover:bg-[color:var(--color-panel-hover)] transition-all flex items-center justify-center gap-3"
             >
               <svg className="w-5 h-5" viewBox="0 0 24 24">
                 <path
@@ -170,12 +170,12 @@ const Login = () => {
               {isLogin ? 'Sign in with Google' : 'Sign up with Google'}
             </button>
             
-            <p className="text-center text-gray-500 text-sm mt-8">
+            <p className="text-center text-[color:var(--color-secondary)] text-sm mt-8">
                {isLogin ? "Don't have an account?" : "Already have an account?"} 
                <button 
                 type="button"
                 onClick={toggleMode}
-                className="ml-1 text-blue-400 hover:text-blue-300 font-medium transition-colors focus:outline-none"
+                className="ml-1 text-[color:var(--color-action)] hover:text-blue-300 font-medium transition-colors focus:outline-none"
                >
                  {isLogin ? 'Sign Up' : 'Sign In'}
                </button>
@@ -185,7 +185,7 @@ const Login = () => {
       </div>
 
       {/* Right Side - Visual / Hero */}
-      <div className="hidden lg:flex flex-col justify-center items-center relative overflow-hidden bg-gray-900 border-l border-gray-800">
+      <div className="hidden lg:flex flex-col justify-center items-center relative overflow-hidden bg-[color:var(--color-panel)] border-l border-[color:var(--color-border-glass)]">
           <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1642427749670-f20e2e76ed8c?q=80&w=2080&auto=format&fit=crop')] bg-cover bg-center opacity-10 mix-blend-overlay" />
           <div className="absolute inset-0 bg-gradient-to-br from-blue-900/30 to-purple-900/30" />
           
@@ -197,31 +197,31 @@ const Login = () => {
              <h2 className="text-4xl font-bold text-white mb-6">
                Market Intelligence
              </h2>
-             <p className="text-gray-400 text-lg leading-relaxed">
+             <p className="text-[color:var(--color-secondary)] text-lg leading-relaxed">
                Access real-time sentiment analysis, predictive signals, and deep market insights powered by the Cortex Neural Engine.
              </p>
 
              {/* Fake Code / Data Visualization Decor */}
-             <div className="mt-12 w-full bg-gray-950/80 backdrop-blur-md rounded-xl border border-gray-800 p-6 text-left shadow-2xl">
+             <div className="mt-12 w-full bg-[color:var(--color-deep-space)]/80 backdrop-blur-md rounded-xl border border-[color:var(--color-border-glass)] p-6 text-left shadow-2xl">
                 <div className="flex gap-2 mb-4">
-                  <div className="w-3 h-3 rounded-full bg-red-500" />
+                  <div className="w-3 h-3 rounded-full bg-[color:var(--color-risk)]" />
                   <div className="w-3 h-3 rounded-full bg-yellow-500" />
-                  <div className="w-3 h-3 rounded-full bg-green-500" />
+                  <div className="w-3 h-3 rounded-full bg-[color:var(--color-alpha)]" />
                 </div>
                 <div className="space-y-2 font-mono text-xs md:text-sm">
                    <div className="flex justify-between">
-                     <span className="text-blue-400">Analysis.init()</span>
-                     <span className="text-gray-500">20ms</span>
+                     <span className="text-[color:var(--color-action)]">Analysis.init()</span>
+                     <span className="text-[color:var(--color-secondary)]">20ms</span>
                    </div>
                    <div className="flex justify-between">
                      <span className="text-purple-400">Loading Sentiment Model...</span>
-                     <span className="text-green-500">Done</span>
+                     <span className="text-[color:var(--color-alpha)]">Done</span>
                    </div>
                    <div className="flex justify-between">
-                     <span className="text-gray-300">Target: $SPY</span>
-                     <span className="text-blue-400">BULLISH (92%)</span>
+                     <span className="text-[color:var(--color-secondary)]">Target: $SPY</span>
+                     <span className="text-[color:var(--color-action)]">BULLISH (92%)</span>
                    </div>
-                   <div className="h-1 w-full bg-gray-800 rounded-full mt-2 overflow-hidden">
+                   <div className="h-1 w-full bg-[color:var(--color-panel-hover)] rounded-full mt-2 overflow-hidden">
                      <div className="h-full bg-blue-500 w-[92%] animate-pulse" />
                    </div>
                 </div>

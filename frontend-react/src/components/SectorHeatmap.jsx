@@ -72,7 +72,7 @@ const SectorHeatmap = ({ data }) => {
         if (active && payload && payload.length) {
             const d = payload[0].payload;
             return (
-                <div className="bg-gray-900 border border-gray-700 p-3 rounded shadow-xl text-white">
+                <div className="bg-[color:var(--color-panel)] border border-[color:var(--color-border-glass)] p-3 rounded shadow-xl text-white">
                     <p className="font-bold">{d.ticker}</p>
                     <p className="text-sm">Price: ${d.price}</p>
                     <p className="text-sm">Signal: <span style={{ color: d.fill }}>{d.signal}</span></p>
@@ -83,10 +83,10 @@ const SectorHeatmap = ({ data }) => {
         return null;
     };
 
-    if (!treeData.length) return <div className="text-center text-gray-500 py-10">No data for heatmap</div>;
+    if (!treeData.length) return <div className="text-center text-[color:var(--color-secondary)] py-10">No data for heatmap</div>;
 
     return (
-        <div className="h-[500px] w-full bg-gray-900 border border-gray-800 rounded-xl p-4">
+        <div className="h-[500px] w-full bg-[color:var(--color-panel)] border border-[color:var(--color-border-glass)] rounded-xl p-4">
             <h3 className="text-lg font-bold text-white mb-4">Market Heatmap</h3>
             <ResponsiveContainer width="100%" height="100%">
                 <Treemap

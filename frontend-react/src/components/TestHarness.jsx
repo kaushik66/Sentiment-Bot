@@ -119,9 +119,9 @@ const TestHarness = () => {
                         <p className="text-sm font-medium tracking-wide">Analyzing {activeTicker} patterns...</p>
                     </div>
                 ) : error ? (
-                    <div className="max-w-md w-full p-6 rounded-xl bg-red-500/10 border border-red-500/20 flex flex-col items-center text-center space-y-3">
-                        <AlertCircle className="text-red-400" size={32} />
-                        <h3 className="text-red-400 font-semibold text-lg">Engine Error</h3>
+                    <div className="max-w-md w-full p-6 rounded-xl bg-[color:var(--color-risk)]/10 border border-red-500/20 flex flex-col items-center text-center space-y-3">
+                        <AlertCircle className="text-[color:var(--color-risk)]" size={32} />
+                        <h3 className="text-[color:var(--color-risk)] font-semibold text-lg">Engine Error</h3>
                         <p className="text-red-300/80 text-sm">{error}</p>
                     </div>
                 ) : insights !== null ? (

@@ -1,13 +1,72 @@
 @import "tailwindcss";
 
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@theme {
+  --font-sans: 'IBM Plex Sans', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+  --font-serif: 'Libre Baskerville', Georgia, serif;
+}
 
-  color-scheme: dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #0d1117; /* GitHub Dark Dimmed approximation or just dark */
+:root {
+  /* Base Palette — Light Mode */
+  --surface-base: #F7F6F2;
+  --surface-card: #FFFFFF;
+  --surface-sunken: #EEECE7;
+  --surface-raised: #FFFFFF;
+  --border-default: #DDDBD4;
+  --border-subtle: #E8E6E0;
+  --border-strong: #B8B5AC;
+  --text-primary: #1A1917;
+  --text-secondary: #5A5850;
+  --text-tertiary: #8A8880;
+  --text-inverse: #F7F6F2;
+
+  /* Semantic Palette — Universal (Light) */
+  --positive: #1A7A4A;
+  --positive-bg: #E8F5EE;
+  --negative: #C0392B;
+  --negative-bg: #FCEAE8;
+  --neutral: #8A8880;
+  --accent: #2B5CE6;
+  --accent-bg: #EBF0FD;
+  --warning: #C97A14;
+  --warning-bg: #FDF3E0;
+  --danger: #C0392B;
+
+  /* Sector Heatmap Palette */
+  --heatmap-neg-10: #A32D2D;
+  --heatmap-neg-5: #D85A30;
+  --heatmap-neg-2: #E8A077;
+  --heatmap-0: #F0EDE6;
+  --heatmap-pos-2: #7ABFA0;
+  --heatmap-pos-5: #1D9E75;
+  --heatmap-pos-10: #0A5C42;
+
+  /* Spacing Tokens */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+
+  /* Grid Tokens */
+  --grid-gutter: 24px;
+  --grid-margin: 48px;
+
+  /* Geometry & Elevation Tokens */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-full: 9999px;
+
+  --shadow-0: none;
+  --shadow-1: 0 1px 3px rgba(0,0,0,0.08), 0 0 0 0.5px var(--border-default);
+  --shadow-2: 0 4px 12px rgba(0,0,0,0.10), 0 0 0 0.5px var(--border-default);
+  --shadow-3: 0 12px 32px rgba(0,0,0,0.14), 0 0 0 0.5px var(--border-strong);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -15,8 +74,88 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+[data-theme="dark"], .dark {
+  /* Base Palette — Dark Mode */
+  --surface-base: #0E0F0D;
+  --surface-card: #16180F;
+  --surface-sunken: #0A0B09;
+  --surface-raised: #1E2019;
+  --border-default: #2C2E27;
+  --border-subtle: #222420;
+  --border-strong: #4A4D44;
+  --text-primary: #F0EDE6;
+  --text-secondary: #9A9890;
+  --text-tertiary: #6A6860;
+  --text-inverse: #0E0F0D;
+
+  /* Semantic Palette — Universal (Dark) */
+  --positive: #22A861;
+  --positive-bg: #0D2E1C;
+  --negative: #E85A4A;
+  --negative-bg: #2E0E0D;
+  --neutral: #6A6860;
+  --accent: #4D78FF;
+  --accent-bg: #111C40;
+  --warning: #F0A030;
+  --warning-bg: #2E1E07;
+  --danger: #E85A4A;
+
+  /* Sector Heatmap Palette Center */
+  --heatmap-0: #1E2019;
+}
+
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  background-color: var(--surface-base);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: var(--font-sans), sans-serif;
 }
+
+/* Base utility for hiding scrollbars but allowing scroll */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Fear & Greed Index Scale Utilities */
+.fg-scale-0 { color: #C0392B; }
+.fg-scale-25 { color: #E8740A; }
+.fg-scale-50 { color: #D4B800; }
+.fg-scale-75 { color: #3A8C44; }
+.fg-scale-100 { color: #1A5E30; }
+
+.bg-fg-gradient {
+  background: linear-gradient(to right, #C0392B, #E8740A, #D4B800, #3A8C44, #1A5E30);
+}
+
+/* Typography Scale Utilities */
+.text-display-lg { font-family: var(--font-serif), serif; font-size: 36px; font-weight: 300; line-height: 1.15; }
+.text-headline { font-family: var(--font-sans), sans-serif; font-size: 24px; font-weight: 500; line-height: 1.25; }
+.text-section-title { font-family: var(--font-sans), sans-serif; font-size: 18px; font-weight: 500; line-height: 1.3; }
+.text-label-lg { font-family: var(--font-sans), sans-serif; font-size: 15px; font-weight: 500; line-height: 1.4; }
+.text-body { font-family: var(--font-sans), sans-serif; font-size: 14px; font-weight: 400; line-height: 1.6; }
+.text-body-sm { font-family: var(--font-sans), sans-serif; font-size: 13px; font-weight: 400; line-height: 1.55; }
+.text-caption { font-family: var(--font-sans), sans-serif; font-size: 12px; font-weight: 400; line-height: 1.5; }
+
+.text-price-xl { font-family: var(--font-mono), monospace; font-size: 32px; font-weight: 300; line-height: 1; }
+.text-price-lg { font-family: var(--font-mono), monospace; font-size: 22px; font-weight: 400; line-height: 1; }
+.text-price-md { font-family: var(--font-mono), monospace; font-size: 16px; font-weight: 400; line-height: 1; }
+.text-price-sm { font-family: var(--font-mono), monospace; font-size: 13px; font-weight: 400; line-height: 1; }
+.text-change { font-family: var(--font-mono), monospace; font-size: 13px; font-weight: 500; line-height: 1; }
+.text-ticker { font-family: var(--font-mono), monospace; font-size: 13px; font-weight: 700; line-height: 1; }
+
+/* Legacy Color Overrides for Contrast */
+.text-white, .text-slate-100, .text-slate-200, .text-slate-300, .text-gray-100, .text-gray-200, .text-gray-300,
+.text-white\/80, .text-white\/50, .group-hover\:text-white\/80:hover {
+  color: var(--text-primary) !important;
+}
+.text-slate-400, .text-slate-500, .text-slate-600, .text-gray-400, .text-gray-500, .text-gray-600 {
+  color: var(--text-secondary) !important;
+}
+

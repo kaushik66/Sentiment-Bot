@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ComposedChart, Bar } from 'recharts';
-import { X, ExternalLink, TrendingUp, TrendingDown, Info, Briefcase, Loader2 } from 'lucide-react';
+import { X, ExternalLink, TrendingUp, TrendingDown, Minus, Info, Briefcase, Loader2 } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import DynamicInsightsPanel from './DynamicInsightsPanel';
 
-const StockDetailModal = ({ isOpen, onClose, stock }) => {
+const StockDetailModal = ({ isOpen, onClose, stock, simulationId, defaultTab = 'analysis' }) => {
   const { currentUser } = useAuth();
   const [history, setHistory] = useState([]);
   const [companyName, setCompanyName] = useState('');
@@ -14,7 +14,7 @@ const StockDetailModal = ({ isOpen, onClose, stock }) => {
   const [insightsLoading, setInsightsLoading] = useState(false);
 
   // Trade State
-  const [activeTab, setActiveTab] = useState('analysis');
+  const [activeTab, setActiveTab] = useState(defaultTab);
   const [tradeQty, setTradeQty] = useState(1);
   const [isTrading, setIsTrading] = useState(false);
   const [tradeError, setTradeError] = useState(null);
@@ -22,10 +22,10 @@ const StockDetailModal = ({ isOpen, onClose, stock }) => {
   const [portfolio, setPortfolio] = useState(null);
 
   const fetchPortfolio = async () => {
-    if (!currentUser) return;
+    if (!currentUser || !simulationId) return;
     try {
       const token = await currentUser.getIdToken();
-      const res = await fetch('http://localhost:5001/api/portfolio', {
+      const res = await fetch(`http://localhost:5001/api/portfolio?simulationId=${simulationId}`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       const data = await res.json();
@@ -36,10 +36,10 @@ const StockDetailModal = ({ isOpen, onClose, stock }) => {
   };
 
   useEffect(() => {
-    if (isOpen && activeTab === 'trade') {
+    if (isOpen && activeTab === 'trade' && simulationId) {
       fetchPortfolio();
     }
-  }, [isOpen, activeTab, currentUser]);
+  }, [isOpen, activeTab, currentUser, simulationId]);
 
   const handleTrade = async (action) => {
     if (!currentUser) return;
@@ -58,7 +58,8 @@ const StockDetailModal = ({ isOpen, onClose, stock }) => {
         body: JSON.stringify({
           ticker: stock.Ticker,
           action: action,
-          quantity: tradeQty
+          quantity: tradeQty,
+          simulationId: simulationId
         })
       });
 
@@ -77,6 +78,12 @@ const StockDetailModal = ({ isOpen, onClose, stock }) => {
       setIsTrading(false);
     }
   };
+
+  useEffect(() => {
+    if (isOpen) {
+      setActiveTab(defaultTab);
+    }
+  }, [isOpen, defaultTab]);
 
   useEffect(() => {
     if (isOpen && stock) {
@@ -148,6 +155,15 @@ const StockDetailModal = ({ isOpen, onClose, stock }) => {
 
   const filteredHistory = getFilteredHistory();
 
+  // Create optimized downsampled data specifically for the Recharts SVG to prevent browser freezing
+  let chartData = filteredHistory;
+  const MAX_POINTS = 150;
+  if (filteredHistory.length > MAX_POINTS) {
+    // Naive downsampling while keeping the absolute last day for accurate right-edge tracking
+    const step = Math.ceil(filteredHistory.length / MAX_POINTS);
+    chartData = filteredHistory.filter((_, idx) => idx % step === 0 || idx === filteredHistory.length - 1);
+  }
+
   // Determine chart color based on trend
   const isUp = filteredHistory.length > 0 && filteredHistory[filteredHistory.length - 1].price >= filteredHistory[0].price;
   const chartColor = isUp ? "#22c55e" : "#ef4444";
@@ -164,47 +180,47 @@ const StockDetailModal = ({ isOpen, onClose, stock }) => {
   const isDailyUp = dailyChange >= 0;
 
   // 2. Next Earnings Deterministic Mock (Risk Tracker)
-  const earnings = useMemo(() => {
-    if (!stock?.Ticker) return null;
+  let earnings = null;
+  if (stock?.Ticker) {
     const sum = stock.Ticker.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
     const daysAhead = (sum % 40) + 1; // 1 to 40 days
     const date = new Date();
     date.setDate(date.getDate() + daysAhead);
-    return {
+    earnings = {
       dateString: date.toLocaleDateString(undefined, { month: 'short', day: 'numeric' }),
       daysAhead,
       isNear: daysAhead <= 7
     };
-  }, [stock?.Ticker]);
+  }
 
   const ranges = ['7D', '1M', '1Y', 'ALL'];
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="bg-gray-900 border border-gray-800 rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto flex flex-col relative">
+      <div className="bg-black/40 backdrop-blur-xl border border-white/10 rounded-2xl shadow-[var(--shadow-3)] w-full max-w-4xl max-h-[90vh] overflow-y-auto flex flex-col relative dark text-[var(--text-primary)]">
 
         {/* Header */}
-        <div className="flex justify-between items-start p-6 border-b border-gray-800">
+        <div className="flex justify-between items-start p-6 border-b border-[color:var(--color-border-glass)]">
           <div>
             <h2 className="text-3xl font-bold text-white flex items-center gap-3">
               {stock.Ticker}
-              <span className="text-xl font-medium text-gray-200 bg-gray-800 px-3 py-1 rounded shadow-inner">
+              <span className="text-xl font-medium text-gray-200 bg-[color:var(--color-panel-hover)] px-3 py-1 rounded shadow-inner">
                 ${stock.Price}
               </span>
               {filteredHistory.length >= 2 && (
-                <span className={`text-lg font-medium tracking-tight ${isDailyUp ? 'text-green-400' : 'text-red-400'}`}>
+                <span className={`text-lg font-medium tracking-tight ${isDailyUp ? 'text-[color:var(--color-alpha)]' : 'text-[color:var(--color-risk)]'}`}>
                   {isDailyUp ? '+' : ''}{dailyChange.toFixed(2)} ({isDailyUp ? '+' : ''}{dailyChangePct.toFixed(2)}%)
                 </span>
               )}
             </h2>
-            <p className="text-gray-400 text-sm mt-2 flex items-center gap-2">
+            <p className="text-[color:var(--color-secondary)] text-sm mt-2 flex items-center gap-2">
               <span>{companyName}</span>
               <span>•</span>
-              <span className="text-gray-300 font-medium">{stock.Signal}</span>
+              <span className="text-[color:var(--color-secondary)] font-medium">{stock.Signal}</span>
               {earnings && (
                 <>
                   <span>•</span>
-                  <span className={`px-2 py-0.5 rounded text-xs font-bold border ${earnings.isNear ? 'bg-red-500/20 text-red-400 border-red-500/50 animate-pulse' : 'bg-blue-500/20 text-blue-400 border-blue-500/50'}`}>
+                  <span className={`px-2 py-0.5 rounded text-xs font-bold border ${earnings.isNear ? 'bg-[color:var(--color-risk)]/20 text-[color:var(--color-risk)] border-red-500/50 animate-pulse' : 'bg-blue-500/20 text-[color:var(--color-action)] border-blue-500/50'}`}>
                     Next Earnings: {earnings.dateString}
                   </span>
                 </>
@@ -213,7 +229,7 @@ const StockDetailModal = ({ isOpen, onClose, stock }) => {
           </div>
           <button
             onClick={onClose}
-            className="text-gray-400 hover:text-white transition-colors p-2 rounded-full hover:bg-gray-800"
+            className="text-[color:var(--color-secondary)] hover:text-white transition-colors p-2 rounded-full hover:bg-[color:var(--color-panel-hover)]"
           >
             <X size={24} />
           </button>
@@ -223,18 +239,18 @@ const StockDetailModal = ({ isOpen, onClose, stock }) => {
         <div className="p-6 space-y-8">
 
           {/* Tab Switcher */}
-          <div className="flex border-b border-gray-800">
+          <div className="flex border-b border-[color:var(--color-border-glass)]">
             <button
               onClick={() => setActiveTab('analysis')}
               className={`flex-1 py-3 text-sm font-medium transition-colors border-b-2 
-                ${activeTab === 'analysis' ? 'border-blue-500 text-blue-400' : 'border-transparent text-gray-400 hover:text-white'}`}
+                ${activeTab === 'analysis' ? 'border-blue-500 text-[color:var(--color-action)]' : 'border-transparent text-[color:var(--color-secondary)] hover:text-white'}`}
             >
               Analysis & News
             </button>
             <button
               onClick={() => setActiveTab('trade')}
               className={`flex-1 py-3 text-sm font-medium transition-colors border-b-2 
-                ${activeTab === 'trade' ? 'border-purple-500 text-purple-400' : 'border-transparent text-gray-400 hover:text-white'}`}
+                ${activeTab === 'trade' ? 'border-purple-500 text-purple-400' : 'border-transparent text-[color:var(--color-secondary)] hover:text-white'}`}
             >
               Trade Simulator
             </button>
@@ -243,30 +259,74 @@ const StockDetailModal = ({ isOpen, onClose, stock }) => {
           {activeTab === 'analysis' ? (
             /* Analysis Content (Original) */
             <>
-              {/* Metrics Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="bg-gray-800/50 p-4 rounded-xl border border-gray-700/50">
-                  <div className="text-gray-400 text-xs uppercase tracking-wider mb-1">News Sentiment</div>
-                  <div className={`text-2xl font-bold ${stock.News_Sentiment > 0 ? 'text-green-400' : 'text-red-400'}`}>
-                    {stock.News_Sentiment > 0 ? '+' : ''}{stock.News_Sentiment}
-                  </div>
-                </div>
-                <div className="bg-gray-800/50 p-4 rounded-xl border border-gray-700/50">
-                  <div className="text-gray-400 text-xs uppercase tracking-wider mb-1">Impacting Score</div>
-                  <div className="text-2xl font-bold text-purple-400">{stock.News_Impact}</div>
-                </div>
+              {/* Sentiment Distribution Matrix */}
+              <div className="bg-[color:var(--color-panel-hover)]/50 p-5 rounded-xl border border-[color:var(--color-border-glass)]/50 mb-4">
+                <div className="text-[color:var(--color-secondary)] text-xs uppercase tracking-wider mb-2">Live News Distribution</div>
+                {stock.Sentiment_Distribution ? (
+                  <>
+                    <div className={`text-xl font-bold mb-3 ${stock.Sentiment_Distribution.bullish_pct > 50 ? 'text-emerald-500' : stock.Sentiment_Distribution.bearish_pct > 50 ? 'text-[color:var(--color-risk)]' : 'text-slate-300'}`}>
+                      {stock.Sentiment_Distribution.label}
+                    </div>
+                    
+                    {/* The Tug of War Bar */}
+                    <div className="w-full h-2 rounded-full flex overflow-hidden bg-slate-800">
+                      <div className="bg-emerald-500 transition-all duration-1000" style={{ width: `${stock.Sentiment_Distribution.bullish_pct}%` }}></div>
+                      <div className="bg-slate-500 transition-all duration-1000" style={{ width: `${stock.Sentiment_Distribution.neutral_pct}%` }}></div>
+                      <div className="bg-[color:var(--color-risk)] transition-all duration-1000" style={{ width: `${stock.Sentiment_Distribution.bearish_pct}%` }}></div>
+                    </div>
+                    
+                    <div className="flex justify-between text-[11px] font-medium text-[color:var(--color-secondary)] mt-2 px-1">
+                      <span className="text-emerald-500/80">{stock.Sentiment_Distribution.bullish_pct}% Bullish</span>
+                      <span className="text-slate-500">{stock.Sentiment_Distribution.neutral_pct}% Neutral</span>
+                      <span className="text-[color:var(--color-risk)]/80">{stock.Sentiment_Distribution.bearish_pct}% Bearish</span>
+                    </div>
+
+                    <div className="text-xs text-slate-500 mt-4 pt-3 border-t border-slate-700/50 flex justify-between font-mono">
+                      <span>Based on {stock.Sentiment_Distribution.total_articles} articles analyzed</span>
+                      <span>Avg Conviction: {stock.Sentiment_Distribution.avg_conviction}</span>
+                    </div>
+
+                    {/* Momentum Indicator */}
+                    <div className="flex items-center gap-2 mt-3 pt-3 border-t border-slate-700/50">
+                      {stock.Sentiment_Distribution.sentiment_delta_points > 0.1 ? (
+                        <>
+                          <TrendingUp size={14} className="text-emerald-500" />
+                          <span className="text-emerald-500 text-[11px] font-medium tracking-wide">
+                            Sentiment is warming up (+{stock.Sentiment_Distribution.sentiment_delta_points} pts vs 7-day avg)
+                          </span>
+                        </>
+                      ) : stock.Sentiment_Distribution.sentiment_delta_points < -0.1 ? (
+                        <>
+                          <TrendingDown size={14} className="text-[color:var(--color-risk)]" />
+                          <span className="text-[color:var(--color-risk)] text-[11px] font-medium tracking-wide">
+                            Sentiment is cooling off ({stock.Sentiment_Distribution.sentiment_delta_points} pts vs 7-day avg)
+                          </span>
+                        </>
+                      ) : (
+                        <>
+                          <Minus size={14} className="text-slate-400" />
+                          <span className="text-slate-400 text-[11px] font-medium tracking-wide">
+                            Sentiment is holding steady at historical baseline
+                          </span>
+                        </>
+                      )}
+                    </div>
+                  </>
+                ) : (
+                  <div className="py-4 text-sm text-[color:var(--color-secondary)] italic">Quantitative distribution matrix pending next AI cluster scan...</div>
+                )}
               </div>
 
               {/* Chart Section */}
-              <div className="bg-gray-800/30 rounded-xl border border-gray-800 p-4">
+              <div className="bg-[color:var(--color-panel-hover)]/30 rounded-xl border border-[color:var(--color-border-glass)] p-4">
                 <div className="flex justify-end gap-2 mb-4">
                   {ranges.map(r => (
                     <button
                       key={r}
                       onClick={() => setTimeRange(r)}
                       className={`px-3 py-1 text-xs font-bold rounded-lg transition-colors ${timeRange === r
-                        ? 'bg-blue-600 text-white'
-                        : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
+                        ? 'bg-[color:var(--color-action)] text-white'
+                        : 'bg-[color:var(--color-panel-hover)] text-[color:var(--color-secondary)] hover:bg-gray-700'
                         }`}
                     >
                       {r}
@@ -276,10 +336,10 @@ const StockDetailModal = ({ isOpen, onClose, stock }) => {
 
                 <div className="h-64 w-full">
                   {loading ? (
-                    <div className="h-full flex items-center justify-center text-gray-500">Loading History...</div>
+                    <div className="h-full flex items-center justify-center text-[color:var(--color-secondary)]">Loading History...</div>
                   ) : (
                     <ResponsiveContainer width="100%" height="100%">
-                      <ComposedChart data={filteredHistory}>
+                      <ComposedChart data={chartData}>
                         <defs>
                           <linearGradient id="colorPrice" x1="0" y1="0" x2="0" y2="1">
                             <stop offset="5%" stopColor={chartColor} stopOpacity={0.3} />
@@ -292,6 +352,7 @@ const StockDetailModal = ({ isOpen, onClose, stock }) => {
                           labelStyle={{ color: '#9ca3af' }}
                           formatter={(value, name) => [name === 'volume' ? value.toLocaleString() : `$${value}`, name.charAt(0).toUpperCase() + name.slice(1)]}
                         />
+                        <CartesianGrid strokeDasharray="4 4" stroke="rgba(255,255,255,0.05)" vertical={false} />
                         <XAxis dataKey="date" hide />
                         <YAxis yAxisId="price" domain={['auto', 'auto']} hide />
                         <YAxis yAxisId="volume" orientation="right" hide />
@@ -319,8 +380,8 @@ const StockDetailModal = ({ isOpen, onClose, stock }) => {
               </div>
 
               {/* Dynamic Insights Panel Integration */}
-              <div className="bg-gray-800/20 rounded-xl border border-gray-800 pt-2 pb-6 px-4">
-                <h3 className="text-sm font-semibold text-gray-400 mb-4 px-2 uppercase tracking-wider flex items-center gap-2">
+              <div className="bg-[color:var(--color-panel-hover)]/20 rounded-xl border border-[color:var(--color-border-glass)] pt-2 pb-6 px-4">
+                <h3 className="text-sm font-semibold text-[color:var(--color-secondary)] mb-4 px-2 uppercase tracking-wider flex items-center gap-2">
                   <TrendingUp size={16} className="text-indigo-400" />
                   Quantitative Engine Insights
                 </h3>
@@ -334,14 +395,14 @@ const StockDetailModal = ({ isOpen, onClose, stock }) => {
                     <DynamicInsightsPanel payload={insights} />
                   </div>
                 ) : (
-                  <div className="h-32 flex items-center justify-center border border-dashed border-gray-700 rounded-lg bg-gray-900/40">
-                    <p className="text-sm text-gray-500">No advanced quant signals currently active.</p>
+                  <div className="h-32 flex items-center justify-center border border-dashed border-[color:var(--color-border-glass)] rounded-lg bg-[color:var(--color-panel)]/40">
+                    <p className="text-sm text-[color:var(--color-secondary)]">No advanced quant signals currently active.</p>
                   </div>
                 )}
               </div>
 
               {/* News Section */}
-              <div className="bg-gray-800/30 rounded-xl p-6 border border-gray-800">
+              <div className="bg-[color:var(--color-panel-hover)]/30 rounded-xl p-6 border border-[color:var(--color-border-glass)]">
                 <h3 className="text-lg font-semibold text-white mb-3">Latest Headline</h3>
                 <p className="text-xl text-gray-200 leading-relaxed font-light">
                   "{stock.Headline}"
@@ -353,7 +414,7 @@ const StockDetailModal = ({ isOpen, onClose, stock }) => {
                       href={stock.URL}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm text-blue-400 hover:text-blue-300 transition-colors"
+                      className="inline-flex items-center gap-2 text-sm text-[color:var(--color-action)] hover:text-blue-300 transition-colors"
                     >
                       <ExternalLink size={16} />
                       Read Full Source
@@ -363,15 +424,15 @@ const StockDetailModal = ({ isOpen, onClose, stock }) => {
 
                 {/* --- News Dropdown --- */}
                 {stock.All_News && stock.All_News.length > 0 && (
-                  <details className="mt-6 bg-gray-900/50 rounded-lg overflow-hidden group">
-                    <summary className="cursor-pointer p-4 font-medium text-gray-300 hover:text-white hover:bg-gray-800 transition-colors list-none flex justify-between items-center select-none">
+                  <details className="mt-6 bg-[color:var(--color-panel)]/50 rounded-lg overflow-hidden group">
+                    <summary className="cursor-pointer p-4 font-medium text-[color:var(--color-secondary)] hover:text-white hover:bg-[color:var(--color-panel-hover)] transition-colors list-none flex justify-between items-center select-none">
                       <span>View All {stock.All_News.length} Analyzed Articles</span>
-                      <span className="text-gray-500 group-open:rotate-180 transition-transform">▼</span>
+                      <span className="text-[color:var(--color-secondary)] group-open:rotate-180 transition-transform">▼</span>
                     </summary>
-                    <div className="p-4 border-t border-gray-800 overflow-x-auto">
+                    <div className="p-4 border-t border-[color:var(--color-border-glass)] overflow-x-auto">
                       <table className="w-full text-left border-collapse">
                         <thead>
-                          <tr className="text-xs text-gray-500 border-b border-gray-800">
+                          <tr className="text-xs text-[color:var(--color-secondary)] border-b border-[color:var(--color-border-glass)]">
                             <th className="pb-2 font-medium">Source / Headline</th>
                             <th className="pb-2 font-medium">Category</th>
                             <th className="pb-2 font-medium text-right">Sentiment</th>
@@ -379,24 +440,24 @@ const StockDetailModal = ({ isOpen, onClose, stock }) => {
                         </thead>
                         <tbody className="text-sm">
                           {stock.All_News.map((news, idx) => (
-                            <tr key={idx} className="border-b border-gray-800/50 last:border-0 hover:bg-gray-800/30 transition-colors">
+                            <tr key={idx} className="border-b border-[color:var(--color-border-glass)]/50 last:border-0 hover:bg-[color:var(--color-panel-hover)]/30 transition-colors">
                               <td className="py-3 pr-4">
                                 <a
                                   href={news.URL}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="text-blue-400 hover:text-blue-300 block truncate max-w-xs md:max-w-sm"
+                                  className="text-[color:var(--color-action)] hover:text-blue-300 block truncate max-w-xs md:max-w-sm"
                                   title={news.Headline}
                                 >
                                   {news.Headline}
                                 </a>
                               </td>
-                              <td className="py-3 pr-4 text-gray-400 whitespace-nowrap">
-                                <span className="bg-gray-800 px-2 py-1 rounded text-xs border border-gray-700">
+                              <td className="py-3 pr-4 text-[color:var(--color-secondary)] whitespace-nowrap">
+                                <span className="bg-[color:var(--color-panel-hover)] px-2 py-1 rounded text-xs border border-[color:var(--color-border-glass)]">
                                   {news.Category}
                                 </span>
                               </td>
-                              <td className={`py-3 text-right font-medium ${news.Sentiment > 0 ? 'text-green-400' : news.Sentiment < 0 ? 'text-red-400' : 'text-gray-400'}`}>
+                              <td className={`py-3 text-right font-medium ${news.Sentiment > 0 ? 'text-[color:var(--color-alpha)]' : news.Sentiment < 0 ? 'text-[color:var(--color-risk)]' : 'text-[color:var(--color-secondary)]'}`}>
                                 {news.Sentiment > 0 ? '+' : ''}{news.Sentiment}
                               </td>
                             </tr>
@@ -413,9 +474,9 @@ const StockDetailModal = ({ isOpen, onClose, stock }) => {
             <div className="flex flex-col gap-6 py-4">
               {/* Balance Info */}
               {/* Balance Info -> Shares Owned */}
-              <div className="bg-gray-800/50 p-6 rounded-xl border border-gray-700/50 flex justify-between items-center">
+              <div className="bg-[color:var(--color-panel-hover)]/50 p-6 rounded-xl border border-[color:var(--color-border-glass)]/50 flex justify-between items-center">
                 <div>
-                  <p className="text-gray-400 text-sm">Shares Owned</p>
+                  <p className="text-[color:var(--color-secondary)] text-sm">Shares Owned</p>
                   <p className="text-3xl font-bold text-white">
                     {portfolio?.holdings?.find(h => h.ticker === stock.Ticker)?.quantity || 0}
                   </p>
@@ -426,32 +487,32 @@ const StockDetailModal = ({ isOpen, onClose, stock }) => {
               </div>
 
               {/* Trade Actions */}
-              <div className="bg-gray-900 rounded-xl border border-gray-800 p-6">
+              <div className="bg-[color:var(--color-panel)] rounded-xl border border-[color:var(--color-border-glass)] p-6">
                 <div className="flex flex-col gap-4">
                   <div className="flex justify-between items-center">
-                    <label className="text-gray-400 font-medium">Quantity</label>
+                    <label className="text-[color:var(--color-secondary)] font-medium">Quantity</label>
                     <input
                       type="number"
                       min="1"
                       value={tradeQty}
                       onChange={(e) => setTradeQty(Math.max(1, parseInt(e.target.value) || 0))}
-                      className="bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 text-right text-white w-32 focus:ring-2 focus:ring-blue-500 outline-none"
+                      className="bg-[color:var(--color-panel-hover)] border border-[color:var(--color-border-glass)] rounded-lg px-4 py-2 text-right text-white w-32 focus:ring-2 focus:ring-blue-500 outline-none"
                     />
                   </div>
 
-                  <div className="flex justify-between items-center border-t border-gray-800 pt-4">
-                    <span className="text-gray-400">Estimated Cost</span>
+                  <div className="flex justify-between items-center border-t border-[color:var(--color-border-glass)] pt-4">
+                    <span className="text-[color:var(--color-secondary)]">Estimated Cost</span>
                     <span className="text-xl font-bold text-white">${(tradeQty * stock.Price).toLocaleString()}</span>
                   </div>
 
                   {tradeError && (
-                    <div className="bg-red-900/30 text-red-400 p-3 rounded-lg text-sm flex items-center gap-2">
+                    <div className="bg-red-900/30 text-[color:var(--color-risk)] p-3 rounded-lg text-sm flex items-center gap-2">
                       <Info size={16} /> {tradeError}
                     </div>
                   )}
 
                   {tradeSuccess && (
-                    <div className="bg-green-900/30 text-green-400 p-3 rounded-lg text-sm flex items-center gap-2">
+                    <div className="bg-green-900/30 text-[color:var(--color-alpha)] p-3 rounded-lg text-sm flex items-center gap-2">
                       <Info size={16} /> {tradeSuccess}
                     </div>
                   )}
@@ -460,14 +521,14 @@ const StockDetailModal = ({ isOpen, onClose, stock }) => {
                     <button
                       onClick={() => handleTrade('BUY')}
                       disabled={isTrading}
-                      className="bg-green-600 hover:bg-green-500 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold py-4 rounded-xl transition-all shadow-lg shadow-green-900/20 active:scale-[0.98]"
+                      className="bg-green-600 hover:bg-[color:var(--color-alpha)] disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold py-4 rounded-xl transition-all shadow-lg shadow-green-900/20 active:scale-[0.98]"
                     >
                       {isTrading ? 'Processing...' : 'BUY'}
                     </button>
                     <button
                       onClick={() => handleTrade('SELL')}
                       disabled={isTrading}
-                      className="bg-red-600 hover:bg-red-500 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold py-4 rounded-xl transition-all shadow-lg shadow-red-900/20 active:scale-[0.98]"
+                      className="bg-red-600 hover:bg-[color:var(--color-risk)] disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold py-4 rounded-xl transition-all shadow-lg shadow-red-900/20 active:scale-[0.98]"
                     >
                       {isTrading ? 'Processing...' : 'SELL'}
                     </button>

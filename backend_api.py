@@ -4,7 +4,8 @@ from flask_cors import CORS
 import json
 from dotenv import load_dotenv
 import os
-
+import threading
+import time
 from functools import lru_cache
 import datetime
 import trade_engine
@@ -14,8 +15,19 @@ from flask import request
 load_dotenv()
 
 app = Flask(__name__)
-# Enable CORS for all routes (since frontend is file-based or separate)
 CORS(app)
+
+import traceback
+
+# Firebase Project Verification
+try:
+    from firebase_admin import firestore
+    db = firestore.client()
+    # Handle different library versions for project_id
+    project_id = getattr(db, 'project', None) or getattr(db, 'project_id', 'Unknown')
+    print(f"🔥 [Firebase] Connected to Project: {project_id}")
+except Exception as e:
+    print(f"❌ [Firebase] Initialization failed: {e}")
 
 @app.route('/api/history/<ticker>')
 def get_history(ticker):
@@ -154,7 +166,13 @@ def get_portfolio_route():
         
     try:
         # 2. Get Data
-        pf_data = trade_engine.get_portfolio(uid)
+        sim_id = request.args.get('simulationId')
+        print(f"📊 [API] Fetching portfolio for UID: {uid}, Simulation ID: {sim_id or 'DEFAULT'}")
+        
+        pf_data = trade_engine.get_portfolio(uid, simulation_id=sim_id)
+        
+        if 'error' in pf_data:
+             return jsonify(pf_data), 404
         
         # 3. Enrich with Live Prices (Unrealized P&L)
         holdings = pf_data.get('holdings', [])
@@ -210,9 +228,10 @@ def trade_route():
         ticker = data.get('ticker')
         action = data.get('action') # BUY / SELL
         quantity = data.get('quantity')
+        sim_id = data.get('simulationId')
         
-        if not all([ticker, action, quantity]):
-            return jsonify({"error": "Missing fields"}), 400
+        if not all([ticker, action, quantity, sim_id]):
+            return jsonify({"error": "Missing fields (ticker, action, quantity, simulationId)"}), 400
             
         try:
             quantity = int(quantity)
@@ -227,7 +246,8 @@ def trade_route():
              return jsonify({"error": "Could not fetch live price. Market data unavailable."}), 500
              
         # 4. Execute
-        result = trade_engine.execute_trade(uid, ticker, action, quantity, live_price)
+        print(f"💸 [API] Executing {action} for {quantity} {ticker} in Simulation: {sim_id}")
+        result = trade_engine.execute_trade(uid, sim_id, ticker, action, quantity, live_price)
         
         if result['status'] == 'success':
             return jsonify({
@@ -257,12 +277,251 @@ def delete_position_route(ticker):
          return jsonify({"error": "Missing ticker"}), 400
          
     try:
-        trade_engine.delete_position(uid, ticker)
+        sim_id = request.args.get('simulationId')
+        if not sim_id:
+             return jsonify({"error": "Missing simulationId"}), 400
+             
+        trade_engine.delete_position(uid, sim_id, ticker)
         return jsonify({"message": f"Deleted position {ticker}"})
     except Exception as e:
          return jsonify({"error": str(e)}), 500
 
+# --- Simulation Management Routes ---
+
+@app.route('/api/simulations', methods=['GET'])
+def list_simulations_route():
+    auth_header = request.headers.get('Authorization')
+    if not auth_header or not auth_header.startswith("Bearer "):
+         return jsonify({"error": "Unauthorized"}), 401
+    
+    token = auth_header.split(" ")[1]
+    uid = backend_auth.verify_token(token)
+    if not uid: return jsonify({"error": "Invalid User"}), 401
+    
+    try:
+        sims = trade_engine.list_simulations(uid)
+        return jsonify(sims)
+    except Exception as e:
+        print(f"❌ [API Error] simulations list hit a crash:")
+        traceback.print_exc()
+        return jsonify({"error": str(e)}), 500
+
+@app.route('/api/simulations', methods=['POST'])
+def create_simulation_route():
+    auth_header = request.headers.get('Authorization')
+    if not auth_header or not auth_header.startswith("Bearer "):
+         return jsonify({"error": "Unauthorized"}), 401
+    
+    token = auth_header.split(" ")[1]
+    uid = backend_auth.verify_token(token)
+    if not uid: return jsonify({"error": "Invalid User"}), 401
+    
+    data = request.json or {}
+    name = data.get('name')
+    initial_cash = data.get('initial_cash', 0.0)
+    
+    if not name:
+        return jsonify({"error": "Name is required"}), 400
+        
+    try:
+        sim_id = trade_engine.create_simulation(uid, name, initial_cash)
+        return jsonify({"id": sim_id, "name": name, "cash": initial_cash}), 201
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@app.route('/api/simulations/<sim_id>', methods=['PATCH'])
+def rename_simulation_route(sim_id):
+    auth_header = request.headers.get('Authorization')
+    if not auth_header or not auth_header.startswith("Bearer "):
+         return jsonify({"error": "Unauthorized"}), 401
+    
+    token = auth_header.split(" ")[1]
+    uid = backend_auth.verify_token(token)
+    if not uid: return jsonify({"error": "Invalid User"}), 401
+    
+    data = request.json or {}
+    name = data.get('name')
+    if not name:
+        return jsonify({"error": "Name is required"}), 400
+        
+    try:
+        trade_engine.rename_simulation(uid, sim_id, name)
+        return jsonify({"message": "Successfully renamed", "id": sim_id, "name": name})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@app.route('/api/simulations/<sim_id>', methods=['DELETE'])
+def delete_simulation_route(sim_id):
+    auth_header = request.headers.get('Authorization')
+    if not auth_header or not auth_header.startswith("Bearer "):
+         return jsonify({"error": "Unauthorized"}), 401
+    
+    token = auth_header.split(" ")[1]
+    uid = backend_auth.verify_token(token)
+    if not uid: return jsonify({"error": "Invalid User"}), 401
+    
+    try:
+        trade_engine.delete_simulation(uid, sim_id)
+        return jsonify({"message": "Successfully deleted", "id": sim_id})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@app.route('/api/search', methods=['GET'])
+def search_stocks():
+    query = request.args.get('q', '').upper().strip()
+    if not query:
+        return jsonify([])
+        
+    try:
+        with open('sp500.json', 'r') as f:
+            sp500 = json.load(f)
+            
+        matches = []
+        for item in sp500:
+            ticker = item.get('ticker', '').upper()
+            name = item.get('name', '').upper()
+            
+            if query in ticker or query in name:
+                # Add price info from cache
+                price = get_live_price(ticker)
+                matches.append({
+                    "Ticker": ticker,
+                    "Name": item.get('name'),
+                    "Price": price or 0.0,
+                    # Provide minimal fields needed by StockCard/Modal
+                    "Signal": "Watchlist Candidate",
+                    "Headline": f"Analyzing {ticker} for potential strategy entry."
+                })
+                if len(matches) >= 10: break # Peak efficiency
+                
+        return jsonify(matches)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+import pandas as pd
+import requests
+from io import StringIO
+
+def fetch_recent_data(ticker, start_date_str, conn):
+    """
+    Fetch recent data for a ticker from Tiingo (with robust handling and 60 req/hr limit in mind).
+    """
+    api_key = os.environ.get('TIINGO_API_KEY')
+    if not api_key: return 0
+    
+    headers = {
+        'Content-Type': 'application/json',
+        'Authorization': f'Token {api_key}'
+    }
+    fetch_ticker = ticker.replace('.', '-')
+    
+    try:
+        start_date = datetime.datetime.strptime(start_date_str, "%Y-%m-%d")
+    except ValueError:
+        start_date = datetime.datetime.strptime(start_date_str[:10], "%Y-%m-%d")
+        
+    next_day = start_date + datetime.timedelta(days=1)
+    next_day_str = next_day.strftime("%Y-%m-%d")
+    today_str = datetime.datetime.now().strftime("%Y-%m-%d")
+    
+    if next_day_str >= today_str:
+        return 0 
+        
+    url = f"https://api.tiingo.com/tiingo/daily/{fetch_ticker}/prices?startDate={next_day_str}&format=csv"
+    
+    max_retries = 3
+    for attempt in range(max_retries):
+        try:
+            # Added 15s timeout
+            response = requests.get(url, headers=headers, timeout=15)
+            
+            if response.status_code == 429:
+                wait_time = (attempt + 1) * 120 # Wait longer on 429
+                print(f"⚠️ Rate limited (429) for {ticker}. Retrying in {wait_time}s...")
+                time.sleep(wait_time)
+                continue
+                
+            if response.status_code == 404: 
+                return 0
+                
+            response.raise_for_status()
+            
+            csv_data = StringIO(response.text)
+            df = pd.read_csv(csv_data)
+            
+            if df.empty: return 0
+            
+            df = df.loc[:, ~df.columns.str.contains('^Unnamed')]
+            df['ticker'] = ticker
+            
+            # Explicit lock not strictly needed for separate thread unless multiple updaters,
+            # but pandas to_sql is generally safe here.
+            df.to_sql("prices", conn, if_exists="append", index=False)
+            return len(df)
+            
+        except (requests.exceptions.Timeout, requests.exceptions.ConnectionError) as te:
+            print(f"⚠️ Connection issue for {ticker} (Attempt {attempt+1}/{max_retries}): {te}")
+            if attempt < max_retries - 1: time.sleep(10 * (attempt + 1))
+            else: break
+        except Exception as e:
+            print(f"❌ Critical error updating {ticker}: {e}")
+            break
+            
+    return 0
+
+def auto_update_vault():
+    print("\n🔄 [Background] Checking stock_vault.db for missing daily closes...")
+    db_path = os.path.join("data", "stock_vault.db")
+    if not os.path.exists(db_path):
+        print("   Database not found, skipping auto-update.")
+        return
+        
+    import sqlite3
+    import pandas as pd
+    
+    conn = sqlite3.connect(db_path, check_same_thread=False)
+    query = "SELECT ticker, MAX(date) as max_date FROM prices GROUP BY ticker"
+    try:
+        df_max = pd.read_sql_query(query, conn)
+    except Exception as e:
+        print(f"   Error reading DB: {e}")
+        conn.close()
+        return
+        
+    updated_tickers = 0
+    total_new_rows = 0
+    
+    for _, row in df_max.iterrows():
+        ticker = row['ticker']
+        max_date_str = str(row['max_date'])[:10]
+        
+        new_rows = fetch_recent_data(ticker, max_date_str, conn)
+        if new_rows > 0:
+            updated_tickers += 1
+            total_new_rows += new_rows
+            # STRICT RATE LIMITING: 61s delay between SUCCESSFUL requests to respect 60 req/hr
+            print(f"   Fetched {new_rows} rows for {ticker}. Waiting 61s for Tiingo limit...")
+            time.sleep(61)
+        else:
+            # Small politeness delay regardless
+            time.sleep(1)
+            
+    conn.close()
+    
+    if updated_tickers > 0:
+        print(f"✅ Background Auto-Update complete: Added {total_new_rows} new daily closes across {updated_tickers} tickers.")
+    else:
+        print("✅ Vault is fully up to date! No new closes to fetch.")
+
+
 if __name__ == '__main__':
     # Run on port 5001 to avoid conflicts with common 5000
     print("🚀 History API running on http://localhost:5001")
-    app.run(port=5001, debug=True)
+    
+    # Werkzeug runs the script twice in debug mode. This lock ensures the background thread only fires once.
+    if os.environ.get('WERKZEUG_RUN_MAIN') != 'true':
+        update_thread = threading.Thread(target=auto_update_vault, daemon=True)
+        update_thread.start()
+        print("⚙️  Background update thread started.")
+        
+    app.run(host='0.0.0.0', port=5001, debug=True)

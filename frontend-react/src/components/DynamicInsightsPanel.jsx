@@ -79,7 +79,7 @@ const mockInsights = [
 const VolumeWidget = ({ data }) => (
   <ResponsiveContainer width="100%" height="100%">
     <BarChart data={data} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
-      <CartesianGrid strokeDasharray="3 3" stroke="#334155" vertical={false} />
+      <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" vertical={false} />
       <XAxis dataKey="name" stroke="#94a3b8" fontSize={12} tickLine={false} axisLine={false} />
       <YAxis stroke="#94a3b8" fontSize={12} tickLine={false} axisLine={false} />
       <Tooltip
@@ -94,7 +94,7 @@ const VolumeWidget = ({ data }) => (
 const SectorWidget = ({ data }) => (
   <ResponsiveContainer width="100%" height="100%">
     <LineChart data={data} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
-      <CartesianGrid strokeDasharray="3 3" stroke="#334155" vertical={false} />
+      <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" vertical={false} />
       <XAxis dataKey="day" stroke="#94a3b8" fontSize={12} tickLine={false} axisLine={false} />
       <YAxis stroke="#94a3b8" fontSize={12} domain={['dataMin - 5', 'auto']} tickLine={false} axisLine={false} />
       <Tooltip
@@ -110,7 +110,7 @@ const SectorWidget = ({ data }) => (
 const SqueezeWidget = ({ data }) => (
   <ResponsiveContainer width="100%" height="100%">
     <ComposedChart data={data} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
-      <CartesianGrid strokeDasharray="3 3" stroke="#334155" vertical={false} />
+      <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" vertical={false} />
       <XAxis dataKey="day" stroke="#94a3b8" fontSize={12} tickLine={false} axisLine={false} />
       <YAxis stroke="#94a3b8" fontSize={12} domain={['dataMin - 2', 'dataMax + 2']} tickLine={false} axisLine={false} />
       <Tooltip
@@ -119,8 +119,8 @@ const SqueezeWidget = ({ data }) => (
       <Legend iconType="circle" wrapperStyle={{ fontSize: '12px', color: '#cbd5e1', paddingTop: '10px' }} />
 
       {/* Lower and Upper Bands */}
-      <Area type="monotone" dataKey="upper" name="Upper Band" fill="#475569" stroke="none" fillOpacity={0.15} />
-      <Area type="monotone" dataKey="lower" name="Lower Band" fill="#0f172a" stroke="none" fillOpacity={0.4} />
+      <Area type="monotone" dataKey="upper" name="Upper Band" fill="#94a3b8" stroke="none" fillOpacity={0.15} />
+      <Area type="monotone" dataKey="lower" name="Lower Band" fill="#38bdf8" stroke="none" fillOpacity={0.15} />
 
       {/* Price Line */}
       <Line type="monotone" dataKey="price" name="Price" stroke="#a855f7" strokeWidth={2} dot={{ r: 3, fill: '#a855f7', stroke: '#1e293b' }} activeDot={{ r: 5 }} />
@@ -131,7 +131,7 @@ const SqueezeWidget = ({ data }) => (
 const MovingAverageBreakoutWidget = ({ data }) => (
   <ResponsiveContainer width="100%" height="100%">
     <ComposedChart data={data} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
-      <CartesianGrid strokeDasharray="3 3" stroke="#334155" vertical={false} />
+      <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" vertical={false} />
       <XAxis dataKey="day" stroke="#94a3b8" fontSize={12} tickLine={false} axisLine={false} />
       <YAxis stroke="#94a3b8" fontSize={12} tickLine={false} axisLine={false} domain={['dataMin - 2', 'auto']} />
       <Tooltip
@@ -147,7 +147,7 @@ const MovingAverageBreakoutWidget = ({ data }) => (
 const VolumeProfileWidget = ({ data }) => (
   <ResponsiveContainer width="100%" height="100%">
     <BarChart data={data} layout="vertical" margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
-      <CartesianGrid strokeDasharray="3 3" stroke="#334155" horizontal={false} />
+      <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" horizontal={false} />
       <XAxis type="number" stroke="#94a3b8" fontSize={12} tickLine={false} axisLine={false} hide />
       <YAxis dataKey="price" type="category" stroke="#94a3b8" fontSize={12} tickLine={false} axisLine={false} />
       <Tooltip
@@ -162,7 +162,7 @@ const VolumeProfileWidget = ({ data }) => (
 const MACDWidget = ({ data }) => (
   <ResponsiveContainer width="100%" height="100%">
     <ComposedChart data={data} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
-      <CartesianGrid strokeDasharray="3 3" stroke="#334155" vertical={false} />
+      <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" vertical={false} />
       <XAxis dataKey="day" stroke="#94a3b8" fontSize={12} tickLine={false} axisLine={false} />
       <YAxis stroke="#94a3b8" fontSize={12} tickLine={false} axisLine={false} />
       <Tooltip
@@ -183,7 +183,7 @@ const MACDWidget = ({ data }) => (
 const DrawdownWidget = ({ data }) => (
   <ResponsiveContainer width="100%" height="100%">
     <AreaChart data={data} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
-      <CartesianGrid strokeDasharray="3 3" stroke="#334155" vertical={false} />
+      <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" vertical={false} />
       <XAxis dataKey="month" stroke="#94a3b8" fontSize={12} tickLine={false} axisLine={false} />
       <YAxis stroke="#94a3b8" fontSize={12} tickLine={false} axisLine={false} domain={[-30, 0]} />
       <Tooltip
@@ -197,7 +197,7 @@ const DrawdownWidget = ({ data }) => (
 const SeasonalityWidget = ({ data }) => (
   <ResponsiveContainer width="100%" height="100%">
     <BarChart data={data} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
-      <CartesianGrid strokeDasharray="3 3" stroke="#334155" vertical={false} />
+      <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" vertical={false} />
       <XAxis dataKey="month" stroke="#94a3b8" fontSize={12} tickLine={false} axisLine={false} />
       <YAxis stroke="#94a3b8" fontSize={12} tickLine={false} axisLine={false} />
       <Tooltip
@@ -217,7 +217,7 @@ const SeasonalityWidget = ({ data }) => (
 const PeerCorrelationWidget = ({ data }) => (
   <ResponsiveContainer width="100%" height="100%">
     <BarChart data={data} layout="vertical" margin={{ top: 10, right: 30, left: 10, bottom: 0 }}>
-      <CartesianGrid strokeDasharray="3 3" stroke="#334155" horizontal={false} />
+      <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" horizontal={false} />
       <XAxis type="number" domain={[-1, 1]} stroke="#94a3b8" fontSize={12} tickLine={false} axisLine={false} />
       <YAxis dataKey="peer" type="category" stroke="#94a3b8" fontSize={12} tickLine={false} axisLine={false} width={50} />
       <Tooltip

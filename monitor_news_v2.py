@@ -20,7 +20,8 @@ ALIAS_PATH = 'sp500.json'
 # "Cluster" size for RSS feeds (how many tickers per Google News URL)
 RSS_CLUSTER_SIZE = 1 
 # How many headlines to send to Gemini in one prompt
-GEMINI_BATCH_SIZE = 10
+GEMINI_BATCH_SIZE = 50
+MAX_TOTAL_CANDIDATES = 250
 
 # "Poison" tickers that return too much noise if searched alone.
 # We will FORCE these to use their company name in the search query.
@@ -234,9 +235,12 @@ def analyze_batch_gemini(items, model):
     if not items: return []
     
     prompt = "Analyze these financial headlines. For each, determine if the news is truly relevant to the specific ticker provided.\n"
-    prompt += "1. is_relevant: Set to true ONLY if the headline mentions the company/ticker or directly affects it. If it's a generic market report or about a different company, set false.\n"
-    prompt += "2. Determine Sentiment (-1.0 to 1.0) and Impact (0.0 to 1.0).\n"
-    prompt += "Return a JSON ARRAY of objects: [{'id': int, 'is_relevant': bool, 'sentiment_score': float, 'impact_score': float, 'category': str}].\n\n"
+    prompt += "1. is_relevant: Set to true ONLY if the headline mentions or directly affects the ticker. If generic or another company, set false.\n"
+    prompt += "2. category: A short descriptive tag of the event (e.g. 'Partnership', 'Earnings', 'Investment Activity').\n"
+    prompt += "3. alignment: Must be exactly 'Bullish', 'Bearish', or 'Neutral'.\n"
+    prompt += "4. score: A float between 0.0 and 1.0 indicating conviction/sentiment intensity.\n"
+    prompt += "Return ONLY a JSON ARRAY. Required Schema:\n"
+    prompt += '[{"id": int, "is_relevant": bool, "headline": "...", "category": "...", "alignment": "Bullish|Bearish|Neutral", "score": float}]\n\n'
     
     for item in items:
         prompt += f"ID {item['id']} (Ticker: {item['ticker']}): \"{item['headline']}\"\n"
@@ -310,13 +314,24 @@ def run_monitor(tickers_list, alias_file=ALIAS_PATH):
                             feed_candidates[t] = []
                         feed_candidates[t].append(cand)
 
-            # Smart Selection: Top 5 per ticker for this feed
+            # Smart Selection: Only keep positive-score news (Filter Noise)
             for t, cands in feed_candidates.items():
                 # Rank them
-                ranked = rank_articles(cands)
-                # Take Top 5
-                top_5 = ranked[:5]
-                candidates.extend(top_5)
+                ranked_with_scores = []
+                for cand in cands:
+                     headline = cand.get('title', '').lower()
+                     score = 0
+                     # Re-run a lite ranking here to filter
+                     # (Priority Keywords from rank_articles)
+                     high_priority = {'merger', 'acquisition', 'earnings', 'revenue', 'profit', 'sales', 'guidance', 'forecast', 'fda', 'approval', 'lawsuit', 'settlement', 'ceo', 'cfo', 'resigns', 'appoints', 'dividend', 'buyback', 'split', 'agreement', 'contract', 'partner', 'launch', 'unveil', 'announce', 'hiring', 'layoff', 'strike', 'union', 'investigation', 'regulatory', 'fine', 'debt', 'offering', 'ipo', 'spin-off', 'join'}
+                     for word in high_priority:
+                         if word in headline: score += 2
+                     
+                     if score > 0:
+                         ranked_with_scores.append(cand)
+                
+                # Take Top 5 highest-ranked for this ticker
+                candidates.extend(ranked_with_scores[:5])
                         
             time.sleep(0.5) # Be polite to Google
             
@@ -324,19 +339,39 @@ def run_monitor(tickers_list, alias_file=ALIAS_PATH):
             print(f"   Feed Error: {e}")
             
     if not candidates:
-        print("✅ No new relevant news found.")
+        print("✅ No new high-impact news found (Filtered by score > 0).")
         db.close()
         return
 
+    # 2.5 Global Cap logic
+    if len(candidates) > MAX_TOTAL_CANDIDATES:
+        print(f"⚠️  Capping candidates at {MAX_TOTAL_CANDIDATES} (Total found: {len(candidates)})")
+        # Optional: We could sort by score again here if we kept scores
+        candidates = candidates[:MAX_TOTAL_CANDIDATES]
+
     # 3. Analyze in Batches
     print(f"🧠 Analyzing {len(candidates)} signals with Gemini...")
+    
+    # 3. Analyze in Batches (Optimized: Consolidate same Headline + different Tickers)
+    # Actually, keep it simple for now: 1 row per (Headline, Ticker) but 50 per batch.
+    # This is safer for accurate per-ticker relevancy.
     
     batch_queue = []
     metadata_map = {} # id -> candidate
     
     results_to_save = []
     
-    for i, cand in enumerate(candidates):
+    # Optional: Deduplicate candidates by (ticker, title) just in case
+    # Convert candidates list to unique set of (ticker, title) pairs
+    seen_pairs = set()
+    unique_candidates = []
+    for cand in candidates:
+        pair = (cand['ticker'], cand['title'])
+        if pair not in seen_pairs:
+             seen_pairs.add(pair)
+             unique_candidates.append(cand)
+
+    for i, cand in enumerate(unique_candidates):
         batch_queue.append({
             'id': i,
             'headline': cand['title'],
@@ -368,9 +403,10 @@ def run_monitor(tickers_list, alias_file=ALIAS_PATH):
                             'Date': cand['published'],
                             'Ticker': cand['ticker'],
                             'Headline': cand['title'],
-                            'News_Score': item.get('sentiment_score', 0),
-                            'Impact_Score': item.get('impact_score', 0),
+                            'News_Score': float(item.get('score', 0.0)),
+                            'Impact_Score': 1.0, # Deprecated but kept for schema compatibility
                             'Category': item.get('category', 'General'),
+                            'Alignment': item.get('alignment', 'Neutral'),
                             'Source': 'RSS',
                             'URL': cand['link'] # Added URL
                         })
