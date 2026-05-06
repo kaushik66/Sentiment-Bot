@@ -11,6 +11,7 @@ import datetime
 import trade_engine
 import backend_auth
 from flask import request
+import database
 
 load_dotenv()
 
@@ -94,7 +95,8 @@ def get_history(ticker):
         
     except Exception as e:
         print(f"Error fetching {ticker}: {e}")
-        return jsonify({"error": str(e)}), 500
+        # Return 200 with error info to prevent frontend crashes
+        return jsonify({"symbol": ticker, "companyName": ticker, "history": [], "error": str(e)}), 200
 
 @app.route('/api/dashboard')
 def get_dashboard():
@@ -209,7 +211,8 @@ def get_portfolio_route():
         
     except Exception as e:
         print(f"Portfolio Error: {e}")
-        return jsonify({"error": str(e)}), 500
+        # Return 200 with error to prevent loud frontend crashes
+        return jsonify({"error": str(e), "holdings": [], "cash": 0}), 200
 
 @app.route('/api/trade', methods=['POST'])
 def trade_route():
@@ -243,7 +246,8 @@ def trade_route():
         live_price = get_live_price(ticker)
         
         if not live_price:
-             return jsonify({"error": "Could not fetch live price. Market data unavailable."}), 500
+             # Using 400 instead of 500 for unavailable prices
+             return jsonify({"error": "Could not fetch live price. Market data unavailable for this ticker."}), 400
              
         # 4. Execute
         print(f"💸 [API] Executing {action} for {quantity} {ticker} in Simulation: {sim_id}")
@@ -300,7 +304,7 @@ def list_simulations_route():
     
     try:
         sims = trade_engine.list_simulations(uid)
-        return jsonify(sims)
+        return jsonify({"simulations": sims})
     except Exception as e:
         print(f"❌ [API Error] simulations list hit a crash:")
         traceback.print_exc()
@@ -363,6 +367,18 @@ def delete_simulation_route(sim_id):
     try:
         trade_engine.delete_simulation(uid, sim_id)
         return jsonify({"message": "Successfully deleted", "id": sim_id})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@app.route('/api/stocks/all', methods=['GET'])
+def get_all_stocks_route():
+    try:
+        conn = database.get_connection()
+        cursor = conn.cursor()
+        cursor.execute("SELECT ticker, company_name FROM company_meta ORDER BY ticker")
+        results = [{"ticker": row[0], "name": row[1]} for row in cursor.fetchall()]
+        conn.close()
+        return jsonify(results)
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 

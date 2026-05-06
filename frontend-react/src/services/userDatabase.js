@@ -28,7 +28,7 @@ export const addToWatchlist = async (userId, ticker) => {
 export const removeFromWatchlist = async (userId, ticker) => {
   const userRef = doc(db, "users", userId);
   
-  await updateDoc(userRef, {
+  await setDoc(userRef, {
     watchlist: arrayRemove(ticker)
-  });
+  }, { merge: true });
 };

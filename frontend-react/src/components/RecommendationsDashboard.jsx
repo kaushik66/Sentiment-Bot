@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowLeft, Play, RefreshCw, AlertCircle } from 'lucide-react';
+import { ArrowLeft, Play, RefreshCw, AlertCircle, Plus, Briefcase, X, Loader2 } from 'lucide-react';
 import WhatIfSandbox from './WhatIfSandbox';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 import * as d3 from 'd3';
@@ -88,60 +88,36 @@ const EngineLogs = ({ thoughts, wsStatus }) => {
 
   useEffect(() => {
     if (scrollRef.current) {
-      scrollRef.current.scrollIntoView({ behavior: 'smooth' });
+      scrollRef.current.scrollIntoView({ behavior: 'auto' });
     }
-  }, [thoughts.length, wsStatus]);
+  }, [thoughts]);
 
   return (
-    <div className="flex flex-col w-full flex-1 min-h-[200px] bg-[color:var(--surface-card)] relative">
-      <div className="shrink-0 flex items-center justify-between px-4 py-2 border-b border-[color:var(--border-subtle)] bg-[color:var(--surface-sunken)]">
-        <span className="text-[10px] font-bold text-[color:var(--text-primary)] uppercase tracking-[0.15em]">
-          Execution Log
-        </span>
-        <div className="flex items-center gap-2">
-          {wsStatus === 'connecting' || wsStatus === 'streaming' ? (
-            <div className="w-2 h-2 bg-[color:var(--accent)] rounded-full animate-pulse" />
-          ) : wsStatus === 'complete' ? (
-            <div className="w-2 h-2 bg-[color:var(--positive)] rounded-none" />
-          ) : (
-            <div className="w-2 h-2 bg-[color:var(--border-strong)] rounded-none" />
-          )}
-          <span className="text-[9px] font-bold text-[color:var(--text-tertiary)] uppercase tracking-widest">
-            {wsStatus}
-          </span>
-        </div>
+    <div className="w-full flex flex-col mt-4">
+      <div className="flex items-center justify-between mb-6">
+        <h4 className="text-[10px] font-bold text-[color:var(--text-tertiary)] uppercase tracking-[0.3em]">Execution Trace</h4>
+        <div className={`w-2 h-2 rounded-full ${wsStatus === 'streaming' ? 'bg-[color:var(--warning)] animate-pulse' : 'bg-[color:var(--positive)]'}`} />
       </div>
 
-      <div className="flex-1 overflow-y-auto p-4 text-[12px] font-mono leading-relaxed text-[color:var(--text-secondary)]">
-        {wsStatus === 'idle' && (
-          <div className="flex items-center gap-2 text-[color:var(--text-tertiary)]">
-            <span>&gt;</span> Awaiting input parameters...
-          </div>
-        )}
-        
-        {['streaming', 'complete', 'error'].includes(wsStatus) && (
-          <div className="space-y-1.5">
-            {thoughts.map((thought, idx) => (
-              <div key={idx} className="flex gap-2 animate-in fade-in slide-in-from-bottom-1 duration-150">
-                <span className="text-[color:var(--text-tertiary)] shrink-0 select-none">&gt;</span>
-                <span className="text-[color:var(--text-primary)]">{thought}</span>
-              </div>
-            ))}
-            {wsStatus === 'streaming' && (
-              <div className="flex gap-2 items-center text-[color:var(--text-tertiary)]">
-                <span className="shrink-0 select-none">&gt;</span>
-                <div className="w-1.5 h-3 bg-[color:var(--text-tertiary)] animate-pulse" />
-              </div>
-            )}
-            {wsStatus === 'error' && (
-              <div className="flex gap-2 text-[color:var(--negative)] font-medium mt-4">
-                <span className="shrink-0 select-none">&gt;</span>
-                <span>ERROR: Pipeline execution failed.</span>
-              </div>
-            )}
-          </div>
-        )}
-        <div ref={scrollRef} className="h-1" />
+      <div className="h-[300px] overflow-y-auto pr-4">
+        <div className="space-y-6">
+          {thoughts.length === 0 && (
+             <p className="text-[12px] font-mono text-[color:var(--text-tertiary)] italic">Awaiting parameters for strategic synthesis...</p>
+          )}
+          {thoughts.map((thought, idx) => (
+            <div key={idx} className="flex gap-6 text-[13px] font-mono leading-relaxed animate-in fade-in slide-in-from-left-1">
+              <span className="text-[color:var(--text-tertiary)] shrink-0 select-none opacity-30 w-4">{idx + 1}.</span>
+              <span className="text-[color:var(--text-secondary)]">{thought}</span>
+            </div>
+          ))}
+          {wsStatus === 'streaming' && (
+            <div className="animate-pulse flex gap-6 text-[13px] font-mono text-[color:var(--accent)]">
+               <span className="shrink-0 opacity-30 w-4">...</span>
+               <span>Processing neural pathways...</span>
+            </div>
+          )}
+        </div>
+        <div ref={scrollRef} className="h-8" />
       </div>
     </div>
   );
@@ -150,96 +126,18 @@ const EngineLogs = ({ thoughts, wsStatus }) => {
 // ----------------------------------------------------------------------
 // 3. ConsultantChat Component
 // ----------------------------------------------------------------------
-const ConsultantChat = ({ onSubmit, wsStatus }) => {
-  const [inputValue, setInputValue] = useState('');
-  const [budget, setBudget] = useState('');
-  const [turnover, setTurnover] = useState('');
-  const isLocked = wsStatus === 'connecting' || wsStatus === 'streaming';
-
-  const handleFireSubmit = () => {
-    const trimmed = inputValue.trim();
-    if (!trimmed || isLocked) return;
-    const b = budget ? parseFloat(budget) : null;
-    const t = turnover ? parseFloat(turnover) : null;
-    onSubmit(trimmed, b, t);
-    setInputValue('');
-  };
-
-  const handleKeyDown = (e) => {
-    if (e.key === 'Enter') {
-      e.preventDefault();
-      handleFireSubmit();
-    }
-  };
-
-  const chips = [
-    'Quality value, low vol',
-    'Momentum tilt, divers.',
-    'Eq weight value/qual/mom'
-  ];
-
-  return (
-    <div className="w-full shrink-0 flex flex-col bg-[color:var(--surface-sunken)] border-t border-[color:var(--border-strong)] p-4">
-      <div className="text-[10px] font-bold text-[color:var(--text-secondary)] uppercase tracking-[0.15em] mb-2">
-        Strategy Parameters
-      </div>
-
-      <div className="flex w-full gap-2 items-stretch h-[36px] mb-2">
-        <input 
-          type="number"
-          value={budget}
-          onChange={(e) => setBudget(e.target.value)}
-          disabled={isLocked}
-          placeholder="Budget ($)"
-          className="w-1/2 px-3 bg-[color:var(--surface-card)] border border-[color:var(--border-strong)] rounded-sm focus:outline-none focus:border-[color:var(--text-primary)] transition-colors text-[13px] font-mono text-[color:var(--text-primary)] placeholder:text-[color:var(--text-tertiary)] disabled:opacity-50"
-        />
-        <input 
-          type="number"
-          step="0.05"
-          value={turnover}
-          onChange={(e) => setTurnover(e.target.value)}
-          disabled={isLocked}
-          placeholder="Turnover Limit (e.g. 0.20)"
-          className="w-1/2 px-3 bg-[color:var(--surface-card)] border border-[color:var(--border-strong)] rounded-sm focus:outline-none focus:border-[color:var(--text-primary)] transition-colors text-[13px] font-mono text-[color:var(--text-primary)] placeholder:text-[color:var(--text-tertiary)] disabled:opacity-50"
-        />
-      </div>
-
-      <div className="flex w-full gap-2 items-stretch h-[36px]">
-        <input 
-          type="text"
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          onKeyDown={handleKeyDown}
-          disabled={isLocked}
-          placeholder={isLocked ? 'Executing...' : 'Enter criteria...'}
-          className="flex-1 px-3 bg-[color:var(--surface-card)] border border-[color:var(--border-strong)] rounded-sm focus:outline-none focus:border-[color:var(--text-primary)] transition-colors text-[13px] font-mono text-[color:var(--text-primary)] placeholder:text-[color:var(--text-tertiary)] disabled:opacity-50"
-        />
-
-        <button 
-          onClick={handleFireSubmit}
-          disabled={isLocked}
-          className="shrink-0 px-6 bg-[color:var(--text-primary)] disabled:bg-[color:var(--border-strong)] disabled:text-[color:var(--text-tertiary)] text-[color:var(--surface-card)] text-[11px] font-bold uppercase tracking-widest rounded-sm flex items-center justify-center transition-colors active:opacity-90"
-        >
-          {isLocked ? 'Running...' : 'Execute'}
-        </button>
-      </div>
-
-      {!isLocked && (
-        <div className="flex flex-wrap gap-2 mt-3">
-          {chips.map((chip, idx) => (
-            <button
-              key={idx}
-              onClick={() => setInputValue(chip)}
-              className="px-2 py-1 bg-[color:var(--surface-card)] border border-[color:var(--border-subtle)] hover:border-[color:var(--text-primary)] rounded-sm text-[10px] font-bold uppercase tracking-wider text-[color:var(--text-secondary)] hover:text-[color:var(--text-primary)] transition-colors"
-            >
-              {chip}
-            </button>
-          ))}
-        </div>
-      )}
+// ConsultantChat is now deprecated in favor of inline sections within StrategyCenter
+const StrategicParameterSection = ({ label, description, children }) => (
+  <div className="space-y-4">
+    <div className="flex flex-col gap-1">
+      <h3 className="text-[14px] font-bold text-[color:var(--text-primary)] uppercase tracking-widest">{label}</h3>
+      <p className="text-[12px] text-[color:var(--text-secondary)]">{description}</p>
     </div>
-  );
-};
+    <div className="bg-[color:var(--surface-card)] p-1 border border-[color:var(--border-strong)] rounded-[color:var(--radius-sm)] shadow-sm">
+      {children}
+    </div>
+  </div>
+);
 
 // ----------------------------------------------------------------------
 // 4. TradeInstructions Component
@@ -600,7 +498,7 @@ const PortfolioDashboard = ({ portfolioPayload, isFirstLoad, activeSimulationId,
               instructions={portfolioPayload.trade_instructions} 
               budgetUsed={portfolioPayload.budget_used} 
               budgetRemaining={portfolioPayload.budget_remaining} 
-              activeSimulationId={activeSimulationId}
+              activeSimulationId={selectedSimId}
               userToken={userToken}
               onApply={() => console.log("Applied")}
             />
@@ -611,7 +509,64 @@ const PortfolioDashboard = ({ portfolioPayload, isFirstLoad, activeSimulationId,
   );
 };
 
-const RecommendationsDashboard = ({ activeSimulationId, user }) => {
+const RecommendationsDashboard = ({ activeSimulationId: globalSimId, user }) => {
+  const [wizardStep, setWizardStep] = useState('SELECT'); // SELECT, CONFIGURE, RESULTS
+  const [selectedSimId, setSelectedSimId] = useState(null);
+  const [simulations, setSimulations] = useState([]);
+  const [snapshot, setSnapshot] = useState(null);
+  const [snapshotLoading, setSnapshotLoading] = useState(false);
+  
+  // Quant Params State
+  const [budget, setBudget] = useState('');
+  const [turnover, setTurnover] = useState('0.20');
+  const [targetReturn, setTargetReturn] = useState('');
+  
+  const fetchSims = async () => {
+    if (!user) return;
+    try {
+      const token = await user.getIdToken();
+      const res = await fetch('http://localhost:5001/api/simulations', {
+        headers: { 'Authorization': `Bearer ${token}` }
+      });
+      if (res.ok) {
+        const data = await res.json();
+        setSimulations(data);
+      }
+    } catch (err) {
+      console.error("Failed to fetch sims gallery", err);
+    }
+  };
+
+  const handleCreateContext = async () => {
+    const name = prompt("Enter a name for your new simulation:", `Strategy ${simulations.length + 1}`);
+    if (!name) return;
+
+    const initialCash = prompt("Enter initial investment amount ($):", "100000");
+    if (initialCash === null) return;
+    const cashVal = parseFloat(initialCash.replace(/,/g, '')) || 0;
+
+    try {
+      const token = await user.getIdToken();
+      const res = await fetch('http://localhost:5001/api/simulations', {
+        method: 'POST',
+        headers: { 
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}` 
+        },
+        body: JSON.stringify({ name: name, cash: cashVal })
+      });
+      
+      if (res.ok) {
+        const data = await res.json();
+        await fetchSims();
+        setSelectedSimId(data.id);
+        setWizardStep('CONFIGURE');
+      }
+    } catch (err) {
+      console.error("Failed to create context", err);
+    }
+  };
+  
   const [regimeData, setRegimeData] = useState(null);
   const [userToken, setUserToken] = useState(null);
   const [portfolioPayload, setPortfolioPayload] = useState(null);
@@ -620,6 +575,43 @@ const RecommendationsDashboard = ({ activeSimulationId, user }) => {
   const [isFirstLoad, setIsFirstLoad] = useState(true);
   
   const wsRef = useRef(null);
+
+  // Sync with global selection
+  useEffect(() => {
+    if (globalSimId && globalSimId !== selectedSimId) {
+      setSelectedSimId(globalSimId);
+      // If we are in SELECT step, move to CONFIGURE when global selection changes
+      if (wizardStep === 'SELECT') setWizardStep('CONFIGURE');
+    }
+  }, [globalSimId]);
+
+  // Fetch all simulations for the gallery
+  useEffect(() => {
+    fetchSims();
+  }, [user, wizardStep]);
+
+  // Fetch Snapshot for selected simulation
+  useEffect(() => {
+    const fetchSnapshot = async () => {
+      if (!user || !selectedSimId || wizardStep !== 'CONFIGURE') return;
+      setSnapshotLoading(true);
+      try {
+        const token = await user.getIdToken();
+        const res = await fetch(`http://localhost:5001/api/portfolio?simulationId=${selectedSimId}`, {
+          headers: { 'Authorization': `Bearer ${token}` }
+        });
+        if (res.ok) {
+          const data = await res.json();
+          setSnapshot(data);
+        }
+      } catch (err) {
+        console.error("Failed to fetch snapshot", err);
+      } finally {
+        setSnapshotLoading(false);
+      }
+    };
+    fetchSnapshot();
+  }, [user, selectedSimId, wizardStep]);
 
   useEffect(() => {
     const fetchRegime = async () => {
@@ -638,17 +630,43 @@ const RecommendationsDashboard = ({ activeSimulationId, user }) => {
     };
 
     const fetchPortfolio = async () => {
+      if (!user) return;
       try {
-        const res = await fetch('http://127.0.0.1:5002/api/portfolio');
+        const token = await user.getIdToken();
+        const url = selectedSimId 
+          ? `http://127.0.0.1:5001/api/portfolio?simulationId=${selectedSimId}`
+          : `http://127.0.0.1:5001/api/portfolio`;
+          
+        const res = await fetch(url, {
+          headers: { 'Authorization': `Bearer ${token}` }
+        });
+        
         if (res.status === 200) {
           const data = await res.json();
-          setPortfolioPayload(data);
-          setIsFirstLoad(false);
+          // Check if this is a full AI analysis payload (contains 'expected_return' or 'positions')
+          if (data && (data.expected_return !== undefined || data.positions)) {
+            setPortfolioPayload(data);
+            setIsFirstLoad(false);
+          } else {
+            // This is a basic holdings fetch from the trade engine (5001)
+            const mappedData = {
+              ...data,
+              cash_balance: data.cash || 0,
+              total_investment: data.total_investment || 0,
+              total_portfolio_value: data.total_portfolio_value || 0
+            };
+            setPortfolioPayload(mappedData);
+            // Keep isFirstLoad true to show the "Analyze" button
+            setIsFirstLoad(true);
+          }
         } else if (res.status === 204) {
+          setPortfolioPayload(null);
           setIsFirstLoad(true);
         }
       } catch (err) {
         console.error("Failed to fetch initial portfolio:", err);
+        setPortfolioPayload(null);
+        setIsFirstLoad(true);
       }
     };
 
@@ -657,7 +675,7 @@ const RecommendationsDashboard = ({ activeSimulationId, user }) => {
 
     const intervalId = setInterval(fetchRegime, 5 * 60 * 1000);
     return () => clearInterval(intervalId);
-  }, []);
+  }, [user, selectedSimId]);
 
   useEffect(() => {
     const fetchToken = async () => {
@@ -692,94 +710,226 @@ const RecommendationsDashboard = ({ activeSimulationId, user }) => {
       wsRef.current.close();
     }
 
-    const wsUrl = `ws://127.0.0.1:5002/ws/pipeline`;
-    const ws = new WebSocket(wsUrl);
-    wsRef.current = ws;
-
-    ws.onopen = () => {
-      setWsStatus('streaming');
-      ws.send(JSON.stringify({ 
-        message,
-        simulation_id: activeSimulationId,
-        user_token: userToken,
-        budget: budget,
-        max_turnover: maxTurnover
-      }));
-    };
-
-    ws.onmessage = (event) => {
+    const startPipeline = async () => {
+      let currentToken = userToken;
       try {
-        const data = JSON.parse(event.data);
-        
-        if (data.event === 'thought') {
-          setThoughts((prev) => [...prev, data.text]);
-        } else if (data.event === 'rebalance_ready') {
-          fetch('http://127.0.0.1:5002/api/portfolio')
-            .then(res => res.json())
-            .then(payload => {
-              setPortfolioPayload(payload);
-              setIsFirstLoad(false);
-              setWsStatus('complete');
-              ws.close();
-            })
-            .catch(err => {
-              console.error("Failed to fetch payload after WS ready", err);
-              setWsStatus('error');
-              ws.close();
-            });
-        } else if (data.event === 'error') {
-          setWsStatus('error');
-          console.error("Pipeline WS Error:", data.text);
-          ws.close();
-        }
-      } catch (err) {
-        console.error("Failed to parse WS message:", err);
+        currentToken = await user.getIdToken(true);
+        setUserToken(currentToken);
+      } catch (e) {
+        console.error("Token refresh failed", e);
       }
+
+      const wsUrl = `ws://127.0.0.1:5002/ws/pipeline`;
+      const ws = new WebSocket(wsUrl);
+      wsRef.current = ws;
+
+      ws.onopen = () => {
+        setWsStatus('streaming');
+        ws.send(JSON.stringify({ 
+          message,
+          simulation_id: selectedSimId,
+          user_token: currentToken,
+          budget: budget,
+          max_turnover: maxTurnover
+        }));
+      };
+
+      ws.onmessage = (event) => {
+        try {
+          const data = JSON.parse(event.data);
+          if (data.event === 'thought') {
+            setThoughts((prev) => [...prev, data.text]);
+          } else if (data.event === 'rebalance_ready') {
+            fetch('http://127.0.0.1:5002/api/portfolio')
+              .then(res => res.json())
+              .then(payload => {
+                setPortfolioPayload(payload);
+                setIsFirstLoad(false);
+                setWsStatus('complete');
+                ws.close();
+              })
+              .catch(err => {
+                console.error("Failed to fetch payload after WS ready", err);
+                setWsStatus('error');
+                ws.close();
+              });
+          } else if (data.event === 'error') {
+            setWsStatus('error');
+            ws.close();
+          }
+        } catch (err) {
+          console.error("Failed to parse WS message:", err);
+        }
+      };
+
+      ws.onerror = (error) => {
+        setWsStatus('error');
+      };
+
+      ws.onclose = () => {
+        setWsStatus((prev) => (prev === 'streaming' || prev === 'connecting' ? 'error' : prev));
+      };
     };
 
-    ws.onerror = (error) => {
-      console.error("WebSocket error:", error);
-      setWsStatus('error');
-    };
-
-    ws.onclose = () => {
-      setWsStatus((prev) => (prev === 'streaming' || prev === 'connecting' ? 'error' : prev));
-    };
+    startPipeline();
   };
 
+  // --- New Unified Components ---
+  const handleExecuteStrategy = (text) => {
+    const b = budget ? parseFloat(budget) : null;
+    const t = turnover ? parseFloat(turnover) : null;
+    handleSubmit(text, b, t);
+  };
+
+  const isLocked = wsStatus === 'streaming' || wsStatus === 'connecting';
+
   return (
-    <div className="flex flex-col h-full w-full overflow-hidden bg-[color:var(--surface-card)] border border-[color:var(--border-strong)] rounded-sm">
-      {/* Row 1: Regime Bar */}
-      <div className="shrink-0">
+    <div className="w-full h-full flex flex-col bg-[color:var(--surface-base)]">
+      {/* Top Banner: Regime Data */}
+      <div className="shrink-0 border-b border-[color:var(--border-strong)]">
         <RegimeHeader regimeData={regimeData} />
       </div>
 
-      {/* Row 2: Layout Split */}
-      <div className="flex-1 flex flex-col lg:flex-row overflow-hidden">
-        
-        {/* Left Column */}
-        <div className="flex flex-col flex-1 lg:flex-[5] overflow-hidden border-b lg:border-b-0 lg:border-r border-[color:var(--border-strong)]">
-          <EngineLogs thoughts={thoughts} wsStatus={wsStatus} />
-          <ConsultantChat onSubmit={handleSubmit} wsStatus={wsStatus} />
+      {/* Top Bar: Portfolio Selector */}
+      <div className="shrink-0 flex items-center justify-between px-8 py-4 bg-[color:var(--surface-sunken)] border-b border-[color:var(--border-strong)]">
+        <div className="flex items-center gap-6">
+          <div className="flex items-center gap-3">
+            <Briefcase size={18} className="text-[color:var(--text-tertiary)]" />
+            <span className="text-[11px] font-bold text-[color:var(--text-secondary)] uppercase tracking-[0.2em]">Active Context</span>
+          </div>
+          <select 
+            value={selectedSimId || ''}
+            onChange={(e) => setSelectedSimId(e.target.value)}
+            className="bg-[color:var(--surface-card)] border border-[color:var(--border-strong)] text-[color:var(--text-primary)] text-[14px] font-bold px-4 py-2 rounded-sm outline-none min-w-[250px]"
+          >
+            <option value="" disabled>Select a Portfolio...</option>
+            {Array.isArray(simulations) && simulations.map(sim => (
+              <option key={sim.id} value={sim.id}>{sim.name} ({sim.id.slice(-6).toUpperCase()})</option>
+            ))}
+          </select>
         </div>
+        
+        <div className="flex items-center gap-8">
+          {snapshot && (
+            <div className="flex items-center gap-6 text-[12px] font-mono">
+               <div>
+                  <span className="text-[color:var(--text-tertiary)] mr-2 uppercase">Cash:</span>
+                  <span className="text-[color:var(--positive)]">${snapshot.cash?.toLocaleString()}</span>
+               </div>
+               <div>
+                  <span className="text-[color:var(--text-tertiary)] mr-2 uppercase">Assets:</span>
+                  <span className="text-[color:var(--text-primary)]">{snapshot.holdings?.length || 0}</span>
+               </div>
+            </div>
+          )}
+          <button 
+            onClick={handleCreateContext}
+            className="flex items-center gap-2 bg-transparent border border-[color:var(--border-strong)] text-[color:var(--text-primary)] px-4 py-2 rounded-sm text-[11px] font-bold uppercase tracking-widest hover:border-[color:var(--text-secondary)] transition-colors"
+          >
+            <Plus size={14} /> New Context
+          </button>
+        </div>
+      </div>
 
-        {/* Right Column */}
-        <div className="flex flex-col flex-1 lg:flex-[7] overflow-hidden bg-[color:var(--surface-card)]">
-          {isFirstLoad ? (
-            <div className="flex flex-col items-center justify-center h-full text-center bg-[color:var(--surface-sunken)]">
-              <span className="text-[11px] font-mono text-[color:var(--text-tertiary)] uppercase tracking-widest mb-6">
-                Awaiting Execution...
-              </span>
+      {/* Main Split Screen Area */}
+      <div className="flex-1 overflow-hidden grid grid-cols-1 lg:grid-cols-12">
+        
+        {/* LEFT PANEL: Chatbot Assistant */}
+        <div className="lg:col-span-4 flex flex-col border-r border-[color:var(--border-strong)] bg-transparent overflow-y-auto">
+          <div className="p-12 space-y-20">
+            
+            {/* Quantitative Guardrails */}
+            <div className="space-y-10">
+              <div className="space-y-12">
+                <div className="flex flex-col gap-4">
+                   <label className="text-[10px] font-bold text-[color:var(--text-tertiary)] uppercase tracking-[0.2em]">Investment Budget</label>
+                   <div className="relative">
+                     <span className="absolute left-0 top-1/2 -translate-y-1/2 text-xl font-mono text-[color:var(--text-tertiary)]">$</span>
+                     <input 
+                       type="number"
+                       value={budget}
+                       onChange={(e) => setBudget(e.target.value)}
+                       disabled={isLocked}
+                       placeholder="100,000"
+                       className="w-full pl-8 py-2 bg-transparent border-b-2 border-[color:var(--border-strong)] focus:border-[color:var(--text-primary)] text-3xl font-mono text-[color:var(--text-primary)] outline-none transition-colors"
+                     />
+                   </div>
+                </div>
+                <div className="flex flex-col gap-4">
+                   <label className="text-[10px] font-bold text-[color:var(--text-tertiary)] uppercase tracking-[0.2em]">Turnover Limit</label>
+                   <div className="relative">
+                     <span className="absolute left-0 top-1/2 -translate-y-1/2 text-xl font-mono text-[color:var(--text-tertiary)]">%</span>
+                     <input 
+                       type="number"
+                       step="0.05"
+                       value={turnover}
+                       onChange={(e) => setTurnover(e.target.value)}
+                       disabled={isLocked}
+                       placeholder="0.20"
+                       className="w-full pl-8 py-2 bg-transparent border-b-2 border-[color:var(--border-strong)] focus:border-[color:var(--text-primary)] text-3xl font-mono text-[color:var(--text-primary)] outline-none transition-colors"
+                     />
+                   </div>
+                </div>
+              </div>
+            </div>
+
+            {/* AI Agent Chat */}
+            <div className="space-y-8">
+              <div className="flex flex-col gap-4">
+                 <label className="text-[10px] font-bold text-[color:var(--text-tertiary)] uppercase tracking-[0.2em]">Strategic Objective</label>
+                 <textarea 
+                   value={targetReturn} // Reusing targetReturn as the text strategy state to avoid creating new ones
+                   onChange={(e) => setTargetReturn(e.target.value)}
+                   disabled={isLocked}
+                   placeholder="Type your investment thesis in plain English..."
+                   rows={4}
+                   className="w-full p-4 bg-transparent border border-dashed border-[color:var(--border-strong)] focus:border-solid focus:border-[color:var(--text-primary)] text-[16px] text-[color:var(--text-primary)] outline-none resize-none leading-relaxed transition-colors rounded-sm"
+                 />
+              </div>
+              
               <button 
-                onClick={() => handleSubmit("Analyze my existing portfolio. Make absolutely no trades.", null, 0.0)}
-                className="px-6 py-2 bg-[color:var(--surface-card)] border border-[color:var(--border-strong)] text-[color:var(--text-primary)] text-[11px] font-bold uppercase tracking-widest rounded-sm hover:border-[color:var(--text-primary)] transition-colors"
+                onClick={() => handleExecuteStrategy(targetReturn)}
+                disabled={isLocked || !targetReturn}
+                className="w-full py-5 bg-[color:var(--text-primary)] text-[color:var(--surface-base)] text-[12px] font-bold uppercase tracking-[0.3em] hover:bg-white transition-all disabled:opacity-30 rounded-sm shadow-2xl mt-4"
               >
-                Analyze Current Portfolio
+                {isLocked ? 'Executing Synthesis...' : 'Launch Engine'}
               </button>
             </div>
+
+            {/* Engine Logs */}
+            <div className="pt-8 border-t border-[color:var(--border-subtle)]">
+              <EngineLogs thoughts={thoughts} wsStatus={wsStatus} />
+            </div>
+
+          </div>
+        </div>
+
+        {/* RIGHT PANEL: Results Showcase */}
+        <div className="lg:col-span-8 flex flex-col bg-[color:var(--surface-base)] overflow-y-auto">
+          {snapshotLoading ? (
+            <div className="flex flex-col items-center justify-center h-full">
+              <Loader2 className="animate-spin text-[color:var(--accent)] mb-4" size={32} />
+              <span className="text-[11px] font-mono text-[color:var(--text-tertiary)] uppercase tracking-widest">Loading Context...</span>
+            </div>
+          ) : !selectedSimId ? (
+            <div className="flex flex-col items-center justify-center h-full text-center p-12">
+               <Briefcase size={48} className="text-[color:var(--border-strong)] mb-6" />
+               <h3 className="text-xl font-bold text-[color:var(--text-secondary)] tracking-tight mb-2">No Active Portfolio Selected</h3>
+               <p className="text-[13px] text-[color:var(--text-tertiary)] max-w-md mx-auto">Select a portfolio from the top bar to view its composition and run strategic optimizations.</p>
+            </div>
+          ) : isFirstLoad ? (
+             <div className="flex flex-col items-center justify-center h-full border-[20px] border-[color:var(--surface-base)] bg-[color:var(--surface-sunken)]">
+                <span className="text-[11px] font-mono text-[color:var(--text-tertiary)] uppercase tracking-widest text-center px-12">
+                   Portfolio Context Loaded. <br/> Awaiting new strategy parameters...
+                </span>
+             </div>
           ) : (
-            <div className="flex-1 overflow-y-auto">
-              <PortfolioDashboard portfolioPayload={portfolioPayload} isFirstLoad={isFirstLoad} activeSimulationId={activeSimulationId} userToken={userToken} />
+            <div className="w-full h-full p-8">
+              <PortfolioDashboard 
+                portfolioPayload={portfolioPayload} 
+                activeSimulationId={selectedSimId} 
+                userToken={userToken} 
+              />
             </div>
           )}
         </div>
@@ -789,5 +939,5 @@ const RecommendationsDashboard = ({ activeSimulationId, user }) => {
   );
 };
 
-export { RegimeHeader, EngineLogs, ConsultantChat, PortfolioDashboard };
+export { RegimeHeader, EngineLogs, PortfolioDashboard };
 export default RecommendationsDashboard;

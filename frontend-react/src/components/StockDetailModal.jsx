@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ComposedChart, Bar } from 'recharts';
-import { X, ExternalLink, TrendingUp, TrendingDown, Minus, Info, Briefcase, Loader2 } from 'lucide-react';
+import { X, ExternalLink, TrendingUp, TrendingDown, Minus, Info, Briefcase, Loader2, Star } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
+import { addToWatchlist, removeFromWatchlist, getWatchlist } from '../services/userDatabase';
 import DynamicInsightsPanel from './DynamicInsightsPanel';
 
 const StockDetailModal = ({ isOpen, onClose, stock, simulationId, defaultTab = 'analysis' }) => {
@@ -20,6 +21,8 @@ const StockDetailModal = ({ isOpen, onClose, stock, simulationId, defaultTab = '
   const [tradeError, setTradeError] = useState(null);
   const [tradeSuccess, setTradeSuccess] = useState(null);
   const [portfolio, setPortfolio] = useState(null);
+  const [livePrice, setLivePrice] = useState(stock?.Price || 0);
+  const [watchlist, setWatchlist] = useState([]);
 
   const fetchPortfolio = async () => {
     if (!currentUser || !simulationId) return;
@@ -87,18 +90,26 @@ const StockDetailModal = ({ isOpen, onClose, stock, simulationId, defaultTab = '
 
   useEffect(() => {
     if (isOpen && stock) {
+      setLivePrice(stock.Price || 0);
       setLoading(true);
       fetch(`http://localhost:5001/api/history/${stock.Ticker}`)
-        .then(res => res.json())
+        .then(res => {
+          if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+          return res.json();
+        })
         .then(data => {
-          // Handle new backend format { symbol, companyName, history }
           if (data.history && Array.isArray(data.history)) {
             setHistory(data.history);
             setCompanyName(data.companyName || stock.Ticker);
+            if ((!stock.Price || stock.Price === 0) && data.history.length > 0) {
+              setLivePrice(data.history[data.history.length - 1].price);
+            }
           } else if (Array.isArray(data)) {
-            // Fallback for legacy array format
             setHistory(data);
             setCompanyName(stock.Ticker);
+            if ((!stock.Price || stock.Price === 0) && data.length > 0) {
+              setLivePrice(data[data.length - 1].price);
+            }
           }
           setLoading(false);
         })
@@ -108,14 +119,41 @@ const StockDetailModal = ({ isOpen, onClose, stock, simulationId, defaultTab = '
         });
     }
   }, [isOpen, stock]);
+  useEffect(() => {
+    if (currentUser && isOpen) {
+      getWatchlist(currentUser.uid).then(setWatchlist);
+    }
+  }, [currentUser, isOpen]);
 
+  const isWatched = Array.isArray(watchlist) && watchlist.includes(stock?.Ticker);
+
+  const toggleWatchlist = async (e) => {
+    e.stopPropagation();
+    if (!currentUser || !stock) return;
+    
+    const newWatched = !isWatched;
+    setWatchlist(prev => newWatched ? [...(prev || []), stock.Ticker] : (prev || []).filter(t => t !== stock.Ticker));
+    
+    try {
+      if (newWatched) {
+        await addToWatchlist(currentUser.uid, stock.Ticker);
+      } else {
+        await removeFromWatchlist(currentUser.uid, stock.Ticker);
+      }
+    } catch (err) {
+      console.error("Watchlist sync failed", err);
+    }
+  };
   // Fetch dynamic insights from Python engine on port 5002
   useEffect(() => {
     if (isOpen && stock?.Ticker && activeTab === 'analysis') {
       let isMounted = true;
       setInsightsLoading(true);
       fetch(`http://localhost:5002/api/test/insights/${stock.Ticker}`)
-        .then(res => res.json())
+        .then(res => {
+          if (!res.ok) return { error: "Insights unavailable" };
+          return res.json();
+        })
         .then(data => {
           if (isMounted) {
             setInsights(!data.error && data.insights ? data : null);
@@ -123,8 +161,8 @@ const StockDetailModal = ({ isOpen, onClose, stock, simulationId, defaultTab = '
           }
         })
         .catch(err => {
-          console.error("Failed to fetch dynamic insights", err);
           if (isMounted) {
+            console.error("Insights fetch failed", err);
             setInsightsLoading(false);
           }
         });
@@ -205,8 +243,15 @@ const StockDetailModal = ({ isOpen, onClose, stock, simulationId, defaultTab = '
             <h2 className="text-3xl font-bold text-white flex items-center gap-3">
               {stock.Ticker}
               <span className="text-xl font-medium text-gray-200 bg-[color:var(--color-panel-hover)] px-3 py-1 rounded shadow-inner">
-                ${stock.Price}
+                ${livePrice.toFixed(2)}
               </span>
+              <button 
+                onClick={toggleWatchlist}
+                className={`p-2 rounded-full hover:bg-white/10 transition-colors ${isWatched ? 'text-yellow-400' : 'text-gray-400'}`}
+                title={isWatched ? "Remove from Watchlist" : "Add to Watchlist"}
+              >
+                <Star size={20} fill={isWatched ? "currentColor" : "none"} />
+              </button>
               {filteredHistory.length >= 2 && (
                 <span className={`text-lg font-medium tracking-tight ${isDailyUp ? 'text-[color:var(--color-alpha)]' : 'text-[color:var(--color-risk)]'}`}>
                   {isDailyUp ? '+' : ''}{dailyChange.toFixed(2)} ({isDailyUp ? '+' : ''}{dailyChangePct.toFixed(2)}%)
@@ -502,7 +547,7 @@ const StockDetailModal = ({ isOpen, onClose, stock, simulationId, defaultTab = '
 
                   <div className="flex justify-between items-center border-t border-[color:var(--color-border-glass)] pt-4">
                     <span className="text-[color:var(--color-secondary)]">Estimated Cost</span>
-                    <span className="text-xl font-bold text-white">${(tradeQty * stock.Price).toLocaleString()}</span>
+                    <span className="text-xl font-bold text-white">${(tradeQty * livePrice).toLocaleString(undefined, {minimumFractionDigits: 2})}</span>
                   </div>
 
                   {tradeError && (
