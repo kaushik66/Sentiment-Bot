@@ -299,12 +299,12 @@ const Dashboard = () => {
                       
                       return displayList.map(sim => (
                         <div key={sim.id} className="relative group">
-                          <button
+                          <div
                             onClick={() => {
                               setActiveSimId(sim.id);
                               setIsSelectorOpen(false);
                             }}
-                            className={`w-full flex items-center justify-between p-4 rounded-xl transition-all ${activeSimId === sim.id ? 'bg-[color:var(--color-action)]/10 text-[color:var(--color-action)]' : 'hover:bg-white/5 text-[color:var(--color-secondary)] hover:text-white text-left'}`}
+                            className={`w-full flex items-center justify-between p-4 rounded-xl transition-all cursor-pointer ${activeSimId === sim.id ? 'bg-[color:var(--color-action)]/10 text-[color:var(--color-action)]' : 'hover:bg-white/5 text-[color:var(--color-secondary)] hover:text-white text-left'}`}
                           >
                             <div className="flex items-center gap-3">
                               <div className={`w-2 h-2 rounded-full ${activeSimId === sim.id ? 'bg-[color:var(--color-action)] shadow-[0_0_8px_rgba(59,130,246,0.8)]' : 'bg-gray-700'}`} />
@@ -326,7 +326,7 @@ const Dashboard = () => {
                                 </button>
                               )}
                             </div>
-                          </button>
+                          </div>
                         </div>
                       ));
                     })()}

@@ -189,11 +189,11 @@ const TradeInstructions = ({ instructions, budgetUsed, budgetRemaining, activeSi
         <div className="flex gap-8">
           <div>
             <span className="text-[10px] uppercase font-bold text-[color:var(--text-secondary)] tracking-widest block mb-1">Budget Deployed</span>
-            <span className="text-lg font-mono text-[color:var(--text-primary)]">${budgetUsed?.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span>
+            <span className="text-lg font-mono text-[color:var(--text-primary)]">${Number(budgetUsed || 0).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span>
           </div>
           <div>
             <span className="text-[10px] uppercase font-bold text-[color:var(--text-secondary)] tracking-widest block mb-1">Budget Remaining</span>
-            <span className="text-lg font-mono text-[color:var(--text-primary)]">${budgetRemaining?.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span>
+            <span className="text-lg font-mono text-[color:var(--text-primary)]">${Number(budgetRemaining || 0).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span>
           </div>
         </div>
         <button 
@@ -217,13 +217,15 @@ const TradeInstructions = ({ instructions, budgetUsed, budgetRemaining, activeSi
         <tbody>
           {instructions.map((inst, idx) => (
             <tr key={idx} className="border-b border-[color:var(--border-subtle)]">
-              <td className={`py-3 text-[13px] font-mono font-bold ${inst.action === 'BUY' ? 'text-[color:var(--positive)]' : inst.action === 'SELL' ? 'text-[color:var(--negative)]' : 'text-[color:var(--text-tertiary)]'}`}>
+              <td className={`py-3 text-[13px] font-mono font-bold ${inst.action === 'SELL' ? 'text-[color:var(--positive)]' : inst.action === 'BUY' ? 'text-[color:var(--negative)]' : 'text-[color:var(--text-tertiary)]'}`}>
                 {inst.action}
               </td>
               <td className="py-3 text-[13px] font-mono text-[color:var(--text-primary)] font-bold">{inst.ticker}</td>
-              <td className="py-3 text-[13px] font-mono text-[color:var(--text-primary)] text-right">{inst.shares}</td>
-              <td className="py-3 text-[13px] font-mono text-[color:var(--text-secondary)] text-right">
-                ${(inst.estimated_cost || inst.estimated_value || 0).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}
+              <td className={`py-3 text-[13px] font-mono font-bold text-right ${inst.action === 'SELL' ? 'text-[color:var(--positive)]' : inst.action === 'BUY' ? 'text-[color:var(--negative)]' : 'text-[color:var(--text-primary)]'}`}>
+                {inst.action === 'SELL' ? '-' : inst.action === 'BUY' ? '+' : ''}{Number(inst.shares || 0)}
+              </td>
+              <td className={`py-3 text-[13px] font-mono font-bold text-right ${inst.action === 'SELL' ? 'text-[color:var(--positive)]' : inst.action === 'BUY' ? 'text-[color:var(--negative)]' : 'text-[color:var(--text-tertiary)]'}`}>
+                {inst.action === 'SELL' ? '+' : inst.action === 'BUY' ? '-' : ''}${Number(inst.estimated_cost || inst.estimated_value || 0).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}
               </td>
             </tr>
           ))}
@@ -498,7 +500,7 @@ const PortfolioDashboard = ({ portfolioPayload, isFirstLoad, activeSimulationId,
               instructions={portfolioPayload.trade_instructions} 
               budgetUsed={portfolioPayload.budget_used} 
               budgetRemaining={portfolioPayload.budget_remaining} 
-              activeSimulationId={selectedSimId}
+              activeSimulationId={activeSimulationId}
               userToken={userToken}
               onApply={() => console.log("Applied")}
             />
@@ -541,9 +543,7 @@ const RecommendationsDashboard = ({ activeSimulationId: globalSimId, user }) => 
     const name = prompt("Enter a name for your new simulation:", `Strategy ${simulations.length + 1}`);
     if (!name) return;
 
-    const initialCash = prompt("Enter initial investment amount ($):", "100000");
-    if (initialCash === null) return;
-    const cashVal = parseFloat(initialCash.replace(/,/g, '')) || 0;
+    const cashVal = 0; // Start with exactly $0 cash as requested
 
     try {
       const token = await user.getIdToken();
@@ -719,7 +719,9 @@ const RecommendationsDashboard = ({ activeSimulationId: globalSimId, user }) => 
         console.error("Token refresh failed", e);
       }
 
-      const wsUrl = `ws://127.0.0.1:5002/ws/pipeline`;
+      const hostname = window.location.hostname || 'localhost';
+      const wsUrl = `ws://${hostname}:5002/ws/pipeline`;
+      console.log("Connecting to WebSocket:", wsUrl);
       const ws = new WebSocket(wsUrl);
       wsRef.current = ws;
 

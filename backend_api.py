@@ -18,6 +18,10 @@ load_dotenv()
 app = Flask(__name__)
 CORS(app)
 
+@app.route('/api/health', methods=['GET'])
+def health_check():
+    return jsonify({"status": "healthy", "service": "backend_api"}), 200
+
 import traceback
 
 # Firebase Project Verification
@@ -237,8 +241,8 @@ def trade_route():
             return jsonify({"error": "Missing fields (ticker, action, quantity, simulationId)"}), 400
             
         try:
-            quantity = int(quantity)
-            if quantity <= 0: raise ValueError
+            quantity = float(quantity)
+            if quantity <= 0.0: raise ValueError
         except:
             return jsonify({"error": "Invalid quantity"}), 400
             
