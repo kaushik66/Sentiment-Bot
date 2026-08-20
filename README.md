@@ -1,6 +1,6 @@
 # Sentiment Bot 🤖📈
 
-A sophisticated AI-powered stock analysis platform that combines technical analysis with advanced sentiment analysis using **Google Gemini Pro** and **FinBERT**. The system features a real-time React dashboard, automated daily data refresh via GitHub Actions, and an integrated trading portfolio simulator.
+A sophisticated AI-powered stock analysis platform that combines technical analysis with advanced sentiment analysis using **Google Gemini Pro**. The system features a real-time React dashboard, automated daily data refresh via GitHub Actions, and an integrated trading portfolio simulator.
 
 ![Dashboard Preview](frontend-react/public/vite.svg)
 
