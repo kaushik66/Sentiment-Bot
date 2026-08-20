@@ -9,10 +9,10 @@ from dotenv import load_dotenv
 
 # Import our modules
 try:
-    import monitor_news_v2 as news_engine
+    from engines import monitor_news_v2 as news_engine
 except ImportError as e:
     print(f"❌ Module Import Error: {e}")
-    print("Ensure monitor_news_v2.py and download_sp500_direct.py are in the same directory.")
+    print("Ensure monitor_news_v2.py is accessible via the engines directory.")
     exit(1)
 
 # Config
@@ -300,7 +300,7 @@ def generate_dashboard():
                 "seven_day_avg": seven_day_avg,
                 "sentiment_delta_points": sentiment_delta_points
             },
-            "LSTM_Confidence": round(abs(sentiment), 2) if total_articles > 0 else 0.0
+            "AI_Confidence": round(abs(sentiment), 2) if total_articles > 0 else 0.0
         }
         
         final_output.append(item)

@@ -55,7 +55,7 @@ const SectorHeatmap = ({ data }) => {
 
             sectors[sector].children.push({
                 name: item.Ticker,
-                size: Math.abs(item.LSTM_Confidence) * 100, // Size by confidence
+                size: Math.abs(item.AI_Confidence) * 100, // Size by confidence
                 ticker: item.Ticker,
                 signal: item.Signal,
                 price: item.Price,

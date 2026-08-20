@@ -4,7 +4,7 @@ const DASHBOARD_DATA = {
     {
       "Ticker": "A",
       "Price": 112.75,
-      "LSTM_Confidence": 0.54,
+      "AI_Confidence": 0.54,
       "News_Sentiment": 0.0,
       "News_Impact": 0.0,
       "Headline": "No significant news",
@@ -15,7 +15,7 @@ const DASHBOARD_DATA = {
     {
       "Ticker": "AAPL",
       "Price": 254.23,
-      "LSTM_Confidence": 0.68,
+      "AI_Confidence": 0.68,
       "News_Sentiment": 0.7,
       "News_Impact": 0.75,
       "Headline": "M&A News: Apple (AAPL) Expands Creator Studio with MotionVFX Acquisition - TipRanks",
@@ -131,7 +131,7 @@ const DASHBOARD_DATA = {
     {
       "Ticker": "ABNB",
       "Price": 131.95,
-      "LSTM_Confidence": 0.51,
+      "AI_Confidence": 0.51,
       "News_Sentiment": -0.7,
       "News_Impact": 0.8,
       "Headline": "Airbnb (ABNB) Is Down 5.2% After $2.5 Billion Investment\u2011Grade Bond Deal to Refinance Debt - simplywall.st",
@@ -279,7 +279,7 @@ const DASHBOARD_DATA = {
     {
       "Ticker": "ABT",
       "Price": 110.71,
-      "LSTM_Confidence": 0.78,
+      "AI_Confidence": 0.78,
       "News_Sentiment": 0.6,
       "News_Impact": 0.6,
       "Headline": "Maxele Advisors LLC Makes New $1.43 Million Investment in Abbott Laboratories $ABT - MarketBeat",
@@ -411,7 +411,7 @@ const DASHBOARD_DATA = {
     {
       "Ticker": "ADBE",
       "Price": 254.2,
-      "LSTM_Confidence": 0.65,
+      "AI_Confidence": 0.65,
       "News_Sentiment": -0.8,
       "News_Impact": 0.9,
       "Headline": "Adobe (ADBE) Stock Drops After CEO Exit Overshadows Q1 Earnings Beat - MEXC",
@@ -583,7 +583,7 @@ const DASHBOARD_DATA = {
     {
       "Ticker": "AEP",
       "Price": 133.62,
-      "LSTM_Confidence": 0.48,
+      "AI_Confidence": 0.48,
       "News_Sentiment": -0.7,
       "News_Impact": 0.7,
       "Headline": "PUCO Staff Confirms AEP Overstated Load Forecasts; Data Center Growth \"Double Counted\" - Scioto Post",
@@ -715,7 +715,7 @@ const DASHBOARD_DATA = {
     {
       "Ticker": "AFL",
       "Price": 109.52,
-      "LSTM_Confidence": 0.58,
+      "AI_Confidence": 0.58,
       "News_Sentiment": -0.4,
       "News_Impact": 0.6,
       "Headline": "Aflac (NYSE:AFL) Major Shareholder Sells $1,899,036.00 in Stock - MarketBeat",
@@ -799,7 +799,7 @@ const DASHBOARD_DATA = {
     {
       "Ticker": "AIG",
       "Price": 76.64,
-      "LSTM_Confidence": 0.7,
+      "AI_Confidence": 0.7,
       "News_Sentiment": 0.9,
       "News_Impact": 0.9,
       "Headline": "McGill and AIG collaborate to transform subscription market with AI-driven underwriting - Reinsurance News",
@@ -907,7 +907,7 @@ const DASHBOARD_DATA = {
     {
       "Ticker": "AKAM",
       "Price": 105.84,
-      "LSTM_Confidence": 0.49,
+      "AI_Confidence": 0.49,
       "News_Sentiment": 0.7,
       "News_Impact": 0.6,
       "Headline": "D.A. Davidson Maintains Akamai(AKAM.US) With Buy Rating, Maintains Target Price $125 - \u5bcc\u9014\u725b\u725b",
@@ -999,7 +999,7 @@ const DASHBOARD_DATA = {
     {
       "Ticker": "ALB",
       "Price": 166.32,
-      "LSTM_Confidence": 0.62,
+      "AI_Confidence": 0.62,
       "News_Sentiment": -0.2,
       "News_Impact": 0.8,
       "Headline": "Albemarle (ALB) Valuation Check After Q4 Sales Growth Net Loss And Ketjen Divestiture Plans - simplywall.st",
@@ -1091,7 +1091,7 @@ const DASHBOARD_DATA = {
     {
       "Ticker": "ALGN",
       "Price": 176.12,
-      "LSTM_Confidence": 0.65,
+      "AI_Confidence": 0.65,
       "News_Sentiment": 0.8,
       "News_Impact": 0.8,
       "Headline": "Assessing Align Technology (ALGN) Valuation After Earnings Surprise And Institutional Buying - Yahoo Finance",
@@ -1143,7 +1143,7 @@ const DASHBOARD_DATA = {
     {
       "Ticker": "AMAT",
       "Price": 352.46,
-      "LSTM_Confidence": 0.59,
+      "AI_Confidence": 0.59,
       "News_Sentiment": 0.9,
       "News_Impact": 0.9,
       "Headline": "Applied Materials: The AI Gold Rush Everyone Is Missing (NASDAQ:AMAT) - Seeking Alpha",
@@ -1275,7 +1275,7 @@ const DASHBOARD_DATA = {
     {
       "Ticker": "AMCR",
       "Price": 40.71,
-      "LSTM_Confidence": 0.67,
+      "AI_Confidence": 0.67,
       "News_Sentiment": 0.4,
       "News_Impact": 0.6,
       "Headline": "Cannell & Spears LLC Acquires 784,821 Shares of Amcor PLC $AMCR - MarketBeat",
@@ -1335,7 +1335,7 @@ const DASHBOARD_DATA = {
     {
       "Ticker": "AMD",
       "Price": 196.31,
-      "LSTM_Confidence": 0.55,
+      "AI_Confidence": 0.55,
       "News_Sentiment": 0.8,
       "News_Impact": 0.9,
       "Headline": "AMD Stock Rises Premarket Today as Samsung Partnership Expands - Tokenist",
@@ -1507,7 +1507,7 @@ const DASHBOARD_DATA = {
     {
       "Ticker": "AME",
       "Price": 215.56,
-      "LSTM_Confidence": 0.67,
+      "AI_Confidence": 0.67,
       "News_Sentiment": 0.7,
       "News_Impact": 0.7,
       "Headline": "AMETEK (NYSE:AME) Price Target Raised to $235.00 - Defense World",
@@ -1591,7 +1591,7 @@ const DASHBOARD_DATA = {
     {
       "Ticker": "AMT",
       "Price": 185.07,
-      "LSTM_Confidence": 0.57,
+      "AI_Confidence": 0.57,
       "News_Sentiment": 0.6,
       "News_Impact": 0.7,
       "Headline": "Assessing American Tower (AMT) Valuation After Dividend Increase And CoreSite Expansion Progress - simplywall.st",
@@ -1739,7 +1739,7 @@ const DASHBOARD_DATA = {
     {
       "Ticker": "AOS",
       "Price": 65.74,
-      "LSTM_Confidence": 0.72,
+      "AI_Confidence": 0.72,
       "News_Sentiment": 0.7,
       "News_Impact": 0.5,
       "Headline": "Stifel Reiterates Buy Rating on AO Smith (AOS) - StreetInsider",
@@ -1775,7 +1775,7 @@ const DASHBOARD_DATA = {
     {
       "Ticker": "APA",
       "Price": 35.86,
-      "LSTM_Confidence": 0.37,
+      "AI_Confidence": 0.37,
       "News_Sentiment": 0.9,
       "News_Impact": 0.8,
       "Headline": "APA (NASDAQ:APA) Hits New 12-Month High on Analyst Upgrade - MarketBeat",
@@ -1891,7 +1891,7 @@ const DASHBOARD_DATA = {
     {
       "Ticker": "APD",
       "Price": 286.15,
-      "LSTM_Confidence": 0.47,
+      "AI_Confidence": 0.47,
       "News_Sentiment": 0.9,
       "News_Impact": 0.9,
       "Headline": "A Look At Air Products And Chemicals (APD) Valuation After Wells Fargo\u2019s Overweight Upgrade And Hydrogen Contract Wins - Yahoo Finance",
@@ -1983,7 +1983,7 @@ const DASHBOARD_DATA = {
     {
       "Ticker": "APO",
       "Price": 108.89,
-      "LSTM_Confidence": 0.72,
+      "AI_Confidence": 0.72,
       "News_Sentiment": -0.2,
       "News_Impact": 0.8,
       "Headline": "Apollo Global: AUM Surge, SaaSpocalypse Fears, And The Manufactured Private Credit Crisis (NYSE:APO) - Seeking Alpha",
@@ -2123,7 +2123,7 @@ const DASHBOARD_DATA = {
     {
       "Ticker": "APP",
       "Price": 459.09,
-      "LSTM_Confidence": 0.46,
+      "AI_Confidence": 0.46,
       "News_Sentiment": -0.8,
       "News_Impact": 0.8,
       "Headline": "$APP stock fell 9% this week. Here's what we see in our data. - Quiver Quantitative",
@@ -2231,7 +2231,7 @@ const DASHBOARD_DATA = {
     {
       "Ticker": "APTV",
       "Price": 72.02,
-      "LSTM_Confidence": 0.61,
+      "AI_Confidence": 0.61,
       "News_Sentiment": 0.8,
       "News_Impact": 0.9,
       "Headline": "Versigent Spin-Off And Debt Tender Could Be A Game Changer For Aptiv (APTV) - simplywall.st",
@@ -2347,7 +2347,7 @@ const DASHBOARD_DATA = {
     {
       "Ticker": "AWK",
       "Price": 138.23,
-      "LSTM_Confidence": 0.42,
+      "AI_Confidence": 0.42,
       "News_Sentiment": -0.7,
       "News_Impact": 0.7,
       "Headline": "Aristotle Capital Management LLC Sells 286,638 Shares of American Water Works Company, Inc. $AWK - MarketBeat",
@@ -2431,7 +2431,7 @@ const DASHBOARD_DATA = {
     {
       "Ticker": "LNT",
       "Price": 72.63,
-      "LSTM_Confidence": 0.45,
+      "AI_Confidence": 0.45,
       "News_Sentiment": 0.7,
       "News_Impact": 0.6,
       "Headline": "Delta Global Management LP Acquires New Shares in Alliant Energy Corporation $LNT - MarketBeat",
@@ -2499,7 +2499,7 @@ const DASHBOARD_DATA = {
     {
       "Ticker": "MMM",
       "Price": 149.06,
-      "LSTM_Confidence": 0.68,
+      "AI_Confidence": 0.68,
       "News_Sentiment": 0.8,
       "News_Impact": 0.9,
       "Headline": "MMM: Strong innovation, margin expansion, and portfolio focus drive growth amid legal risk management - TradingView",
@@ -2535,7 +2535,7 @@ const DASHBOARD_DATA = {
     {
       "Ticker": "MO",
       "Price": 66.97,
-      "LSTM_Confidence": 0.67,
+      "AI_Confidence": 0.67,
       "News_Sentiment": 0.6,
       "News_Impact": 0.7,
       "Headline": "Ameriprise Financial Inc. Acquires 3,172,753 Shares of Altria Group, Inc. $MO - MarketBeat",
@@ -2579,7 +2579,7 @@ const DASHBOARD_DATA = {
     {
       "Ticker": "T",
       "Price": 27.85,
-      "LSTM_Confidence": 0.55,
+      "AI_Confidence": 0.55,
       "News_Sentiment": 0.7,
       "News_Impact": 0.9,
       "Headline": "Key facts: AT&T to Buy EchoStar Spectrum for $23B; CEO Contacted Trump - TradingView",

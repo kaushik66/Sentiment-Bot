@@ -49,7 +49,7 @@ We need a new script (`get_market_data.py`) to fetch historical price data.
 ## Component: The Correlation Engine (Truth Detector)
 
 ### Objective
-Filter out "Noise Stocks" that do not react to Volume/Sentiment, ensuring the LSTM trades only predictable assets.
+Filter out "Noise Stocks" that do not react to Volume/Sentiment, ensuring the system trades only predictable assets.
 
 ### Logic: The "Volume Proxy" Test
 Since historical sentiment text is unavailable, we use **Trading Volume** as a proxy for attention.

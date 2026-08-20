@@ -142,9 +142,10 @@ const StrategicParameterSection = ({ label, description, children }) => (
 // ----------------------------------------------------------------------
 // 4. TradeInstructions Component
 // ----------------------------------------------------------------------
-const TradeInstructions = ({ instructions, budgetUsed, budgetRemaining, activeSimulationId, userToken, onApply }) => {
+const RecommendationFeed = ({ instructions, budgetUsed, budgetRemaining, activeSimulationId, userToken, onApply }) => {
   const [executing, setExecuting] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [expandedRow, setExpandedRow] = useState(null);
 
   const handleApply = async () => {
     if (!activeSimulationId || !userToken) return;
@@ -183,61 +184,88 @@ const TradeInstructions = ({ instructions, budgetUsed, budgetRemaining, activeSi
     }
   };
 
+  const toggleRow = (idx) => {
+    setExpandedRow(expandedRow === idx ? null : idx);
+  };
+
   return (
-    <div className="w-full h-full overflow-y-auto p-6 bg-[color:var(--surface-card)]">
+    <div className="w-full h-full overflow-y-auto p-6 bg-[color:var(--surface-base)]">
       <div className="flex justify-between items-center mb-6 border-b border-[color:var(--border-strong)] pb-4">
         <div className="flex gap-8">
           <div>
             <span className="text-[10px] uppercase font-bold text-[color:var(--text-secondary)] tracking-widest block mb-1">Budget Deployed</span>
-            <span className="text-lg font-mono text-[color:var(--text-primary)]">${Number(budgetUsed || 0).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span>
+            <span className="text-lg font-mono tabular-nums text-[color:var(--text-primary)]">${Number(budgetUsed || 0).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span>
           </div>
           <div>
             <span className="text-[10px] uppercase font-bold text-[color:var(--text-secondary)] tracking-widest block mb-1">Budget Remaining</span>
-            <span className="text-lg font-mono text-[color:var(--text-primary)]">${Number(budgetRemaining || 0).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span>
+            <span className="text-lg font-mono tabular-nums text-[color:var(--text-primary)]">${Number(budgetRemaining || 0).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span>
           </div>
         </div>
         <button 
           onClick={handleApply} 
           disabled={executing || success || !activeSimulationId}
-          className="px-6 py-2 bg-[color:var(--text-primary)] text-[color:var(--surface-card)] text-[11px] font-bold uppercase tracking-widest rounded-sm transition-colors disabled:opacity-50 hover:opacity-90"
+          className="px-6 py-2 bg-[color:var(--text-primary)] text-[color:var(--surface-base)] text-[11px] font-bold uppercase tracking-widest rounded-sm transition-colors disabled:opacity-50 hover:opacity-90"
         >
-          {executing ? 'Executing...' : success ? 'Applied' : 'Apply to Simulation'}
+          {executing ? 'Executing...' : success ? 'Applied' : 'Execute Trades'}
         </button>
       </div>
 
-      <table className="w-full text-left border-collapse">
-        <thead>
-          <tr className="border-b border-[color:var(--border-strong)]">
-            <th className="py-2 text-[10px] uppercase font-bold tracking-widest text-[color:var(--text-secondary)]">Action</th>
-            <th className="py-2 text-[10px] uppercase font-bold tracking-widest text-[color:var(--text-secondary)]">Ticker</th>
-            <th className="py-2 text-[10px] uppercase font-bold tracking-widest text-[color:var(--text-secondary)] text-right">Shares</th>
-            <th className="py-2 text-[10px] uppercase font-bold tracking-widest text-[color:var(--text-secondary)] text-right">Est. Value</th>
-          </tr>
-        </thead>
-        <tbody>
-          {instructions.map((inst, idx) => (
-            <tr key={idx} className="border-b border-[color:var(--border-subtle)]">
-              <td className={`py-3 text-[13px] font-mono font-bold ${inst.action === 'SELL' ? 'text-[color:var(--positive)]' : inst.action === 'BUY' ? 'text-[color:var(--negative)]' : 'text-[color:var(--text-tertiary)]'}`}>
-                {inst.action}
-              </td>
-              <td className="py-3 text-[13px] font-mono text-[color:var(--text-primary)] font-bold">{inst.ticker}</td>
-              <td className={`py-3 text-[13px] font-mono font-bold text-right ${inst.action === 'SELL' ? 'text-[color:var(--positive)]' : inst.action === 'BUY' ? 'text-[color:var(--negative)]' : 'text-[color:var(--text-primary)]'}`}>
-                {inst.action === 'SELL' ? '-' : inst.action === 'BUY' ? '+' : ''}{Number(inst.shares || 0)}
-              </td>
-              <td className={`py-3 text-[13px] font-mono font-bold text-right ${inst.action === 'SELL' ? 'text-[color:var(--positive)]' : inst.action === 'BUY' ? 'text-[color:var(--negative)]' : 'text-[color:var(--text-tertiary)]'}`}>
-                {inst.action === 'SELL' ? '+' : inst.action === 'BUY' ? '-' : ''}${Number(inst.estimated_cost || inst.estimated_value || 0).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}
-              </td>
-            </tr>
-          ))}
-          {instructions.length === 0 && (
-            <tr>
-              <td colSpan="4" className="py-6 text-center text-[12px] font-mono text-[color:var(--text-tertiary)]">
-                No trades required to achieve target weights.
-              </td>
-            </tr>
-          )}
-        </tbody>
-      </table>
+      <div className="flex flex-col gap-2">
+        {instructions.map((inst, idx) => {
+          let badgeColor = 'text-[color:var(--text-tertiary)] border-[color:var(--border-subtle)] bg-[color:var(--surface-sunken)]';
+          if (inst.action === 'BUY') badgeColor = 'text-[color:var(--positive)] border-[color:var(--positive)] bg-[color:var(--positive-bg)]';
+          else if (inst.action === 'SELL') badgeColor = 'text-[color:var(--negative)] border-[color:var(--negative)] bg-[color:var(--negative-bg)]';
+          else if (inst.action === 'TRIM' || inst.action === 'HOLD') badgeColor = 'text-[color:var(--warning)] border-[color:var(--warning)] bg-[color:var(--warning-bg)]';
+
+          const reason = inst.reason || (inst.action === 'BUY' ? 'New position established' : inst.action === 'SELL' ? 'Liquidating position' : 'Rebalancing to target weight');
+
+          return (
+            <div key={idx} className="flex flex-col bg-[color:var(--surface-card)] border border-[color:var(--border-strong)] rounded-sm overflow-hidden">
+              <div 
+                className="flex items-center justify-between p-4 cursor-pointer hover:bg-[color:var(--surface-sunken)] transition-colors"
+                onClick={() => toggleRow(idx)}
+              >
+                <div className="flex items-center gap-6">
+                  <div className={`px-2 py-1 text-[10px] font-bold uppercase tracking-widest border rounded font-mono ${badgeColor} w-[60px] text-center`}>
+                    {inst.action}
+                  </div>
+                  <div className="w-[60px]">
+                    <span className="text-[14px] font-bold font-mono text-[color:var(--text-primary)]">{inst.ticker}</span>
+                  </div>
+                  <div className="flex items-center gap-4 text-[12px] font-mono text-[color:var(--text-secondary)]">
+                    <div className="flex flex-col">
+                      <span className="text-[9px] uppercase tracking-wider text-[color:var(--text-tertiary)]">Current</span>
+                      <span className="tabular-nums">{(inst.old_weight * 100).toFixed(2)}%</span>
+                    </div>
+                    <ArrowLeft size={14} className="rotate-180 text-[color:var(--border-strong)]" />
+                    <div className="flex flex-col">
+                      <span className="text-[9px] uppercase tracking-wider text-[color:var(--text-tertiary)]">Target</span>
+                      <span className="tabular-nums font-bold text-[color:var(--text-primary)]">{(inst.new_weight * 100).toFixed(2)}%</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="text-[12px] font-mono text-[color:var(--text-secondary)] text-right truncate max-w-xs">
+                  {reason}
+                </div>
+              </div>
+              
+              {expandedRow === idx && (
+                <div className="p-4 bg-[color:var(--surface-sunken)] border-t border-[color:var(--border-strong)] text-[12px] font-mono text-[color:var(--text-secondary)] leading-relaxed">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-[color:var(--text-tertiary)] block mb-2">Agent Rationale</span>
+                  <p>
+                    [Placeholder] The Consultant Agent has determined that moving the allocation of {inst.ticker} from {(inst.old_weight * 100).toFixed(2)}% to {(inst.new_weight * 100).toFixed(2)}% aligns with the current strategic objective and risk parameters. Expected structural alpha profile is maintained while satisfying tracking error constraints.
+                  </p>
+                </div>
+              )}
+            </div>
+          );
+        })}
+        {instructions.length === 0 && (
+          <div className="py-12 flex items-center justify-center text-[12px] font-mono text-[color:var(--text-tertiary)] bg-[color:var(--surface-sunken)] border border-dashed border-[color:var(--border-strong)]">
+            No trades required to achieve target weights.
+          </div>
+        )}
+      </div>
     </div>
   );
 };
@@ -371,6 +399,30 @@ const FactorsRadar = ({ factors }) => {
   );
 };
 
+const formatDate = (dateStr) => {
+  if (!dateStr) return '';
+  const date = new Date(dateStr);
+  return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+};
+
+const getSharpeColor = (s) => {
+  if (s > 1.0) return 'text-[color:var(--positive)]';
+  if (s >= 0.5) return 'text-amber-600';
+  return 'text-[color:var(--negative)]';
+};
+
+const MetricBlock = ({ label, value, colorClass }) => {
+  // Guard against NaN
+  const displayValue = (value === null || value === undefined || Number.isNaN(value) || value === 'NaN%') ? '—' : value;
+  
+  return (
+    <div className="flex flex-col gap-0.5">
+      <span className="text-[9px] font-bold text-[color:var(--text-secondary)] uppercase tracking-[0.1em]">{label}</span>
+      <span className={`text-[13px] font-mono font-medium leading-none ${colorClass || 'text-[color:var(--text-primary)]'} tabular-nums`}>{displayValue}</span>
+    </div>
+  );
+};
+
 const PortfolioDashboard = ({ portfolioPayload, isFirstLoad, activeSimulationId, userToken }) => {
   const [activeTab, setActiveTab] = useState('WEIGHTS');
 
@@ -389,25 +441,6 @@ const PortfolioDashboard = ({ portfolioPayload, isFirstLoad, activeSimulationId,
   }
 
   const { positions, expected_return, portfolio_risk, n_positions, sharpe_estimate, factor_exposures, narrative, as_of } = portfolioPayload;
-
-  const formatDate = (dateStr) => {
-    if (!dateStr) return '';
-    const date = new Date(dateStr);
-    return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-  };
-
-  const getSharpeColor = (s) => {
-    if (s > 1.0) return 'text-[color:var(--positive)]';
-    if (s >= 0.5) return 'text-amber-600';
-    return 'text-[color:var(--negative)]';
-  };
-
-  const MetricBlock = ({ label, value, colorClass }) => (
-    <div className="flex flex-col gap-0.5">
-      <span className="text-[9px] font-bold text-[color:var(--text-secondary)] uppercase tracking-[0.1em]">{label}</span>
-      <span className={`text-[13px] font-mono font-medium leading-none ${colorClass || 'text-[color:var(--text-primary)]'}`}>{value}</span>
-    </div>
-  );
 
   const sortedPositions = [...positions].sort((a, b) => b.weight - a.weight);
 
@@ -428,14 +461,6 @@ const PortfolioDashboard = ({ portfolioPayload, isFirstLoad, activeSimulationId,
 
   return (
     <div className="flex flex-col h-full w-full bg-[color:var(--surface-card)]">
-      {/* Section 1: Summary Stats Row */}
-      <div className="shrink-0 flex items-center justify-between px-6 py-3 bg-[color:var(--surface-sunken)] border-b border-[color:var(--border-strong)]">
-        <MetricBlock label="Positions" value={n_positions} />
-        <MetricBlock label="Exp Return" value={`${(expected_return * 100).toFixed(2)}%`} colorClass={expected_return >= 0 ? 'text-[color:var(--positive)]' : 'text-[color:var(--negative)]'} />
-        <MetricBlock label="Port Risk" value={`${(portfolio_risk * 100).toFixed(2)}%`} />
-        <MetricBlock label="Sharpe Est." value={sharpe_estimate.toFixed(2)} colorClass={getSharpeColor(sharpe_estimate)} />
-        <MetricBlock label="As Of" value={formatDate(as_of)} colorClass="text-[color:var(--text-tertiary)]" />
-      </div>
 
       {/* Tab Bar */}
       <div className="shrink-0 flex px-6 gap-6 border-b border-[color:var(--border-subtle)]">
@@ -460,11 +485,11 @@ const PortfolioDashboard = ({ portfolioPayload, isFirstLoad, activeSimulationId,
       {/* Tabbed Content Area */}
       <div className="flex-1 overflow-hidden relative">
         {activeTab === 'WEIGHTS' && (
-          <div className="w-full h-full overflow-y-auto p-6">
-            <div style={{ height: `${Math.max(n_positions * 28 + 40, 200)}px` }}>
-              <ResponsiveContainer width="100%" height="100%">
+          <div className="w-full h-full overflow-y-auto p-6 relative">
+            <div style={{ height: `${Math.max(n_positions * 28 + 40, 200)}px`, minHeight: '200px', width: '100%' }}>
+              <ResponsiveContainer width="100%" height="100%" minHeight={200}>
                 <BarChart data={sortedPositions} layout="vertical" barGap={2} barCategoryGap={6} margin={{ top: 0, right: 20, left: 0, bottom: 0 }}>
-                  <XAxis type="number" tickFormatter={(val) => `${(val * 100).toFixed(0)}%`} stroke="var(--border-strong)" tick={{ fill: 'var(--text-tertiary)', fontSize: 10, fontFamily: 'monospace' }} axisLine={{ stroke: 'var(--border-subtle)' }} tickLine={false} />
+                  <XAxis type="number" domain={[0, dataMax => Math.max(0.25, dataMax)]} tickFormatter={(val) => `${(val * 100).toFixed(0)}%`} stroke="var(--border-strong)" tick={{ fill: 'var(--text-tertiary)', fontSize: 10, fontFamily: 'monospace' }} axisLine={{ stroke: 'var(--border-subtle)' }} tickLine={false} />
                   <YAxis type="category" dataKey="ticker" stroke="var(--text-secondary)" tick={{ fill: 'var(--text-primary)', fontSize: 11, fontFamily: 'monospace', fontWeight: 'bold' }} width={50} axisLine={false} tickLine={false} />
                   <Tooltip content={<CustomTooltip />} cursor={{ fill: 'var(--surface-sunken)' }} />
                   <Bar dataKey="weight" fill="var(--text-primary)" radius={[0, 2, 2, 0]} fillOpacity={0.85}>
@@ -496,7 +521,7 @@ const PortfolioDashboard = ({ portfolioPayload, isFirstLoad, activeSimulationId,
 
         {activeTab === 'TRADES' && portfolioPayload.trade_instructions && (
           <div className="w-full h-full">
-            <TradeInstructions 
+            <RecommendationFeed 
               instructions={portfolioPayload.trade_instructions} 
               budgetUsed={portfolioPayload.budget_used} 
               budgetRemaining={portfolioPayload.budget_remaining} 
@@ -511,34 +536,16 @@ const PortfolioDashboard = ({ portfolioPayload, isFirstLoad, activeSimulationId,
   );
 };
 
-const RecommendationsDashboard = ({ activeSimulationId: globalSimId, user }) => {
+const RecommendationsDashboard = ({ activeSimulationId: globalSimId, user, setActiveSimulationId, simulations = [] }) => {
   const [wizardStep, setWizardStep] = useState('SELECT'); // SELECT, CONFIGURE, RESULTS
   const [selectedSimId, setSelectedSimId] = useState(null);
-  const [simulations, setSimulations] = useState([]);
   const [snapshot, setSnapshot] = useState(null);
   const [snapshotLoading, setSnapshotLoading] = useState(false);
   
-  // Quant Params State
+  // Quant Params State (Run-scoped overrides)
   const [budget, setBudget] = useState('');
-  const [turnover, setTurnover] = useState('0.20');
   const [targetReturn, setTargetReturn] = useState('');
   
-  const fetchSims = async () => {
-    if (!user) return;
-    try {
-      const token = await user.getIdToken();
-      const res = await fetch('http://localhost:5001/api/simulations', {
-        headers: { 'Authorization': `Bearer ${token}` }
-      });
-      if (res.ok) {
-        const data = await res.json();
-        setSimulations(data);
-      }
-    } catch (err) {
-      console.error("Failed to fetch sims gallery", err);
-    }
-  };
-
   const handleCreateContext = async () => {
     const name = prompt("Enter a name for your new simulation:", `Strategy ${simulations.length + 1}`);
     if (!name) return;
@@ -558,7 +565,9 @@ const RecommendationsDashboard = ({ activeSimulationId: globalSimId, user }) => 
       
       if (res.ok) {
         const data = await res.json();
-        await fetchSims();
+        if (setActiveSimulationId) {
+          setActiveSimulationId(data.id);
+        }
         setSelectedSimId(data.id);
         setWizardStep('CONFIGURE');
       }
@@ -584,11 +593,6 @@ const RecommendationsDashboard = ({ activeSimulationId: globalSimId, user }) => 
       if (wizardStep === 'SELECT') setWizardStep('CONFIGURE');
     }
   }, [globalSimId]);
-
-  // Fetch all simulations for the gallery
-  useEffect(() => {
-    fetchSims();
-  }, [user, wizardStep]);
 
   // Fetch Snapshot for selected simulation
   useEffect(() => {
@@ -700,7 +704,7 @@ const RecommendationsDashboard = ({ activeSimulationId: globalSimId, user }) => 
     };
   }, []);
 
-  const handleSubmit = (message, budget, maxTurnover) => {
+  const handleSubmit = (message, budget) => {
     if (!message.trim()) return;
 
     setThoughts([]);
@@ -731,8 +735,7 @@ const RecommendationsDashboard = ({ activeSimulationId: globalSimId, user }) => 
           message,
           simulation_id: selectedSimId,
           user_token: currentToken,
-          budget: budget,
-          max_turnover: maxTurnover
+          budget: budget ? parseFloat(budget) : null
         }));
       };
 
@@ -778,57 +781,73 @@ const RecommendationsDashboard = ({ activeSimulationId: globalSimId, user }) => 
 
   // --- New Unified Components ---
   const handleExecuteStrategy = (text) => {
-    const b = budget ? parseFloat(budget) : null;
-    const t = turnover ? parseFloat(turnover) : null;
-    handleSubmit(text, b, t);
+    const b = budget ? parseFloat(budget.replace(/,/g, '')) : null;
+    handleSubmit(text, b);
   };
 
   const isLocked = wsStatus === 'streaming' || wsStatus === 'connecting';
 
   return (
     <div className="w-full h-full flex flex-col bg-[color:var(--surface-base)]">
-      {/* Top Banner: Regime Data */}
-      <div className="shrink-0 border-b border-[color:var(--border-strong)]">
+      {/* Persistent Regime Strip */}
+      <div className="shrink-0">
         <RegimeHeader regimeData={regimeData} />
       </div>
 
-      {/* Top Bar: Portfolio Selector */}
-      <div className="shrink-0 flex items-center justify-between px-8 py-4 bg-[color:var(--surface-sunken)] border-b border-[color:var(--border-strong)]">
+      {/* Unified Portfolio Header */}
+      <div className="shrink-0 flex flex-col sm:flex-row sm:items-center justify-between px-6 py-3 bg-[color:var(--surface-card)] border-b border-[color:var(--border-strong)]">
         <div className="flex items-center gap-6">
           <div className="flex items-center gap-3">
-            <Briefcase size={18} className="text-[color:var(--text-tertiary)]" />
-            <span className="text-[11px] font-bold text-[color:var(--text-secondary)] uppercase tracking-[0.2em]">Active Context</span>
+            <Briefcase size={16} className="text-[color:var(--text-tertiary)]" />
+            <select 
+              value={selectedSimId || ''}
+              onChange={(e) => {
+                setSelectedSimId(e.target.value);
+                if (setActiveSimulationId) setActiveSimulationId(e.target.value);
+              }}
+              className="cursor-pointer bg-[color:var(--surface-sunken)] border border-[color:var(--border-subtle)] text-[color:var(--text-primary)] text-[12px] font-bold outline-none uppercase tracking-wider px-2 py-1 rounded-sm"
+            >
+              <option value="" disabled>SELECT A PORTFOLIO...</option>
+              {Array.isArray(simulations) && simulations.map(sim => (
+                <option key={sim.id} value={sim.id}>{sim.name} ({sim.id.slice(-6).toUpperCase()})</option>
+              ))}
+            </select>
+            <div className="flex items-center gap-1.5 px-2 py-0.5 bg-[color:var(--surface-sunken)] border border-[color:var(--border-subtle)] rounded-sm">
+              <div className="w-1.5 h-1.5 rounded-full bg-[color:var(--positive)] animate-pulse" />
+              <span className="text-[9px] font-bold text-[color:var(--text-secondary)] uppercase tracking-widest">Live Sync</span>
+            </div>
           </div>
-          <select 
-            value={selectedSimId || ''}
-            onChange={(e) => setSelectedSimId(e.target.value)}
-            className="bg-[color:var(--surface-card)] border border-[color:var(--border-strong)] text-[color:var(--text-primary)] text-[14px] font-bold px-4 py-2 rounded-sm outline-none min-w-[250px]"
-          >
-            <option value="" disabled>Select a Portfolio...</option>
-            {Array.isArray(simulations) && simulations.map(sim => (
-              <option key={sim.id} value={sim.id}>{sim.name} ({sim.id.slice(-6).toUpperCase()})</option>
-            ))}
-          </select>
         </div>
         
-        <div className="flex items-center gap-8">
+        <div className="flex items-center gap-8 mt-4 sm:mt-0">
           {snapshot && (
-            <div className="flex items-center gap-6 text-[12px] font-mono">
-               <div>
-                  <span className="text-[color:var(--text-tertiary)] mr-2 uppercase">Cash:</span>
-                  <span className="text-[color:var(--positive)]">${snapshot.cash?.toLocaleString()}</span>
+            <div className="flex items-center gap-8 border-l border-[color:var(--border-strong)] pl-8">
+               <div className="flex flex-col gap-0.5">
+                 <span className="text-[9px] font-bold text-[color:var(--text-secondary)] uppercase tracking-[0.1em]">Cash Balance</span>
+                 <span className="text-[13px] font-mono font-medium leading-none text-[color:var(--positive)] tabular-nums">${snapshot.cash?.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span>
                </div>
-               <div>
-                  <span className="text-[color:var(--text-tertiary)] mr-2 uppercase">Assets:</span>
-                  <span className="text-[color:var(--text-primary)]">{snapshot.holdings?.length || 0}</span>
+               <div className="flex flex-col gap-0.5">
+                 <span className="text-[9px] font-bold text-[color:var(--text-secondary)] uppercase tracking-[0.1em]">Total Assets</span>
+                 <span className="text-[13px] font-mono font-medium leading-none text-[color:var(--text-primary)] tabular-nums">${(snapshot.total_portfolio_value || 0).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span>
                </div>
+               {portfolioPayload ? (
+                 <>
+                   <MetricBlock label="Positions (New)" value={portfolioPayload.n_positions} />
+                   <MetricBlock label="Exp Return" value={portfolioPayload.expected_return != null ? `${(portfolioPayload.expected_return * 100).toFixed(2)}%` : null} colorClass={portfolioPayload.expected_return >= 0 ? 'text-[color:var(--positive)]' : 'text-[color:var(--negative)]'} />
+                   <MetricBlock label="Port Risk" value={portfolioPayload.portfolio_risk != null ? `${(portfolioPayload.portfolio_risk * 100).toFixed(2)}%` : null} />
+                   <MetricBlock label="Sharpe Est." value={portfolioPayload.sharpe_estimate?.toFixed(2)} colorClass={getSharpeColor(portfolioPayload.sharpe_estimate)} />
+                   <MetricBlock label="As Of" value={formatDate(portfolioPayload.as_of)} colorClass="text-[color:var(--text-tertiary)]" />
+                 </>
+               ) : (
+                 <MetricBlock label="Positions" value={snapshot.holdings?.length || 0} />
+               )}
             </div>
           )}
           <button 
             onClick={handleCreateContext}
-            className="flex items-center gap-2 bg-transparent border border-[color:var(--border-strong)] text-[color:var(--text-primary)] px-4 py-2 rounded-sm text-[11px] font-bold uppercase tracking-widest hover:border-[color:var(--text-secondary)] transition-colors"
+            className="flex items-center gap-2 bg-transparent border border-[color:var(--border-strong)] text-[color:var(--text-primary)] px-3 py-1.5 rounded-sm text-[10px] font-bold uppercase tracking-widest hover:border-[color:var(--text-secondary)] transition-colors"
           >
-            <Plus size={14} /> New Context
+            <Plus size={12} /> New
           </button>
         </div>
       </div>
@@ -844,7 +863,7 @@ const RecommendationsDashboard = ({ activeSimulationId: globalSimId, user }) => 
             <div className="space-y-10">
               <div className="space-y-12">
                 <div className="flex flex-col gap-4">
-                   <label className="text-[10px] font-bold text-[color:var(--text-tertiary)] uppercase tracking-[0.2em]">Investment Budget</label>
+                   <label className="text-[10px] font-bold text-[color:var(--text-tertiary)] uppercase tracking-[0.2em]">Investment Budget (This Run Only)</label>
                    <div className="relative">
                      <span className="absolute left-0 top-1/2 -translate-y-1/2 text-xl font-mono text-[color:var(--text-tertiary)]">$</span>
                      <input 
@@ -852,25 +871,11 @@ const RecommendationsDashboard = ({ activeSimulationId: globalSimId, user }) => 
                        value={budget}
                        onChange={(e) => setBudget(e.target.value)}
                        disabled={isLocked}
-                       placeholder="100,000"
+                       placeholder="100000"
                        className="w-full pl-8 py-2 bg-transparent border-b-2 border-[color:var(--border-strong)] focus:border-[color:var(--text-primary)] text-3xl font-mono text-[color:var(--text-primary)] outline-none transition-colors"
                      />
                    </div>
-                </div>
-                <div className="flex flex-col gap-4">
-                   <label className="text-[10px] font-bold text-[color:var(--text-tertiary)] uppercase tracking-[0.2em]">Turnover Limit</label>
-                   <div className="relative">
-                     <span className="absolute left-0 top-1/2 -translate-y-1/2 text-xl font-mono text-[color:var(--text-tertiary)]">%</span>
-                     <input 
-                       type="number"
-                       step="0.05"
-                       value={turnover}
-                       onChange={(e) => setTurnover(e.target.value)}
-                       disabled={isLocked}
-                       placeholder="0.20"
-                       className="w-full pl-8 py-2 bg-transparent border-b-2 border-[color:var(--border-strong)] focus:border-[color:var(--text-primary)] text-3xl font-mono text-[color:var(--text-primary)] outline-none transition-colors"
-                     />
-                   </div>
+                   <p className="text-[10px] text-[color:var(--text-tertiary)]">Amount of fresh capital to deploy in this optimization run.</p>
                 </div>
               </div>
             </div>
@@ -878,7 +883,7 @@ const RecommendationsDashboard = ({ activeSimulationId: globalSimId, user }) => 
             {/* AI Agent Chat */}
             <div className="space-y-8">
               <div className="flex flex-col gap-4">
-                 <label className="text-[10px] font-bold text-[color:var(--text-tertiary)] uppercase tracking-[0.2em]">Strategic Objective</label>
+                 <label className="text-[10px] font-bold text-[color:var(--text-tertiary)] uppercase tracking-[0.2em]">Strategic Objective (This Run Only)</label>
                  <textarea 
                    value={targetReturn} // Reusing targetReturn as the text strategy state to avoid creating new ones
                    onChange={(e) => setTargetReturn(e.target.value)}
@@ -890,8 +895,8 @@ const RecommendationsDashboard = ({ activeSimulationId: globalSimId, user }) => 
               </div>
               
               <button 
-                onClick={() => handleExecuteStrategy(targetReturn)}
-                disabled={isLocked || !targetReturn}
+                onClick={() => handleExecuteStrategy(targetReturn || 'Optimize Portfolio')}
+                disabled={isLocked || (!targetReturn && (!budget || parseFloat(budget.replace(/,/g, '')) <= 0))}
                 className="w-full py-5 bg-[color:var(--text-primary)] text-[color:var(--surface-base)] text-[12px] font-bold uppercase tracking-[0.3em] hover:bg-white transition-all disabled:opacity-30 rounded-sm shadow-2xl mt-4"
               >
                 {isLocked ? 'Executing Synthesis...' : 'Launch Engine'}
@@ -920,10 +925,18 @@ const RecommendationsDashboard = ({ activeSimulationId: globalSimId, user }) => 
                <p className="text-[13px] text-[color:var(--text-tertiary)] max-w-md mx-auto">Select a portfolio from the top bar to view its composition and run strategic optimizations.</p>
             </div>
           ) : isFirstLoad ? (
-             <div className="flex flex-col items-center justify-center h-full border-[20px] border-[color:var(--surface-base)] bg-[color:var(--surface-sunken)]">
-                <span className="text-[11px] font-mono text-[color:var(--text-tertiary)] uppercase tracking-widest text-center px-12">
-                   Portfolio Context Loaded. <br/> Awaiting new strategy parameters...
-                </span>
+             <div className="flex flex-col items-center justify-center h-full text-center p-12">
+                <Briefcase size={48} className="text-[color:var(--border-strong)] mb-6 opacity-50" />
+                <h3 className="text-xl font-bold text-[color:var(--text-secondary)] tracking-tight mb-2">No Active Recommendations</h3>
+                <p className="text-[13px] text-[color:var(--text-tertiary)] max-w-md mx-auto mb-8">Run the optimizer to generate a strategy and view recommended trades.</p>
+                
+                 {wsStatus === 'streaming' && (
+                  <div className="flex flex-col w-full max-w-xl gap-2 mt-4 text-left">
+                     <div className="h-[60px] bg-[color:var(--surface-sunken)] border border-[color:var(--border-strong)] rounded-sm animate-pulse" />
+                     <div className="h-[60px] bg-[color:var(--surface-sunken)] border border-[color:var(--border-strong)] rounded-sm animate-pulse opacity-80" />
+                     <div className="h-[60px] bg-[color:var(--surface-sunken)] border border-[color:var(--border-strong)] rounded-sm animate-pulse opacity-60" />
+                  </div>
+                 )}
              </div>
           ) : (
             <div className="w-full h-full p-8">

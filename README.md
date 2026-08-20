@@ -18,7 +18,7 @@ A sophisticated AI-powered stock analysis platform that combines technical analy
 - **Backend**: Flask (Python)
 - **Frontend**: React + Vite + TailwindCSS
 - **Database**: Firebase Firestore (User Data), SQLite (News Cache)
-- **AI Models**: Google Gemini (News), TensorFlow/Keras (Price Prediction)
+- **AI Models**: Google Gemini (News Sentiment & Macro Analysis)
 - **Data Sources**: Tiingo (Market Data), RSS Feeds (News)
 
 ## 📦 Installation & Setup

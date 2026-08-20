@@ -132,7 +132,7 @@ def delete_simulation(user_id, sim_id):
     return True
 
 @firestore.transactional
-def trade_transaction(transaction, sim_ref, portfolio_ref, action, ticker, quantity, price, cost):
+def trade_transaction(transaction, sim_ref, portfolio_ref, action, ticker, quantity, price, cost, allow_margin=False):
     """
     Atomic transaction for executing a trade within a specific simulation.
     """
@@ -145,9 +145,8 @@ def trade_transaction(transaction, sim_ref, portfolio_ref, action, ticker, quant
     current_cash = sim_data.get('cash_balance', 0.0)
     
     if action == "BUY":
-        # Disable insufficient funds check for 'Unlimited Wallet' simulation mode
-        # if current_cash < cost:
-        #     raise ValueError(f"Insufficient funds. Required: ${cost:.2f}, Available: ${current_cash:.2f}")
+        if not allow_margin and current_cash < cost:
+            raise ValueError(f"Insufficient funds. Required: ${cost:,.2f}, Available: ${current_cash:,.2f}. Reduce budget or add funds to proceed.")
             
         new_cash = current_cash - cost
         
@@ -206,8 +205,12 @@ def trade_transaction(transaction, sim_ref, portfolio_ref, action, ticker, quant
     return new_cash
 
 def execute_trade(user_id, simulation_id, ticker, action, quantity, price):
+    from airs.preferences import get_user_constraints
     db = get_db()
     initialize_account(user_id)
+    
+    prefs = get_user_constraints(user_id)
+    allow_margin = prefs.allow_margin if prefs else False
     
     user_ref = db.collection('users').document(user_id)
     sim_ref = user_ref.collection('simulations').document(simulation_id)
@@ -217,7 +220,7 @@ def execute_trade(user_id, simulation_id, ticker, action, quantity, price):
     transaction = db.transaction()
     
     try:
-        new_balance = trade_transaction(transaction, sim_ref, portfolio_ref, action, ticker, quantity, price, cost)
+        new_balance = trade_transaction(transaction, sim_ref, portfolio_ref, action, ticker, quantity, price, cost, allow_margin=allow_margin)
         
         # Log History under simulation-specific history or global user history
         # Let's keep history simulation-tagged

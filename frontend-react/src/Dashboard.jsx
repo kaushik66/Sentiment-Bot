@@ -12,14 +12,15 @@ import StockDetailModal from './components/StockDetailModal';
 import MarketTopography from './components/MarketTopography';
 import RecommendationsDashboard from './components/RecommendationsDashboard';
 import QuantScreener from './components/QuantScreener';
+import { PreferencesForm } from './components/PreferencesForm';
 import { addToWatchlist, removeFromWatchlist, getWatchlist } from './services/userDatabase';
 
 const OdometerTotal = ({ value, prefix = "" }) => {
   return <span>{prefix}{value?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>;
 };
 
-const GlassCard = ({ children, className }) => (
-  <div className={`bg-[color:var(--color-panel)] border border-[color:var(--color-border-glass)] rounded-xl backdrop-blur-md ${className}`}>
+const GlassCard = ({ children, className, ...props }) => (
+  <div className={`bg-[color:var(--color-panel)] border border-[color:var(--color-border-glass)] rounded-xl backdrop-blur-md ${className}`} {...props}>
     {children}
   </div>
 );
@@ -388,6 +389,7 @@ const Dashboard = () => {
           <SidebarItem icon={<Briefcase size={20} />} label="My Portfolio" isActive={activeView === 'portfolio'} isOpen={isSidebarOpen} onClick={() => setActiveView('portfolio')} />
           <SidebarItem icon={<Filter size={20} />} label="Quant Screener" isActive={activeView === 'screener'} isOpen={isSidebarOpen} onClick={() => setActiveView('screener')} />
           <SidebarItem icon={<Brain size={20} />} label="Recommendations" isActive={activeView === 'recommendations'} isOpen={isSidebarOpen} onClick={() => setActiveView('recommendations')} />
+          <SidebarItem icon={<Edit2 size={20} />} label="Engine Settings" isActive={activeView === 'settings'} isOpen={isSidebarOpen} onClick={() => setActiveView('settings')} />
         </nav>
 
         <div className="p-4 border-t border-[color:var(--color-border-glass)]">
@@ -398,15 +400,22 @@ const Dashboard = () => {
         </div>
       </aside>
 
-      <div className="flex-1 h-screen overflow-y-auto">
-        <div className="p-8 max-w-7xl mx-auto">
-          <header className="mb-8 flex justify-between items-end pb-6 border-b border-white/5">
+      <div className="flex-1 h-screen overflow-y-auto bg-[color:var(--surface-base)] relative">
+        {data && data.regime && (
+          <div className={`w-full px-8 py-2 border-b border-[color:var(--border-default)] flex items-center justify-center space-x-2 text-xs font-mono font-bold tracking-widest uppercase sticky top-0 z-40 backdrop-blur-md ${data.regime === 'BULLISH' || data.regime === 'RECOVERY' ? 'bg-[color:var(--positive-bg)] text-[color:var(--positive)]' : data.regime === 'BEARISH' || data.regime === 'CRASH' ? 'bg-[color:var(--negative-bg)] text-[color:var(--negative)]' : 'bg-[color:var(--warning-bg)] text-[color:var(--warning)]'}`}>
+            <span className="opacity-70">MACRO REGIME:</span>
+            <span>{data.regime}</span>
+          </div>
+        )}
+        <div className="p-6 max-w-7xl mx-auto">
+          <header className="mb-6 flex justify-between items-end pb-4 border-b border-[color:var(--border-default)]">
             <div>
               <h1 className="text-3xl font-bold text-white">
                 {activeView === 'dashboard' ? 'Market Signals' :
                   activeView === 'watchlist' ? 'Your Watchlist' : 
                   activeView === 'screener' ? 'Quant Screener' : 
-                  activeView === 'recommendations' ? 'AI Recommendations' : 'Portfolio'}
+                  activeView === 'recommendations' ? 'AI Recommendations' :
+                  activeView === 'settings' ? 'Engine Settings' : 'Portfolio'}
               </h1>
               <p className="text-[color:var(--color-secondary)] mt-1 flex items-center gap-2 text-sm">
                 <Clock size={14} /> Updated: {data.last_updated}
@@ -421,19 +430,25 @@ const Dashboard = () => {
                   <button onClick={() => setViewMode('map')} className={`p-2 rounded-md transition-colors ${viewMode === 'map' ? 'bg-[color:var(--color-panel-hover)] text-white' : 'text-gray-400 hover:text-white'}`} title="Market Topography"><Map size={20} /></button>
                 </div>
               )}
-              {activeView !== 'portfolio' && activeView !== 'recommendations' && activeView !== 'screener' && (
+              {activeView !== 'portfolio' && activeView !== 'recommendations' && activeView !== 'screener' && activeView !== 'settings' && (
                 <input type="text" placeholder="Search..." className="bg-[color:var(--color-panel)] border border-[color:var(--color-border-glass)] text-white px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[color:var(--color-action)] w-64" onChange={(e) => setSearchTerm(e.target.value)} />
               )}
             </div>
           </header>
 
-          {activeView === 'screener' ? (
+          {activeView === 'settings' ? (
+            <PreferencesForm />
+          ) : activeView === 'screener' ? (
             <QuantScreener />
           ) : activeView === 'recommendations' ? (
             <div className="flex flex-col gap-6 h-[calc(100vh-140px)]">
-              {renderSimulationWorkspaceHeader()}
-              <div className="flex-1 overflow-hidden">
-                <RecommendationsDashboard activeSimulationId={activeSimId} user={currentUser} />
+              <div className="flex-1 overflow-hidden mt-6">
+                <RecommendationsDashboard 
+                  activeSimulationId={activeSimId} 
+                  user={currentUser} 
+                  setActiveSimulationId={setActiveSimId}
+                  simulations={simulations}
+                />
               </div>
             </div>
           ) : activeView === 'portfolio' ? (
@@ -595,47 +610,62 @@ const SidebarItem = ({ icon, label, isActive, isOpen, onClick }) => (
   </button>
 );
 
-const StockCard = ({ stock, onClick, isWatched, onToggleWatchlist }) => (
-  <GlassCard className="p-6 hover:border-[color:var(--color-action)]/50 transition-all cursor-pointer relative overflow-hidden group">
-    <div className={`absolute top-0 left-0 w-1 h-full ${stock.Signal === 'BULLISH_BREAKOUT' ? 'bg-[color:var(--color-alpha)]' : stock.Signal === 'BEARISH_DUMP' ? 'bg-[color:var(--color-risk)]' : 'bg-gray-700'}`} />
-    <div className="flex justify-between items-start mb-4">
+const StockCard = ({ stock, onClick, isWatched, onToggleWatchlist }) => {
+  let signalColor = 'var(--text-tertiary)';
+  let signalBg = 'var(--surface-sunken)';
+  if (stock.Signal === 'BULLISH_BREAKOUT' || stock.Signal === 'STRONG_BUY') {
+    signalColor = 'var(--positive)';
+    signalBg = 'var(--positive-bg)';
+  } else if (stock.Signal === 'BEARISH_DUMP' || stock.Signal === 'STRONG_SELL') {
+    signalColor = 'var(--negative)';
+    signalBg = 'var(--negative-bg)';
+  } else if (stock.Signal === 'WAIT' || stock.Signal === 'VOLATILITY_WATCH') {
+    signalColor = 'var(--warning)';
+    signalBg = 'var(--warning-bg)';
+  }
+
+  return (
+  <GlassCard onClick={onClick} className="p-4 hover:border-[color:var(--accent)]/50 transition-all cursor-pointer relative overflow-hidden group">
+    <div className="absolute top-0 left-0 w-1 h-full" style={{ backgroundColor: signalColor }} />
+    <div className="flex justify-between items-start mb-3">
       <div>
-        <h2 className="text-2xl font-black tracking-tight">{stock.Ticker}</h2>
-        <p className="text-sm text-[color:var(--color-secondary)] font-mono">${stock.Price}</p>
+        <h2 className="text-xl font-bold tracking-tight font-mono text-[color:var(--text-primary)]">{stock.Ticker}</h2>
+        <p className="text-sm text-[color:var(--text-secondary)] font-mono tabular-nums">${stock.Price}</p>
       </div>
       <div className="flex flex-col items-end gap-2">
-        <div className={`px-3 py-1 rounded-full text-xs font-bold tracking-widest uppercase ${stock.Signal === 'BULLISH_BREAKOUT' ? 'bg-[color:var(--color-alpha)]/20 text-[color:var(--color-alpha)]' : stock.Signal === 'BEARISH_DUMP' ? 'bg-[color:var(--color-risk)]/20 text-[color:var(--color-risk)]' : 'bg-gray-700/50 text-gray-400'}`}>
+        <div className="px-2 py-0.5 rounded text-[10px] font-bold tracking-wider font-mono border" style={{ color: signalColor, backgroundColor: signalBg, borderColor: signalColor }}>
           {stock.Signal.replace('_', ' ')}
         </div>
-        <button onClick={onToggleWatchlist} className={`p-1 rounded-full hover:bg-white/10 transition-colors ${isWatched ? 'text-yellow-400' : 'text-gray-600'}`}>
-          <Star size={16} fill={isWatched ? "currentColor" : "none"} />
+        <button onClick={onToggleWatchlist} className={`p-1 rounded hover:bg-[color:var(--surface-raised)] transition-colors ${isWatched ? 'text-[color:var(--warning)]' : 'text-[color:var(--text-tertiary)]'}`}>
+          <Star size={14} fill={isWatched ? "currentColor" : "none"} />
         </button>
       </div>
     </div>
-    <div className="space-y-4">
-      <div className="space-y-2">
-        <div className="flex justify-between text-xs text-[color:var(--color-secondary)] uppercase tracking-wider font-semibold">
+    <div className="space-y-3">
+      <div className="space-y-1.5">
+        <div className="flex justify-between text-[10px] text-[color:var(--text-secondary)] uppercase tracking-wider font-semibold">
           <span>AI Confidence</span>
-          <span>{(stock.LSTM_Confidence * 100).toFixed(0)}%</span>
+          <span className="font-mono tabular-nums">{(stock.AI_Confidence * 100).toFixed(0)}%</span>
         </div>
-        <div className="w-full bg-black/30 rounded-full h-1.5 overflow-hidden">
-          <div className="bg-[color:var(--color-action)] h-full rounded-full" style={{ width: `${stock.LSTM_Confidence * 100}%` }} />
+        <div className="w-full bg-[color:var(--surface-sunken)] rounded-none h-1 overflow-hidden">
+          <div className="h-full rounded-none" style={{ width: `${stock.AI_Confidence * 100}%`, backgroundColor: signalColor }} />
         </div>
       </div>
-      <div className="pt-4 border-t border-white/5">
+      <div className="pt-3 border-t border-[color:var(--border-subtle)]">
         {stock.URL && stock.URL !== '#' ? (
-          <a href={stock.URL} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="text-sm text-[color:var(--color-action)] hover:text-blue-300 hover:underline line-clamp-2 italic transition-colors block">
-            "{stock.Headline}"
-            <ArrowUpRight size={12} className="inline ml-1 mb-1" />
+          <a href={stock.URL} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="text-xs text-[color:var(--text-primary)] hover:text-[color:var(--accent)] line-clamp-2 transition-colors block">
+            {stock.Headline}
+            <ArrowUpRight size={10} className="inline ml-1 mb-0.5" />
           </a>
         ) : (
-          <p className="text-sm text-gray-300 line-clamp-2 italic opacity-80 group-hover:opacity-100 transition-opacity">
-            "{stock.Headline}"
+          <p className="text-xs text-[color:var(--text-secondary)] line-clamp-2">
+            {stock.Headline}
           </p>
         )}
       </div>
     </div>
   </GlassCard>
-);
+  );
+};
 
 export default Dashboard;

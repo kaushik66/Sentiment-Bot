@@ -8,10 +8,10 @@ import threading
 import time
 from functools import lru_cache
 import datetime
-import trade_engine
-import backend_auth
+from engines import trade_engine
+from utils import backend_auth
 from flask import request
-import database
+from utils import database
 
 load_dotenv()
 
